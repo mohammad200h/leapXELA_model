@@ -74,13 +74,13 @@
         <joint axis="0 0 1" name="rf_mcp" type="hinge" range="-0.3141592653589784 2.2340214425527427"/>
         <inertial pos="0.0342889 -0.0265621 -0.0145004" mass="0.231014" fullinertia="4.51947e-05 6.85417e-05 7.22479e-05 1.48097e-05 1.17419e-06 -1.19534e-06"/>
         <!-- Part p4_unified -->
-         <geom type="mesh" class="visual" pos="0.0048 -6.93889e-18 -0.0145" quat="0.5 0.5 0.5 -0.5" mesh="p4_unified" material="p4_unified_material"/>
-<!--
+        <geom type="mesh" class="visual" pos="0.0048 -6.93889e-18 -0.0145" quat="0.5 0.5 0.5 -0.5" mesh="p4_unified" material="p4_unified_material"/>
+
         <geom type="mesh" class="collision" pos="0.0048 -6.93889e-18 -0.0145" quat="0.5 0.5 0.5 -0.5" mesh="p4_unified" material="p4_unified_material"/>
         <geom class="simplified" pos="0.013 -0.016 0.0015" euler="0 0 -0.95" size="0.03 0.01 0.0025" />
         <geom class="simplified" pos="-0.0005 -0.0 0.0055" euler="0 0 0" size="0.003 0.01 0.002" />
         <geom class="simplified" pos="0.013 -0.016 -0.0305" euler="0 0 -0.95" size="0.03 0.01 0.0025" />
-        <geom class="simplified" pos="0.04 -0.031 -0.015" euler="0 0 0.0" size="0.02 0.016 0.015" /> -->
+        <geom class="simplified" pos="0.04 -0.031 -0.015" euler="0 0 0.0" size="0.02 0.016 0.015" />
         <!-- Link p3_unified -->
         <body name="p3_unified" pos="0.0326 -0.0123 -0.0145" quat="0.5 -0.5 -0.5 -0.5">
           <!-- Joint from p4_unified to p3_unified -->
@@ -89,9 +89,9 @@
           <!-- Part p3_unified -->
           <geom type="mesh" class="visual" pos="0 0.0075 -8.67362e-19" quat="0.5 -0.5 -0.5 -0.5" mesh="p3_unified" material="p3_unified_material"/>
 
-          <!-- <geom type="mesh" class="collision" pos="0 0.0075 -8.67362e-19" quat="0.5 -0.5 -0.5 -0.5" mesh="p3_unified" material="p3_unified_material"/>
+          <geom type="mesh" class="collision" pos="0 0.0075 -8.67362e-19" quat="0.5 -0.5 -0.5 -0.5" mesh="p3_unified" material="p3_unified_material"/>
           <geom class="simplified" pos="0.0 0.0072 0.011" euler="0 0 0.0" size="0.015 0.0175 0.012" />
-          <geom class="simplified" pos="0.0 0.0127 0.023" euler="0 0 0.0" size="0.015 0.013 0.005" /> -->
+          <geom class="simplified" pos="0.0 0.0127 0.023" euler="0 0 0.0" size="0.015 0.013 0.005" />
           <!-- Link p2_unified -->
           <body name="p2_unified" pos="0.0145 0.015 0.013" quat="0.5 0.5 0.5 0.5">
             <!-- Joint from p3_unified to p2_unified -->
@@ -100,13 +100,13 @@
             <!-- Part p2_unified -->
             <geom type="mesh" class="visual" pos="0.00905 -6.93889e-18 -0.0145" quat="0.5 0.5 0.5 -0.5" mesh="p2_unified" material="p2_unified_material"/>
 
-            <!-- <geom type="mesh" class="collision" pos="0.00905 -6.93889e-18 -0.0145" quat="0.5 0.5 0.5 -0.5" mesh="p2_unified" material="p2_unified_material"/>
+            <geom type="mesh" class="collision" pos="0.00905 -6.93889e-18 -0.0145" quat="0.5 0.5 0.5 -0.5" mesh="p2_unified" material="p2_unified_material"/>
             <geom class="simplified" pos="0.02 -0.009 0.0015" euler="0 0 -0.95" size="0.02 0.01 0.004" />
             <geom class="simplified" type="cylinder" pos="0.0 0 0.0035" size="0.008 0.005 " />
             <geom class="simplified" pos="0.02 -0.009 -0.0305" euler="0 0 -0.95" size="0.02 0.01 0.004" />
             <geom class="simplified" type="cylinder" pos="0.0 0 -0.03" size="0.008 0.003 " />
             <geom class="simplified" pos="0.033 -0.011 -0.0145" euler="0 0 0" size="0.015 0.02 0.014" />
-            <geom class="simplified" pos="0.0331 0.0105 -0.0145" euler="0 0 0" size="0.0122 0.004 0.014" /> -->
+            <geom class="simplified" pos="0.0331 0.0105 -0.0145" euler="0 0 0" size="0.0122 0.004 0.014" />
             <!-- Link fingertop_unfied -->
             <body name="fingertop_unfied" pos="0.0361 -1.11022e-16 -0.0291" quat="0.707107 -2.30991e-16 4.44089e-16 0.707107">
               <!-- Joint from p2_unified to fingertop_unfied -->
@@ -114,12 +114,12 @@
               <inertial pos="-0.00193531 -0.0359351 0.0145854" mass="0.25168" fullinertia="7.05202e-05 3.63661e-05 6.58529e-05 1.03034e-06 -1.87024e-07 -1.07782e-06"/>
               <!-- Part fingertop_unfied -->
               <geom type="mesh" class="visual" pos="-0.00135925 -0.025 0.0145" quat="0.5 -0.5 -0.5 -0.5" mesh="fingertop_unfied" material="fingertop_unfied_material"/>
-              <!-- <geom type="mesh" class="collision" pos="-0.00135925 -0.025 0.0145" quat="0.5 -0.5 -0.5 -0.5" mesh="fingertop_unfied" material="fingertop_unfied_material"/> -->
+              <geom type="mesh" class="collision" pos="-0.00135925 -0.025 0.0145" quat="0.5 -0.5 -0.5 -0.5" mesh="fingertop_unfied" material="fingertop_unfied_material"/>
 
-              <!-- <geom class="simplified" pos="0.0 -0.009 -0.001" euler="0 0 1.57" size="0.017 0.01 0.004" />
+              <geom class="simplified" pos="0.0 -0.009 -0.001" euler="0 0 1.57" size="0.017 0.01 0.004" />
               <geom class="simplified" pos="0.0 -0.009  0.03"  euler="0 0 1.57" size="0.017 0.01 0.004" />
               <geom class="simplified" pos="-0.0005 0.0 0.035" euler="0 0 0" size="0.01 0.002 0.002" />
-              <geom class="simplified" pos="-0.016 -0.0325 0.015" euler="0 0 0" size="0.006 0.022 0.015" /> -->
+              <geom class="simplified" pos="-0.016 -0.0325 0.015" euler="0 0 0" size="0.006 0.022 0.015" />
               <!-- TODO: add mesh for fingertip -->
             </body>
           </body>
@@ -205,17 +205,25 @@
         <!-- Part thp2_unified -->
         <geom type="mesh" class="visual" pos="0 0.0075 0" quat="0.5 -0.5 -0.5 -0.5" mesh="thp2_unified" material="thp2_unified_material"/>
         <geom type="mesh" class="collision" pos="0 0.0075 0" quat="0.5 -0.5 -0.5 -0.5" mesh="thp2_unified" material="thp2_unified_material"/>
+        <geom class="simplified" pos="0 0.0085 0.0115" euler="0 0 0" size="0.015 0.019 0.0125" />
+
         <!-- Link thconnector -->
         <body name="thconnector" pos="-0.0144 -8.32667e-17 0.013" quat="9.70682e-16 -0.707107 -9.99201e-16 0.707107">
           <!-- Joint from thp2_unified to thconnector -->
           <joint axis="0 0 1" name="th_axl" type="hinge" range="-0.34906585039886856 2.0943951023931926"/>
-          <inertial pos="0.000911557 -0.00108086 0.00811114" mass="0.030626" fullinertia="2.88391e-06 7.74614e-06 7.38912e-06 -3.01753e-08 -3.03989e-07 2.92826e-08"/>
+          <inertial pos="0 0 0" mass="0.030626" fullinertia="2.88391e-06 7.74614e-06 7.38912e-06 -3.01753e-08 -3.03989e-07 2.92826e-08"/>
           <!-- Part thconnector -->
           <geom type="mesh" class="visual" pos="-0.0173 0 0.019" quat="0.707107 0.707107 -0 -0" mesh="thconnector" material="thconnector_material"/>
+
           <geom type="mesh" class="collision" pos="-0.0173 0 0.019" quat="0.707107 0.707107 -0 -0" mesh="thconnector" material="thconnector_material"/>
+          <geom class="simplified" pos="0.016 -0.002 0.015" euler="0 0 0" size="0.002 0.013 0.0125" />
+          <geom class="simplified" pos="-0.016 -0.002 0.015" euler="0 0 0" size="0.002 0.013 0.0125" />
+          <geom class="simplified" pos="0 0 0.0015" euler="0 0 0" size="0.018 0.01 0.002" />
+
           <!-- Part clipper -->
           <geom type="mesh" class="visual" pos="0.0155 -0.006 0.019" quat="1.85719e-15 -0.707107 -0.707107 2.14491e-15" mesh="clipper" material="clipper_material"/>
           <geom type="mesh" class="collision" pos="0.0155 -0.006 0.019" quat="1.85719e-15 -0.707107 -0.707107 2.14491e-15" mesh="clipper" material="clipper_material"/>
+          <geom class="simplified" pos="0.02 0.0 0.019" euler="0 0 0" size="0.002 0.01 0.003" />
           <!-- Link thp1_unified -->
           <body name="thp1_unified" pos="0.0145 -3.46945e-18 0.019" quat="0.5 0.5 -0.5 -0.5">
             <!-- Joint from thconnector to thp1_unified -->
@@ -223,7 +231,15 @@
             <inertial pos="0.00144426 0.0112332 0.0144179" mass="0.212884" fullinertia="5.2272e-05 3.20647e-05 5.08966e-05 5.30483e-07 -6.26679e-07 9.36463e-07"/>
             <!-- Part thp1_unified -->
             <geom type="mesh" class="visual" pos="-1.11022e-16 0.0245 0.0145" quat="1 0 -2.22045e-16 0" mesh="thp1_unified" material="thp1_unified_material"/>
+
             <geom type="mesh" class="collision" pos="-1.11022e-16 0.0245 0.0145" quat="1 0 -2.22045e-16 0" mesh="thp1_unified" material="thp1_unified_material"/>
+            <geom class="simplified" pos="0.005 0.007 0.0145" euler="0 0 0" size="0.015 0.017 0.015" />
+            <geom class="simplified" pos="0.005 0.025 0.0145" euler="0 0 0" size="0.015 0.004 0.015" />
+            <geom class="simplified" pos="0.0 0.039 -0.001" euler="0 0 0" size="0.01 0.014 0.002" />
+            <geom class="simplified" pos="0.0 0.045 -0.005" euler="0 0 0" size="0.01 0.0025 0.002" />
+            <geom class="simplified" pos="0.0 0.039 0.0305" euler="0 0 0" size="0.01 0.014 0.002" />
+            <geom class="simplified" pos="-0.0108 0.008 0.0145" euler="0 0 0" size="0.004 0.0125 0.0115" />
+
             <!-- Link thfingertip_unified -->
             <body name="thfingertip_unified" pos="-1.12757e-16 0.0446 4.16334e-17" quat="2.10665e-14 5.4264e-17 -3.33067e-16 1">
               <!-- Joint from thp1_unified to thfingertip_unified -->
@@ -232,6 +248,12 @@
               <!-- Part thfingertip_unified -->
               <geom type="mesh" class="visual" pos="-2.77556e-17 -0.0275 0.014504" quat="0.707107 0.707107 1.11022e-16 -1.20442e-16" mesh="thfingertip_unified" material="thfingertip_unified_material"/>
               <geom type="mesh" class="collision" pos="-2.77556e-17 -0.0275 0.014504" quat="0.707107 0.707107 1.11022e-16 -1.20442e-16" mesh="thfingertip_unified" material="thfingertip_unified_material"/>
+
+              <geom class="simplified" pos="-0.006 -0.008 0.014" size="0.015 0.017 0.015" />
+              <geom class="simplified" pos="0.0098 -0.0081 0.0145" size="0.005 0.0125 0.0115" />
+              <geom class="simplified" pos="-0.018 -0.042 0.014" size="0.004 0.017 0.015" />
+
+
             </body>
           </body>
         </body>
