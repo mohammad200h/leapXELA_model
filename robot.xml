@@ -14,11 +14,15 @@
         <geom type="box" group="3" material="col"/>
       </default>
     </default>
+    <default class="marker">
+      <geom type="sphere" mass= "0.00001"  
+      group="4" contype="0" conaffinity="0" 
+      size="0.005" material="marker"/>
+    </default>
   </default>
   <worldbody>
     <!-- Link leap_hand_xela_back_cover -->
     <body name="leap_hand_xela_back_cover" pos="0 0 0" quat="1 0 0 0" childclass="leapXELA">
-      <freejoint name="leap_hand_xela_back_cover_freejoint"/>
       <inertial pos="0.00388456 -0.00321858 0.0893448" mass="2.5376" fullinertia="0.00587523 0.00767916 0.00348841 9.4314e-05 -0.000410847 0.00018544"/>
       
       <!-- Part leap_hand_xela_motorholder -->
@@ -92,21 +96,6 @@
       <geom class="collision" pos="0.008 -0.003 0.12" euler="0 0 0" size="0.012 0.011 0.005" />
       <geom class="collision" pos="-0.0375 -0.003 0.12" euler="0 0 0" size="0.012 0.011 0.005" />
 
-     
-
-
-
-
-
-
-         
-
-
-
-
-
-
-
       <!-- Link p4_unified -->
       <body name="p4_unified" pos="-0.02317 -0.0165 0.1436" quat="4.51379e-17 0.707107 -0 0.707107">
         <!-- Joint from leap_hand_xela_back_cover to p4_unified -->
@@ -158,7 +147,8 @@
 
               <geom class="collision"  type="mesh" pos="-0.0009 -0.025 0.0145"
                euler="-1.57 0 -1.57" mesh="outer_skin_v1_3_1"/>
-              <!-- TODO: add mesh for fingertip -->
+    
+              <geom name="RF_Marker" class="marker" pos="0.014 -0.045 0.0145" />
             </body>
           </body>
         </body>
@@ -211,6 +201,9 @@
 
               <geom class="collision"  type="mesh" pos="-0.0009 -0.025 0.0145"
                euler="-1.57 0 -1.57" mesh="outer_skin_v1_3_1"/>
+
+              <geom name="MF_Marker" class="marker" pos="0.014 -0.045 0.0145" />
+
             </body>
           </body>
         </body>
@@ -261,6 +254,8 @@
               <geom class="collision" pos="-0.016 -0.0325 0.015" euler="0 0 0" size="0.006 0.022 0.015" />
               <geom class="collision"  type="mesh" pos="-0.0009 -0.025 0.0145"
                euler="-1.57 0 -1.57" mesh="outer_skin_v1_3_1"/>
+
+              <geom name="IF_Marker" class="marker" pos="0.014 -0.045 0.0145" />
             </body>
           </body>
         </body>
@@ -320,12 +315,19 @@
               <geom class="collision" pos="-0.018 -0.042 0.014" size="0.004 0.017 0.015" />
               <geom class="collision" type="mesh"  pos="-0.00135925 -0.0300003 0.014504" 
               euler="-1.57 0 -1.57" mesh="outer_skin_v1_3_1" />
+
+              <!-- FingerTip Marker  -->
+              <geom name="TH_Marker" class="marker" pos="0.014 -0.045 0.0145" />
+              
             </body>
           </body>
         </body>
       </body>
     </body>
   </worldbody>
+
+
+
   <asset>
     <mesh file="outer_skin_v1_3_1.stl"/>
     <mesh file="thfingertip_unified.stl"/>
@@ -369,6 +371,7 @@
 
 
     <material name="col" rgba="0.6 1.0 0.6 0.2" />
+    <material name="marker" rgba="1.0 0.0 0.0 1.0" />
   </asset>
   <actuator>
     <position class="leapXELA" name="rf_mcp" joint="rf_mcp" inheritrange="1"/>
