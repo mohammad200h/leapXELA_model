@@ -8,7 +8,6 @@
   <!-- mesh assets -->
   <asset>
     <material name="black" rgba="0.2 0.2 0.2 1" />
-    <material name="white" rgba="1 1 1 1" />
     <material name="col" rgba="0.6 1.0 0.6 0.2" />
     <material name="marker" rgba="1.0 0.0 0.0 1.0" />
 
@@ -52,7 +51,7 @@
     </default>
 
     <default class="tip">
-      <geom type="mesh" mesh="outer_skin_v1_3_1" friction="0.5" material="white" />
+      <geom type="mesh" mesh="outer_skin_v1_3_1" friction="0.5" material="black" />
     </default>
 
     <default class="marker">
@@ -372,14 +371,14 @@
       </body> <!--ring-->
 
       <!--thumb-->
-      <body name="th_mp" pos="0.0480627 -0.013 0.07" quat="5.50081e-15 -3.747e-15 1 -9.54098e-18">
+      <body name="th_mp" pos="0.0480627 -0.013 0.07" quat="5.44009e-15 1.1935e-16 1 -5.55112e-17">
         <joint name="th_cmc" class="thumb_cmc"/>
         <inertial pos="-0.000232587 0.00882444 0.0117326" mass="0.032" 
         fullinertia="2.37871e-05 1.73561e-05 2.83432e-05 1.34767e-07 5.50367e-08 -9.6937e-08"/>
         <geom name="th_mp_visual" class="visual" pos="0 0.0075 0" quat="0.5 -0.5 -0.5 -0.5" mesh="thp2_unified" material="black"/>
         <geom name="th_mp_collision" class="collision" pos="0 0.0085 0.0115" euler="0 0 0" size="0.015 0.019 0.0125" />
         
-        <body name="th_bs" pos="-0.0144 -8.32667e-17 0.013" quat="9.70682e-16 -0.707107 -9.99201e-16 0.707107">
+        <body name="th_bs" pos="-0.0144 -8.32667e-17 0.013" quat="0.5 -0.5 -0.5 0.5">
           <joint  name="th_axl" class="thumb_axl"/>
           <inertial pos="0 0 0" mass="0.003" fullinertia="2.88391e-06 7.74614e-06 7.38912e-06 -3.01753e-08 -3.03989e-07 2.92826e-08"/>
           <geom name="th_bs_visual_1" class="visual" pos="-0.0173 0 0.019" quat="0.707107 0.707107 -0 -0" mesh="thconnector" material="black"/>
