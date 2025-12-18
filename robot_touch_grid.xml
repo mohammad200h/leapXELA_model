@@ -96,7 +96,6 @@
       <site group="3" pos="0.014 -0.045 0.0145" size="0.005" />
     </default>
 
-
      <!-- joint class defaults -->
     <default class="mcp">
       <joint pos="0 0 0" axis="0 0 1"
@@ -199,7 +198,7 @@
 
   <!-- sensors -->
   <sensor>
-   <!-- palm touch grid:"uspa46 -->
+   <!-- palm -->
    <plugin name="uspa46_1" plugin="mujoco.sensor.touch_grid" objtype="site" objname="uspa46_1">
       <config key="size" value="7 7"/>
       <config key="fov" value="45 45"/>
@@ -219,8 +218,56 @@
       <config key="nchannel" value="3"/>
     </plugin>
 
-    <!-- fingertips touch grid: uSCuALHA-->
+    <!-- index -->
+    <jointpos name="if_mcp_sensor" joint="if_mcp" />
+    <jointpos name="if_rot_sensor" joint="if_rot" />
+    <jointpos name="if_pip_sensor" joint="if_pip" />
+    <jointpos name="if_dip_sensor" joint="if_dip" />
+
+    <plugin name="if_bs_uspa44" plugin="mujoco.sensor.touch_grid" objtype="site" objname="if_bs_uspa44">
+      <config key="size" value="20 20"/>
+      <config key="fov" value="45 45"/>
+      <config key="gamma" value="0"/>
+      <config key="nchannel" value="3"/>
+    </plugin>
+    <plugin name="if_px_uspa44" plugin="mujoco.sensor.touch_grid" objtype="site" objname="if_px_uspa44">
+      <config key="size" value="20 20"/>
+      <config key="fov" value="45 45"/>
+      <config key="gamma" value="0"/>
+      <config key="nchannel" value="3"/>
+    </plugin>
+    <plugin name="if_md_uspa44" plugin="mujoco.sensor.touch_grid" objtype="site" objname="if_md_uspa44">
+      <config key="size" value="20 20"/>
+      <config key="fov" value="45 45"/>
+      <config key="gamma" value="0"/>
+      <config key="nchannel" value="3"/>
+    </plugin>
     <plugin name="if_uSCuALHA" plugin="mujoco.sensor.touch_grid" objtype="site" objname="if_uSCuALHA">
+      <config key="size" value="20 20"/>
+      <config key="fov" value="45 45"/>
+      <config key="gamma" value="0"/>
+      <config key="nchannel" value="3"/>
+    </plugin>
+
+    <!-- middle -->
+    <jointpos name="mf_mcp_sensor" joint="mf_mcp" />
+    <jointpos name="mf_rot_sensor" joint="mf_rot" />
+    <jointpos name="mf_pip_sensor" joint="mf_pip" />
+    <jointpos name="mf_dip_sensor" joint="mf_dip" />
+
+    <plugin name="mf_bs_uspa44" plugin="mujoco.sensor.touch_grid" objtype="site" objname="mf_bs_uspa44">
+      <config key="size" value="20 20"/>
+      <config key="fov" value="45 45"/>
+      <config key="gamma" value="0"/>
+      <config key="nchannel" value="3"/>
+    </plugin>
+    <plugin name="mf_px_uspa44" plugin="mujoco.sensor.touch_grid" objtype="site" objname="mf_px_uspa44">
+      <config key="size" value="20 20"/>
+      <config key="fov" value="45 45"/>
+      <config key="gamma" value="0"/>
+      <config key="nchannel" value="3"/>
+    </plugin>
+    <plugin name="mf_md_uspa44" plugin="mujoco.sensor.touch_grid" objtype="site" objname="mf_md_uspa44">
       <config key="size" value="20 20"/>
       <config key="fov" value="45 45"/>
       <config key="gamma" value="0"/>
@@ -232,8 +279,52 @@
       <config key="gamma" value="0"/>
       <config key="nchannel" value="3"/>
     </plugin>
-     <plugin name="rf_uSCuALHA" plugin="mujoco.sensor.touch_grid" objtype="site" objname="rf_uSCuALHA">
+
+    <!-- ring -->
+    <jointpos name="rf_mcp_sensor" joint="rf_mcp" />
+    <jointpos name="rf_rot_sensor" joint="rf_rot" />
+    <jointpos name="rf_pip_sensor" joint="rf_pip" />
+    <jointpos name="rf_dip_sensor" joint="rf_dip" />
+
+    <plugin name="rf_bs_uspa44" plugin="mujoco.sensor.touch_grid" objtype="site" objname="rf_bs_uspa44">
+      <config key="size" value="20 20"/>
+      <config key="fov" value="45 45"/>
+      <config key="gamma" value="0"/>
+      <config key="nchannel" value="3"/>
+    </plugin>
+    <plugin name="rf_px_uspa44" plugin="mujoco.sensor.touch_grid" objtype="site" objname="rf_px_uspa44">
+      <config key="size" value="20 20"/>
+      <config key="fov" value="45 45"/>
+      <config key="gamma" value="0"/>
+      <config key="nchannel" value="3"/>
+    </plugin>
+    <plugin name="rf_md_uspa44" plugin="mujoco.sensor.touch_grid" objtype="site" objname="rf_md_uspa44">
+      <config key="size" value="20 20"/>
+      <config key="fov" value="45 45"/>
+      <config key="gamma" value="0"/>
+      <config key="nchannel" value="3"/>
+    </plugin>
+    <plugin name="rf_uSCuALHA" plugin="mujoco.sensor.touch_grid" objtype="site" objname="rf_uSCuALHA">
       <config key="size" value="7 7"/>
+      <config key="fov" value="45 45"/>
+      <config key="gamma" value="0"/>
+      <config key="nchannel" value="3"/>
+    </plugin>
+
+    <!-- thumb -->
+    <jointpos name="th_cmc_sensor" joint="th_cmc" />
+    <jointpos name="th_axl_sensor" joint="th_axl" />
+    <jointpos name="th_mcp_sensor" joint="th_mcp" />
+    <jointpos name="th_ipl_sensor" joint="th_ipl" />
+
+    <plugin name="th_bs_uspa44" plugin="mujoco.sensor.touch_grid" objtype="site" objname="th_bs_uspa44">
+      <config key="size" value="20 20"/>
+      <config key="fov" value="45 45"/>
+      <config key="gamma" value="0"/>
+      <config key="nchannel" value="3"/>
+    </plugin>
+    <plugin name="th_px_uspa44" plugin="mujoco.sensor.touch_grid" objtype="site" objname="th_px_uspa44">
+      <config key="size" value="20 20"/>
       <config key="fov" value="45 45"/>
       <config key="gamma" value="0"/>
       <config key="nchannel" value="3"/>
@@ -244,30 +335,6 @@
       <config key="gamma" value="0"/>
       <config key="nchannel" value="3"/>
     </plugin>
-
-    <!-- index -->
-    <jointpos name="if_mcp_sensor" joint="if_mcp" />
-    <jointpos name="if_rot_sensor" joint="if_rot" />
-    <jointpos name="if_pip_sensor" joint="if_pip" />
-    <jointpos name="if_dip_sensor" joint="if_dip" />
-
-    <!-- middle -->
-    <jointpos name="mf_mcp_sensor" joint="mf_mcp" />
-    <jointpos name="mf_rot_sensor" joint="mf_rot" />
-    <jointpos name="mf_pip_sensor" joint="mf_pip" />
-    <jointpos name="mf_dip_sensor" joint="mf_dip" />
-
-    <!-- ring -->
-    <jointpos name="rf_mcp_sensor" joint="rf_mcp" />
-    <jointpos name="rf_rot_sensor" joint="rf_rot" />
-    <jointpos name="rf_pip_sensor" joint="rf_pip" />
-    <jointpos name="rf_dip_sensor" joint="rf_dip" />
-
-    <!-- thumb -->
-    <jointpos name="th_cmc_sensor" joint="th_cmc" />
-    <jointpos name="th_axl_sensor" joint="th_axl" />
-    <jointpos name="th_mcp_sensor" joint="th_mcp" />
-    <jointpos name="th_ipl_sensor" joint="th_ipl" />
   </sensor>
 
   <worldbody>
