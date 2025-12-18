@@ -1,5 +1,5 @@
 <mujoco model="scene">
-    <include file="robot.xml" />
+    <include file="robot_touch_grid.xml"/>
 
     <visual>
         <headlight diffuse="0.6 0.6 0.6" ambient="0.3 0.3 0.3" specular="0 0 0" />
@@ -20,5 +20,31 @@
     <worldbody>
         <light pos="0 0 3.5" dir="0 0 -1" directional="true" />
         <geom name="floor" size="0 0 0.05" pos="0 0 0" type="plane" material="groundplane" />
+        
+        <!-- <site size="0.002" pos="0 0.1 0.2" name="anchor_1"/>
+        <body name="ball_1" pos="0 0 0.15">
+          <freejoint/>
+          <geom type="sphere" size="0.015 0.015 0.015" rgba=".5 .7 .5 0.3" friction=".5" priority="1"/>
+          <site size="0.002" pos="0.015 0.015 0.015" name="hook_1"/>
+        </body>
+
+        <site size="0.002" pos="0.044 0.1 0.2" name="anchor_2"/>
+        <body name="ball_2" pos="0.44 0 0.15">
+          <freejoint/>
+          <geom type="sphere" size="0.015 0.015 0.015" rgba=".5 .7 .5 0.3" friction=".5" priority="1"/>
+          <site size="0.002" pos="0.015 0.015 0.015" name="hook_2"/>
+        </body> -->
     </worldbody>
+
+
+    <!-- <tendon>
+        <spatial limited="true" range="0 0.03" width="0.001">
+         <site site="hook_1"/>
+         <site site="anchor_1"/>
+       </spatial>
+        <spatial limited="true" range="0 0.03" width="0.001">
+         <site site="hook_2"/>
+         <site site="anchor_2"/>
+       </spatial>
+    </tendon> -->
 </mujoco>
