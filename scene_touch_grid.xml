@@ -1,11 +1,5 @@
 <mujoco model="scene">
-    <include file="robot_touch_sensor_array_gem.xml"/>
-
-    <default>
-        <default class="iteractive">
-            <geom group="5" />
-        </default>
-    </default>
+    <include file="robot_touch_grid.xml"/>
 
     <visual>
         <headlight diffuse="0.6 0.6 0.6" ambient="0.3 0.3 0.3" specular="0 0 0" />
@@ -21,6 +15,7 @@
             markrgb="0.8 0.8 0.8" width="300" height="300" />
         <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5"
             reflectance="0.2" />
+        <mesh name="sphere" file="sphere.stl" scale="0.08 0.08 0.08"/>
     </asset>
 
     <worldbody>
@@ -31,14 +26,15 @@
           <joint name="ball_palm_x" type="slide" axis="1 0 0" range="-0.06 0.08"/>
           <joint name="ball_palm_y" type="slide" axis="0 1 0" range="-0.01 0.23"/>
           <joint name="ball_palm_z" type="slide" axis="0 0 1" range="-0.015 0.005"/>
-          <geom class="iteractive" type="sphere" size="0.015 0.015 0.015" rgba=".5 .7 .5 0.3" friction=".5" priority="1"/>
+          <geom type="mesh" mesh="sphere" rgba=".5 .7 .5 0.3" friction=".5" priority="1"/>
+          <!-- <geom type="sphere" size="0.015 0.015 0.015" rgba=".5 .7 .5 0.3" friction=".5" priority="1"/> -->
         </body> 
   
         <body name="ball_thumb" pos="0.09 0.09 0.112">
           <joint name="ball_thumb_x" type="slide" axis="1 0 0" range="-0.006 0.09"/>
           <joint name="ball_thumb_y" type="slide" axis="0 1 0" range="-0.012 0.001"/>
           <joint name="ball_thumb_z" type="slide" axis="0 0 1" range="-0.009 0.009"/>
-          <geom class="iteractive" type="sphere" size="0.015 0.015 0.015" rgba=".5 .7 .5 0.3" friction=".5" priority="1"/>
+          <geom type="sphere" size="0.015 0.015 0.015" rgba=".5 .7 .5 0.3" friction=".5" priority="1"/>
         </body> 
     </worldbody>
 
