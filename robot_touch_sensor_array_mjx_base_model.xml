@@ -83,6 +83,11 @@
      
     </default>
 
+    <!-- markers-->
+    <default class="marker">
+      <site size="0.005" pos="-0.004 -0.062 0.015" group="5"/>
+    </default>
+
      <!-- touch grid fingertips -->
     <default class="uSCuALHA">
       <geom  group="4" type="mesh" mesh="outer_skin_v1_3_1" pos="-0.0009 -0.025 0.0145"
@@ -220,7 +225,9 @@
   </sensor>
 
   <worldbody>
-    <body name="palm" pos="0 0 0.1" quat="1 -1 0  0" >
+    <light name="spotlight" mode="targetbodycom" target="palm" pos="3 0 4"/>
+    <site name="grasp_site" pos="0.11 0 0.03" group="5"/>
+    <body name="palm" pos="0.1 -0.125 -0.01" euler="-1.85 0 0" >
     <!-- <body name="palm" quat=" 0 0 0 1" > -->
       <!-- palm -->
       <inertial pos="0.00388456 -0.00321858 0.0893448" mass="0.237" fullinertia="0.00587523 0.00767916 0.00348841 9.4314e-05 -0.000410847 0.00018544"/>
@@ -286,7 +293,6 @@
         <geom name="if_bs_uspa44" class="bs_uspa44"/>
         <site name="if_bs_uspa44" class="bs_uspa44"/>
 
-        
         <body name="if_px" pos="0.0326 -0.0123 -0.0145" quat="0.5 -0.5 -0.5 -0.5">
           <joint  name="if_rot" class="rot"/>
           <inertial pos="-0.000258994 0.00848001 0.0133488" mass="0.032" fullinertia="2.31878e-05 1.74843e-05 2.31495e-05 -1.07668e-07 -9.95794e-08 -1.12128e-06"/>
@@ -320,6 +326,8 @@
               
               <geom name="if_ds_tip" class="uSCuALHA" />
               <site name="if_uSCuALHA" class="uSCuALHA"/>
+              <site name="if_tip" class="marker"/>
+
             </body>
           </body>
         </body>
@@ -369,6 +377,7 @@
               
               <geom name="mf_ds_tip" class="uSCuALHA"/>
               <site name="mf_uSCuALHA" class="uSCuALHA"/>
+              <site name="mf_tip" class="marker"/>
             </body>
           </body>
         </body>
@@ -422,6 +431,8 @@
               
               <geom name="rf_ds_tip" class="uSCuALHA"/>
               <site name="rf_uSCuALHA" class="uSCuALHA"/>
+              <site name="rf_tip" class="marker"/>
+
             </body>
           </body>
         </body>
@@ -475,6 +486,7 @@
               <geom name="th_ds_tip" class="uSCuALHA"  pos="-0.00135925 -0.0300003 0.014504" 
               euler="-1.57 0 -1.57"/>
               <site name="th_uSCuALHA" class="uSCuALHA"  pos="0.014 -0.045 0.0145" />
+              <site name="th_tip" class="marker" pos="-0.004 -0.067  0.0145" />
 
             </body>
           </body>
