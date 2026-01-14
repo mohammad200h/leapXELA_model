@@ -3,7 +3,10 @@
 <!-- Onshape https://cad.onshape.com/documents/8570a76a8c0c31c84724c6f7/w/72ba6e2072d2b92f117e67a0/e/b5b8d162590c6484df5b91e8 -->
 <mujoco model="leapXELA">
   <compiler angle="radian" meshdir="./assets/"/>
-  <option integrator="implicitfast" cone="elliptic" impratio="100"/>
+  
+  <option timestep="0.0001" integrator="Euler" iterations="5" ls_iterations="8">
+    <flag eulerdamp="disable"/>
+  </option>
 
   <!-- mesh assets -->
   <asset>
@@ -53,31 +56,24 @@
 
     <!-- touch grid palm -->
     <default class="uspa46">
-      <geom type="box" group="4" size="0.021 0.01 0.015" material="orange" />
       <site group="4" size="0.001" />
     </default>
     <!-- touch grid finger links -->
     <default class="uspa44">
-      <geom type="box" group="4"  material="orange" size="0.011 0.011 0.011" />
       <site group="4" size="0.001" />
       <default class="bs_uspa44">
-        <geom pos="-0.0022 0.005 -0.015"  />
         <site pos="0.0088 0.015 -0.004" />
       </default>
       <default class="px_uspa44">
-        <geom pos="0.00 0.012 0.017"  />
         <site pos="0.011 0.023 0.028" />
       </default>
       <default class="md_uspa44">
-        <geom pos="0.0322 0.005 -0.015"  />
         <site pos="0.0432 0.015 -0.004" />
       </default>
       <default class="th_bs_uspa44">
-        <geom pos="0.0 0.004 0.026"/>
         <site pos="0.011 0.014 0.037"/>
       </default>
       <default class="th_px_uspa44">
-        <geom pos="-0.004 0.053 0.0145"/>
         <site pos="-0.014 0.064 0.0035"/>
       </default>
      
@@ -94,7 +90,7 @@
 
      <!-- touch grid fingertips -->
     <default class="uSCuALHA">
-      <geom  group="4" type="mesh" mesh="outer_skin_v1_3_1" pos="-0.0009 -0.025 0.0145"
+      <geom  group="4" type="mesh" contype="0" conaffinity="0" mesh="outer_skin_v1_3_1" pos="-0.0009 -0.025 0.0145"
                euler="-1.57 0 -1.57" friction="0.5" material="orange" />
       <site group="4" pos="0.014 -0.045 0.015" size="0.001" />
     </default>
@@ -259,28 +255,23 @@
       <geom name="palm_collision_8" class="collision" pos="-0.003 0 0.06" size="0.025 0.03 0.02"/>
       <geom name="palm_collision_9" class="collision" pos="-0.037 0 0.08" euler="0 1.28 0" size="0.04 0.03 0.01"/>
       <geom name="palm_collision_10" class="collision" pos="0.036 -0.025 0.1" size="0.035 0.005 0.02"/>
-      <geom name="palm_collision_11" class="collision" pos="0.036 0.025 0.1" size="0.035 0.005 0.02"/>
       <geom name="palm_collision_12" class="collision" pos="0.036 0 0.115" size="0.035 0.03 0.005"/>
-      <geom name="palm_collision_13" class="collision" pos="0.039 -0.013 0.085" euler="0 0 0" size="0.02 0.012  0.015" />
+      
       <geom name="palm_collision_14" class="collision" pos="-0.0055 -0.028 0.063" size="0.023 0.004 0.015"/>
       <geom name="palm_collision_15" class="collision" pos="-0.0055 -0.028 0.096" size="0.023 0.004 0.015"/>
       <geom name="palm_collision_16" class="collision" pos=" 0.044 -0.028 0.096" size="0.023 0.004 0.015"/>
   
-      <geom name="palm_collision_19" class="collision" pos="0.0529 -0.003 0.12" euler="0 0 0" size="0.012 0.011 0.005" />
-      <geom name="palm_collision_20" class="collision" pos="0.008 -0.003 0.12" euler="0 0 0" size="0.012 0.011 0.005" />
-      <geom name="palm_collision_21" class="collision" pos="-0.0375 -0.003 0.12" euler="0 0 0" size="0.012 0.011 0.005" />
+
+  
       
       <!-- palm touch sensors -->
       <body name="uspa46_1" pos="0 0 0">
-        <geom name="uspa46_1" class="uspa46" pos="-0.005 -0.022 0.096" />
         <site name="uspa46_1" class="uspa46" pos="0.016 -0.032 0.111"/>
       </body>
       <body name="uspa46_2" pos="0 0 0">
-        <geom name="uspa46_2" class="uspa46" pos="0.044 -0.022 0.096" />
         <site name="uspa46_2" class="uspa46" pos="0.065 -0.032 0.111"/>
       </body>
       <body name="uspa46_3" pos="0 0 0">
-        <geom name="uspa46_3" class="uspa46" pos="-0.005 -0.022 0.063" />
         <site name="uspa46_3" class="uspa46" pos="0.016 -0.032 0.078"/>
       </body>
 
@@ -289,8 +280,6 @@
         <joint  name="if_mcp" class="mcp"/>
         <inertial pos="0.0342889 -0.0265621 -0.0145004" mass="0.044" fullinertia="4.51947e-05 6.85417e-05 7.22479e-05 1.48097e-05 1.17419e-06 -1.19534e-06"/>
         <geom name="if_bs_visual" class="visual" pos="0.0048 -6.93889e-18 -0.0145" quat="0.5 0.5 0.5 -0.5" mesh="p4_unified" material="black"/>
-        <geom name="if_bs_collision_2" class="collision" pos="-0.0005 -0.0 0.0055" euler="0 0 0" size="0.003 0.01 0.002" />
-        <geom name="if_bs_uspa44" class="bs_uspa44"/>
         <site name="if_bs_uspa44" class="bs_uspa44"/>
 
         <body name="if_px" pos="0.0326 -0.0123 -0.0145" quat="0.5 -0.5 -0.5 -0.5">
@@ -299,7 +288,6 @@
           <geom name="if_px_visual" class="visual" pos="0 0.0075 -8.67362e-19" quat="0.5 -0.5 -0.5 -0.5" mesh="p3_unified" material="black"/>
           <geom name="if_px_collision_1" class="collision" pos="0.0 0.0072 0.011" euler="0 0 0.0" size="0.015 0.0175 0.012" />
           <geom name="if_px_collision_2" class="collision" pos="0.0 0.0127 0.023" euler="0 0 0.0" size="0.015 0.013 0.005" />
-          <geom name="if_px_uspa44" class="px_uspa44"/>
           <site name="if_px_uspa44" class="px_uspa44"/>
 
           <body name="if_md" pos="0.0145 0.015 0.013" quat="0.5 0.5 0.5 0.5">
@@ -308,74 +296,67 @@
             <geom name="if_md_visual" class="visual" pos="0.00905 -6.93889e-18 -0.0145" quat="0.5 0.5 0.5 -0.5" mesh="p2_unified" material="black"/> 
             <geom name="if_md_collision_5" class="collision" pos="0.033 -0.011 -0.0145" euler="0 0 0" size="0.015 0.02 0.014" />
             <geom name="if_md_collision_6" class="collision" pos="0.0331 0.0105 -0.0145" euler="0 0 0" size="0.0122 0.004 0.014" />
-            <geom name="if_md_uspa44" class="md_uspa44"/>
             <site name="if_md_uspa44" class="md_uspa44"/>
 
             <body name="if_ds" pos="0.0361 -1.11022e-16 -0.0291" quat="0.707107 -2.30991e-16 4.44089e-16 0.707107">
               <joint  name="if_dip" class="dip"/>
               <inertial pos="-0.00193531 -0.0359351 0.0145854" mass="0.016" fullinertia="7.05202e-05 3.63661e-05 6.58529e-05 1.03034e-06 -1.87024e-07 -1.07782e-06"/>
               <geom class="visual" pos="-0.00135925 -0.025 0.0145" quat="0.5 -0.5 -0.5 -0.5" mesh="fingertop_unfied" material="black"/>
-              <geom name="if_ds_collision_1" class="collision" pos="0.0 -0.009 -0.001" euler="0 0 1.57" size="0.017 0.01 0.004" />
-              <geom name="if_ds_collision_2" class="collision" pos="0.0 -0.009  0.03"  euler="0 0 1.57" size="0.017 0.01 0.004" />
-              <geom name="if_ds_collision_3" class="collision" pos="-0.0005 0.0 0.035" euler="0 0 0" size="0.01 0.002 0.002" />
-              <geom name="if_ds_collision_4" class="collision" pos="-0.016 -0.0325 0.015" euler="0 0 0" size="0.006 0.022 0.015" />
-              
+             
               <!--tip collision -->
-              <geom class="tip" pos="0.0049 -0.038 0.015" 
+              <geom name="if_tip_1" class="tip" pos="0.0049 -0.038 0.015" 
                   size="0.01 0.012 0.005"/>
-              <geom class="tip" pos="0.0092 -0.038 0.009" euler="0 -1.2 0"
+              <geom name="if_tip_2" class="tip" pos="0.0092 -0.038 0.009" euler="0 -1.2 0"
                   size="0.003 0.012 0.005"/>          
-              <geom class="tip" pos="0.006 -0.038 0.0065" euler="0 -0.5 0"
+              <geom name="if_tip_3" class="tip" pos="0.006 -0.038 0.0065" euler="0 -0.5 0"
                   size="0.005 0.012 0.005"/>
-              <geom class="tip" pos="-0.002 -0.038 0.0047" 
+              <geom name="if_tip_4" class="tip" pos="-0.002 -0.038 0.0047" 
                   size="0.006 0.012 0.005"/>
-              <geom class="tip" pos="0.0092 -0.038 0.021" euler="0 1.2 0"
+              <geom name="if_tip_5" class="tip" pos="0.0092 -0.038 0.021" euler="0 1.2 0"
                   size="0.003 0.012 0.005"/> 
-              <geom class="tip" pos="0.006 -0.038 0.0235" euler="0 0.5 0"
+              <geom name="if_tip_6" class="tip" pos="0.006 -0.038 0.0235" euler="0 0.5 0"
                   size="0.005 0.012 0.005"/> 
-              <geom class="tip" pos="-0.002 -0.038 0.0253" 
+              <geom name="if_tip_7" class="tip" pos="-0.002 -0.038 0.0253" 
                   size="0.006 0.012 0.005"/>
                 <!-- second layer -->
-              <geom class="tip" pos="0.008 -0.053 0.015" 
+              <geom name="if_tip_8" class="tip" pos="0.008 -0.053 0.015" 
                   size="0.005 0.006 0.005" euler="0 0 -0.4"/>
-              <geom class="tip" pos="0.005 -0.058 0.015" 
+              <geom name="if_tip_9" class="tip" pos="0.005 -0.058 0.015" 
                   size="0.005 0.003 0.005" euler="0 0 -1"/>
-              <geom class="tip" pos="-0.001 -0.0588 0.015" 
+              <geom name="if_tip_10" class="tip" pos="-0.001 -0.0588 0.015" 
                   size="0.005 0.006 0.005" euler="0 0 -1.57"/>
 
-              <geom class="tip" pos="-0.002 -0.053 0.023" 
+              <geom name="if_tip_11" class="tip" pos="-0.002 -0.053 0.023" 
                   size="0.006 0.006 0.005" euler="0.5 0 0"/>
-              <geom class="tip" pos="-0.002 -0.058 0.019" 
+              <geom name="if_tip_12" class="tip" pos="-0.002 -0.058 0.019" 
                   size="0.006 0.003 0.005" euler="0.9 0 0"/>
 
-              <geom class="tip" pos="-0.002 -0.053 0.007" 
+              <geom name="if_tip_13" class="tip" pos="-0.002 -0.053 0.007" 
                   size="0.006 0.006 0.005" euler="-0.5 0 0"/>
-              <geom class="tip" pos="-0.002 -0.058 0.011" 
+              <geom name="if_tip_14" class="tip" pos="-0.002 -0.058 0.011" 
                   size="0.006 0.003 0.005" euler="-0.9 0 0"/>
 
-              <geom class="tip" pos="0.006 -0.053 0.022" 
+              <geom name="if_tip_15" class="tip" pos="0.006 -0.053 0.022" 
                 size="0.005 0.006 0.003" euler="0 -1 -0.5"/>
               
-              <geom class="tip" pos="0.006 -0.053 0.009" 
+              <geom name="if_tip_16" class="tip" pos="0.006 -0.053 0.009" 
                 size="0.005 0.006 0.003" euler="0 1 -0.5"/>
               <!--End::tip collision -->
 
-              <geom name="if_tip" class="uSCuALHA" />
               <site name="if_uSCuALHA" class="uSCuALHA"/>
               <site name="if_tip" class="marker"/>
 
             </body>
           </body>
         </body>
-      </body><!--index-->
+      </body>
+      <!--index-->
       
       <!--middle-->
       <body name="mf_bs" pos="0.02228 -0.0165 0.1436" quat="4.51379e-17 0.707107 -0 0.707107">
         <joint  name="mf_mcp" class="mcp"/>
         <inertial pos="0.0342889 -0.0265621 -0.0145004" mass="0.044" fullinertia="4.51947e-05 6.85417e-05 7.22479e-05 1.48097e-05 1.17419e-06 -1.19534e-06"/>
         <geom name="mf_bs_visual" class="visual" pos="0.0048 -3.46945e-18 -0.0145" quat="0.5 0.5 0.5 -0.5" mesh="p4_unified" material="black"/>
-        <geom name="mf_bs_collision_2" class="collision" pos="-0.0005 -0.0 0.0055" euler="0 0 0" size="0.003 0.01 0.002" />
-        <geom name="mf_bs_uspa44" class="bs_uspa44"/>
         <site name="mf_bs_uspa44" class="bs_uspa44"/>
         <body name="mf_px" pos="0.0326 -0.0123 -0.0145" quat="0.5 -0.5 -0.5 -0.5">
           <joint  name="mf_rot" class="rot"/>
@@ -383,83 +364,75 @@
           <geom type="mesh" class="visual" pos="-8.67362e-19 0.0075 -8.67362e-19" quat="0.5 -0.5 -0.5 -0.5" mesh="p3_unified" material="black"/>
           <geom class="collision" pos="0.0 0.0072 0.011" euler="0 0 0.0" size="0.015 0.0175 0.012" />
           <geom class="collision" pos="0.0 0.0127 0.023" euler="0 0 0.0" size="0.015 0.013 0.005" />
-          <geom name="mf_px_uspa44" class="px_uspa44"/>
           <site name="mf_px_uspa44" class="px_uspa44"/>
 
           <body name="mf_md" pos="0.0145 0.015 0.013" quat="0.5 0.5 0.5 0.5">
             <joint  name="mf_pip" class="pip"/>
             <inertial pos="0.0304899 -0.00688132 -0.0146269" mass="0.037" fullinertia="5.30625e-05 4.56759e-05 5.89736e-05 3.70526e-06 1.23454e-06 -6.30317e-07"/>
             <geom name="mf_md_visual" class="visual" pos="0.00905 -1.04083e-17 -0.0145" quat="0.5 0.5 0.5 -0.5" mesh="p2_unified" material="black"/>
+            <geom name="mf_md_collision_2" class="collision" size="0.008 0.005" pos="0 0 0.0035" type="cylinder"/>
             <geom name="mf_md_collision_5" class="collision" pos="0.033 -0.011 -0.0145" euler="0 0 0" size="0.015 0.02 0.014" />
             <geom name="mf_md_collision_6" class="collision" pos="0.0331 0.0105 -0.0145" euler="0 0 0" size="0.0122 0.004 0.014" />
-            <geom name="mf_md_uspa44" class="md_uspa44"/>
             <site name="mf_md_uspa44" class="md_uspa44"/>
 
             <body name="mf_ds" pos="0.0361 -1.14492e-16 -0.0291" quat="0.707107 -2.30991e-16 4.44089e-16 0.707107">
               <joint  name="mf_dip" class="dip"/>
               <inertial pos="-0.00193531 -0.0359351 0.0145854" mass="0.016" fullinertia="7.05202e-05 3.63661e-05 6.58529e-05 1.03034e-06 -1.87024e-07 -1.07782e-06"/>
               <geom name="mf_ds_visual" class="visual" pos="-0.00135925 -0.025 0.0145" quat="0.5 -0.5 -0.5 -0.5" mesh="fingertop_unfied" material="black"/>
-              <geom name="mf_ds_collision_1" class="collision" pos="0.0 -0.009 -0.001" euler="0 0 1.57" size="0.017 0.01 0.004" />
-              <geom name="mf_ds_collision_2" class="collision" pos="0.0 -0.009  0.03"  euler="0 0 1.57" size="0.017 0.01 0.004" />
-              <geom name="mf_ds_collision_3" class="collision" pos="-0.0005 0.0 0.035" euler="0 0 0" size="0.01 0.002 0.002" />
-              <geom name="mf_ds_collision_4" class="collision" pos="-0.016 -0.0325 0.015" euler="0 0 0" size="0.006 0.022 0.015" />
-              
-
+            
               <!--tip collision -->
-              <geom class="tip" pos="0.0049 -0.038 0.015" 
+              <geom name="mf_tip_1" class="tip" pos="0.0049 -0.038 0.015" 
                   size="0.01 0.012 0.005"/>
-              <geom class="tip" pos="0.0092 -0.038 0.009" euler="0 -1.2 0"
+              <geom name="mf_tip_2" class="tip" pos="0.0092 -0.038 0.009" euler="0 -1.2 0"
                   size="0.003 0.012 0.005"/>          
-              <geom class="tip" pos="0.006 -0.038 0.0065" euler="0 -0.5 0"
+              <geom name="mf_tip_3" class="tip" pos="0.006 -0.038 0.0065" euler="0 -0.5 0"
                   size="0.005 0.012 0.005"/>
-              <geom class="tip" pos="-0.002 -0.038 0.0047" 
+              <geom name="mf_tip_4" class="tip" pos="-0.002 -0.038 0.0047" 
                   size="0.006 0.012 0.005"/>
-              <geom class="tip" pos="0.0092 -0.038 0.021" euler="0 1.2 0"
+              <geom name="mf_tip_5" class="tip" pos="0.0092 -0.038 0.021" euler="0 1.2 0"
                   size="0.003 0.012 0.005"/> 
-              <geom class="tip" pos="0.006 -0.038 0.0235" euler="0 0.5 0"
+              <geom name="mf_tip_6" class="tip" pos="0.006 -0.038 0.0235" euler="0 0.5 0"
                   size="0.005 0.012 0.005"/> 
-              <geom class="tip" pos="-0.002 -0.038 0.0253" 
+              <geom name="mf_tip_7" class="tip" pos="-0.002 -0.038 0.0253" 
                   size="0.006 0.012 0.005"/>
                 <!-- second layer -->
-              <geom class="tip" pos="0.008 -0.053 0.015" 
+              <geom name="mf_tip_8" class="tip" pos="0.008 -0.053 0.015" 
                   size="0.005 0.006 0.005" euler="0 0 -0.4"/>
-              <geom class="tip" pos="0.005 -0.058 0.015" 
+              <geom name="mf_tip_9" class="tip" pos="0.005 -0.058 0.015" 
                   size="0.005 0.003 0.005" euler="0 0 -1"/>
-              <geom class="tip" pos="-0.001 -0.0588 0.015" 
+              <geom name="mf_tip_10" class="tip" pos="-0.001 -0.0588 0.015" 
                   size="0.005 0.006 0.005" euler="0 0 -1.57"/>
 
-              <geom class="tip" pos="-0.002 -0.053 0.023" 
+              <geom name="mf_tip_11" class="tip" pos="-0.002 -0.053 0.023" 
                   size="0.006 0.006 0.005" euler="0.5 0 0"/>
-              <geom class="tip" pos="-0.002 -0.058 0.019" 
+              <geom name="mf_tip_12" class="tip" pos="-0.002 -0.058 0.019" 
                   size="0.006 0.003 0.005" euler="0.9 0 0"/>
 
-              <geom class="tip" pos="-0.002 -0.053 0.007" 
+              <geom name="mf_tip_13" class="tip" pos="-0.002 -0.053 0.007" 
                   size="0.006 0.006 0.005" euler="-0.5 0 0"/>
-              <geom class="tip" pos="-0.002 -0.058 0.011" 
+              <geom name="mf_tip_14" class="tip" pos="-0.002 -0.058 0.011" 
                   size="0.006 0.003 0.005" euler="-0.9 0 0"/>
 
-              <geom class="tip" pos="0.006 -0.053 0.022" 
+              <geom name="mf_tip_15" class="tip" pos="0.006 -0.053 0.022" 
                 size="0.005 0.006 0.003" euler="0 -1 -0.5"/>
               
-              <geom class="tip" pos="0.006 -0.053 0.009" 
+              <geom name="mf_tip_16" class="tip" pos="0.006 -0.053 0.009" 
                 size="0.005 0.006 0.003" euler="0 1 -0.5"/>
               <!--End::tip collision -->
 
-              <geom name="mf_tip" class="uSCuALHA"/>
               <site name="mf_uSCuALHA" class="uSCuALHA"/>
               <site name="mf_tip" class="marker"/>
             </body>
           </body>
         </body>
-      </body> <!--middle-->
+      </body> 
+      <!--middle-->
       
       <!--ring-->
       <body name="rf_bs" pos="-0.02317 -0.0165 0.1436" quat="4.51379e-17 0.707107 -0 0.707107">
         <joint  name="rf_mcp" class="mcp"/>
         <inertial pos="0.0342889 -0.0265621 -0.0145004" mass="0.044" fullinertia="4.51947e-05 6.85417e-05 7.22479e-05 1.48097e-05 1.17419e-06 -1.19534e-06"/>
         <geom name="rf_bs_visual" class="visual" pos="0.0048 -6.93889e-18 -0.0145" quat="0.5 0.5 0.5 -0.5" mesh="p4_unified" material="black"/>
-        <geom name="rf_bs_collision_2" class="collision" pos="-0.0005 -0.0 0.0055" euler="0 0 0" size="0.003 0.01 0.002" />
-        <geom name="rf_bs_uspa44" class="bs_uspa44"/>
         <site name="rf_bs_uspa44" class="bs_uspa44"/>
 
         <body name="rf_px" pos="0.0326 -0.0123 -0.0145" quat="0.5 -0.5 -0.5 -0.5">
@@ -469,7 +442,6 @@
           mesh="p3_unified" material="black"/>
           <geom name="rf_px_collision_1" class="collision" pos="0.0 0.0072 0.011" euler="0 0 0.0" size="0.015 0.0175 0.012" />
           <geom name="rf_px_collision_2" class="collision" pos="0.0 0.0127 0.023" euler="0 0 0.0" size="0.015 0.013 0.005" />
-          <geom name="rf_px_uspa44" class="px_uspa44"/>
           <site name="rf_px_uspa44" class="px_uspa44"/>
 
           <body name="rf_md" pos="0.0145 0.015 0.013" quat="0.5 0.5 0.5 0.5">
@@ -479,7 +451,6 @@
             mesh="p2_unified" material="black"/>
             <geom name="rf_md_collision_5" class="collision" pos="0.033 -0.011 -0.0145" euler="0 0 0" size="0.015 0.02 0.014" />
             <geom name="rf_md_collision_6" class="collision" pos="0.0331 0.0105 -0.0145" euler="0 0 0" size="0.0122 0.004 0.014" />
-            <geom name="rf_md_uspa44" class="md_uspa44"/>
             <site name="rf_md_uspa44" class="md_uspa44"/>
 
             <body name="rf_ds" pos="0.0361 -1.11022e-16 -0.0291" quat="0.707107 -2.30991e-16 4.44089e-16 0.707107">
@@ -487,52 +458,47 @@
               <inertial pos="-0.00193531 -0.0359351 0.0145854" mass="0.016" fullinertia="7.05202e-05 3.63661e-05 6.58529e-05 1.03034e-06 -1.87024e-07 -1.07782e-06"/>
               <geom name="rf_ds_visual" class="visual" pos="-0.00135925 -0.025 0.0145" quat="0.5 -0.5 -0.5 -0.5" 
               mesh="fingertop_unfied" material="black"/>
-              <geom name="rf_ds_collision_1" class="collision" pos="0.0 -0.009 -0.001" euler="0 0 1.57" size="0.017 0.01 0.004" />
-              <geom name="rf_ds_collision_2" class="collision" pos="0.0 -0.009  0.03"  euler="0 0 1.57" size="0.017 0.01 0.004" />
-              <geom name="rf_ds_collision_3" class="collision" pos="-0.0005 0.0 0.035" euler="0 0 0" size="0.01 0.002 0.002" />
-              <geom name="rf_ds_collision_4" class="collision" pos="-0.016 -0.0325 0.015" euler="0 0 0" size="0.006 0.022 0.015" />
               
               <!--tip collision -->
-              <geom class="tip" pos="0.0049 -0.038 0.015" 
+              <geom name="rf_tip_1" class="tip" pos="0.0049 -0.038 0.015" 
                   size="0.01 0.012 0.005"/>
-              <geom class="tip" pos="0.0092 -0.038 0.009" euler="0 -1.2 0"
+              <geom name="rf_tip_2" class="tip" pos="0.0092 -0.038 0.009" euler="0 -1.2 0"
                   size="0.003 0.012 0.005"/>          
-              <geom class="tip" pos="0.006 -0.038 0.0065" euler="0 -0.5 0"
+              <geom name="rf_tip_3" class="tip" pos="0.006 -0.038 0.0065" euler="0 -0.5 0"
                   size="0.005 0.012 0.005"/>
-              <geom class="tip" pos="-0.002 -0.038 0.0047" 
+              <geom name="rf_tip_4" class="tip" pos="-0.002 -0.038 0.0047" 
                   size="0.006 0.012 0.005"/>
-              <geom class="tip" pos="0.0092 -0.038 0.021" euler="0 1.2 0"
+              <geom name="rf_tip_5" class="tip" pos="0.0092 -0.038 0.021" euler="0 1.2 0"
                   size="0.003 0.012 0.005"/> 
-              <geom class="tip" pos="0.006 -0.038 0.0235" euler="0 0.5 0"
+              <geom name="rf_tip_6" class="tip" pos="0.006 -0.038 0.0235" euler="0 0.5 0"
                   size="0.005 0.012 0.005"/> 
-              <geom class="tip" pos="-0.002 -0.038 0.0253" 
+              <geom name="rf_tip_7" class="tip" pos="-0.002 -0.038 0.0253" 
                   size="0.006 0.012 0.005"/>
                 <!-- second layer -->
-              <geom class="tip" pos="0.008 -0.053 0.015" 
+              <geom name="rf_tip_8" class="tip" pos="0.008 -0.053 0.015" 
                   size="0.005 0.006 0.005" euler="0 0 -0.4"/>
-              <geom class="tip" pos="0.005 -0.058 0.015" 
+              <geom name="rf_tip_9" class="tip" pos="0.005 -0.058 0.015" 
                   size="0.005 0.003 0.005" euler="0 0 -1"/>
-              <geom class="tip" pos="-0.001 -0.0588 0.015" 
+              <geom name="rf_tip_10" class="tip" pos="-0.001 -0.0588 0.015" 
                   size="0.005 0.006 0.005" euler="0 0 -1.57"/>
 
-              <geom class="tip" pos="-0.002 -0.053 0.023" 
+              <geom name="rf_tip_11" class="tip" pos="-0.002 -0.053 0.023" 
                   size="0.006 0.006 0.005" euler="0.5 0 0"/>
-              <geom class="tip" pos="-0.002 -0.058 0.019" 
+              <geom name="rf_tip_12" class="tip" pos="-0.002 -0.058 0.019" 
                   size="0.006 0.003 0.005" euler="0.9 0 0"/>
 
-              <geom class="tip" pos="-0.002 -0.053 0.007" 
+              <geom name="rf_tip_13" class="tip" pos="-0.002 -0.053 0.007" 
                   size="0.006 0.006 0.005" euler="-0.5 0 0"/>
-              <geom class="tip" pos="-0.002 -0.058 0.011" 
+              <geom name="rf_tip_14" class="tip" pos="-0.002 -0.058 0.011" 
                   size="0.006 0.003 0.005" euler="-0.9 0 0"/>
 
-              <geom class="tip" pos="0.006 -0.053 0.022" 
+              <geom name="rf_tip_15" class="tip" pos="0.006 -0.053 0.022" 
                 size="0.005 0.006 0.003" euler="0 -1 -0.5"/>
               
-              <geom class="tip" pos="0.006 -0.053 0.009" 
+              <geom name="rf_tip_16" class="tip" pos="0.006 -0.053 0.009" 
                 size="0.005 0.006 0.003" euler="0 1 -0.5"/>
               <!--End::tip collision -->
 
-              <geom name="rf_tip" class="uSCuALHA"/>
               <site name="rf_uSCuALHA" class="uSCuALHA"/>
               <site name="rf_tip" class="marker"/>
 
@@ -554,11 +520,6 @@
           <inertial pos="0 0 0" mass="0.003" fullinertia="2.88391e-06 7.74614e-06 7.38912e-06 -3.01753e-08 -3.03989e-07 2.92826e-08"/>
           <geom name="th_bs_visual_1" class="visual" pos="-0.0173 0 0.019" quat="0.707107 0.707107 -0 -0" mesh="thconnector" material="black"/>
           <geom name="th_bs_visual_2" class="visual" pos="0.0155 -0.006 0.019" quat="1.85719e-15 -0.707107 -0.707107 2.14491e-15" mesh="clipper" material="black"/>
-          <geom name="th_bs_collision_1" class="collision" pos="0.016 -0.002 0.015" euler="0 0 0" size="0.002 0.013 0.0125" />
-          <geom name="th_bs_collision_2" class="collision" pos="-0.016 -0.002 0.015" euler="0 0 0" size="0.002 0.013 0.0125" />
-          <geom name="th_bs_collision_3" class="collision" pos="0 0 0.0015" euler="0 0 0" size="0.018 0.01 0.002" />
-          <geom name="th_bs_collision_4" class="collision" pos="0.02 0.0 0.019" euler="0 0 0" size="0.002 0.01 0.003" />
-          <geom name="th_bs_uspa44" class="th_bs_uspa44"/>
           <site name="th_bs_uspa44" class="th_bs_uspa44"/>
 
           <body name="th_px" pos="0.0145 -3.46945e-18 0.019" quat="0.5 0.5 -0.5 -0.5">
@@ -567,12 +528,7 @@
             fullinertia="5.2272e-05 3.20647e-05 5.08966e-05 5.30483e-07 -6.26679e-07 9.36463e-07"/>
             <geom name="th_px_visual_1" class="visual" pos="-1.11022e-16 0.0245 0.0145" quat="1 0 -2.22045e-16 0" mesh="thp1_unified" material="black"/>
             <geom name="th_px_collision_1" class="collision" pos="0.005 0.007 0.0145" euler="0 0 0" size="0.015 0.017 0.015" />
-            <geom name="th_px_collision_2" class="collision" pos="0.005 0.025 0.0145" euler="0 0 0" size="0.015 0.004 0.015" />
-            <geom name="th_px_collision_3" class="collision" pos="0.0 0.039 -0.001" euler="0 0 0" size="0.01 0.014 0.002" />
-            <geom name="th_px_collision_4" class="collision" pos="0.0 0.045 -0.005" euler="0 0 0" size="0.01 0.0025 0.002" />
-            <geom name="th_px_collision_5" class="collision" pos="0.0 0.039 0.0305" euler="0 0 0" size="0.01 0.014 0.002" />
             <geom name="th_px_collision_6" class="collision" pos="-0.0108 0.008 0.0145" euler="0 0 0" size="0.004 0.0125 0.0115" />
-            <geom name="th_px_uspa44" class="th_px_uspa44"/>
             <site name="th_px_uspa44" class="th_px_uspa44"/>
 
             <body name="th_ds" pos="-1.12757e-16 0.0446 4.16334e-17" quat="2.10665e-14 5.4264e-17 -3.33067e-16 1">
@@ -584,51 +540,47 @@
                material="black"/>
               <geom name="th_ds_collision_1" class="collision" pos="-0.006 -0.008 0.014" size="0.015 0.017 0.015" />
               <geom name="th_ds_collision_2" class="collision" pos="0.0098 -0.0081 0.0145" size="0.005 0.0125 0.0115" />
-              <geom name="th_ds_collision_3" class="collision" pos="-0.018 -0.042 0.014" size="0.004 0.017 0.015" />
-
-
+              
               <!--tip collision -->
-              <geom class="tip" pos="0.0049 -0.043 0.015" 
+              <geom name="th_tip_1" class="tip" pos="0.0049 -0.043 0.015" 
                   size="0.01 0.012 0.005"/>
-              <geom class="tip" pos="0.0092 -0.043 0.009" euler="0 -1.2 0"
+              <geom name="th_tip_2" class="tip" pos="0.0092 -0.043 0.009" euler="0 -1.2 0"
                   size="0.003 0.012 0.005"/>          
-              <geom class="tip" pos="0.006 -0.043 0.0065" euler="0 -0.5 0"
+              <geom name="th_tip_3" class="tip" pos="0.006 -0.043 0.0065" euler="0 -0.5 0"
                   size="0.005 0.012 0.005"/>
-              <geom class="tip" pos="-0.002 -0.043 0.0047" 
+              <geom name="th_tip_4" class="tip" pos="-0.002 -0.043 0.0047" 
                   size="0.006 0.012 0.005"/>
-              <geom class="tip" pos="0.0092 -0.043 0.021" euler="0 1.2 0"
+              <geom name="th_tip_5" class="tip" pos="0.0092 -0.043 0.021" euler="0 1.2 0"
                   size="0.003 0.012 0.005"/> 
-              <geom class="tip" pos="0.006 -0.043 0.0235" euler="0 0.5 0"
+              <geom name="th_tip_6" class="tip" pos="0.006 -0.043 0.0235" euler="0 0.5 0"
                   size="0.005 0.012 0.005"/> 
-              <geom class="tip" pos="-0.002 -0.043 0.0253" 
+              <geom name="th_tip_7" class="tip" pos="-0.002 -0.043 0.0253" 
                   size="0.006 0.012 0.005"/>
                 <!-- second layer -->
-              <geom class="tip" pos="0.008 -0.058 0.015" 
+              <geom name="th_tip_8" class="tip" pos="0.008 -0.058 0.015" 
                   size="0.005 0.006 0.005" euler="0 0 -0.4"/>
-              <geom class="tip" pos="0.005 -0.063 0.015" 
+              <geom name="th_tip_9" class="tip" pos="0.005 -0.063 0.015" 
                   size="0.005 0.003 0.005" euler="0 0 -1"/>
-              <geom class="tip" pos="-0.001 -0.0638 0.015" 
+              <geom name="th_tip_10" class="tip" pos="-0.001 -0.0638 0.015" 
                   size="0.005 0.006 0.005" euler="0 0 -1.57"/>
 
-              <geom class="tip" pos="-0.002 -0.058 0.023" 
+              <geom name="th_tip_11" class="tip" pos="-0.002 -0.058 0.023" 
                   size="0.006 0.006 0.005" euler="0.5 0 0"/>
-              <geom class="tip" pos="-0.002 -0.063 0.019" 
+              <geom name="th_tip_12" class="tip" pos="-0.002 -0.063 0.019" 
                   size="0.006 0.003 0.005" euler="0.9 0 0"/>
 
-              <geom class="tip" pos="-0.002 -0.058 0.007" 
+              <geom name="th_tip_13" class="tip" pos="-0.002 -0.058 0.007" 
                   size="0.006 0.006 0.005" euler="-0.5 0 0"/>
-              <geom class="tip" pos="-0.002 -0.063 0.011" 
+              <geom name="th_tip_14" class="tip" pos="-0.002 -0.063 0.011" 
                   size="0.006 0.003 0.005" euler="-0.9 0 0"/>
 
-              <geom class="tip" pos="0.006 -0.058 0.022" 
+              <geom name="th_tip_15" class="tip" pos="0.006 -0.058 0.022" 
                 size="0.005 0.006 0.003" euler="0 -1 -0.5"/>
               
-              <geom class="tip" pos="0.006 -0.058 0.009" 
+              <geom name="th_tip_16" class="tip" pos="0.006 -0.058 0.009" 
                 size="0.005 0.006 0.003" euler="0 1 -0.5"/>
               <!--End::tip collision -->
               
-              <geom name="th_tip" class="uSCuALHA"  pos="-0.00135925 -0.0300003 0.014504" 
-              euler="-1.57 0 -1.57"/>
               <site name="th_uSCuALHA" class="uSCuALHA"  pos="0.014 -0.045 0.0145" />
               <site name="th_tip" class="marker" pos="-0.004 -0.067  0.0145" />
 

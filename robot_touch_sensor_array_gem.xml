@@ -11,15 +11,15 @@
       <geom type="mesh" contype="0" conaffinity="0" group="1"/>
     </default>
     <default class="collision">
-      <geom type="box" group="2" material="col"/>
+      <geom type="box" group="3" material="col"/>
     </default>
     <default class="uspa46">
-      <geom size="0.021 0.01 0.015" type="box" group="3" material="orange"/>
-      <site size="0.001 0.005 0.005" group="3"/>
+      <geom size="0.021 0.01 0.015" type="box" group="4" material="orange"/>
+      <site size="0.001 0.005 0.005" group="4"/>
     </default>
     <default class="uspa44">
-      <geom size="0.011 0.011 0.011" type="box" group="3" material="orange"/>
-      <site size="0.001 0.005 0.005" group="3"/>
+      <geom size="0.011 0.011 0.011" type="box" group="4" material="orange"/>
+      <site size="0.001 0.005 0.005" group="4"/>
       <default class="bs_uspa44"/>
       <default class="px_uspa44"/>
       <default class="md_uspa44"/>
@@ -27,8 +27,8 @@
       <default class="th_px_uspa44"/>
     </default>
     <default class="uSCuALHA">
-      <geom type="mesh" group="3" friction="0.5" material="orange" mesh="outer_skin_v1_3_1"/>
-      <site size="0.001 0.005 0.005" group="3"/>
+      <geom type="mesh" group="4" friction="0.5" material="orange" mesh="outer_skin_v1_3_1"/>
+      <site size="0.001 0.005 0.005" group="4"/>
     </default>
     <default class="mcp">
       <joint limited="true" range="-0.314 2.23"/>
@@ -107,11 +107,8 @@
       <geom name="palm_visual_12" class="visual" pos="0 -0.023 0.0425" quat="0 0 -1 0" material="black" mesh="leap_hand_xela_bottom"/>
       <geom name="palm_visual_13" class="visual" pos="-0.0283776 -0.029 0.131221" quat="0.707107 0 -0.707107 0" material="black" mesh="palm_face"/>
       <geom name="palm_collision_1" class="collision" size="0.015 0.023 0.015" pos="-0.038 -0.002 0.14"/>
-      <geom name="palm_collision_2" class="collision" size="0.015 0.005 0.0125" pos="-0.038 -0.026 0.1414"/>
       <geom name="palm_collision_3" class="collision" size="0.015 0.023 0.015" pos="0.00745 -0.002 0.14"/>
-      <geom name="palm_collision_4" class="collision" size="0.015 0.005 0.0125" pos="0.00745 -0.026 0.1414"/>
       <geom name="palm_collision_5" class="collision" size="0.015 0.023 0.015" pos="0.0529 -0.002 0.14"/>
-      <geom name="palm_collision_6" class="collision" size="0.015 0.005 0.0125" pos="0.0529 -0.026 0.1414"/>
       <geom name="palm_collision_7" class="collision" size="0.035 0.03 0.02" pos="-0.012 0 0.1"/>
       <geom name="palm_collision_8" class="collision" size="0.025 0.03 0.02" pos="-0.003 0 0.06"/>
       <geom name="palm_collision_9" class="collision" size="0.04 0.03 0.01" pos="-0.037 0 0.08" quat="0.802096 0 0.597195 0"/>
@@ -119,107 +116,95 @@
       <geom name="palm_collision_11" class="collision" size="0.035 0.005 0.02" pos="0.036 0.025 0.1"/>
       <geom name="palm_collision_12" class="collision" size="0.035 0.03 0.005" pos="0.036 0 0.115"/>
       <geom name="palm_collision_13" class="collision" size="0.02 0.012 0.015" pos="0.039 -0.013 0.085"/>
-      <geom name="palm_collision_14" class="collision" size="0.023 0.004 0.015" pos="-0.0055 -0.028 0.063"/>
-      <geom name="palm_collision_15" class="collision" size="0.023 0.004 0.015" pos="-0.0055 -0.028 0.096"/>
-      <geom name="palm_collision_16" class="collision" size="0.023 0.004 0.015" pos="0.044 -0.028 0.096"/>
       <geom name="palm_collision_17" class="collision" size="0.02 0.02" pos="0 0 0.02" type="cylinder"/>
       <geom name="palm_collision_18" class="collision" size="0.035 0.005" pos="0 0 0.005" type="cylinder"/>
       <geom name="palm_collision_19" class="collision" size="0.012 0.011 0.005" pos="0.0529 -0.003 0.12"/>
       <geom name="palm_collision_20" class="collision" size="0.012 0.011 0.005" pos="0.008 -0.003 0.12"/>
       <geom name="palm_collision_21" class="collision" size="0.012 0.011 0.005" pos="-0.0375 -0.003 0.12"/>
-      <body name="uspa46_1">
-        <geom name="uspa46_1" class="uspa46" pos="-0.005 -0.022 0.096"/>
-        <site name="uspa46_1" class="uspa46" pos="0.016 -0.032 0.111"/>
-        <site name="uspa46_1_0_0_0" pos="0.016 -0.032 0.111" size="0.001" group="3"/>
-        <site name="uspa46_1_0_0_1" pos="0.016 -0.032 0.096" size="0.001" group="3"/>
-        <site name="uspa46_1_0_0_2" pos="0.016 -0.032 0.081" size="0.001" group="3"/>
-        <site name="uspa46_1_0_1_0" pos="0.016 -0.032 0.111" size="0.001" group="3"/>
-        <site name="uspa46_1_0_1_1" pos="0.016 -0.032 0.096" size="0.001" group="3"/>
-        <site name="uspa46_1_0_1_2" pos="0.016 -0.032 0.081" size="0.001" group="3"/>
-        <site name="uspa46_1_0_2_0" pos="0.016 -0.032 0.111" size="0.001" group="3"/>
-        <site name="uspa46_1_0_2_1" pos="0.016 -0.032 0.096" size="0.001" group="3"/>
-        <site name="uspa46_1_0_2_2" pos="0.016 -0.032 0.081" size="0.001" group="3"/>
-        <site name="uspa46_1_1_0_0" pos="-0.004 -0.032 0.111" size="0.001" group="3"/>
-        <site name="uspa46_1_1_0_1" pos="-0.004 -0.032 0.096" size="0.001" group="3"/>
-        <site name="uspa46_1_1_0_2" pos="-0.004 -0.032 0.081" size="0.001" group="3"/>
-        <site name="uspa46_1_1_1_0" pos="-0.004 -0.032 0.111" size="0.001" group="3"/>
-        <site name="uspa46_1_1_1_1" pos="-0.004 -0.032 0.096" size="0.001" group="3"/>
-        <site name="uspa46_1_1_1_2" pos="-0.004 -0.032 0.081" size="0.001" group="3"/>
-        <site name="uspa46_1_1_2_0" pos="-0.004 -0.032 0.111" size="0.001" group="3"/>
-        <site name="uspa46_1_1_2_1" pos="-0.004 -0.032 0.096" size="0.001" group="3"/>
-        <site name="uspa46_1_1_2_2" pos="-0.004 -0.032 0.081" size="0.001" group="3"/>
-        <site name="uspa46_1_2_0_0" pos="-0.024 -0.032 0.111" size="0.001" group="3"/>
-        <site name="uspa46_1_2_0_1" pos="-0.024 -0.032 0.096" size="0.001" group="3"/>
-        <site name="uspa46_1_2_0_2" pos="-0.024 -0.032 0.081" size="0.001" group="3"/>
-        <site name="uspa46_1_2_1_0" pos="-0.024 -0.032 0.111" size="0.001" group="3"/>
-        <site name="uspa46_1_2_1_1" pos="-0.024 -0.032 0.096" size="0.001" group="3"/>
-        <site name="uspa46_1_2_1_2" pos="-0.024 -0.032 0.081" size="0.001" group="3"/>
-        <site name="uspa46_1_2_2_0" pos="-0.024 -0.032 0.111" size="0.001" group="3"/>
-        <site name="uspa46_1_2_2_1" pos="-0.024 -0.032 0.096" size="0.001" group="3"/>
-        <site name="uspa46_1_2_2_2" pos="-0.024 -0.032 0.081" size="0.001" group="3"/>
-      </body>
-      <body name="uspa46_2">
-        <geom name="uspa46_2" class="uspa46" pos="0.044 -0.022 0.096"/>
-        <site name="uspa46_2" class="uspa46" pos="0.065 -0.032 0.111"/>
-        <site name="uspa46_2_0_0_0" pos="0.065 -0.032 0.111" size="0.001" group="3"/>
-        <site name="uspa46_2_0_0_1" pos="0.065 -0.032 0.096" size="0.001" group="3"/>
-        <site name="uspa46_2_0_0_2" pos="0.065 -0.032 0.081" size="0.001" group="3"/>
-        <site name="uspa46_2_0_1_0" pos="0.065 -0.032 0.111" size="0.001" group="3"/>
-        <site name="uspa46_2_0_1_1" pos="0.065 -0.032 0.096" size="0.001" group="3"/>
-        <site name="uspa46_2_0_1_2" pos="0.065 -0.032 0.081" size="0.001" group="3"/>
-        <site name="uspa46_2_0_2_0" pos="0.065 -0.032 0.111" size="0.001" group="3"/>
-        <site name="uspa46_2_0_2_1" pos="0.065 -0.032 0.096" size="0.001" group="3"/>
-        <site name="uspa46_2_0_2_2" pos="0.065 -0.032 0.081" size="0.001" group="3"/>
-        <site name="uspa46_2_1_0_0" pos="0.045 -0.032 0.111" size="0.001" group="3"/>
-        <site name="uspa46_2_1_0_1" pos="0.045 -0.032 0.096" size="0.001" group="3"/>
-        <site name="uspa46_2_1_0_2" pos="0.045 -0.032 0.081" size="0.001" group="3"/>
-        <site name="uspa46_2_1_1_0" pos="0.045 -0.032 0.111" size="0.001" group="3"/>
-        <site name="uspa46_2_1_1_1" pos="0.045 -0.032 0.096" size="0.001" group="3"/>
-        <site name="uspa46_2_1_1_2" pos="0.045 -0.032 0.081" size="0.001" group="3"/>
-        <site name="uspa46_2_1_2_0" pos="0.045 -0.032 0.111" size="0.001" group="3"/>
-        <site name="uspa46_2_1_2_1" pos="0.045 -0.032 0.096" size="0.001" group="3"/>
-        <site name="uspa46_2_1_2_2" pos="0.045 -0.032 0.081" size="0.001" group="3"/>
-        <site name="uspa46_2_2_0_0" pos="0.025 -0.032 0.111" size="0.001" group="3"/>
-        <site name="uspa46_2_2_0_1" pos="0.025 -0.032 0.096" size="0.001" group="3"/>
-        <site name="uspa46_2_2_0_2" pos="0.025 -0.032 0.081" size="0.001" group="3"/>
-        <site name="uspa46_2_2_1_0" pos="0.025 -0.032 0.111" size="0.001" group="3"/>
-        <site name="uspa46_2_2_1_1" pos="0.025 -0.032 0.096" size="0.001" group="3"/>
-        <site name="uspa46_2_2_1_2" pos="0.025 -0.032 0.081" size="0.001" group="3"/>
-        <site name="uspa46_2_2_2_0" pos="0.025 -0.032 0.111" size="0.001" group="3"/>
-        <site name="uspa46_2_2_2_1" pos="0.025 -0.032 0.096" size="0.001" group="3"/>
-        <site name="uspa46_2_2_2_2" pos="0.025 -0.032 0.081" size="0.001" group="3"/>
-      </body>
-      <body name="uspa46_3">
-        <geom name="uspa46_3" class="uspa46" pos="-0.005 -0.022 0.063"/>
-        <site name="uspa46_3" class="uspa46" pos="0.016 -0.032 0.078"/>
-        <site name="uspa46_3_0_0_0" pos="0.016 -0.032 0.078" size="0.001" group="3"/>
-        <site name="uspa46_3_0_0_1" pos="0.016 -0.032 0.063" size="0.001" group="3"/>
-        <site name="uspa46_3_0_0_2" pos="0.016 -0.032 0.048" size="0.001" group="3"/>
-        <site name="uspa46_3_0_1_0" pos="0.016 -0.032 0.078" size="0.001" group="3"/>
-        <site name="uspa46_3_0_1_1" pos="0.016 -0.032 0.063" size="0.001" group="3"/>
-        <site name="uspa46_3_0_1_2" pos="0.016 -0.032 0.048" size="0.001" group="3"/>
-        <site name="uspa46_3_0_2_0" pos="0.016 -0.032 0.078" size="0.001" group="3"/>
-        <site name="uspa46_3_0_2_1" pos="0.016 -0.032 0.063" size="0.001" group="3"/>
-        <site name="uspa46_3_0_2_2" pos="0.016 -0.032 0.048" size="0.001" group="3"/>
-        <site name="uspa46_3_1_0_0" pos="-0.004 -0.032 0.078" size="0.001" group="3"/>
-        <site name="uspa46_3_1_0_1" pos="-0.004 -0.032 0.063" size="0.001" group="3"/>
-        <site name="uspa46_3_1_0_2" pos="-0.004 -0.032 0.048" size="0.001" group="3"/>
-        <site name="uspa46_3_1_1_0" pos="-0.004 -0.032 0.078" size="0.001" group="3"/>
-        <site name="uspa46_3_1_1_1" pos="-0.004 -0.032 0.063" size="0.001" group="3"/>
-        <site name="uspa46_3_1_1_2" pos="-0.004 -0.032 0.048" size="0.001" group="3"/>
-        <site name="uspa46_3_1_2_0" pos="-0.004 -0.032 0.078" size="0.001" group="3"/>
-        <site name="uspa46_3_1_2_1" pos="-0.004 -0.032 0.063" size="0.001" group="3"/>
-        <site name="uspa46_3_1_2_2" pos="-0.004 -0.032 0.048" size="0.001" group="3"/>
-        <site name="uspa46_3_2_0_0" pos="-0.024 -0.032 0.078" size="0.001" group="3"/>
-        <site name="uspa46_3_2_0_1" pos="-0.024 -0.032 0.063" size="0.001" group="3"/>
-        <site name="uspa46_3_2_0_2" pos="-0.024 -0.032 0.048" size="0.001" group="3"/>
-        <site name="uspa46_3_2_1_0" pos="-0.024 -0.032 0.078" size="0.001" group="3"/>
-        <site name="uspa46_3_2_1_1" pos="-0.024 -0.032 0.063" size="0.001" group="3"/>
-        <site name="uspa46_3_2_1_2" pos="-0.024 -0.032 0.048" size="0.001" group="3"/>
-        <site name="uspa46_3_2_2_0" pos="-0.024 -0.032 0.078" size="0.001" group="3"/>
-        <site name="uspa46_3_2_2_1" pos="-0.024 -0.032 0.063" size="0.001" group="3"/>
-        <site name="uspa46_3_2_2_2" pos="-0.024 -0.032 0.048" size="0.001" group="3"/>
-      </body>
+      <site name="uspa46_1" class="uspa46" pos="0.016 -0.032 0.111"/>
+      <site name="uspa46_2" class="uspa46" pos="0.065 -0.032 0.111"/>
+      <site name="uspa46_3" class="uspa46" pos="0.016 -0.032 0.078"/>
+      <site name="uspa46_1_0_0_0" pos="0.016 -0.032 0.111" size="0.001" group="3"/>
+      <site name="uspa46_1_0_0_1" pos="0.016 -0.032 0.096" size="0.001" group="3"/>
+      <site name="uspa46_1_0_0_2" pos="0.016 -0.032 0.081" size="0.001" group="3"/>
+      <site name="uspa46_1_0_1_0" pos="0.016 -0.032 0.111" size="0.001" group="3"/>
+      <site name="uspa46_1_0_1_1" pos="0.016 -0.032 0.096" size="0.001" group="3"/>
+      <site name="uspa46_1_0_1_2" pos="0.016 -0.032 0.081" size="0.001" group="3"/>
+      <site name="uspa46_1_0_2_0" pos="0.016 -0.032 0.111" size="0.001" group="3"/>
+      <site name="uspa46_1_0_2_1" pos="0.016 -0.032 0.096" size="0.001" group="3"/>
+      <site name="uspa46_1_0_2_2" pos="0.016 -0.032 0.081" size="0.001" group="3"/>
+      <site name="uspa46_1_1_0_0" pos="-0.004 -0.032 0.111" size="0.001" group="3"/>
+      <site name="uspa46_1_1_0_1" pos="-0.004 -0.032 0.096" size="0.001" group="3"/>
+      <site name="uspa46_1_1_0_2" pos="-0.004 -0.032 0.081" size="0.001" group="3"/>
+      <site name="uspa46_1_1_1_0" pos="-0.004 -0.032 0.111" size="0.001" group="3"/>
+      <site name="uspa46_1_1_1_1" pos="-0.004 -0.032 0.096" size="0.001" group="3"/>
+      <site name="uspa46_1_1_1_2" pos="-0.004 -0.032 0.081" size="0.001" group="3"/>
+      <site name="uspa46_1_1_2_0" pos="-0.004 -0.032 0.111" size="0.001" group="3"/>
+      <site name="uspa46_1_1_2_1" pos="-0.004 -0.032 0.096" size="0.001" group="3"/>
+      <site name="uspa46_1_1_2_2" pos="-0.004 -0.032 0.081" size="0.001" group="3"/>
+      <site name="uspa46_1_2_0_0" pos="-0.024 -0.032 0.111" size="0.001" group="3"/>
+      <site name="uspa46_1_2_0_1" pos="-0.024 -0.032 0.096" size="0.001" group="3"/>
+      <site name="uspa46_1_2_0_2" pos="-0.024 -0.032 0.081" size="0.001" group="3"/>
+      <site name="uspa46_1_2_1_0" pos="-0.024 -0.032 0.111" size="0.001" group="3"/>
+      <site name="uspa46_1_2_1_1" pos="-0.024 -0.032 0.096" size="0.001" group="3"/>
+      <site name="uspa46_1_2_1_2" pos="-0.024 -0.032 0.081" size="0.001" group="3"/>
+      <site name="uspa46_1_2_2_0" pos="-0.024 -0.032 0.111" size="0.001" group="3"/>
+      <site name="uspa46_1_2_2_1" pos="-0.024 -0.032 0.096" size="0.001" group="3"/>
+      <site name="uspa46_1_2_2_2" pos="-0.024 -0.032 0.081" size="0.001" group="3"/>
+      <site name="uspa46_2_0_0_0" pos="0.065 -0.032 0.111" size="0.001" group="3"/>
+      <site name="uspa46_2_0_0_1" pos="0.065 -0.032 0.096" size="0.001" group="3"/>
+      <site name="uspa46_2_0_0_2" pos="0.065 -0.032 0.081" size="0.001" group="3"/>
+      <site name="uspa46_2_0_1_0" pos="0.065 -0.032 0.111" size="0.001" group="3"/>
+      <site name="uspa46_2_0_1_1" pos="0.065 -0.032 0.096" size="0.001" group="3"/>
+      <site name="uspa46_2_0_1_2" pos="0.065 -0.032 0.081" size="0.001" group="3"/>
+      <site name="uspa46_2_0_2_0" pos="0.065 -0.032 0.111" size="0.001" group="3"/>
+      <site name="uspa46_2_0_2_1" pos="0.065 -0.032 0.096" size="0.001" group="3"/>
+      <site name="uspa46_2_0_2_2" pos="0.065 -0.032 0.081" size="0.001" group="3"/>
+      <site name="uspa46_2_1_0_0" pos="0.045 -0.032 0.111" size="0.001" group="3"/>
+      <site name="uspa46_2_1_0_1" pos="0.045 -0.032 0.096" size="0.001" group="3"/>
+      <site name="uspa46_2_1_0_2" pos="0.045 -0.032 0.081" size="0.001" group="3"/>
+      <site name="uspa46_2_1_1_0" pos="0.045 -0.032 0.111" size="0.001" group="3"/>
+      <site name="uspa46_2_1_1_1" pos="0.045 -0.032 0.096" size="0.001" group="3"/>
+      <site name="uspa46_2_1_1_2" pos="0.045 -0.032 0.081" size="0.001" group="3"/>
+      <site name="uspa46_2_1_2_0" pos="0.045 -0.032 0.111" size="0.001" group="3"/>
+      <site name="uspa46_2_1_2_1" pos="0.045 -0.032 0.096" size="0.001" group="3"/>
+      <site name="uspa46_2_1_2_2" pos="0.045 -0.032 0.081" size="0.001" group="3"/>
+      <site name="uspa46_2_2_0_0" pos="0.025 -0.032 0.111" size="0.001" group="3"/>
+      <site name="uspa46_2_2_0_1" pos="0.025 -0.032 0.096" size="0.001" group="3"/>
+      <site name="uspa46_2_2_0_2" pos="0.025 -0.032 0.081" size="0.001" group="3"/>
+      <site name="uspa46_2_2_1_0" pos="0.025 -0.032 0.111" size="0.001" group="3"/>
+      <site name="uspa46_2_2_1_1" pos="0.025 -0.032 0.096" size="0.001" group="3"/>
+      <site name="uspa46_2_2_1_2" pos="0.025 -0.032 0.081" size="0.001" group="3"/>
+      <site name="uspa46_2_2_2_0" pos="0.025 -0.032 0.111" size="0.001" group="3"/>
+      <site name="uspa46_2_2_2_1" pos="0.025 -0.032 0.096" size="0.001" group="3"/>
+      <site name="uspa46_2_2_2_2" pos="0.025 -0.032 0.081" size="0.001" group="3"/>
+      <site name="uspa46_3_0_0_0" pos="0.016 -0.032 0.078" size="0.001" group="3"/>
+      <site name="uspa46_3_0_0_1" pos="0.016 -0.032 0.063" size="0.001" group="3"/>
+      <site name="uspa46_3_0_0_2" pos="0.016 -0.032 0.048" size="0.001" group="3"/>
+      <site name="uspa46_3_0_1_0" pos="0.016 -0.032 0.078" size="0.001" group="3"/>
+      <site name="uspa46_3_0_1_1" pos="0.016 -0.032 0.063" size="0.001" group="3"/>
+      <site name="uspa46_3_0_1_2" pos="0.016 -0.032 0.048" size="0.001" group="3"/>
+      <site name="uspa46_3_0_2_0" pos="0.016 -0.032 0.078" size="0.001" group="3"/>
+      <site name="uspa46_3_0_2_1" pos="0.016 -0.032 0.063" size="0.001" group="3"/>
+      <site name="uspa46_3_0_2_2" pos="0.016 -0.032 0.048" size="0.001" group="3"/>
+      <site name="uspa46_3_1_0_0" pos="-0.004 -0.032 0.078" size="0.001" group="3"/>
+      <site name="uspa46_3_1_0_1" pos="-0.004 -0.032 0.063" size="0.001" group="3"/>
+      <site name="uspa46_3_1_0_2" pos="-0.004 -0.032 0.048" size="0.001" group="3"/>
+      <site name="uspa46_3_1_1_0" pos="-0.004 -0.032 0.078" size="0.001" group="3"/>
+      <site name="uspa46_3_1_1_1" pos="-0.004 -0.032 0.063" size="0.001" group="3"/>
+      <site name="uspa46_3_1_1_2" pos="-0.004 -0.032 0.048" size="0.001" group="3"/>
+      <site name="uspa46_3_1_2_0" pos="-0.004 -0.032 0.078" size="0.001" group="3"/>
+      <site name="uspa46_3_1_2_1" pos="-0.004 -0.032 0.063" size="0.001" group="3"/>
+      <site name="uspa46_3_1_2_2" pos="-0.004 -0.032 0.048" size="0.001" group="3"/>
+      <site name="uspa46_3_2_0_0" pos="-0.024 -0.032 0.078" size="0.001" group="3"/>
+      <site name="uspa46_3_2_0_1" pos="-0.024 -0.032 0.063" size="0.001" group="3"/>
+      <site name="uspa46_3_2_0_2" pos="-0.024 -0.032 0.048" size="0.001" group="3"/>
+      <site name="uspa46_3_2_1_0" pos="-0.024 -0.032 0.078" size="0.001" group="3"/>
+      <site name="uspa46_3_2_1_1" pos="-0.024 -0.032 0.063" size="0.001" group="3"/>
+      <site name="uspa46_3_2_1_2" pos="-0.024 -0.032 0.048" size="0.001" group="3"/>
+      <site name="uspa46_3_2_2_0" pos="-0.024 -0.032 0.078" size="0.001" group="3"/>
+      <site name="uspa46_3_2_2_1" pos="-0.024 -0.032 0.063" size="0.001" group="3"/>
+      <site name="uspa46_3_2_2_2" pos="-0.024 -0.032 0.048" size="0.001" group="3"/>
       <body name="if_bs" pos="0.06773 -0.0165 0.1436" quat="0 0.707107 0 0.707107">
         <inertial pos="0.0342889 -0.0265621 -0.0145004" quat="0.612791 0.580477 0.431308 0.318601" mass="0.044" diaginertia="7.5816e-05 7.223e-05 3.79383e-05"/>
         <joint name="if_mcp" class="mcp" pos="0 0 0" axis="0 0 1"/>
@@ -761,23 +746,9 @@
   </actuator>
 
   <sensor>
-    <jointpos joint="if_mcp" name="if_mcp_sensor"/>
-    <jointpos joint="if_rot" name="if_rot_sensor"/>
-    <jointpos joint="if_pip" name="if_pip_sensor"/>
-    <jointpos joint="if_dip" name="if_dip_sensor"/>
-    <jointpos joint="mf_mcp" name="mf_mcp_sensor"/>
-    <jointpos joint="mf_rot" name="mf_rot_sensor"/>
-    <jointpos joint="mf_pip" name="mf_pip_sensor"/>
-    <jointpos joint="mf_dip" name="mf_dip_sensor"/>
-    <jointpos joint="rf_mcp" name="rf_mcp_sensor"/>
-    <jointpos joint="rf_rot" name="rf_rot_sensor"/>
-    <jointpos joint="rf_pip" name="rf_pip_sensor"/>
-    <jointpos joint="rf_dip" name="rf_dip_sensor"/>
-    <jointpos joint="th_cmc" name="th_cmc_sensor"/>
-    <jointpos joint="th_axl" name="th_axl_sensor"/>
-    <jointpos joint="th_mcp" name="th_mcp_sensor"/>
-    <jointpos joint="th_ipl" name="th_ipl_sensor"/>
     <touch site="uspa46_1" name="uspa46_1_touch"/>
+    <touch site="uspa46_2" name="uspa46_2_touch"/>
+    <touch site="uspa46_3" name="uspa46_3_touch"/>
     <touch site="uspa46_1_0_0_0" name="uspa46_1_0_0_0_touch"/>
     <touch site="uspa46_1_0_0_1" name="uspa46_1_0_0_1_touch"/>
     <touch site="uspa46_1_0_0_2" name="uspa46_1_0_0_2_touch"/>
@@ -805,7 +776,6 @@
     <touch site="uspa46_1_2_2_0" name="uspa46_1_2_2_0_touch"/>
     <touch site="uspa46_1_2_2_1" name="uspa46_1_2_2_1_touch"/>
     <touch site="uspa46_1_2_2_2" name="uspa46_1_2_2_2_touch"/>
-    <touch site="uspa46_2" name="uspa46_2_touch"/>
     <touch site="uspa46_2_0_0_0" name="uspa46_2_0_0_0_touch"/>
     <touch site="uspa46_2_0_0_1" name="uspa46_2_0_0_1_touch"/>
     <touch site="uspa46_2_0_0_2" name="uspa46_2_0_0_2_touch"/>
@@ -833,7 +803,6 @@
     <touch site="uspa46_2_2_2_0" name="uspa46_2_2_2_0_touch"/>
     <touch site="uspa46_2_2_2_1" name="uspa46_2_2_2_1_touch"/>
     <touch site="uspa46_2_2_2_2" name="uspa46_2_2_2_2_touch"/>
-    <touch site="uspa46_3" name="uspa46_3_touch"/>
     <touch site="uspa46_3_0_0_0" name="uspa46_3_0_0_0_touch"/>
     <touch site="uspa46_3_0_0_1" name="uspa46_3_0_0_1_touch"/>
     <touch site="uspa46_3_0_0_2" name="uspa46_3_0_0_2_touch"/>
@@ -1197,425 +1166,5 @@
     <touch site="th_uSCuALHA_0.01_0_ass" name="th_uSCuALHA_0.01_0_ass_touch"/>
     <touch site="th_uSCuALHA_0.01_1_ass" name="th_uSCuALHA_0.01_1_ass_touch"/>
     <touch site="th_uSCuALHA_buttom_ass" name="th_uSCuALHA_buttom_ass_touch"/>
-    <force site="uspa46_1" name="uspa46_1_force"/>
-    <force site="uspa46_1_0_0_0" name="uspa46_1_0_0_0_force"/>
-    <force site="uspa46_1_0_0_1" name="uspa46_1_0_0_1_force"/>
-    <force site="uspa46_1_0_0_2" name="uspa46_1_0_0_2_force"/>
-    <force site="uspa46_1_0_1_0" name="uspa46_1_0_1_0_force"/>
-    <force site="uspa46_1_0_1_1" name="uspa46_1_0_1_1_force"/>
-    <force site="uspa46_1_0_1_2" name="uspa46_1_0_1_2_force"/>
-    <force site="uspa46_1_0_2_0" name="uspa46_1_0_2_0_force"/>
-    <force site="uspa46_1_0_2_1" name="uspa46_1_0_2_1_force"/>
-    <force site="uspa46_1_0_2_2" name="uspa46_1_0_2_2_force"/>
-    <force site="uspa46_1_1_0_0" name="uspa46_1_1_0_0_force"/>
-    <force site="uspa46_1_1_0_1" name="uspa46_1_1_0_1_force"/>
-    <force site="uspa46_1_1_0_2" name="uspa46_1_1_0_2_force"/>
-    <force site="uspa46_1_1_1_0" name="uspa46_1_1_1_0_force"/>
-    <force site="uspa46_1_1_1_1" name="uspa46_1_1_1_1_force"/>
-    <force site="uspa46_1_1_1_2" name="uspa46_1_1_1_2_force"/>
-    <force site="uspa46_1_1_2_0" name="uspa46_1_1_2_0_force"/>
-    <force site="uspa46_1_1_2_1" name="uspa46_1_1_2_1_force"/>
-    <force site="uspa46_1_1_2_2" name="uspa46_1_1_2_2_force"/>
-    <force site="uspa46_1_2_0_0" name="uspa46_1_2_0_0_force"/>
-    <force site="uspa46_1_2_0_1" name="uspa46_1_2_0_1_force"/>
-    <force site="uspa46_1_2_0_2" name="uspa46_1_2_0_2_force"/>
-    <force site="uspa46_1_2_1_0" name="uspa46_1_2_1_0_force"/>
-    <force site="uspa46_1_2_1_1" name="uspa46_1_2_1_1_force"/>
-    <force site="uspa46_1_2_1_2" name="uspa46_1_2_1_2_force"/>
-    <force site="uspa46_1_2_2_0" name="uspa46_1_2_2_0_force"/>
-    <force site="uspa46_1_2_2_1" name="uspa46_1_2_2_1_force"/>
-    <force site="uspa46_1_2_2_2" name="uspa46_1_2_2_2_force"/>
-    <force site="uspa46_2" name="uspa46_2_force"/>
-    <force site="uspa46_2_0_0_0" name="uspa46_2_0_0_0_force"/>
-    <force site="uspa46_2_0_0_1" name="uspa46_2_0_0_1_force"/>
-    <force site="uspa46_2_0_0_2" name="uspa46_2_0_0_2_force"/>
-    <force site="uspa46_2_0_1_0" name="uspa46_2_0_1_0_force"/>
-    <force site="uspa46_2_0_1_1" name="uspa46_2_0_1_1_force"/>
-    <force site="uspa46_2_0_1_2" name="uspa46_2_0_1_2_force"/>
-    <force site="uspa46_2_0_2_0" name="uspa46_2_0_2_0_force"/>
-    <force site="uspa46_2_0_2_1" name="uspa46_2_0_2_1_force"/>
-    <force site="uspa46_2_0_2_2" name="uspa46_2_0_2_2_force"/>
-    <force site="uspa46_2_1_0_0" name="uspa46_2_1_0_0_force"/>
-    <force site="uspa46_2_1_0_1" name="uspa46_2_1_0_1_force"/>
-    <force site="uspa46_2_1_0_2" name="uspa46_2_1_0_2_force"/>
-    <force site="uspa46_2_1_1_0" name="uspa46_2_1_1_0_force"/>
-    <force site="uspa46_2_1_1_1" name="uspa46_2_1_1_1_force"/>
-    <force site="uspa46_2_1_1_2" name="uspa46_2_1_1_2_force"/>
-    <force site="uspa46_2_1_2_0" name="uspa46_2_1_2_0_force"/>
-    <force site="uspa46_2_1_2_1" name="uspa46_2_1_2_1_force"/>
-    <force site="uspa46_2_1_2_2" name="uspa46_2_1_2_2_force"/>
-    <force site="uspa46_2_2_0_0" name="uspa46_2_2_0_0_force"/>
-    <force site="uspa46_2_2_0_1" name="uspa46_2_2_0_1_force"/>
-    <force site="uspa46_2_2_0_2" name="uspa46_2_2_0_2_force"/>
-    <force site="uspa46_2_2_1_0" name="uspa46_2_2_1_0_force"/>
-    <force site="uspa46_2_2_1_1" name="uspa46_2_2_1_1_force"/>
-    <force site="uspa46_2_2_1_2" name="uspa46_2_2_1_2_force"/>
-    <force site="uspa46_2_2_2_0" name="uspa46_2_2_2_0_force"/>
-    <force site="uspa46_2_2_2_1" name="uspa46_2_2_2_1_force"/>
-    <force site="uspa46_2_2_2_2" name="uspa46_2_2_2_2_force"/>
-    <force site="uspa46_3" name="uspa46_3_force"/>
-    <force site="uspa46_3_0_0_0" name="uspa46_3_0_0_0_force"/>
-    <force site="uspa46_3_0_0_1" name="uspa46_3_0_0_1_force"/>
-    <force site="uspa46_3_0_0_2" name="uspa46_3_0_0_2_force"/>
-    <force site="uspa46_3_0_1_0" name="uspa46_3_0_1_0_force"/>
-    <force site="uspa46_3_0_1_1" name="uspa46_3_0_1_1_force"/>
-    <force site="uspa46_3_0_1_2" name="uspa46_3_0_1_2_force"/>
-    <force site="uspa46_3_0_2_0" name="uspa46_3_0_2_0_force"/>
-    <force site="uspa46_3_0_2_1" name="uspa46_3_0_2_1_force"/>
-    <force site="uspa46_3_0_2_2" name="uspa46_3_0_2_2_force"/>
-    <force site="uspa46_3_1_0_0" name="uspa46_3_1_0_0_force"/>
-    <force site="uspa46_3_1_0_1" name="uspa46_3_1_0_1_force"/>
-    <force site="uspa46_3_1_0_2" name="uspa46_3_1_0_2_force"/>
-    <force site="uspa46_3_1_1_0" name="uspa46_3_1_1_0_force"/>
-    <force site="uspa46_3_1_1_1" name="uspa46_3_1_1_1_force"/>
-    <force site="uspa46_3_1_1_2" name="uspa46_3_1_1_2_force"/>
-    <force site="uspa46_3_1_2_0" name="uspa46_3_1_2_0_force"/>
-    <force site="uspa46_3_1_2_1" name="uspa46_3_1_2_1_force"/>
-    <force site="uspa46_3_1_2_2" name="uspa46_3_1_2_2_force"/>
-    <force site="uspa46_3_2_0_0" name="uspa46_3_2_0_0_force"/>
-    <force site="uspa46_3_2_0_1" name="uspa46_3_2_0_1_force"/>
-    <force site="uspa46_3_2_0_2" name="uspa46_3_2_0_2_force"/>
-    <force site="uspa46_3_2_1_0" name="uspa46_3_2_1_0_force"/>
-    <force site="uspa46_3_2_1_1" name="uspa46_3_2_1_1_force"/>
-    <force site="uspa46_3_2_1_2" name="uspa46_3_2_1_2_force"/>
-    <force site="uspa46_3_2_2_0" name="uspa46_3_2_2_0_force"/>
-    <force site="uspa46_3_2_2_1" name="uspa46_3_2_2_1_force"/>
-    <force site="uspa46_3_2_2_2" name="uspa46_3_2_2_2_force"/>
-    <force site="if_bs_uspa44" name="if_bs_uspa44_force"/>
-    <force site="if_bs_uspa44_0_0_0" name="if_bs_uspa44_0_0_0_force"/>
-    <force site="if_bs_uspa44_0_0_1" name="if_bs_uspa44_0_0_1_force"/>
-    <force site="if_bs_uspa44_0_0_2" name="if_bs_uspa44_0_0_2_force"/>
-    <force site="if_bs_uspa44_0_1_0" name="if_bs_uspa44_0_1_0_force"/>
-    <force site="if_bs_uspa44_0_1_1" name="if_bs_uspa44_0_1_1_force"/>
-    <force site="if_bs_uspa44_0_1_2" name="if_bs_uspa44_0_1_2_force"/>
-    <force site="if_bs_uspa44_0_2_0" name="if_bs_uspa44_0_2_0_force"/>
-    <force site="if_bs_uspa44_0_2_1" name="if_bs_uspa44_0_2_1_force"/>
-    <force site="if_bs_uspa44_0_2_2" name="if_bs_uspa44_0_2_2_force"/>
-    <force site="if_bs_uspa44_1_0_0" name="if_bs_uspa44_1_0_0_force"/>
-    <force site="if_bs_uspa44_1_0_1" name="if_bs_uspa44_1_0_1_force"/>
-    <force site="if_bs_uspa44_1_0_2" name="if_bs_uspa44_1_0_2_force"/>
-    <force site="if_bs_uspa44_1_1_0" name="if_bs_uspa44_1_1_0_force"/>
-    <force site="if_bs_uspa44_1_1_1" name="if_bs_uspa44_1_1_1_force"/>
-    <force site="if_bs_uspa44_1_1_2" name="if_bs_uspa44_1_1_2_force"/>
-    <force site="if_bs_uspa44_1_2_0" name="if_bs_uspa44_1_2_0_force"/>
-    <force site="if_bs_uspa44_1_2_1" name="if_bs_uspa44_1_2_1_force"/>
-    <force site="if_bs_uspa44_1_2_2" name="if_bs_uspa44_1_2_2_force"/>
-    <force site="if_bs_uspa44_2_0_0" name="if_bs_uspa44_2_0_0_force"/>
-    <force site="if_bs_uspa44_2_0_1" name="if_bs_uspa44_2_0_1_force"/>
-    <force site="if_bs_uspa44_2_0_2" name="if_bs_uspa44_2_0_2_force"/>
-    <force site="if_bs_uspa44_2_1_0" name="if_bs_uspa44_2_1_0_force"/>
-    <force site="if_bs_uspa44_2_1_1" name="if_bs_uspa44_2_1_1_force"/>
-    <force site="if_bs_uspa44_2_1_2" name="if_bs_uspa44_2_1_2_force"/>
-    <force site="if_bs_uspa44_2_2_0" name="if_bs_uspa44_2_2_0_force"/>
-    <force site="if_bs_uspa44_2_2_1" name="if_bs_uspa44_2_2_1_force"/>
-    <force site="if_bs_uspa44_2_2_2" name="if_bs_uspa44_2_2_2_force"/>
-    <force site="if_px_uspa44" name="if_px_uspa44_force"/>
-    <force site="if_px_uspa44_0_0_0" name="if_px_uspa44_0_0_0_force"/>
-    <force site="if_px_uspa44_0_0_1" name="if_px_uspa44_0_0_1_force"/>
-    <force site="if_px_uspa44_0_0_2" name="if_px_uspa44_0_0_2_force"/>
-    <force site="if_px_uspa44_0_1_0" name="if_px_uspa44_0_1_0_force"/>
-    <force site="if_px_uspa44_0_1_1" name="if_px_uspa44_0_1_1_force"/>
-    <force site="if_px_uspa44_0_1_2" name="if_px_uspa44_0_1_2_force"/>
-    <force site="if_px_uspa44_0_2_0" name="if_px_uspa44_0_2_0_force"/>
-    <force site="if_px_uspa44_0_2_1" name="if_px_uspa44_0_2_1_force"/>
-    <force site="if_px_uspa44_0_2_2" name="if_px_uspa44_0_2_2_force"/>
-    <force site="if_px_uspa44_1_0_0" name="if_px_uspa44_1_0_0_force"/>
-    <force site="if_px_uspa44_1_0_1" name="if_px_uspa44_1_0_1_force"/>
-    <force site="if_px_uspa44_1_0_2" name="if_px_uspa44_1_0_2_force"/>
-    <force site="if_px_uspa44_1_1_0" name="if_px_uspa44_1_1_0_force"/>
-    <force site="if_px_uspa44_1_1_1" name="if_px_uspa44_1_1_1_force"/>
-    <force site="if_px_uspa44_1_1_2" name="if_px_uspa44_1_1_2_force"/>
-    <force site="if_px_uspa44_1_2_0" name="if_px_uspa44_1_2_0_force"/>
-    <force site="if_px_uspa44_1_2_1" name="if_px_uspa44_1_2_1_force"/>
-    <force site="if_px_uspa44_1_2_2" name="if_px_uspa44_1_2_2_force"/>
-    <force site="if_px_uspa44_2_0_0" name="if_px_uspa44_2_0_0_force"/>
-    <force site="if_px_uspa44_2_0_1" name="if_px_uspa44_2_0_1_force"/>
-    <force site="if_px_uspa44_2_0_2" name="if_px_uspa44_2_0_2_force"/>
-    <force site="if_px_uspa44_2_1_0" name="if_px_uspa44_2_1_0_force"/>
-    <force site="if_px_uspa44_2_1_1" name="if_px_uspa44_2_1_1_force"/>
-    <force site="if_px_uspa44_2_1_2" name="if_px_uspa44_2_1_2_force"/>
-    <force site="if_px_uspa44_2_2_0" name="if_px_uspa44_2_2_0_force"/>
-    <force site="if_px_uspa44_2_2_1" name="if_px_uspa44_2_2_1_force"/>
-    <force site="if_px_uspa44_2_2_2" name="if_px_uspa44_2_2_2_force"/>
-    <force site="if_md_uspa44" name="if_md_uspa44_force"/>
-    <force site="if_md_uspa44_0_0_0" name="if_md_uspa44_0_0_0_force"/>
-    <force site="if_md_uspa44_0_0_1" name="if_md_uspa44_0_0_1_force"/>
-    <force site="if_md_uspa44_0_0_2" name="if_md_uspa44_0_0_2_force"/>
-    <force site="if_md_uspa44_0_1_0" name="if_md_uspa44_0_1_0_force"/>
-    <force site="if_md_uspa44_0_1_1" name="if_md_uspa44_0_1_1_force"/>
-    <force site="if_md_uspa44_0_1_2" name="if_md_uspa44_0_1_2_force"/>
-    <force site="if_md_uspa44_0_2_0" name="if_md_uspa44_0_2_0_force"/>
-    <force site="if_md_uspa44_0_2_1" name="if_md_uspa44_0_2_1_force"/>
-    <force site="if_md_uspa44_0_2_2" name="if_md_uspa44_0_2_2_force"/>
-    <force site="if_md_uspa44_1_0_0" name="if_md_uspa44_1_0_0_force"/>
-    <force site="if_md_uspa44_1_0_1" name="if_md_uspa44_1_0_1_force"/>
-    <force site="if_md_uspa44_1_0_2" name="if_md_uspa44_1_0_2_force"/>
-    <force site="if_md_uspa44_1_1_0" name="if_md_uspa44_1_1_0_force"/>
-    <force site="if_md_uspa44_1_1_1" name="if_md_uspa44_1_1_1_force"/>
-    <force site="if_md_uspa44_1_1_2" name="if_md_uspa44_1_1_2_force"/>
-    <force site="if_md_uspa44_1_2_0" name="if_md_uspa44_1_2_0_force"/>
-    <force site="if_md_uspa44_1_2_1" name="if_md_uspa44_1_2_1_force"/>
-    <force site="if_md_uspa44_1_2_2" name="if_md_uspa44_1_2_2_force"/>
-    <force site="if_md_uspa44_2_0_0" name="if_md_uspa44_2_0_0_force"/>
-    <force site="if_md_uspa44_2_0_1" name="if_md_uspa44_2_0_1_force"/>
-    <force site="if_md_uspa44_2_0_2" name="if_md_uspa44_2_0_2_force"/>
-    <force site="if_md_uspa44_2_1_0" name="if_md_uspa44_2_1_0_force"/>
-    <force site="if_md_uspa44_2_1_1" name="if_md_uspa44_2_1_1_force"/>
-    <force site="if_md_uspa44_2_1_2" name="if_md_uspa44_2_1_2_force"/>
-    <force site="if_md_uspa44_2_2_0" name="if_md_uspa44_2_2_0_force"/>
-    <force site="if_md_uspa44_2_2_1" name="if_md_uspa44_2_2_1_force"/>
-    <force site="if_md_uspa44_2_2_2" name="if_md_uspa44_2_2_2_force"/>
-    <force site="if_uSCuALHA" name="if_uSCuALHA_force"/>
-    <force site="if_uSCuALHA_top_ass" name="if_uSCuALHA_top_ass_force"/>
-    <force site="if_uSCuALHA_0_0_ass" name="if_uSCuALHA_0_0_ass_force"/>
-    <force site="if_uSCuALHA_0_1_ass" name="if_uSCuALHA_0_1_ass_force"/>
-    <force site="if_uSCuALHA_0.01_0_ass" name="if_uSCuALHA_0.01_0_ass_force"/>
-    <force site="if_uSCuALHA_0.01_1_ass" name="if_uSCuALHA_0.01_1_ass_force"/>
-    <force site="if_uSCuALHA_buttom_ass" name="if_uSCuALHA_buttom_ass_force"/>
-    <force site="mf_bs_uspa44" name="mf_bs_uspa44_force"/>
-    <force site="mf_bs_uspa44_0_0_0" name="mf_bs_uspa44_0_0_0_force"/>
-    <force site="mf_bs_uspa44_0_0_1" name="mf_bs_uspa44_0_0_1_force"/>
-    <force site="mf_bs_uspa44_0_0_2" name="mf_bs_uspa44_0_0_2_force"/>
-    <force site="mf_bs_uspa44_0_1_0" name="mf_bs_uspa44_0_1_0_force"/>
-    <force site="mf_bs_uspa44_0_1_1" name="mf_bs_uspa44_0_1_1_force"/>
-    <force site="mf_bs_uspa44_0_1_2" name="mf_bs_uspa44_0_1_2_force"/>
-    <force site="mf_bs_uspa44_0_2_0" name="mf_bs_uspa44_0_2_0_force"/>
-    <force site="mf_bs_uspa44_0_2_1" name="mf_bs_uspa44_0_2_1_force"/>
-    <force site="mf_bs_uspa44_0_2_2" name="mf_bs_uspa44_0_2_2_force"/>
-    <force site="mf_bs_uspa44_1_0_0" name="mf_bs_uspa44_1_0_0_force"/>
-    <force site="mf_bs_uspa44_1_0_1" name="mf_bs_uspa44_1_0_1_force"/>
-    <force site="mf_bs_uspa44_1_0_2" name="mf_bs_uspa44_1_0_2_force"/>
-    <force site="mf_bs_uspa44_1_1_0" name="mf_bs_uspa44_1_1_0_force"/>
-    <force site="mf_bs_uspa44_1_1_1" name="mf_bs_uspa44_1_1_1_force"/>
-    <force site="mf_bs_uspa44_1_1_2" name="mf_bs_uspa44_1_1_2_force"/>
-    <force site="mf_bs_uspa44_1_2_0" name="mf_bs_uspa44_1_2_0_force"/>
-    <force site="mf_bs_uspa44_1_2_1" name="mf_bs_uspa44_1_2_1_force"/>
-    <force site="mf_bs_uspa44_1_2_2" name="mf_bs_uspa44_1_2_2_force"/>
-    <force site="mf_bs_uspa44_2_0_0" name="mf_bs_uspa44_2_0_0_force"/>
-    <force site="mf_bs_uspa44_2_0_1" name="mf_bs_uspa44_2_0_1_force"/>
-    <force site="mf_bs_uspa44_2_0_2" name="mf_bs_uspa44_2_0_2_force"/>
-    <force site="mf_bs_uspa44_2_1_0" name="mf_bs_uspa44_2_1_0_force"/>
-    <force site="mf_bs_uspa44_2_1_1" name="mf_bs_uspa44_2_1_1_force"/>
-    <force site="mf_bs_uspa44_2_1_2" name="mf_bs_uspa44_2_1_2_force"/>
-    <force site="mf_bs_uspa44_2_2_0" name="mf_bs_uspa44_2_2_0_force"/>
-    <force site="mf_bs_uspa44_2_2_1" name="mf_bs_uspa44_2_2_1_force"/>
-    <force site="mf_bs_uspa44_2_2_2" name="mf_bs_uspa44_2_2_2_force"/>
-    <force site="mf_px_uspa44" name="mf_px_uspa44_force"/>
-    <force site="mf_px_uspa44_0_0_0" name="mf_px_uspa44_0_0_0_force"/>
-    <force site="mf_px_uspa44_0_0_1" name="mf_px_uspa44_0_0_1_force"/>
-    <force site="mf_px_uspa44_0_0_2" name="mf_px_uspa44_0_0_2_force"/>
-    <force site="mf_px_uspa44_0_1_0" name="mf_px_uspa44_0_1_0_force"/>
-    <force site="mf_px_uspa44_0_1_1" name="mf_px_uspa44_0_1_1_force"/>
-    <force site="mf_px_uspa44_0_1_2" name="mf_px_uspa44_0_1_2_force"/>
-    <force site="mf_px_uspa44_0_2_0" name="mf_px_uspa44_0_2_0_force"/>
-    <force site="mf_px_uspa44_0_2_1" name="mf_px_uspa44_0_2_1_force"/>
-    <force site="mf_px_uspa44_0_2_2" name="mf_px_uspa44_0_2_2_force"/>
-    <force site="mf_px_uspa44_1_0_0" name="mf_px_uspa44_1_0_0_force"/>
-    <force site="mf_px_uspa44_1_0_1" name="mf_px_uspa44_1_0_1_force"/>
-    <force site="mf_px_uspa44_1_0_2" name="mf_px_uspa44_1_0_2_force"/>
-    <force site="mf_px_uspa44_1_1_0" name="mf_px_uspa44_1_1_0_force"/>
-    <force site="mf_px_uspa44_1_1_1" name="mf_px_uspa44_1_1_1_force"/>
-    <force site="mf_px_uspa44_1_1_2" name="mf_px_uspa44_1_1_2_force"/>
-    <force site="mf_px_uspa44_1_2_0" name="mf_px_uspa44_1_2_0_force"/>
-    <force site="mf_px_uspa44_1_2_1" name="mf_px_uspa44_1_2_1_force"/>
-    <force site="mf_px_uspa44_1_2_2" name="mf_px_uspa44_1_2_2_force"/>
-    <force site="mf_px_uspa44_2_0_0" name="mf_px_uspa44_2_0_0_force"/>
-    <force site="mf_px_uspa44_2_0_1" name="mf_px_uspa44_2_0_1_force"/>
-    <force site="mf_px_uspa44_2_0_2" name="mf_px_uspa44_2_0_2_force"/>
-    <force site="mf_px_uspa44_2_1_0" name="mf_px_uspa44_2_1_0_force"/>
-    <force site="mf_px_uspa44_2_1_1" name="mf_px_uspa44_2_1_1_force"/>
-    <force site="mf_px_uspa44_2_1_2" name="mf_px_uspa44_2_1_2_force"/>
-    <force site="mf_px_uspa44_2_2_0" name="mf_px_uspa44_2_2_0_force"/>
-    <force site="mf_px_uspa44_2_2_1" name="mf_px_uspa44_2_2_1_force"/>
-    <force site="mf_px_uspa44_2_2_2" name="mf_px_uspa44_2_2_2_force"/>
-    <force site="mf_md_uspa44" name="mf_md_uspa44_force"/>
-    <force site="mf_md_uspa44_0_0_0" name="mf_md_uspa44_0_0_0_force"/>
-    <force site="mf_md_uspa44_0_0_1" name="mf_md_uspa44_0_0_1_force"/>
-    <force site="mf_md_uspa44_0_0_2" name="mf_md_uspa44_0_0_2_force"/>
-    <force site="mf_md_uspa44_0_1_0" name="mf_md_uspa44_0_1_0_force"/>
-    <force site="mf_md_uspa44_0_1_1" name="mf_md_uspa44_0_1_1_force"/>
-    <force site="mf_md_uspa44_0_1_2" name="mf_md_uspa44_0_1_2_force"/>
-    <force site="mf_md_uspa44_0_2_0" name="mf_md_uspa44_0_2_0_force"/>
-    <force site="mf_md_uspa44_0_2_1" name="mf_md_uspa44_0_2_1_force"/>
-    <force site="mf_md_uspa44_0_2_2" name="mf_md_uspa44_0_2_2_force"/>
-    <force site="mf_md_uspa44_1_0_0" name="mf_md_uspa44_1_0_0_force"/>
-    <force site="mf_md_uspa44_1_0_1" name="mf_md_uspa44_1_0_1_force"/>
-    <force site="mf_md_uspa44_1_0_2" name="mf_md_uspa44_1_0_2_force"/>
-    <force site="mf_md_uspa44_1_1_0" name="mf_md_uspa44_1_1_0_force"/>
-    <force site="mf_md_uspa44_1_1_1" name="mf_md_uspa44_1_1_1_force"/>
-    <force site="mf_md_uspa44_1_1_2" name="mf_md_uspa44_1_1_2_force"/>
-    <force site="mf_md_uspa44_1_2_0" name="mf_md_uspa44_1_2_0_force"/>
-    <force site="mf_md_uspa44_1_2_1" name="mf_md_uspa44_1_2_1_force"/>
-    <force site="mf_md_uspa44_1_2_2" name="mf_md_uspa44_1_2_2_force"/>
-    <force site="mf_md_uspa44_2_0_0" name="mf_md_uspa44_2_0_0_force"/>
-    <force site="mf_md_uspa44_2_0_1" name="mf_md_uspa44_2_0_1_force"/>
-    <force site="mf_md_uspa44_2_0_2" name="mf_md_uspa44_2_0_2_force"/>
-    <force site="mf_md_uspa44_2_1_0" name="mf_md_uspa44_2_1_0_force"/>
-    <force site="mf_md_uspa44_2_1_1" name="mf_md_uspa44_2_1_1_force"/>
-    <force site="mf_md_uspa44_2_1_2" name="mf_md_uspa44_2_1_2_force"/>
-    <force site="mf_md_uspa44_2_2_0" name="mf_md_uspa44_2_2_0_force"/>
-    <force site="mf_md_uspa44_2_2_1" name="mf_md_uspa44_2_2_1_force"/>
-    <force site="mf_md_uspa44_2_2_2" name="mf_md_uspa44_2_2_2_force"/>
-    <force site="mf_uSCuALHA" name="mf_uSCuALHA_force"/>
-    <force site="mf_uSCuALHA_top_ass" name="mf_uSCuALHA_top_ass_force"/>
-    <force site="mf_uSCuALHA_0_0_ass" name="mf_uSCuALHA_0_0_ass_force"/>
-    <force site="mf_uSCuALHA_0_1_ass" name="mf_uSCuALHA_0_1_ass_force"/>
-    <force site="mf_uSCuALHA_0.01_0_ass" name="mf_uSCuALHA_0.01_0_ass_force"/>
-    <force site="mf_uSCuALHA_0.01_1_ass" name="mf_uSCuALHA_0.01_1_ass_force"/>
-    <force site="mf_uSCuALHA_buttom_ass" name="mf_uSCuALHA_buttom_ass_force"/>
-    <force site="rf_bs_uspa44" name="rf_bs_uspa44_force"/>
-    <force site="rf_bs_uspa44_0_0_0" name="rf_bs_uspa44_0_0_0_force"/>
-    <force site="rf_bs_uspa44_0_0_1" name="rf_bs_uspa44_0_0_1_force"/>
-    <force site="rf_bs_uspa44_0_0_2" name="rf_bs_uspa44_0_0_2_force"/>
-    <force site="rf_bs_uspa44_0_1_0" name="rf_bs_uspa44_0_1_0_force"/>
-    <force site="rf_bs_uspa44_0_1_1" name="rf_bs_uspa44_0_1_1_force"/>
-    <force site="rf_bs_uspa44_0_1_2" name="rf_bs_uspa44_0_1_2_force"/>
-    <force site="rf_bs_uspa44_0_2_0" name="rf_bs_uspa44_0_2_0_force"/>
-    <force site="rf_bs_uspa44_0_2_1" name="rf_bs_uspa44_0_2_1_force"/>
-    <force site="rf_bs_uspa44_0_2_2" name="rf_bs_uspa44_0_2_2_force"/>
-    <force site="rf_bs_uspa44_1_0_0" name="rf_bs_uspa44_1_0_0_force"/>
-    <force site="rf_bs_uspa44_1_0_1" name="rf_bs_uspa44_1_0_1_force"/>
-    <force site="rf_bs_uspa44_1_0_2" name="rf_bs_uspa44_1_0_2_force"/>
-    <force site="rf_bs_uspa44_1_1_0" name="rf_bs_uspa44_1_1_0_force"/>
-    <force site="rf_bs_uspa44_1_1_1" name="rf_bs_uspa44_1_1_1_force"/>
-    <force site="rf_bs_uspa44_1_1_2" name="rf_bs_uspa44_1_1_2_force"/>
-    <force site="rf_bs_uspa44_1_2_0" name="rf_bs_uspa44_1_2_0_force"/>
-    <force site="rf_bs_uspa44_1_2_1" name="rf_bs_uspa44_1_2_1_force"/>
-    <force site="rf_bs_uspa44_1_2_2" name="rf_bs_uspa44_1_2_2_force"/>
-    <force site="rf_bs_uspa44_2_0_0" name="rf_bs_uspa44_2_0_0_force"/>
-    <force site="rf_bs_uspa44_2_0_1" name="rf_bs_uspa44_2_0_1_force"/>
-    <force site="rf_bs_uspa44_2_0_2" name="rf_bs_uspa44_2_0_2_force"/>
-    <force site="rf_bs_uspa44_2_1_0" name="rf_bs_uspa44_2_1_0_force"/>
-    <force site="rf_bs_uspa44_2_1_1" name="rf_bs_uspa44_2_1_1_force"/>
-    <force site="rf_bs_uspa44_2_1_2" name="rf_bs_uspa44_2_1_2_force"/>
-    <force site="rf_bs_uspa44_2_2_0" name="rf_bs_uspa44_2_2_0_force"/>
-    <force site="rf_bs_uspa44_2_2_1" name="rf_bs_uspa44_2_2_1_force"/>
-    <force site="rf_bs_uspa44_2_2_2" name="rf_bs_uspa44_2_2_2_force"/>
-    <force site="rf_px_uspa44" name="rf_px_uspa44_force"/>
-    <force site="rf_px_uspa44_0_0_0" name="rf_px_uspa44_0_0_0_force"/>
-    <force site="rf_px_uspa44_0_0_1" name="rf_px_uspa44_0_0_1_force"/>
-    <force site="rf_px_uspa44_0_0_2" name="rf_px_uspa44_0_0_2_force"/>
-    <force site="rf_px_uspa44_0_1_0" name="rf_px_uspa44_0_1_0_force"/>
-    <force site="rf_px_uspa44_0_1_1" name="rf_px_uspa44_0_1_1_force"/>
-    <force site="rf_px_uspa44_0_1_2" name="rf_px_uspa44_0_1_2_force"/>
-    <force site="rf_px_uspa44_0_2_0" name="rf_px_uspa44_0_2_0_force"/>
-    <force site="rf_px_uspa44_0_2_1" name="rf_px_uspa44_0_2_1_force"/>
-    <force site="rf_px_uspa44_0_2_2" name="rf_px_uspa44_0_2_2_force"/>
-    <force site="rf_px_uspa44_1_0_0" name="rf_px_uspa44_1_0_0_force"/>
-    <force site="rf_px_uspa44_1_0_1" name="rf_px_uspa44_1_0_1_force"/>
-    <force site="rf_px_uspa44_1_0_2" name="rf_px_uspa44_1_0_2_force"/>
-    <force site="rf_px_uspa44_1_1_0" name="rf_px_uspa44_1_1_0_force"/>
-    <force site="rf_px_uspa44_1_1_1" name="rf_px_uspa44_1_1_1_force"/>
-    <force site="rf_px_uspa44_1_1_2" name="rf_px_uspa44_1_1_2_force"/>
-    <force site="rf_px_uspa44_1_2_0" name="rf_px_uspa44_1_2_0_force"/>
-    <force site="rf_px_uspa44_1_2_1" name="rf_px_uspa44_1_2_1_force"/>
-    <force site="rf_px_uspa44_1_2_2" name="rf_px_uspa44_1_2_2_force"/>
-    <force site="rf_px_uspa44_2_0_0" name="rf_px_uspa44_2_0_0_force"/>
-    <force site="rf_px_uspa44_2_0_1" name="rf_px_uspa44_2_0_1_force"/>
-    <force site="rf_px_uspa44_2_0_2" name="rf_px_uspa44_2_0_2_force"/>
-    <force site="rf_px_uspa44_2_1_0" name="rf_px_uspa44_2_1_0_force"/>
-    <force site="rf_px_uspa44_2_1_1" name="rf_px_uspa44_2_1_1_force"/>
-    <force site="rf_px_uspa44_2_1_2" name="rf_px_uspa44_2_1_2_force"/>
-    <force site="rf_px_uspa44_2_2_0" name="rf_px_uspa44_2_2_0_force"/>
-    <force site="rf_px_uspa44_2_2_1" name="rf_px_uspa44_2_2_1_force"/>
-    <force site="rf_px_uspa44_2_2_2" name="rf_px_uspa44_2_2_2_force"/>
-    <force site="rf_md_uspa44" name="rf_md_uspa44_force"/>
-    <force site="rf_md_uspa44_0_0_0" name="rf_md_uspa44_0_0_0_force"/>
-    <force site="rf_md_uspa44_0_0_1" name="rf_md_uspa44_0_0_1_force"/>
-    <force site="rf_md_uspa44_0_0_2" name="rf_md_uspa44_0_0_2_force"/>
-    <force site="rf_md_uspa44_0_1_0" name="rf_md_uspa44_0_1_0_force"/>
-    <force site="rf_md_uspa44_0_1_1" name="rf_md_uspa44_0_1_1_force"/>
-    <force site="rf_md_uspa44_0_1_2" name="rf_md_uspa44_0_1_2_force"/>
-    <force site="rf_md_uspa44_0_2_0" name="rf_md_uspa44_0_2_0_force"/>
-    <force site="rf_md_uspa44_0_2_1" name="rf_md_uspa44_0_2_1_force"/>
-    <force site="rf_md_uspa44_0_2_2" name="rf_md_uspa44_0_2_2_force"/>
-    <force site="rf_md_uspa44_1_0_0" name="rf_md_uspa44_1_0_0_force"/>
-    <force site="rf_md_uspa44_1_0_1" name="rf_md_uspa44_1_0_1_force"/>
-    <force site="rf_md_uspa44_1_0_2" name="rf_md_uspa44_1_0_2_force"/>
-    <force site="rf_md_uspa44_1_1_0" name="rf_md_uspa44_1_1_0_force"/>
-    <force site="rf_md_uspa44_1_1_1" name="rf_md_uspa44_1_1_1_force"/>
-    <force site="rf_md_uspa44_1_1_2" name="rf_md_uspa44_1_1_2_force"/>
-    <force site="rf_md_uspa44_1_2_0" name="rf_md_uspa44_1_2_0_force"/>
-    <force site="rf_md_uspa44_1_2_1" name="rf_md_uspa44_1_2_1_force"/>
-    <force site="rf_md_uspa44_1_2_2" name="rf_md_uspa44_1_2_2_force"/>
-    <force site="rf_md_uspa44_2_0_0" name="rf_md_uspa44_2_0_0_force"/>
-    <force site="rf_md_uspa44_2_0_1" name="rf_md_uspa44_2_0_1_force"/>
-    <force site="rf_md_uspa44_2_0_2" name="rf_md_uspa44_2_0_2_force"/>
-    <force site="rf_md_uspa44_2_1_0" name="rf_md_uspa44_2_1_0_force"/>
-    <force site="rf_md_uspa44_2_1_1" name="rf_md_uspa44_2_1_1_force"/>
-    <force site="rf_md_uspa44_2_1_2" name="rf_md_uspa44_2_1_2_force"/>
-    <force site="rf_md_uspa44_2_2_0" name="rf_md_uspa44_2_2_0_force"/>
-    <force site="rf_md_uspa44_2_2_1" name="rf_md_uspa44_2_2_1_force"/>
-    <force site="rf_md_uspa44_2_2_2" name="rf_md_uspa44_2_2_2_force"/>
-    <force site="rf_uSCuALHA" name="rf_uSCuALHA_force"/>
-    <force site="rf_uSCuALHA_top_ass" name="rf_uSCuALHA_top_ass_force"/>
-    <force site="rf_uSCuALHA_0_0_ass" name="rf_uSCuALHA_0_0_ass_force"/>
-    <force site="rf_uSCuALHA_0_1_ass" name="rf_uSCuALHA_0_1_ass_force"/>
-    <force site="rf_uSCuALHA_0.01_0_ass" name="rf_uSCuALHA_0.01_0_ass_force"/>
-    <force site="rf_uSCuALHA_0.01_1_ass" name="rf_uSCuALHA_0.01_1_ass_force"/>
-    <force site="rf_uSCuALHA_buttom_ass" name="rf_uSCuALHA_buttom_ass_force"/>
-    <force site="th_bs_uspa44" name="th_bs_uspa44_force"/>
-    <force site="th_bs_uspa44_0_0_0" name="th_bs_uspa44_0_0_0_force"/>
-    <force site="th_bs_uspa44_0_0_1" name="th_bs_uspa44_0_0_1_force"/>
-    <force site="th_bs_uspa44_0_0_2" name="th_bs_uspa44_0_0_2_force"/>
-    <force site="th_bs_uspa44_0_1_0" name="th_bs_uspa44_0_1_0_force"/>
-    <force site="th_bs_uspa44_0_1_1" name="th_bs_uspa44_0_1_1_force"/>
-    <force site="th_bs_uspa44_0_1_2" name="th_bs_uspa44_0_1_2_force"/>
-    <force site="th_bs_uspa44_0_2_0" name="th_bs_uspa44_0_2_0_force"/>
-    <force site="th_bs_uspa44_0_2_1" name="th_bs_uspa44_0_2_1_force"/>
-    <force site="th_bs_uspa44_0_2_2" name="th_bs_uspa44_0_2_2_force"/>
-    <force site="th_bs_uspa44_1_0_0" name="th_bs_uspa44_1_0_0_force"/>
-    <force site="th_bs_uspa44_1_0_1" name="th_bs_uspa44_1_0_1_force"/>
-    <force site="th_bs_uspa44_1_0_2" name="th_bs_uspa44_1_0_2_force"/>
-    <force site="th_bs_uspa44_1_1_0" name="th_bs_uspa44_1_1_0_force"/>
-    <force site="th_bs_uspa44_1_1_1" name="th_bs_uspa44_1_1_1_force"/>
-    <force site="th_bs_uspa44_1_1_2" name="th_bs_uspa44_1_1_2_force"/>
-    <force site="th_bs_uspa44_1_2_0" name="th_bs_uspa44_1_2_0_force"/>
-    <force site="th_bs_uspa44_1_2_1" name="th_bs_uspa44_1_2_1_force"/>
-    <force site="th_bs_uspa44_1_2_2" name="th_bs_uspa44_1_2_2_force"/>
-    <force site="th_bs_uspa44_2_0_0" name="th_bs_uspa44_2_0_0_force"/>
-    <force site="th_bs_uspa44_2_0_1" name="th_bs_uspa44_2_0_1_force"/>
-    <force site="th_bs_uspa44_2_0_2" name="th_bs_uspa44_2_0_2_force"/>
-    <force site="th_bs_uspa44_2_1_0" name="th_bs_uspa44_2_1_0_force"/>
-    <force site="th_bs_uspa44_2_1_1" name="th_bs_uspa44_2_1_1_force"/>
-    <force site="th_bs_uspa44_2_1_2" name="th_bs_uspa44_2_1_2_force"/>
-    <force site="th_bs_uspa44_2_2_0" name="th_bs_uspa44_2_2_0_force"/>
-    <force site="th_bs_uspa44_2_2_1" name="th_bs_uspa44_2_2_1_force"/>
-    <force site="th_bs_uspa44_2_2_2" name="th_bs_uspa44_2_2_2_force"/>
-    <force site="th_px_uspa44" name="th_px_uspa44_force"/>
-    <force site="th_px_uspa44_0_0_0" name="th_px_uspa44_0_0_0_force"/>
-    <force site="th_px_uspa44_0_0_1" name="th_px_uspa44_0_0_1_force"/>
-    <force site="th_px_uspa44_0_0_2" name="th_px_uspa44_0_0_2_force"/>
-    <force site="th_px_uspa44_0_1_0" name="th_px_uspa44_0_1_0_force"/>
-    <force site="th_px_uspa44_0_1_1" name="th_px_uspa44_0_1_1_force"/>
-    <force site="th_px_uspa44_0_1_2" name="th_px_uspa44_0_1_2_force"/>
-    <force site="th_px_uspa44_0_2_0" name="th_px_uspa44_0_2_0_force"/>
-    <force site="th_px_uspa44_0_2_1" name="th_px_uspa44_0_2_1_force"/>
-    <force site="th_px_uspa44_0_2_2" name="th_px_uspa44_0_2_2_force"/>
-    <force site="th_px_uspa44_1_0_0" name="th_px_uspa44_1_0_0_force"/>
-    <force site="th_px_uspa44_1_0_1" name="th_px_uspa44_1_0_1_force"/>
-    <force site="th_px_uspa44_1_0_2" name="th_px_uspa44_1_0_2_force"/>
-    <force site="th_px_uspa44_1_1_0" name="th_px_uspa44_1_1_0_force"/>
-    <force site="th_px_uspa44_1_1_1" name="th_px_uspa44_1_1_1_force"/>
-    <force site="th_px_uspa44_1_1_2" name="th_px_uspa44_1_1_2_force"/>
-    <force site="th_px_uspa44_1_2_0" name="th_px_uspa44_1_2_0_force"/>
-    <force site="th_px_uspa44_1_2_1" name="th_px_uspa44_1_2_1_force"/>
-    <force site="th_px_uspa44_1_2_2" name="th_px_uspa44_1_2_2_force"/>
-    <force site="th_px_uspa44_2_0_0" name="th_px_uspa44_2_0_0_force"/>
-    <force site="th_px_uspa44_2_0_1" name="th_px_uspa44_2_0_1_force"/>
-    <force site="th_px_uspa44_2_0_2" name="th_px_uspa44_2_0_2_force"/>
-    <force site="th_px_uspa44_2_1_0" name="th_px_uspa44_2_1_0_force"/>
-    <force site="th_px_uspa44_2_1_1" name="th_px_uspa44_2_1_1_force"/>
-    <force site="th_px_uspa44_2_1_2" name="th_px_uspa44_2_1_2_force"/>
-    <force site="th_px_uspa44_2_2_0" name="th_px_uspa44_2_2_0_force"/>
-    <force site="th_px_uspa44_2_2_1" name="th_px_uspa44_2_2_1_force"/>
-    <force site="th_px_uspa44_2_2_2" name="th_px_uspa44_2_2_2_force"/>
-    <force site="th_uSCuALHA" name="th_uSCuALHA_force"/>
-    <force site="th_uSCuALHA_top_ass" name="th_uSCuALHA_top_ass_force"/>
-    <force site="th_uSCuALHA_0_0_ass" name="th_uSCuALHA_0_0_ass_force"/>
-    <force site="th_uSCuALHA_0_1_ass" name="th_uSCuALHA_0_1_ass_force"/>
-    <force site="th_uSCuALHA_0.01_0_ass" name="th_uSCuALHA_0.01_0_ass_force"/>
-    <force site="th_uSCuALHA_0.01_1_ass" name="th_uSCuALHA_0.01_1_ass_force"/>
-    <force site="th_uSCuALHA_buttom_ass" name="th_uSCuALHA_buttom_ass_force"/>
   </sensor>
 </mujoco>

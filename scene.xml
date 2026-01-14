@@ -3,7 +3,7 @@
 
     <default>
         <default class="iteractive">
-            <geom group="5" />
+            <geom group="3" />
         </default>
     </default>
 
@@ -31,14 +31,14 @@
           <joint name="ball_palm_x" type="slide" axis="1 0 0" range="-0.06 0.08"/>
           <joint name="ball_palm_y" type="slide" axis="0 1 0" range="-0.01 0.23"/>
           <joint name="ball_palm_z" type="slide" axis="0 0 1" range="-0.015 0.005"/>
-          <geom class="iteractive" type="sphere" size="0.015 0.015 0.015" rgba=".5 .7 .5 0.3" friction=".5" priority="1"/>
+          <geom class="iteractive" type="box" size="0.015 0.015 0.015" rgba=".5 .7 .5 0.3" friction=".5" priority="1"/>
         </body> 
   
         <body name="ball_thumb" pos="0.09 0.09 0.112">
           <joint name="ball_thumb_x" type="slide" axis="1 0 0" range="-0.006 0.09"/>
           <joint name="ball_thumb_y" type="slide" axis="0 1 0" range="-0.012 0.001"/>
           <joint name="ball_thumb_z" type="slide" axis="0 0 1" range="-0.009 0.009"/>
-          <geom class="iteractive" type="sphere" size="0.015 0.015 0.015" rgba=".5 .7 .5 0.3" friction=".5" priority="1"/>
+          <geom class="iteractive" type="box" size="0.015 0.015 0.015" rgba=".5 .7 .5 0.3" friction=".5" priority="1"/>
         </body> 
     </worldbody>
 

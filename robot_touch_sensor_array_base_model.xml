@@ -51,6 +51,19 @@
       <geom type="box" group="3" material="col"/>
     </default>
 
+    
+
+
+    <!-- marker defaults-->
+    <default class="marker">
+      <site size="0.005" pos="-0.004 -0.062 0.015" group="5"/>
+    </default>
+
+
+
+
+    
+
     <!-- touch grid palm -->
     <default class="uspa46">
       <geom type="box" group="4"  size = "0.021 0.01 0.015" material="orange" />
@@ -239,11 +252,8 @@
       <geom name="palm_visual_13" class="visual" pos="-0.0283776 -0.029 0.131221" quat="0.707107 -2.32148e-18 -0.707107 0" mesh="palm_face" material="black"/>
       
       <geom name="palm_collision_1" class="collision" pos="-0.038 -0.002 0.14" euler="0 0 0" size="0.015 0.023 0.015" />
-      <geom name="palm_collision_2" class="collision" pos="-0.038 -0.026 0.1414" euler="0 0 0" size="0.015 0.005 0.0125" />
       <geom name="palm_collision_3" class="collision" pos="0.00745 -0.002 0.14" euler="0 0 0" size="0.015 0.023 0.015" />
-      <geom name="palm_collision_4" class="collision" pos="0.00745 -0.026 0.1414" euler="0 0 0" size="0.015 0.005 0.0125" />
       <geom name="palm_collision_5" class="collision" pos="0.0529 -0.002 0.14" euler="0 0 0" size="0.015 0.023 0.015" />
-      <geom name="palm_collision_6" class="collision" pos="0.0529 -0.026 0.1414" euler="0 0 0" size="0.015 0.005 0.0125" />
       <geom name="palm_collision_7" class="collision" pos="-0.012 0 0.1" size="0.035 0.03 0.02"/>
       <geom name="palm_collision_8" class="collision" pos="-0.003 0 0.06" size="0.025 0.03 0.02"/>
       <geom name="palm_collision_9" class="collision" pos="-0.037 0 0.08" euler="0 1.28 0" size="0.04 0.03 0.01"/>
@@ -251,9 +261,7 @@
       <geom name="palm_collision_11" class="collision" pos="0.036 0.025 0.1" size="0.035 0.005 0.02"/>
       <geom name="palm_collision_12" class="collision" pos="0.036 0 0.115" size="0.035 0.03 0.005"/>
       <geom name="palm_collision_13" class="collision" pos="0.039 -0.013 0.085" euler="0 0 0" size="0.02 0.012  0.015" />
-      <geom name="palm_collision_14" class="collision" pos="-0.0055 -0.028 0.063" size="0.023 0.004 0.015"/>
-      <geom name="palm_collision_15" class="collision" pos="-0.0055 -0.028 0.096" size="0.023 0.004 0.015"/>
-      <geom name="palm_collision_16" class="collision" pos=" 0.044 -0.028 0.096" size="0.023 0.004 0.015"/>
+    
       <geom name="palm_collision_17" class="collision" type="cylinder" pos="0 0 0.02" size="0.02 0.02"/>
       <geom name="palm_collision_18" class="collision" type="cylinder" pos="0 0 0.005" size="0.035 0.005"/>
       <geom name="palm_collision_19" class="collision" pos="0.0529 -0.003 0.12" euler="0 0 0" size="0.012 0.011 0.005" />
@@ -261,19 +269,10 @@
       <geom name="palm_collision_21" class="collision" pos="-0.0375 -0.003 0.12" euler="0 0 0" size="0.012 0.011 0.005" />
       
       <!-- palm touch sensors -->
-      <body name="uspa46_1" pos="0 0 0">
-        <geom name="uspa46_1" class="uspa46" pos="-0.005 -0.022 0.096" />
-        <site name="uspa46_1" class="uspa46" pos="0.016 -0.032 0.111"/>
-      </body>
-      <body name="uspa46_2" pos="0 0 0">
-        <geom name="uspa46_2" class="uspa46" pos="0.044 -0.022 0.096" />
-        <site name="uspa46_2" class="uspa46" pos="0.065 -0.032 0.111"/>
-      </body>
-      <body name="uspa46_3" pos="0 0 0">
-        <geom name="uspa46_3" class="uspa46" pos="-0.005 -0.022 0.063" />
-        <site name="uspa46_3" class="uspa46" pos="0.016 -0.032 0.078"/>
-      </body>
-
+      <site name="uspa46_1" class="uspa46" pos="0.016 -0.032 0.111"/>
+      <site name="uspa46_2" class="uspa46" pos="0.065 -0.032 0.111"/>
+      <site name="uspa46_3" class="uspa46" pos="0.016 -0.032 0.078"/>
+   
       <!--index-->
       <body name="if_bs" pos="0.06773 -0.0165 0.1436" quat="4.51379e-17 0.707107 -0 0.707107">
         <joint  name="if_mcp" class="mcp"/>
@@ -292,7 +291,7 @@
           <inertial pos="-0.000258994 0.00848001 0.0133488" mass="0.032" fullinertia="2.31878e-05 1.74843e-05 2.31495e-05 -1.07668e-07 -9.95794e-08 -1.12128e-06"/>
           <geom name="if_px_visual" class="visual" pos="0 0.0075 -8.67362e-19" quat="0.5 -0.5 -0.5 -0.5" mesh="p3_unified" material="black"/>
           <geom name="if_px_collision_1" class="collision" pos="0.0 0.0072 0.011" euler="0 0 0.0" size="0.015 0.0175 0.012" />
-          <geom name="if_px_collision_2" class="collision" pos="0.0 0.0127 0.023" euler="0 0 0.0" size="0.015 0.013 0.005" />
+          <!-- <geom name="if_px_collision_2" class="collision" pos="0.0 0.0127 0.023" euler="0 0 0.0" size="0.015 0.013 0.005" /> -->
           <geom name="if_px_uspa44" class="px_uspa44"/>
           <site name="if_px_uspa44" class="px_uspa44"/>
 
@@ -305,7 +304,7 @@
             <geom name="if_md_collision_3" class="collision" pos="0.02 -0.009 -0.0305" euler="0 0 -0.95" size="0.02 0.01 0.004" />
             <geom name="if_md_collision_4" class="collision" type="cylinder" pos="0.0 0 -0.03" size="0.008 0.003 " />
             <geom name="if_md_collision_5" class="collision" pos="0.033 -0.011 -0.0145" euler="0 0 0" size="0.015 0.02 0.014" />
-            <geom name="if_md_collision_6" class="collision" pos="0.0331 0.0105 -0.0145" euler="0 0 0" size="0.0122 0.004 0.014" />
+            <!-- <geom name="if_md_collision_6" class="collision" pos="0.0331 0.0105 -0.0145" euler="0 0 0" size="0.0122 0.004 0.014" /> -->
             <geom name="if_md_uspa44" class="md_uspa44"/>
             <site name="if_md_uspa44" class="md_uspa44"/>
 
@@ -339,9 +338,9 @@
         <body name="mf_px" pos="0.0326 -0.0123 -0.0145" quat="0.5 -0.5 -0.5 -0.5">
           <joint  name="mf_rot" class="rot"/>
           <inertial pos="-0.000258994 0.00848001 0.0133488" mass="0.032" fullinertia="2.31878e-05 1.74843e-05 2.31495e-05 -1.07668e-07 -9.95794e-08 -1.12128e-06"/>
-          <geom type="mesh" class="visual" pos="-8.67362e-19 0.0075 -8.67362e-19" quat="0.5 -0.5 -0.5 -0.5" mesh="p3_unified" material="black"/>
-          <geom class="collision" pos="0.0 0.0072 0.011" euler="0 0 0.0" size="0.015 0.0175 0.012" />
-          <geom class="collision" pos="0.0 0.0127 0.023" euler="0 0 0.0" size="0.015 0.013 0.005" />
+          <geom name="mf_px_visual"  type="mesh" class="visual" pos="-8.67362e-19 0.0075 -8.67362e-19" quat="0.5 -0.5 -0.5 -0.5" mesh="p3_unified" material="black"/>
+          <geom name="mf_px_collision_1" class="collision" size="0.015 0.0175 0.012" pos="0 0.0072 0.011"/>
+          <geom name="mf_px_collision_2" class="collision" size="0.015 0.013 0.005" pos="0 0.0127 0.023"/>
           <geom name="mf_px_uspa44" class="px_uspa44"/>
           <site name="mf_px_uspa44" class="px_uspa44"/>
 
@@ -354,7 +353,6 @@
             <geom name="mf_md_collision_3" class="collision" pos="0.02 -0.009 -0.0305" euler="0 0 -0.95" size="0.02 0.01 0.004" />
             <geom name="mf_md_collision_4" class="collision" type="cylinder" pos="0.0 0 -0.03" size="0.008 0.003 " />
             <geom name="mf_md_collision_5" class="collision" pos="0.033 -0.011 -0.0145" euler="0 0 0" size="0.015 0.02 0.014" />
-            <geom name="mf_md_collision_6" class="collision" pos="0.0331 0.0105 -0.0145" euler="0 0 0" size="0.0122 0.004 0.014" />
             <geom name="mf_md_uspa44" class="md_uspa44"/>
             <site name="mf_md_uspa44" class="md_uspa44"/>
 
@@ -379,7 +377,7 @@
         <joint  name="rf_mcp" class="mcp"/>
         <inertial pos="0.0342889 -0.0265621 -0.0145004" mass="0.044" fullinertia="4.51947e-05 6.85417e-05 7.22479e-05 1.48097e-05 1.17419e-06 -1.19534e-06"/>
         <geom name="rf_bs_visual" class="visual" pos="0.0048 -6.93889e-18 -0.0145" quat="0.5 0.5 0.5 -0.5" mesh="p4_unified" material="black"/>
-        <geom name="collision" class="collision" pos="0.013 -0.016 0.0015" euler="0 0 -0.95" size="0.03 0.01 0.0025" />
+        <geom name="rf_bs_collision_1" class="collision" pos="0.013 -0.016 0.0015" euler="0 0 -0.95" size="0.03 0.01 0.0025" />
         <geom name="rf_bs_collision_2" class="collision" pos="-0.0005 -0.0 0.0055" euler="0 0 0" size="0.003 0.01 0.002" />
         <geom name="rf_bs_collision_3" class="collision" pos="0.013 -0.016 -0.0305" euler="0 0 -0.95" size="0.03 0.01 0.0025" />
         <geom name="rf_bs_collision_4" class="collision" pos="0.04 -0.031 -0.015" euler="0 0 0.0" size="0.02 0.016 0.015" />
@@ -392,7 +390,6 @@
           <geom name="rf_px_visual" class="visual" pos="0 0.0075 -8.67362e-19" quat="0.5 -0.5 -0.5 -0.5" 
           mesh="p3_unified" material="black"/>
           <geom name="rf_px_collision_1" class="collision" pos="0.0 0.0072 0.011" euler="0 0 0.0" size="0.015 0.0175 0.012" />
-          <geom name="rf_px_collision_2" class="collision" pos="0.0 0.0127 0.023" euler="0 0 0.0" size="0.015 0.013 0.005" />
           <geom name="rf_px_uspa44" class="px_uspa44"/>
           <site name="rf_px_uspa44" class="px_uspa44"/>
 
@@ -406,7 +403,6 @@
             <geom name="rf_md_collision_3" class="collision" pos="0.02 -0.009 -0.0305" euler="0 0 -0.95" size="0.02 0.01 0.004" />
             <geom name="rf_md_collision_4" class="collision" type="cylinder" pos="0.0 0 -0.03" size="0.008 0.003 " />
             <geom name="rf_md_collision_5" class="collision" pos="0.033 -0.011 -0.0145" euler="0 0 0" size="0.015 0.02 0.014" />
-            <geom name="rf_md_collision_6" class="collision" pos="0.0331 0.0105 -0.0145" euler="0 0 0" size="0.0122 0.004 0.014" />
             <geom name="rf_md_uspa44" class="md_uspa44"/>
             <site name="rf_md_uspa44" class="md_uspa44"/>
 
@@ -475,6 +471,8 @@
               <geom name="th_ds_tip" class="uSCuALHA"  pos="-0.00135925 -0.0300003 0.014504" 
               euler="-1.57 0 -1.57"/>
               <site name="th_uSCuALHA" class="uSCuALHA"  pos="0.014 -0.045 0.0145" />
+              <site name="th_tip" class="marker" pos="-0.004 -0.067  0.0145" />
+
 
             </body>
           </body>
