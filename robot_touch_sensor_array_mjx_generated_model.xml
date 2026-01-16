@@ -1,9 +1,15 @@
 <mujoco model="leapXELA">
   <compiler angle="radian" meshdir="./assets/"/>
 
-  <option timestep="0.0001" integrator="Euler" iterations="5" ls_iterations="8">
+  <!-- <option timestep="0.001" integrator="Euler" iterations="5" ls_iterations="8">
+    <flag eulerdamp="disable"/>
+  </option> -->
+
+
+  <option timestep="0.001" integrator="implicitfast" >
     <flag eulerdamp="disable"/>
   </option>
+  
 
   <custom>
     <numeric data="30" name="max_contact_points"/>
