@@ -10,12 +10,12 @@ def place_grid_on_model( site:str, grid=[3, 3, 3], spacing=[-0.02,0.0,-0.015],sp
   site_x0_y0 = spec.site(site)
   pos_x0_y0 = site_x0_y0.pos
   body = site_x0_y0.parent
-  print(pos_x0_y0)
+  # print(pos_x0_y0)
 
   for x in np.arange(0, grid[0],1):
     for y in np.arange(0, grid[1],1):
       for z in np.arange(0, grid[1],1): 
-        print(x,y,z)
+        # print(x,y,z)
         body.add_site(
           name=f"{site}_{x}_{y}_{z}",
           pos=[
@@ -75,7 +75,7 @@ def place_griod_on_figertip(site:str,spec=None):
   
 def add_touch_sensor_to_sites(spec):
   for site in spec.sites:
-    print(f"site::name::{site.name}")
+    # print(f"site::name::{site.name}")
     spec.add_sensor(
       name= site.name+"_touch",
       objname= site.name,
@@ -87,7 +87,7 @@ def add_touch_sensor_to_sites(spec):
 
 def add_force_sensor_to_sites(spec):
   for site in spec.sites:
-    print(f"site::name::{site.name}")
+    # print(f"site::name::{site.name}")
     spec.add_sensor(
       name= site.name+"_force",
       objname= site.name,

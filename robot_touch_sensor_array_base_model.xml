@@ -3,7 +3,9 @@
 <!-- Onshape https://cad.onshape.com/documents/8570a76a8c0c31c84724c6f7/w/72ba6e2072d2b92f117e67a0/e/b5b8d162590c6484df5b91e8 -->
 <mujoco model="leapXELA">
   <compiler angle="radian" meshdir="./assets/"/>
-  <option integrator="implicitfast" cone="elliptic" impratio="100"/>
+
+  
+
 
   <!-- mesh assets -->
   <asset>
