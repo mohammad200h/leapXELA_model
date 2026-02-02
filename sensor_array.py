@@ -129,7 +129,7 @@ if __name__=="__main__":
 
 
 
-
+  ######################### adding sensors to sites #################
   spec = add_touch_sensor_to_sites(spec)
   
   write_xml_model(spec)

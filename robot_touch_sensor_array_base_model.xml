@@ -49,20 +49,44 @@
     
     <default class="collision">
       <geom type="box" group="3" material="col"/>
+      <default class="sensor_patch">
+        <geom rgba ="1 0 0 1" size="0.005 0.005 0.005" />
+        <!-- Sensor Location Fingertips -->
+        <!-- Top Surface -->
+        <default class="fingertip_sensor_top_surface_1">
+          <geom pos="0.01 -0.035 0.0145" euler="0 0 0" />
+        </default>
+        <default class="fingertip_sensor_top_surface_2">
+          <geom pos="0.0100 -0.045 0.0145" euler="0 0 0" />
+        </default>
+        <default class="fingertip_sensor_top_surface_3">
+          <geom pos="0.004 -0.057 0.0145" euler="0 0 0.7" />
+        </default>
+        <!-- End:Top Surface -->
+        <!-- Left Surface -->
+        <default class="fingertip_sensor_left_surface_1">
+          <geom pos="0.007 -0.035 0.023" euler="0 -0.9 0" />
+        </default>
+        <default class="fingertip_sensor_left_surface_2">
+          <geom pos="0.007 -0.045 0.023" euler="0 -0.9 0" />
+        </default>
+        <!-- End:Left Surface -->
+        <!-- Right Surface -->
+        <default class="fingertip_sensor_right_surface_1">
+          <geom pos="0.007 -0.035 0.006" euler="0 0.9 0" />
+        </default>
+        <default class="fingertip_sensor_right_surface_2">
+          <geom pos="0.007 -0.045 0.006" euler="0 0.9 0" />
+        </default>
+        <!-- End:Right Surface -->
+      </default>
     </default>
 
     
-
-
     <!-- marker defaults-->
     <default class="marker">
       <site size="0.005" pos="-0.004 -0.062 0.015" group="5"/>
     </default>
-
-
-
-
-    
 
     <!-- touch grid palm -->
     <default class="uspa46">
@@ -79,22 +103,102 @@
       </default>
       <default class="px_uspa44">
         <geom pos="0.00 0.012 0.017"  />
-        <site pos="0.011 0.023 0.028" />
+        <site pos="0.006 0.020 0.028" />
       </default>
       <default class="md_uspa44">
         <geom pos="0.0322 0.005 -0.015"  />
-        <site pos="0.0432 0.015 -0.004" />
+        <site pos="0.040 0.015 -0.008" />
       </default>
+      
       <default class="th_bs_uspa44">
         <geom pos="0.0 0.004 0.026"/>
-        <site pos="0.011 0.014 0.037"/>
+        <site pos="0.007 0.015 0.035"/>
       </default>
       <default class="th_px_uspa44">
         <geom pos="-0.004 0.053 0.0145"/>
-        <site pos="-0.014 0.064 0.0035"/>
+        <site pos="-0.015 0.0605 0.008"/>
       </default>
-     
+       <!-- Construction lines for fingertips -->
+       <!-- Vertical Construction Line -->
+       <default class="construction_line_0">
+        <site pos="0.015 -0.025 0.0145"  />
+       </default>
+       <default class="construction_line_1">
+        <site pos="0.015 -0.030 0.0145" />
+       </default>
+       <default class="construction_line_2">
+        <site pos="0.015 -0.035 0.0145" />
+       </default>
+       <default class="construction_line_3">
+        <site pos="0.0148 -0.040 0.0145" />
+       </default>
+       <default class="construction_line_4">
+        <site pos="0.0142 -0.045 0.0145"/>
+       </default>
+       <default class="construction_line_5">
+        <site pos="0.0134 -0.050 0.0145" />
+       </default>
+       <default class="construction_line_6">
+        <site pos="0.0115 -0.055 0.0145"  />
+       </default>
+       <default class="construction_line_7">
+        <site pos="0.008 -0.060 0.0145"  />
+       </default>
+       <default class="construction_line_8">
+        <site  pos="0.004 -0.063 0.0145" />
+       </default>
+       <default class="construction_line_9">
+        <site pos="-0.002 -0.0645 0.0145"/>
+       </default>
+       <!-- Horizontal Construction Line One -->
+      <default class="h1_construction_line_1">
+        <site pos="0.014 -0.035 0.02" />
+      </default>
+      <default class="h1_construction_line_2">
+        <site pos="0.011 -0.035 0.025" />
+      </default>
+      <default class="h1_construction_line_3">
+        <site pos="0.005 -0.035 0.029" />
+      </default>
+      <default class="h1_construction_line_4">
+        <site pos="0.00 -0.035 0.03" />
+      </default>
+
+      <default class="h1_construction_line_5">
+        <site pos="0.014 -0.035 0.008" />
+      </default>
+      <default class="h1_construction_line_6">
+        <site pos="0.011 -0.035 0.004" />
+      </default>
+      <default class="h1_construction_line_7">
+        <site pos="0.005 -0.035 0.000" />
+      </default>
+      <default class="h1_construction_line_8">
+        <site pos="0.00 -0.035 -0.001" />
+      </default>
+      <!-- Horizontal Construction Line Two -->
+      <default class="h2_construction_line_1">
+        <site pos="0.013 -0.045 0.02" />
+      </default>
+      <default class="h2_construction_line_2">
+        <site pos="0.01 -0.045 0.025" />
+      </default>
+      <default class="h2_construction_line_3">
+        <site pos="0.002 -0.045 0.029" />
+      </default>
+
+      <default class="h2_construction_line_4">
+        <site pos="0.013 -0.045 0.008" />
+      </default>
+      <default class="h2_construction_line_5">
+        <site pos="0.01 -0.045 0.004" />
+      </default>
+      <default class="h2_construction_line_6">
+        <site pos="0.002 -0.045 -0.0001" />
+      </default>
     </default>
+
+   
 
      <!-- touch grid fingertips -->
     <default class="uSCuALHA">
@@ -269,10 +373,13 @@
       <geom name="palm_collision_21" class="collision" pos="-0.0375 -0.003 0.12" euler="0 0 0" size="0.012 0.011 0.005" />
       
       <!-- palm touch sensors -->
-      <site name="uspa46_1" class="uspa46" pos="0.016 -0.032 0.111"/>
-      <site name="uspa46_2" class="uspa46" pos="0.065 -0.032 0.111"/>
-      <site name="uspa46_3" class="uspa46" pos="0.016 -0.032 0.078"/>
-   
+      <site name="uspa46_1" class="uspa46" pos="0.013 -0.032 0.107"/>
+      <site name="uspa46_2" class="uspa46" pos="0.061 -0.032 0.107"/>
+      <site name="uspa46_3" class="uspa46" pos="0.013 -0.032 0.074"/>
+      <site name="if_bs_uspa44" class="bs_uspa44" pos="0.015 -0.032 0.149" />
+      <site name="mf_bs_uspa44" class="bs_uspa44" pos="0.059 -0.032 0.149" />
+      <site name="rf_bs_uspa44" class="bs_uspa44" pos="-0.03 -0.032 0.149" />
+
       <!--index-->
       <body name="if_bs" pos="0.06773 -0.0165 0.1436" quat="4.51379e-17 0.707107 -0 0.707107">
         <joint  name="if_mcp" class="mcp"/>
@@ -283,15 +390,12 @@
         <geom name="if_bs_collision_3" class="collision" pos="0.013 -0.016 -0.0305" euler="0 0 -0.95" size="0.03 0.01 0.0025" />
         <geom name="if_bs_collision_4" class="collision" pos="0.04 -0.031 -0.015" euler="0 0 0.0" size="0.02 0.016 0.015" />
         <geom name="if_bs_uspa44" class="bs_uspa44"/>
-        <site name="if_bs_uspa44" class="bs_uspa44"/>
-
-        
+       
         <body name="if_px" pos="0.0326 -0.0123 -0.0145" quat="0.5 -0.5 -0.5 -0.5">
           <joint  name="if_rot" class="rot"/>
           <inertial pos="-0.000258994 0.00848001 0.0133488" mass="0.032" fullinertia="2.31878e-05 1.74843e-05 2.31495e-05 -1.07668e-07 -9.95794e-08 -1.12128e-06"/>
           <geom name="if_px_visual" class="visual" pos="0 0.0075 -8.67362e-19" quat="0.5 -0.5 -0.5 -0.5" mesh="p3_unified" material="black"/>
           <geom name="if_px_collision_1" class="collision" pos="0.0 0.0072 0.011" euler="0 0 0.0" size="0.015 0.0175 0.012" />
-          <!-- <geom name="if_px_collision_2" class="collision" pos="0.0 0.0127 0.023" euler="0 0 0.0" size="0.015 0.013 0.005" /> -->
           <geom name="if_px_uspa44" class="px_uspa44"/>
           <site name="if_px_uspa44" class="px_uspa44"/>
 
@@ -304,7 +408,6 @@
             <geom name="if_md_collision_3" class="collision" pos="0.02 -0.009 -0.0305" euler="0 0 -0.95" size="0.02 0.01 0.004" />
             <geom name="if_md_collision_4" class="collision" type="cylinder" pos="0.0 0 -0.03" size="0.008 0.003 " />
             <geom name="if_md_collision_5" class="collision" pos="0.033 -0.011 -0.0145" euler="0 0 0" size="0.015 0.02 0.014" />
-            <!-- <geom name="if_md_collision_6" class="collision" pos="0.0331 0.0105 -0.0145" euler="0 0 0" size="0.0122 0.004 0.014" /> -->
             <geom name="if_md_uspa44" class="md_uspa44"/>
             <site name="if_md_uspa44" class="md_uspa44"/>
 
@@ -318,11 +421,53 @@
               <geom name="if_ds_collision_4" class="collision" pos="-0.016 -0.0325 0.015" euler="0 0 0" size="0.006 0.022 0.015" />
               
               <geom name="if_ds_tip" class="uSCuALHA" />
-              <site name="if_uSCuALHA" class="uSCuALHA"/>
+
+               <!-- center line-->
+              <site name="if_uSCuALHA_construction_line_0" class="construction_line_0" />
+              <site name="if_uSCuALHA_construction_line_1" class="construction_line_1" />
+              <site name="if_uSCuALHA_construction_line_2" class="construction_line_2" />
+              <site name="if_uSCuALHA_construction_line_3" class="construction_line_3" />
+              <site name="if_uSCuALHA_construction_line_4" class="construction_line_4" />
+              <site name="if_uSCuALHA_construction_line_5" class="construction_line_5" />
+              <site name="if_uSCuALHA_construction_line_6" class="construction_line_6" />
+              <site name="if_uSCuALHA_construction_line_7" class="construction_line_7" />
+              <site name="if_uSCuALHA_construction_line_8" class="construction_line_8" />
+              <site name="if_uSCuALHA_construction_line_9" class="construction_line_9" />
+              <!-- End::center line-->
+              <!-- Horizontal Construction line 1 -->
+              <site name="if_uSCuALHA_h1_construction_line_1" class="h1_construction_line_1" />
+              <site name="if_uSCuALHA_h1_construction_line_2" class="h1_construction_line_2" />
+              <site name="if_uSCuALHA_h1_construction_line_3" class="h1_construction_line_3" />
+              <site name="if_uSCuALHA_h1_construction_line_4" class="h1_construction_line_4" />
+              <site name="if_uSCuALHA_h1_construction_line_5" class="h1_construction_line_5" />
+              <site name="if_uSCuALHA_h1_construction_line_6" class="h1_construction_line_6" />
+              <site name="if_uSCuALHA_h1_construction_line_7" class="h1_construction_line_7" />
+              <site name="if_uSCuALHA_h1_construction_line_8" class="h1_construction_line_8" />
+              <!-- End:Horizontal Construction line 1-->
+              <!-- Horizontal Construction line 2 -->
+              <site name="if_uSCuALHA_h2_construction_line_1" class="h2_construction_line_1" />
+              <site name="if_uSCuALHA_h2_construction_line_2" class="h2_construction_line_2" />
+              <site name="if_uSCuALHA_h2_construction_line_3" class="h2_construction_line_3" />
+              <site name="if_uSCuALHA_h2_construction_line_4" class="h2_construction_line_4" />
+              <site name="if_uSCuALHA_h2_construction_line_5" class="h2_construction_line_5" />
+              <site name="if_uSCuALHA_h2_construction_line_6" class="h2_construction_line_6" />              
+              <!-- End:Horizontal Construction line 2-->
+
+              <!-- Sensors -->
+              <geom name="=if_fingertip_sensor_top_surface_1" class="fingertip_sensor_top_surface_1"/>
+              <geom name="=if_fingertip_sensor_top_surface_2" class="fingertip_sensor_top_surface_2"/>
+              <geom name="=if_fingertip_sensor_top_surface_3" class="fingertip_sensor_top_surface_3"/>
+              <geom name="=if_fingertip_sensor_left_surface_1" class="fingertip_sensor_left_surface_1"/>
+              <geom name="=if_fingertip_sensor_left_surface_2" class="fingertip_sensor_left_surface_2"/>
+              <geom name="=if_fingertip_sensor_right_surface_1" class="fingertip_sensor_right_surface_1"/>
+              <geom name="=if_fingertip_sensor_right_surface_2" class="fingertip_sensor_right_surface_2"/>
+              <!-- End:Sensors -->
+           
             </body>
           </body>
         </body>
-      </body><!--index-->
+      </body>
+      <!--index-->
       
       <!--middle-->
       <body name="mf_bs" pos="0.02228 -0.0165 0.1436" quat="4.51379e-17 0.707107 -0 0.707107">
@@ -334,13 +479,11 @@
         <geom name="mf_bs_collision_3" class="collision" pos="0.013 -0.016 -0.0305" euler="0 0 -0.95" size="0.03 0.01 0.0025" />
         <geom name="mf_bs_collision_4" class="collision" pos="0.04 -0.031 -0.015" euler="0 0 0.0" size="0.02 0.016 0.015" />
         <geom name="mf_bs_uspa44" class="bs_uspa44"/>
-        <site name="mf_bs_uspa44" class="bs_uspa44"/>
         <body name="mf_px" pos="0.0326 -0.0123 -0.0145" quat="0.5 -0.5 -0.5 -0.5">
           <joint  name="mf_rot" class="rot"/>
           <inertial pos="-0.000258994 0.00848001 0.0133488" mass="0.032" fullinertia="2.31878e-05 1.74843e-05 2.31495e-05 -1.07668e-07 -9.95794e-08 -1.12128e-06"/>
           <geom name="mf_px_visual"  type="mesh" class="visual" pos="-8.67362e-19 0.0075 -8.67362e-19" quat="0.5 -0.5 -0.5 -0.5" mesh="p3_unified" material="black"/>
           <geom name="mf_px_collision_1" class="collision" size="0.015 0.0175 0.012" pos="0 0.0072 0.011"/>
-          <geom name="mf_px_collision_2" class="collision" size="0.015 0.013 0.005" pos="0 0.0127 0.023"/>
           <geom name="mf_px_uspa44" class="px_uspa44"/>
           <site name="mf_px_uspa44" class="px_uspa44"/>
 
@@ -364,9 +507,18 @@
               <geom name="mf_ds_collision_2" class="collision" pos="0.0 -0.009  0.03"  euler="0 0 1.57" size="0.017 0.01 0.004" />
               <geom name="mf_ds_collision_3" class="collision" pos="-0.0005 0.0 0.035" euler="0 0 0" size="0.01 0.002 0.002" />
               <geom name="mf_ds_collision_4" class="collision" pos="-0.016 -0.0325 0.015" euler="0 0 0" size="0.006 0.022 0.015" />
+
+               <!-- Sensors -->
+              <geom name="mf_fingertip_sensor_top_surface_1" class="fingertip_sensor_top_surface_1"/>
+              <geom name="mf_fingertip_sensor_top_surface_2" class="fingertip_sensor_top_surface_2"/>
+              <geom name="mf_fingertip_sensor_top_surface_3" class="fingertip_sensor_top_surface_3"/>
+              <geom name="mf_fingertip_sensor_left_surface_1" class="fingertip_sensor_left_surface_1"/>
+              <geom name="mf_fingertip_sensor_left_surface_2" class="fingertip_sensor_left_surface_2"/>
+              <geom name="mf_fingertip_sensor_right_surface_1" class="fingertip_sensor_right_surface_1"/>
+              <geom name="mf_fingertip_sensor_right_surface_2" class="fingertip_sensor_right_surface_2"/>
+              <!-- End:Sensors -->
               
               <geom name="mf_ds_tip" class="uSCuALHA"/>
-              <site name="mf_uSCuALHA" class="uSCuALHA"/>
             </body>
           </body>
         </body>
@@ -382,7 +534,6 @@
         <geom name="rf_bs_collision_3" class="collision" pos="0.013 -0.016 -0.0305" euler="0 0 -0.95" size="0.03 0.01 0.0025" />
         <geom name="rf_bs_collision_4" class="collision" pos="0.04 -0.031 -0.015" euler="0 0 0.0" size="0.02 0.016 0.015" />
         <geom name="rf_bs_uspa44" class="bs_uspa44"/>
-        <site name="rf_bs_uspa44" class="bs_uspa44"/>
 
         <body name="rf_px" pos="0.0326 -0.0123 -0.0145" quat="0.5 -0.5 -0.5 -0.5">
           <joint  name="rf_rot" class="rot"/>
@@ -415,9 +566,19 @@
               <geom name="rf_ds_collision_2" class="collision" pos="0.0 -0.009  0.03"  euler="0 0 1.57" size="0.017 0.01 0.004" />
               <geom name="rf_ds_collision_3" class="collision" pos="-0.0005 0.0 0.035" euler="0 0 0" size="0.01 0.002 0.002" />
               <geom name="rf_ds_collision_4" class="collision" pos="-0.016 -0.0325 0.015" euler="0 0 0" size="0.006 0.022 0.015" />
+
+              <!-- Sensors -->
+              <geom name="rf_fingertip_sensor_top_surface_1" class="fingertip_sensor_top_surface_1"/>
+              <geom name="rf_fingertip_sensor_top_surface_2" class="fingertip_sensor_top_surface_2"/>
+              <geom name="rf_fingertip_sensor_top_surface_3" class="fingertip_sensor_top_surface_3"/>
+              <geom name="rf_fingertip_sensor_left_surface_1" class="fingertip_sensor_left_surface_1"/>
+              <geom name="rf_fingertip_sensor_left_surface_2" class="fingertip_sensor_left_surface_2"/>
+              <geom name="rf_fingertip_sensor_right_surface_1" class="fingertip_sensor_right_surface_1"/>
+              <geom name="rf_fingertip_sensor_right_surface_2" class="fingertip_sensor_right_surface_2"/>
+              <!-- End:Sensors -->
               
               <geom name="rf_ds_tip" class="uSCuALHA"/>
-              <site name="rf_uSCuALHA" class="uSCuALHA"/>
+
             </body>
           </body>
         </body>
@@ -453,7 +614,6 @@
             <geom name="th_px_collision_3" class="collision" pos="0.0 0.039 -0.001" euler="0 0 0" size="0.01 0.014 0.002" />
             <geom name="th_px_collision_4" class="collision" pos="0.0 0.045 -0.005" euler="0 0 0" size="0.01 0.0025 0.002" />
             <geom name="th_px_collision_5" class="collision" pos="0.0 0.039 0.0305" euler="0 0 0" size="0.01 0.014 0.002" />
-            <geom name="th_px_collision_6" class="collision" pos="-0.0108 0.008 0.0145" euler="0 0 0" size="0.004 0.0125 0.0115" />
             <geom name="th_px_uspa44" class="th_px_uspa44"/>
             <site name="th_px_uspa44" class="th_px_uspa44"/>
 
@@ -465,13 +625,56 @@
                quat="0.707107 0.707107 1.11022e-16 -1.20442e-16" mesh="thfingertip_unified"
                material="black"/>
               <geom name="th_ds_collision_1" class="collision" pos="-0.006 -0.008 0.014" size="0.015 0.017 0.015" />
-              <geom name="th_ds_collision_2" class="collision" pos="0.0098 -0.0081 0.0145" size="0.005 0.0125 0.0115" />
               <geom name="th_ds_collision_3" class="collision" pos="-0.018 -0.042 0.014" size="0.004 0.017 0.015" />
               
-              <geom name="th_ds_tip" class="uSCuALHA"  pos="-0.00135925 -0.0300003 0.014504" 
+              <geom name="th_ds_tip" class="uSCuALHA"  
+              pos="-0.00135925 -0.0300003 0.014504" 
               euler="-1.57 0 -1.57"/>
-              <site name="th_uSCuALHA" class="uSCuALHA"  pos="0.014 -0.045 0.0145" />
+
+              <!-- Vertical Center line-->
+              <site name="th_uSCuALHA_construction_line_0" class="uSCuALHA"  pos="0.015  -0.030 0.0145" />
+              <site name="th_uSCuALHA_construction_line_1" class="uSCuALHA"  pos="0.015  -0.035 0.0145" />
+              <site name="th_uSCuALHA_construction_line_2" class="uSCuALHA"  pos="0.015  -0.04 0.0145" />
+              <site name="th_uSCuALHA_construction_line_3" class="uSCuALHA"  pos="0.0148 -0.045 0.0145" />
+              <site name="th_uSCuALHA_construction_line_4" class="uSCuALHA"  pos="0.0142 -0.05 0.0145" />
+              <site name="th_uSCuALHA_construction_line_5" class="uSCuALHA"  pos="0.0134 -0.055 0.0145" />
+              <site name="th_uSCuALHA_construction_line_6" class="uSCuALHA"  pos="0.0115 -0.06 0.0145" />
+              <site name="th_uSCuALHA_construction_line_7" class="uSCuALHA"  pos="0.008  -0.065 0.0145" />
+              <site name="th_uSCuALHA_construction_line_8" class="uSCuALHA"  pos="0.004  -0.068 0.0145" />
+              <site name="th_uSCuALHA_construction_line_9" class="uSCuALHA"  pos="-0.002 -0.0695 0.0145" />
+              <!-- End::Vertical Center line-->
+              <!-- Horizontal Construction line 1 -->
+              <site name="th_v1_construction_line_1" class="uSCuALHA" pos="0.014 -0.040 0.02" />
+              <site name="th_v1_construction_line_2" class="uSCuALHA" pos="0.011 -0.040 0.025" />
+              <site name="th_v1_construction_line_3" class="uSCuALHA" pos="0.005 -0.040 0.029" />
+              <site name="th_v1_construction_line_4" class="uSCuALHA" pos="0.00  -0.040 0.03" />
+              <site name="th_v1_construction_line_5" class="uSCuALHA" pos="0.014 -0.040 0.008" />
+              <site name="th_v1_construction_line_6" class="uSCuALHA" pos="0.011 -0.040 0.004" />
+              <site name="th_v1_construction_line_7" class="uSCuALHA" pos="0.005 -0.040 0.000" />
+              <site name="th_v1_construction_line_8" class="uSCuALHA" pos="0.00  -0.040 -0.001" />
+              <!-- End:Horizontal Construction line 1-->
+              <!-- Horizontal Construction line 2 -->
+              <site name="th_v2_construction_line_1" class="uSCuALHA" pos="0.013 -0.050 0.02" />
+              <site name="th_v2_construction_line_2" class="uSCuALHA" pos="0.01  -0.050 0.025" />
+              <site name="th_v2_construction_line_3" class="uSCuALHA" pos="0.002 -0.050 0.029" />
+              <site name="th_v2_construction_line_4" class="uSCuALHA" pos="0.013 -0.050 0.008" />
+              <site name="th_v2_construction_line_5" class="uSCuALHA" pos="0.01  -0.050 0.004" />
+              <site name="th_v2_construction_line_6" class="uSCuALHA" pos="0.002 -0.050 -0.0001" />
+              <!-- End:Horizontal Construction line 2-->
+              
+              <!-- tip of tip sensor -->
               <site name="th_tip" class="marker" pos="-0.004 -0.067  0.0145" />
+
+              <!-- Sensors -->
+              <geom pos="0.01 -0.040 0.0145" euler="0 0 0" class="sensor_patch"/>
+              <geom pos="0.0100 -0.050 0.0145" euler="0 0 0" class="sensor_patch"/>
+              <geom pos="0.004 -0.062 0.0145" euler="0 0 0.7" class="sensor_patch"/>
+              <geom pos="0.007 -0.040 0.023" euler="0 -0.9 0" class="sensor_patch"/>
+              <geom pos="0.007 -0.050 0.023" euler="0 -0.9 0" class="sensor_patch"/>
+              <geom pos="0.007 -0.040 0.006" euler="0 0.9 0" class="sensor_patch"/>
+              <geom pos="0.007 -0.050 0.006" euler="0 0.9 0" class="sensor_patch"/>
+              <!-- End:Sensors -->
+
 
 
             </body>
