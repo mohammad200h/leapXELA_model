@@ -123,8 +123,6 @@ def add_finger_tips_collision_geom_to_model(spec):
         default=geom_col_palm.classname)
 
     return spec
-
-
        
 def add_marker_to_model(spec):
      th_site = spec.site("th_tip")
@@ -138,11 +136,6 @@ def add_marker_to_model(spec):
             name= f"{name}_tip",
             default=marker_default)
     
-    
-    
-   
-    
-
 def write_xml_model(spec):
   xml = spec.to_xml()
   

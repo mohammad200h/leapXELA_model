@@ -1,0 +1,725 @@
+<mujoco model="leapXELA">
+  <compiler angle="radian" meshdir="./assets/"/>
+
+  <option impratio="100" integrator="implicitfast" cone="elliptic"/>
+
+  <default>
+    <joint damping="0.03" frictionloss="0.001"/>
+    <geom friction="0.2" solref="0.0001" solimp="0.999 0.999 0.001 0.0001 1"/>
+    <general biastype="affine" gainprm="3" biasprm="0 -3 -0.01"/>
+    <default class="visual">
+      <geom type="mesh" contype="0" conaffinity="0" group="2"/>
+    </default>
+    <default class="collision">
+      <geom type="box" group="3" material="col"/>
+      <default class="sensor_patch">
+        <geom size="0.005 0.005 0.005" group="4" rgba="1 0 0 1"/>
+        <default class="fingertip_sensor_top_surface_1"/>
+        <default class="fingertip_sensor_top_surface_2"/>
+        <default class="fingertip_sensor_top_surface_3"/>
+        <default class="fingertip_sensor_left_surface_1"/>
+        <default class="fingertip_sensor_left_surface_2"/>
+        <default class="fingertip_sensor_right_surface_1"/>
+        <default class="fingertip_sensor_right_surface_2"/>
+      </default>
+    </default>
+    <default class="marker">
+      <site group="5"/>
+    </default>
+    <default class="uspa46">
+      <site size="0.001 0.005 0.005" group="4"/>
+    </default>
+    <default class="uspa44">
+      <site size="0.001 0.005 0.005" group="4"/>
+      <default class="bs_uspa44"/>
+      <default class="px_uspa44"/>
+      <default class="md_uspa44"/>
+      <default class="th_bs_uspa44"/>
+      <default class="th_px_uspa44"/>
+      <default class="construction_line_0"/>
+      <default class="construction_line_1"/>
+      <default class="construction_line_2"/>
+      <default class="construction_line_3"/>
+      <default class="construction_line_4"/>
+      <default class="construction_line_5"/>
+      <default class="construction_line_6"/>
+      <default class="construction_line_7"/>
+      <default class="construction_line_8"/>
+      <default class="construction_line_9"/>
+      <default class="h1_construction_line_1"/>
+      <default class="h1_construction_line_2"/>
+      <default class="h1_construction_line_3"/>
+      <default class="h1_construction_line_4"/>
+      <default class="h1_construction_line_5"/>
+      <default class="h1_construction_line_6"/>
+      <default class="h1_construction_line_7"/>
+      <default class="h1_construction_line_8"/>
+      <default class="h2_construction_line_1"/>
+      <default class="h2_construction_line_2"/>
+      <default class="h2_construction_line_3"/>
+      <default class="h2_construction_line_4"/>
+      <default class="h2_construction_line_5"/>
+      <default class="h2_construction_line_6"/>
+    </default>
+    <default class="uSCuALHA">
+      <geom type="mesh" group="3" friction="0.5" material="orange" mesh="outer_skin_v1_3_1"/>
+      <site size="0.001 0.005 0.005" group="4"/>
+    </default>
+    <default class="mcp">
+      <joint limited="true" range="-0.314 2.23"/>
+      <general ctrlrange="-0.314 2.23"/>
+    </default>
+    <default class="rot">
+      <joint limited="true" range="-1.047 1.047"/>
+      <general ctrlrange="-1.047 1.047"/>
+    </default>
+    <default class="pip">
+      <joint limited="true" range="-0.506 1.885"/>
+      <general ctrlrange="-0.506 1.885"/>
+    </default>
+    <default class="dip">
+      <joint limited="true" range="-0.366 2.042"/>
+      <general ctrlrange="-0.366 2.042"/>
+    </default>
+    <default class="thumb_cmc">
+      <joint limited="true" range="-0.349 2.094"/>
+      <general ctrlrange="-0.349 2.094"/>
+    </default>
+    <default class="thumb_axl">
+      <joint limited="true" range="-0.349 2.094"/>
+      <general ctrlrange="-0.349 2.094"/>
+    </default>
+    <default class="thumb_mcp">
+      <joint limited="true" range="-0.47 2.443"/>
+      <general ctrlrange="-0.47 2.443"/>
+    </default>
+    <default class="thumb_ipl">
+      <joint limited="true" range="-1.34 1.88"/>
+      <general ctrlrange="-1.34 1.88"/>
+    </default>
+  </default>
+
+  <asset>
+    <material name="black" rgba="0.2 0.2 0.2 1"/>
+    <material name="col" rgba="0.6 1 0.6 0.2"/>
+    <material name="orange" rgba="1 0.5 0 0.2"/>
+    <material name="marker" rgba="1 0 0 1"/>
+    <mesh name="outer_skin_v1_3_1" content_type="model/stl" file="outer_skin_v1_3_1.stl"/>
+    <mesh name="thfingertip_unified" content_type="model/stl" file="thfingertip_unified.stl"/>
+    <mesh name="leap_hand_xela_bottom" content_type="model/stl" file="leap_hand_xela_bottom.stl"/>
+    <mesh name="p2_unified" content_type="model/stl" file="p2_unified.stl"/>
+    <mesh name="fingertop_unfied" content_type="model/stl" file="fingertop_unfied.stl"/>
+    <mesh name="thp2_unified" content_type="model/stl" file="thp2_unified.stl"/>
+    <mesh name="leap_hand_xela_motorholder" content_type="model/stl" file="leap_hand_xela_motorholder.stl"/>
+    <mesh name="uspa46" content_type="model/stl" file="uspa46.stl"/>
+    <mesh name="thp0_unified" content_type="model/stl" file="thp0_unified.stl"/>
+    <mesh name="p3_unified" content_type="model/stl" file="p3_unified.stl"/>
+    <mesh name="clipper" content_type="model/stl" file="clipper.stl"/>
+    <mesh name="thp1_unified" content_type="model/stl" file="thp1_unified.stl"/>
+    <mesh name="leap_hand_xela_side_cover" content_type="model/stl" file="leap_hand_xela_side_cover.stl"/>
+    <mesh name="thconnector" content_type="model/stl" file="thconnector.stl"/>
+    <mesh name="p5_unified" content_type="model/stl" file="p5_unified.stl"/>
+    <mesh name="top_palm" content_type="model/stl" file="top_palm.stl"/>
+    <mesh name="p4_unified" content_type="model/stl" file="p4_unified.stl"/>
+    <mesh name="palm_face" content_type="model/stl" file="palm_face.stl"/>
+    <mesh name="leap_hand_xela_back_cover" content_type="model/stl" file="leap_hand_xela_back_cover.stl"/>
+  </asset>
+
+  <worldbody>
+    <body name="palm" pos="0 0 0.1" quat="0.707107 -0.707107 0 0">
+      <inertial pos="0.00388456 -0.00321858 0.0893448" quat="0.718238 0.0745346 0.0438938 0.6904" mass="0.237" diaginertia="0.00769061 0.00594175 0.00341044"/>
+      <geom name="palm_visual_1" class="visual" pos="0.0180627 0.023 0.0834096" quat="0 0.707107 0 -0.707107" material="black" mesh="leap_hand_xela_motorholder"/>
+      <geom name="palm_visual_2" class="visual" pos="-0.005515 -0.027 0.0631" quat="0 0 0 -1" material="black" mesh="uspa46"/>
+      <geom name="palm_visual_3" class="visual" pos="0.0235627 -0.013 0.0845" quat="0.707107 0 0 0.707107" material="black" mesh="thp0_unified"/>
+      <geom name="palm_visual_4" class="visual" pos="-0.03767 -0.009 0.1306" quat="0.5 0.5 -0.5 0.5" material="black" mesh="p5_unified"/>
+      <geom name="palm_visual_5" class="visual" pos="0.00785 -0.023 0.123706" quat="0 0 1 0" material="black" mesh="top_palm"/>
+      <geom name="palm_visual_6" class="visual" pos="0.00778 -0.009 0.1306" quat="0.5 0.5 -0.5 0.5" material="black" mesh="p5_unified"/>
+      <geom name="palm_visual_7" class="visual" pos="-0.005515 -0.027 0.0962" quat="0 0 0 -1" material="black" mesh="uspa46"/>
+      <geom name="palm_visual_8" class="visual" pos="0.05323 -0.009 0.1306" quat="0.5 0.5 -0.5 0.5" material="black" mesh="p5_unified"/>
+      <geom name="palm_visual_9" class="visual" pos="0.044015 -0.027 0.0962" quat="0 -1 0 0" material="black" mesh="uspa46"/>
+      <geom name="palm_visual_10" class="visual" pos="-0.0293149 0.023 0.131221" quat="0.707107 0 -0.707107 0" material="black" mesh="leap_hand_xela_back_cover"/>
+      <geom name="palm_visual_11" class="visual" pos="-0.0503368 0 0.110009" quat="0.707104 0.707104 0.00183435 -0.00183435" material="black" mesh="leap_hand_xela_side_cover"/>
+      <geom name="palm_visual_12" class="visual" pos="0 -0.023 0.0425" quat="0 0 -1 0" material="black" mesh="leap_hand_xela_bottom"/>
+      <geom name="palm_visual_13" class="visual" pos="-0.0283776 -0.029 0.131221" quat="0.707107 0 -0.707107 0" material="black" mesh="palm_face"/>
+      <geom name="palm_collision_1" class="collision" size="0.015 0.023 0.015" pos="-0.038 -0.002 0.14"/>
+      <geom name="palm_collision_3" class="collision" size="0.015 0.023 0.015" pos="0.00745 -0.002 0.14"/>
+      <geom name="palm_collision_5" class="collision" size="0.015 0.023 0.015" pos="0.0529 -0.002 0.14"/>
+      <geom name="palm_collision_7" class="collision" size="0.035 0.03 0.02" pos="-0.012 0 0.1"/>
+      <geom name="palm_collision_8" class="collision" size="0.025 0.03 0.02" pos="-0.003 0 0.06"/>
+      <geom name="palm_collision_9" class="collision" size="0.04 0.03 0.01" pos="-0.037 0 0.08" quat="0.802096 0 0.597195 0"/>
+      <geom name="palm_collision_10" class="collision" size="0.035 0.005 0.02" pos="0.036 -0.025 0.1"/>
+      <geom name="palm_collision_11" class="collision" size="0.035 0.005 0.02" pos="0.036 0.025 0.1"/>
+      <geom name="palm_collision_12" class="collision" size="0.035 0.03 0.005" pos="0.036 0 0.115"/>
+      <geom name="palm_collision_13" class="collision" size="0.02 0.012 0.015" pos="0.039 -0.013 0.085"/>
+      <geom name="palm_collision_17" class="collision" size="0.02 0.02" pos="0 0 0.02" type="cylinder"/>
+      <geom name="palm_collision_18" class="collision" size="0.035 0.005" pos="0 0 0.005" type="cylinder"/>
+      <geom name="palm_collision_19" class="collision" size="0.012 0.011 0.005" pos="0.0529 -0.003 0.12"/>
+      <geom name="palm_collision_20" class="collision" size="0.012 0.011 0.005" pos="0.008 -0.003 0.12"/>
+      <geom name="palm_collision_21" class="collision" size="0.012 0.011 0.005" pos="-0.0375 -0.003 0.12"/>
+      <geom name="if_bs_uspa44_sensor_patch_0_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.015 -0.0295 0.149"/>
+      <geom name="if_bs_uspa44_sensor_patch_1_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.01 -0.0295 0.149"/>
+      <geom name="if_bs_uspa44_sensor_patch_2_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.005 -0.0295 0.149"/>
+      <geom name="if_bs_uspa44_sensor_patch_3_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0 -0.0295 0.149"/>
+      <geom name="if_bs_uspa44_sensor_patch_0_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.015 -0.0295 0.144"/>
+      <geom name="if_bs_uspa44_sensor_patch_1_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.01 -0.0295 0.144"/>
+      <geom name="if_bs_uspa44_sensor_patch_2_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.005 -0.0295 0.144"/>
+      <geom name="if_bs_uspa44_sensor_patch_3_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0 -0.0295 0.144"/>
+      <geom name="if_bs_uspa44_sensor_patch_0_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.015 -0.0295 0.139"/>
+      <geom name="if_bs_uspa44_sensor_patch_1_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.01 -0.0295 0.139"/>
+      <geom name="if_bs_uspa44_sensor_patch_2_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.005 -0.0295 0.139"/>
+      <geom name="if_bs_uspa44_sensor_patch_3_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0 -0.0295 0.139"/>
+      <geom name="if_bs_uspa44_sensor_patch_0_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.015 -0.0295 0.134"/>
+      <geom name="if_bs_uspa44_sensor_patch_1_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.01 -0.0295 0.134"/>
+      <geom name="if_bs_uspa44_sensor_patch_2_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.005 -0.0295 0.134"/>
+      <geom name="if_bs_uspa44_sensor_patch_3_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0 -0.0295 0.134"/>
+      <geom name="mf_bs_uspa44_sensor_patch_0_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.059 -0.0295 0.149"/>
+      <geom name="mf_bs_uspa44_sensor_patch_1_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.054 -0.0295 0.149"/>
+      <geom name="mf_bs_uspa44_sensor_patch_2_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.049 -0.0295 0.149"/>
+      <geom name="mf_bs_uspa44_sensor_patch_3_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.044 -0.0295 0.149"/>
+      <geom name="mf_bs_uspa44_sensor_patch_0_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.059 -0.0295 0.144"/>
+      <geom name="mf_bs_uspa44_sensor_patch_1_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.054 -0.0295 0.144"/>
+      <geom name="mf_bs_uspa44_sensor_patch_2_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.049 -0.0295 0.144"/>
+      <geom name="mf_bs_uspa44_sensor_patch_3_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.044 -0.0295 0.144"/>
+      <geom name="mf_bs_uspa44_sensor_patch_0_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.059 -0.0295 0.139"/>
+      <geom name="mf_bs_uspa44_sensor_patch_1_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.054 -0.0295 0.139"/>
+      <geom name="mf_bs_uspa44_sensor_patch_2_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.049 -0.0295 0.139"/>
+      <geom name="mf_bs_uspa44_sensor_patch_3_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.044 -0.0295 0.139"/>
+      <geom name="mf_bs_uspa44_sensor_patch_0_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.059 -0.0295 0.134"/>
+      <geom name="mf_bs_uspa44_sensor_patch_1_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.054 -0.0295 0.134"/>
+      <geom name="mf_bs_uspa44_sensor_patch_2_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.049 -0.0295 0.134"/>
+      <geom name="mf_bs_uspa44_sensor_patch_3_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.044 -0.0295 0.134"/>
+      <geom name="rf_bs_uspa44_sensor_patch_0_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.03 -0.0295 0.149"/>
+      <geom name="rf_bs_uspa44_sensor_patch_1_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.035 -0.0295 0.149"/>
+      <geom name="rf_bs_uspa44_sensor_patch_2_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.04 -0.0295 0.149"/>
+      <geom name="rf_bs_uspa44_sensor_patch_3_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.045 -0.0295 0.149"/>
+      <geom name="rf_bs_uspa44_sensor_patch_0_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.03 -0.0295 0.144"/>
+      <geom name="rf_bs_uspa44_sensor_patch_1_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.035 -0.0295 0.144"/>
+      <geom name="rf_bs_uspa44_sensor_patch_2_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.04 -0.0295 0.144"/>
+      <geom name="rf_bs_uspa44_sensor_patch_3_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.045 -0.0295 0.144"/>
+      <geom name="rf_bs_uspa44_sensor_patch_0_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.03 -0.0295 0.139"/>
+      <geom name="rf_bs_uspa44_sensor_patch_1_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.035 -0.0295 0.139"/>
+      <geom name="rf_bs_uspa44_sensor_patch_2_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.04 -0.0295 0.139"/>
+      <geom name="rf_bs_uspa44_sensor_patch_3_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.045 -0.0295 0.139"/>
+      <geom name="rf_bs_uspa44_sensor_patch_0_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.03 -0.0295 0.134"/>
+      <geom name="rf_bs_uspa44_sensor_patch_1_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.035 -0.0295 0.134"/>
+      <geom name="rf_bs_uspa44_sensor_patch_2_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.04 -0.0295 0.134"/>
+      <geom name="rf_bs_uspa44_sensor_patch_3_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.045 -0.0295 0.134"/>
+      <geom name="uspa46_1_sensor_patch_0_0" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.013 -0.0295 0.107"/>
+      <geom name="uspa46_1_sensor_patch_1_0" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.008 -0.0295 0.107"/>
+      <geom name="uspa46_1_sensor_patch_2_0" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.003 -0.0295 0.107"/>
+      <geom name="uspa46_1_sensor_patch_3_0" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.002 -0.0295 0.107"/>
+      <geom name="uspa46_1_sensor_patch_4_0" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.007 -0.0295 0.107"/>
+      <geom name="uspa46_1_sensor_patch_5_0" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.012 -0.0295 0.107"/>
+      <geom name="uspa46_1_sensor_patch_6_0" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.017 -0.0295 0.107"/>
+      <geom name="uspa46_1_sensor_patch_7_0" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.022 -0.0295 0.107"/>
+      <geom name="uspa46_1_sensor_patch_0_1" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.013 -0.0295 0.1"/>
+      <geom name="uspa46_1_sensor_patch_1_1" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.008 -0.0295 0.1"/>
+      <geom name="uspa46_1_sensor_patch_2_1" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.003 -0.0295 0.1"/>
+      <geom name="uspa46_1_sensor_patch_3_1" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.002 -0.0295 0.1"/>
+      <geom name="uspa46_1_sensor_patch_4_1" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.007 -0.0295 0.1"/>
+      <geom name="uspa46_1_sensor_patch_5_1" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.012 -0.0295 0.1"/>
+      <geom name="uspa46_1_sensor_patch_6_1" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.017 -0.0295 0.1"/>
+      <geom name="uspa46_1_sensor_patch_7_1" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.022 -0.0295 0.1"/>
+      <geom name="uspa46_1_sensor_patch_0_2" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.013 -0.0295 0.093"/>
+      <geom name="uspa46_1_sensor_patch_1_2" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.008 -0.0295 0.093"/>
+      <geom name="uspa46_1_sensor_patch_2_2" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.003 -0.0295 0.093"/>
+      <geom name="uspa46_1_sensor_patch_3_2" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.002 -0.0295 0.093"/>
+      <geom name="uspa46_1_sensor_patch_4_2" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.007 -0.0295 0.093"/>
+      <geom name="uspa46_1_sensor_patch_5_2" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.012 -0.0295 0.093"/>
+      <geom name="uspa46_1_sensor_patch_6_2" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.017 -0.0295 0.093"/>
+      <geom name="uspa46_1_sensor_patch_7_2" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.022 -0.0295 0.093"/>
+      <geom name="uspa46_1_sensor_patch_0_3" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.013 -0.0295 0.086"/>
+      <geom name="uspa46_1_sensor_patch_1_3" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.008 -0.0295 0.086"/>
+      <geom name="uspa46_1_sensor_patch_2_3" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.003 -0.0295 0.086"/>
+      <geom name="uspa46_1_sensor_patch_3_3" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.002 -0.0295 0.086"/>
+      <geom name="uspa46_1_sensor_patch_4_3" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.007 -0.0295 0.086"/>
+      <geom name="uspa46_1_sensor_patch_5_3" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.012 -0.0295 0.086"/>
+      <geom name="uspa46_1_sensor_patch_6_3" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.017 -0.0295 0.086"/>
+      <geom name="uspa46_1_sensor_patch_7_3" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.022 -0.0295 0.086"/>
+      <geom name="uspa46_2_sensor_patch_0_0" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.061 -0.0295 0.107"/>
+      <geom name="uspa46_2_sensor_patch_1_0" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.056 -0.0295 0.107"/>
+      <geom name="uspa46_2_sensor_patch_2_0" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.051 -0.0295 0.107"/>
+      <geom name="uspa46_2_sensor_patch_3_0" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.046 -0.0295 0.107"/>
+      <geom name="uspa46_2_sensor_patch_4_0" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.041 -0.0295 0.107"/>
+      <geom name="uspa46_2_sensor_patch_5_0" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.036 -0.0295 0.107"/>
+      <geom name="uspa46_2_sensor_patch_6_0" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.031 -0.0295 0.107"/>
+      <geom name="uspa46_2_sensor_patch_7_0" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.026 -0.0295 0.107"/>
+      <geom name="uspa46_2_sensor_patch_0_1" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.061 -0.0295 0.1"/>
+      <geom name="uspa46_2_sensor_patch_1_1" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.056 -0.0295 0.1"/>
+      <geom name="uspa46_2_sensor_patch_2_1" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.051 -0.0295 0.1"/>
+      <geom name="uspa46_2_sensor_patch_3_1" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.046 -0.0295 0.1"/>
+      <geom name="uspa46_2_sensor_patch_4_1" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.041 -0.0295 0.1"/>
+      <geom name="uspa46_2_sensor_patch_5_1" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.036 -0.0295 0.1"/>
+      <geom name="uspa46_2_sensor_patch_6_1" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.031 -0.0295 0.1"/>
+      <geom name="uspa46_2_sensor_patch_7_1" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.026 -0.0295 0.1"/>
+      <geom name="uspa46_2_sensor_patch_0_2" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.061 -0.0295 0.093"/>
+      <geom name="uspa46_2_sensor_patch_1_2" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.056 -0.0295 0.093"/>
+      <geom name="uspa46_2_sensor_patch_2_2" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.051 -0.0295 0.093"/>
+      <geom name="uspa46_2_sensor_patch_3_2" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.046 -0.0295 0.093"/>
+      <geom name="uspa46_2_sensor_patch_4_2" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.041 -0.0295 0.093"/>
+      <geom name="uspa46_2_sensor_patch_5_2" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.036 -0.0295 0.093"/>
+      <geom name="uspa46_2_sensor_patch_6_2" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.031 -0.0295 0.093"/>
+      <geom name="uspa46_2_sensor_patch_7_2" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.026 -0.0295 0.093"/>
+      <geom name="uspa46_2_sensor_patch_0_3" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.061 -0.0295 0.086"/>
+      <geom name="uspa46_2_sensor_patch_1_3" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.056 -0.0295 0.086"/>
+      <geom name="uspa46_2_sensor_patch_2_3" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.051 -0.0295 0.086"/>
+      <geom name="uspa46_2_sensor_patch_3_3" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.046 -0.0295 0.086"/>
+      <geom name="uspa46_2_sensor_patch_4_3" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.041 -0.0295 0.086"/>
+      <geom name="uspa46_2_sensor_patch_5_3" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.036 -0.0295 0.086"/>
+      <geom name="uspa46_2_sensor_patch_6_3" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.031 -0.0295 0.086"/>
+      <geom name="uspa46_2_sensor_patch_7_3" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.026 -0.0295 0.086"/>
+      <geom name="uspa46_3_sensor_patch_0_0" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.013 -0.0295 0.074"/>
+      <geom name="uspa46_3_sensor_patch_1_0" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.008 -0.0295 0.074"/>
+      <geom name="uspa46_3_sensor_patch_2_0" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.003 -0.0295 0.074"/>
+      <geom name="uspa46_3_sensor_patch_3_0" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.002 -0.0295 0.074"/>
+      <geom name="uspa46_3_sensor_patch_4_0" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.007 -0.0295 0.074"/>
+      <geom name="uspa46_3_sensor_patch_5_0" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.012 -0.0295 0.074"/>
+      <geom name="uspa46_3_sensor_patch_6_0" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.017 -0.0295 0.074"/>
+      <geom name="uspa46_3_sensor_patch_7_0" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.022 -0.0295 0.074"/>
+      <geom name="uspa46_3_sensor_patch_0_1" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.013 -0.0295 0.067"/>
+      <geom name="uspa46_3_sensor_patch_1_1" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.008 -0.0295 0.067"/>
+      <geom name="uspa46_3_sensor_patch_2_1" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.003 -0.0295 0.067"/>
+      <geom name="uspa46_3_sensor_patch_3_1" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.002 -0.0295 0.067"/>
+      <geom name="uspa46_3_sensor_patch_4_1" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.007 -0.0295 0.067"/>
+      <geom name="uspa46_3_sensor_patch_5_1" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.012 -0.0295 0.067"/>
+      <geom name="uspa46_3_sensor_patch_6_1" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.017 -0.0295 0.067"/>
+      <geom name="uspa46_3_sensor_patch_7_1" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.022 -0.0295 0.067"/>
+      <geom name="uspa46_3_sensor_patch_0_2" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.013 -0.0295 0.06"/>
+      <geom name="uspa46_3_sensor_patch_1_2" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.008 -0.0295 0.06"/>
+      <geom name="uspa46_3_sensor_patch_2_2" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.003 -0.0295 0.06"/>
+      <geom name="uspa46_3_sensor_patch_3_2" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.002 -0.0295 0.06"/>
+      <geom name="uspa46_3_sensor_patch_4_2" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.007 -0.0295 0.06"/>
+      <geom name="uspa46_3_sensor_patch_5_2" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.012 -0.0295 0.06"/>
+      <geom name="uspa46_3_sensor_patch_6_2" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.017 -0.0295 0.06"/>
+      <geom name="uspa46_3_sensor_patch_7_2" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.022 -0.0295 0.06"/>
+      <geom name="uspa46_3_sensor_patch_0_3" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.013 -0.0295 0.053"/>
+      <geom name="uspa46_3_sensor_patch_1_3" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.008 -0.0295 0.053"/>
+      <geom name="uspa46_3_sensor_patch_2_3" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="0.003 -0.0295 0.053"/>
+      <geom name="uspa46_3_sensor_patch_3_3" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.002 -0.0295 0.053"/>
+      <geom name="uspa46_3_sensor_patch_4_3" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.007 -0.0295 0.053"/>
+      <geom name="uspa46_3_sensor_patch_5_3" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.012 -0.0295 0.053"/>
+      <geom name="uspa46_3_sensor_patch_6_3" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.017 -0.0295 0.053"/>
+      <geom name="uspa46_3_sensor_patch_7_3" class="sensor_patch" size="0.0025 0.0025 0.0035" pos="-0.022 -0.0295 0.053"/>
+      <site name="uspa46_1" class="uspa46" pos="0.013 -0.032 0.107"/>
+      <site name="uspa46_2" class="uspa46" pos="0.061 -0.032 0.107"/>
+      <site name="uspa46_3" class="uspa46" pos="0.013 -0.032 0.074"/>
+      <site name="if_bs_uspa44" class="bs_uspa44" pos="0.015 -0.032 0.149"/>
+      <site name="mf_bs_uspa44" class="bs_uspa44" pos="0.059 -0.032 0.149"/>
+      <site name="rf_bs_uspa44" class="bs_uspa44" pos="-0.03 -0.032 0.149"/>
+      <body name="if_bs" pos="0.06773 -0.0165 0.1436" quat="0 0.707107 0 0.707107">
+        <inertial pos="0.0342889 -0.0265621 -0.0145004" quat="0.612791 0.580477 0.431308 0.318601" mass="0.044" diaginertia="7.5816e-05 7.223e-05 3.79383e-05"/>
+        <joint name="if_mcp" class="mcp" pos="0 0 0" axis="0 0 1"/>
+        <geom name="if_bs_visual" class="visual" pos="0.0048 0 -0.0145" quat="0.5 0.5 0.5 -0.5" material="black" mesh="p4_unified"/>
+        <geom name="if_bs_collision_1" class="collision" size="0.03 0.01 0.0025" pos="0.013 -0.016 0.0015" quat="0.889293 0 0 -0.457338"/>
+        <geom name="if_bs_collision_2" class="collision" size="0.003 0.01 0.002" pos="-0.0005 0 0.0055"/>
+        <geom name="if_bs_collision_3" class="collision" size="0.03 0.01 0.0025" pos="0.013 -0.016 -0.0305" quat="0.889293 0 0 -0.457338"/>
+        <geom name="if_bs_collision_4" class="collision" size="0.02 0.016 0.015" pos="0.04 -0.031 -0.015"/>
+        <body name="if_px" pos="0.0326 -0.0123 -0.0145" quat="0.5 -0.5 -0.5 -0.5">
+          <inertial pos="-0.000258994 0.00848001 0.0133488" quat="0.367834 0.431156 -0.638662 0.520494" mass="0.032" diaginertia="2.33931e-05 2.31607e-05 1.72678e-05"/>
+          <joint name="if_rot" class="rot" pos="0 0 0" axis="0 0 1"/>
+          <geom name="if_px_visual" class="visual" pos="0 0.0075 0" quat="0.5 -0.5 -0.5 -0.5" material="black" mesh="p3_unified"/>
+          <geom name="if_px_collision_1" class="collision" size="0.015 0.0175 0.012" pos="0 0.0072 0.011"/>
+          <geom name="if_px_uspa44_sensor_patch_0_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.006 0.02 0.0255"/>
+          <geom name="if_px_uspa44_sensor_patch_1_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.006 0.015 0.0255"/>
+          <geom name="if_px_uspa44_sensor_patch_2_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.006 0.01 0.0255"/>
+          <geom name="if_px_uspa44_sensor_patch_3_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.006 0.005 0.0255"/>
+          <geom name="if_px_uspa44_sensor_patch_0_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.001 0.02 0.0255"/>
+          <geom name="if_px_uspa44_sensor_patch_1_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.001 0.015 0.0255"/>
+          <geom name="if_px_uspa44_sensor_patch_2_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.001 0.01 0.0255"/>
+          <geom name="if_px_uspa44_sensor_patch_3_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.001 0.005 0.0255"/>
+          <geom name="if_px_uspa44_sensor_patch_0_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.004 0.02 0.0255"/>
+          <geom name="if_px_uspa44_sensor_patch_1_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.004 0.015 0.0255"/>
+          <geom name="if_px_uspa44_sensor_patch_2_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.004 0.01 0.0255"/>
+          <geom name="if_px_uspa44_sensor_patch_3_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.004 0.005 0.0255"/>
+          <geom name="if_px_uspa44_sensor_patch_0_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.009 0.02 0.0255"/>
+          <geom name="if_px_uspa44_sensor_patch_1_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.009 0.015 0.0255"/>
+          <geom name="if_px_uspa44_sensor_patch_2_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.009 0.01 0.0255"/>
+          <geom name="if_px_uspa44_sensor_patch_3_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.009 0.005 0.0255"/>
+          <site name="if_px_uspa44" class="px_uspa44" pos="0.006 0.02 0.028"/>
+          <body name="if_md" pos="0.0145 0.015 0.013" quat="0.5 0.5 0.5 0.5">
+            <inertial pos="0.0304899 -0.00688132 -0.0146269" quat="0.429182 0.64565 -0.344415 0.52945" mass="0.037" diaginertia="5.92221e-05 5.44273e-05 4.40625e-05"/>
+            <joint name="if_pip" class="pip" pos="0 0 0" axis="0 0 1"/>
+            <geom name="if_md_visual" class="visual" pos="0.00905 0 -0.0145" quat="0.5 0.5 0.5 -0.5" material="black" mesh="p2_unified"/>
+            <geom name="if_md_collision_1" class="collision" size="0.02 0.01 0.004" pos="0.02 -0.009 0.0015" quat="0.889293 0 0 -0.457338"/>
+            <geom name="if_md_collision_2" class="collision" size="0.008 0.005" pos="0 0 0.0035" type="cylinder"/>
+            <geom name="if_md_collision_3" class="collision" size="0.02 0.01 0.004" pos="0.02 -0.009 -0.0305" quat="0.889293 0 0 -0.457338"/>
+            <geom name="if_md_collision_4" class="collision" size="0.008 0.003" pos="0 0 -0.03" type="cylinder"/>
+            <geom name="if_md_collision_5" class="collision" size="0.015 0.02 0.014" pos="0.033 -0.011 -0.0145"/>
+            <geom name="if_md_uspa44_sensor_patch_0_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.04 0.0125 -0.008"/>
+            <geom name="if_md_uspa44_sensor_patch_1_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.035 0.0125 -0.008"/>
+            <geom name="if_md_uspa44_sensor_patch_2_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.03 0.0125 -0.008"/>
+            <geom name="if_md_uspa44_sensor_patch_3_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.025 0.0125 -0.008"/>
+            <geom name="if_md_uspa44_sensor_patch_0_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.04 0.0125 -0.013"/>
+            <geom name="if_md_uspa44_sensor_patch_1_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.035 0.0125 -0.013"/>
+            <geom name="if_md_uspa44_sensor_patch_2_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.03 0.0125 -0.013"/>
+            <geom name="if_md_uspa44_sensor_patch_3_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.025 0.0125 -0.013"/>
+            <geom name="if_md_uspa44_sensor_patch_0_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.04 0.0125 -0.018"/>
+            <geom name="if_md_uspa44_sensor_patch_1_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.035 0.0125 -0.018"/>
+            <geom name="if_md_uspa44_sensor_patch_2_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.03 0.0125 -0.018"/>
+            <geom name="if_md_uspa44_sensor_patch_3_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.025 0.0125 -0.018"/>
+            <geom name="if_md_uspa44_sensor_patch_0_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.04 0.0125 -0.023"/>
+            <geom name="if_md_uspa44_sensor_patch_1_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.035 0.0125 -0.023"/>
+            <geom name="if_md_uspa44_sensor_patch_2_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.03 0.0125 -0.023"/>
+            <geom name="if_md_uspa44_sensor_patch_3_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.025 0.0125 -0.023"/>
+            <site name="if_md_uspa44" class="md_uspa44" pos="0.04 0.015 -0.008"/>
+            <body name="if_ds" pos="0.0361 0 -0.0291" quat="0.707107 0 0 0.707107">
+              <inertial pos="-0.00193531 -0.0359351 0.0145854" quat="0.694152 0.719273 0.0276433 -0.00591063" mass="0.016" diaginertia="7.05616e-05 6.58815e-05 3.62962e-05"/>
+              <joint name="if_dip" class="dip" pos="0 0 0" axis="0 0 1"/>
+              <geom class="visual" pos="-0.00135925 -0.025 0.0145" quat="0.5 -0.5 -0.5 -0.5" material="black" mesh="fingertop_unfied"/>
+              <geom name="if_ds_collision_1" class="collision" size="0.017 0.01 0.004" pos="0 -0.009 -0.001" quat="0.707388 0 0 0.706825"/>
+              <geom name="if_ds_collision_2" class="collision" size="0.017 0.01 0.004" pos="0 -0.009 0.03" quat="0.707388 0 0 0.706825"/>
+              <geom name="if_ds_collision_3" class="collision" size="0.01 0.002 0.002" pos="-0.0005 0 0.035"/>
+              <geom name="if_ds_collision_4" class="collision" size="0.006 0.022 0.015" pos="-0.016 -0.0325 0.015"/>
+              <geom name="if_ds_tip" class="uSCuALHA" pos="-0.0009 -0.025 0.0145" quat="0.500398 -0.5 -0.499602 -0.5" mesh="outer_skin_v1_3_1"/>
+              <geom name="=if_fingertip_sensor_top_surface_1" class="fingertip_sensor_top_surface_1" pos="0.01 -0.035 0.0145"/>
+              <geom name="=if_fingertip_sensor_top_surface_2" class="fingertip_sensor_top_surface_2" pos="0.01 -0.045 0.0145"/>
+              <geom name="=if_fingertip_sensor_top_surface_3" class="fingertip_sensor_top_surface_3" pos="0.004 -0.057 0.0145" quat="0.939373 0 0 0.342898"/>
+              <geom name="=if_fingertip_sensor_left_surface_1" class="fingertip_sensor_left_surface_1" pos="0.007 -0.035 0.023" quat="0.900447 0 -0.434966 0"/>
+              <geom name="=if_fingertip_sensor_left_surface_2" class="fingertip_sensor_left_surface_2" pos="0.007 -0.045 0.023" quat="0.900447 0 -0.434966 0"/>
+              <geom name="=if_fingertip_sensor_right_surface_1" class="fingertip_sensor_right_surface_1" pos="0.007 -0.035 0.006" quat="0.900447 0 0.434966 0"/>
+              <geom name="=if_fingertip_sensor_right_surface_2" class="fingertip_sensor_right_surface_2" pos="0.007 -0.045 0.006" quat="0.900447 0 0.434966 0"/>
+              <site name="if_uSCuALHA_construction_line_0" class="construction_line_0" pos="0.015 -0.025 0.0145"/>
+              <site name="if_uSCuALHA_construction_line_1" class="construction_line_1" pos="0.015 -0.03 0.0145"/>
+              <site name="if_uSCuALHA_construction_line_2" class="construction_line_2" pos="0.015 -0.035 0.0145"/>
+              <site name="if_uSCuALHA_construction_line_3" class="construction_line_3" pos="0.0148 -0.04 0.0145"/>
+              <site name="if_uSCuALHA_construction_line_4" class="construction_line_4" pos="0.0142 -0.045 0.0145"/>
+              <site name="if_uSCuALHA_construction_line_5" class="construction_line_5" pos="0.0134 -0.05 0.0145"/>
+              <site name="if_uSCuALHA_construction_line_6" class="construction_line_6" pos="0.0115 -0.055 0.0145"/>
+              <site name="if_uSCuALHA_construction_line_7" class="construction_line_7" pos="0.008 -0.06 0.0145"/>
+              <site name="if_uSCuALHA_construction_line_8" class="construction_line_8" pos="0.004 -0.063 0.0145"/>
+              <site name="if_uSCuALHA_construction_line_9" class="construction_line_9" pos="-0.002 -0.0645 0.0145"/>
+              <site name="if_uSCuALHA_h1_construction_line_1" class="h1_construction_line_1" pos="0.014 -0.035 0.02"/>
+              <site name="if_uSCuALHA_h1_construction_line_2" class="h1_construction_line_2" pos="0.011 -0.035 0.025"/>
+              <site name="if_uSCuALHA_h1_construction_line_3" class="h1_construction_line_3" pos="0.005 -0.035 0.029"/>
+              <site name="if_uSCuALHA_h1_construction_line_4" class="h1_construction_line_4" pos="0 -0.035 0.03"/>
+              <site name="if_uSCuALHA_h1_construction_line_5" class="h1_construction_line_5" pos="0.014 -0.035 0.008"/>
+              <site name="if_uSCuALHA_h1_construction_line_6" class="h1_construction_line_6" pos="0.011 -0.035 0.004"/>
+              <site name="if_uSCuALHA_h1_construction_line_7" class="h1_construction_line_7" pos="0.005 -0.035 0"/>
+              <site name="if_uSCuALHA_h1_construction_line_8" class="h1_construction_line_8" pos="0 -0.035 -0.001"/>
+              <site name="if_uSCuALHA_h2_construction_line_1" class="h2_construction_line_1" pos="0.013 -0.045 0.02"/>
+              <site name="if_uSCuALHA_h2_construction_line_2" class="h2_construction_line_2" pos="0.01 -0.045 0.025"/>
+              <site name="if_uSCuALHA_h2_construction_line_3" class="h2_construction_line_3" pos="0.002 -0.045 0.029"/>
+              <site name="if_uSCuALHA_h2_construction_line_4" class="h2_construction_line_4" pos="0.013 -0.045 0.008"/>
+              <site name="if_uSCuALHA_h2_construction_line_5" class="h2_construction_line_5" pos="0.01 -0.045 0.004"/>
+              <site name="if_uSCuALHA_h2_construction_line_6" class="h2_construction_line_6" pos="0.002 -0.045 -0.0001"/>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="mf_bs" pos="0.02228 -0.0165 0.1436" quat="0 0.707107 0 0.707107">
+        <inertial pos="0.0342889 -0.0265621 -0.0145004" quat="0.612791 0.580477 0.431308 0.318601" mass="0.044" diaginertia="7.5816e-05 7.223e-05 3.79383e-05"/>
+        <joint name="mf_mcp" class="mcp" pos="0 0 0" axis="0 0 1"/>
+        <geom name="mf_bs_visual" class="visual" pos="0.0048 0 -0.0145" quat="0.5 0.5 0.5 -0.5" material="black" mesh="p4_unified"/>
+        <geom name="mf_bs_collision_1" class="collision" size="0.03 0.01 0.0025" pos="0.013 -0.016 0.0015" quat="0.889293 0 0 -0.457338"/>
+        <geom name="mf_bs_collision_2" class="collision" size="0.003 0.01 0.002" pos="-0.0005 0 0.0055"/>
+        <geom name="mf_bs_collision_3" class="collision" size="0.03 0.01 0.0025" pos="0.013 -0.016 -0.0305" quat="0.889293 0 0 -0.457338"/>
+        <geom name="mf_bs_collision_4" class="collision" size="0.02 0.016 0.015" pos="0.04 -0.031 -0.015"/>
+        <body name="mf_px" pos="0.0326 -0.0123 -0.0145" quat="0.5 -0.5 -0.5 -0.5">
+          <inertial pos="-0.000258994 0.00848001 0.0133488" quat="0.367834 0.431156 -0.638662 0.520494" mass="0.032" diaginertia="2.33931e-05 2.31607e-05 1.72678e-05"/>
+          <joint name="mf_rot" class="rot" pos="0 0 0" axis="0 0 1"/>
+          <geom name="mf_px_visual" class="visual" pos="0 0.0075 0" quat="0.5 -0.5 -0.5 -0.5" material="black" mesh="p3_unified"/>
+          <geom name="mf_px_collision_1" class="collision" size="0.015 0.0175 0.012" pos="0 0.0072 0.011"/>
+          <geom name="mf_px_uspa44_sensor_patch_0_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.006 0.02 0.0255"/>
+          <geom name="mf_px_uspa44_sensor_patch_1_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.006 0.015 0.0255"/>
+          <geom name="mf_px_uspa44_sensor_patch_2_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.006 0.01 0.0255"/>
+          <geom name="mf_px_uspa44_sensor_patch_3_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.006 0.005 0.0255"/>
+          <geom name="mf_px_uspa44_sensor_patch_0_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.001 0.02 0.0255"/>
+          <geom name="mf_px_uspa44_sensor_patch_1_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.001 0.015 0.0255"/>
+          <geom name="mf_px_uspa44_sensor_patch_2_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.001 0.01 0.0255"/>
+          <geom name="mf_px_uspa44_sensor_patch_3_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.001 0.005 0.0255"/>
+          <geom name="mf_px_uspa44_sensor_patch_0_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.004 0.02 0.0255"/>
+          <geom name="mf_px_uspa44_sensor_patch_1_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.004 0.015 0.0255"/>
+          <geom name="mf_px_uspa44_sensor_patch_2_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.004 0.01 0.0255"/>
+          <geom name="mf_px_uspa44_sensor_patch_3_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.004 0.005 0.0255"/>
+          <geom name="mf_px_uspa44_sensor_patch_0_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.009 0.02 0.0255"/>
+          <geom name="mf_px_uspa44_sensor_patch_1_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.009 0.015 0.0255"/>
+          <geom name="mf_px_uspa44_sensor_patch_2_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.009 0.01 0.0255"/>
+          <geom name="mf_px_uspa44_sensor_patch_3_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.009 0.005 0.0255"/>
+          <site name="mf_px_uspa44" class="px_uspa44" pos="0.006 0.02 0.028"/>
+          <body name="mf_md" pos="0.0145 0.015 0.013" quat="0.5 0.5 0.5 0.5">
+            <inertial pos="0.0304899 -0.00688132 -0.0146269" quat="0.429182 0.64565 -0.344415 0.52945" mass="0.037" diaginertia="5.92221e-05 5.44273e-05 4.40625e-05"/>
+            <joint name="mf_pip" class="pip" pos="0 0 0" axis="0 0 1"/>
+            <geom name="mf_md_visual" class="visual" pos="0.00905 0 -0.0145" quat="0.5 0.5 0.5 -0.5" material="black" mesh="p2_unified"/>
+            <geom name="mf_md_collision_1" class="collision" size="0.02 0.01 0.004" pos="0.02 -0.009 0.0015" quat="0.889293 0 0 -0.457338"/>
+            <geom name="mf_md_collision_2" class="collision" size="0.008 0.005" pos="0 0 0.0035" type="cylinder"/>
+            <geom name="mf_md_collision_3" class="collision" size="0.02 0.01 0.004" pos="0.02 -0.009 -0.0305" quat="0.889293 0 0 -0.457338"/>
+            <geom name="mf_md_collision_4" class="collision" size="0.008 0.003" pos="0 0 -0.03" type="cylinder"/>
+            <geom name="mf_md_collision_5" class="collision" size="0.015 0.02 0.014" pos="0.033 -0.011 -0.0145"/>
+            <geom name="mf_md_uspa44_sensor_patch_0_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.04 0.0125 -0.008"/>
+            <geom name="mf_md_uspa44_sensor_patch_1_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.035 0.0125 -0.008"/>
+            <geom name="mf_md_uspa44_sensor_patch_2_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.03 0.0125 -0.008"/>
+            <geom name="mf_md_uspa44_sensor_patch_3_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.025 0.0125 -0.008"/>
+            <geom name="mf_md_uspa44_sensor_patch_0_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.04 0.0125 -0.013"/>
+            <geom name="mf_md_uspa44_sensor_patch_1_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.035 0.0125 -0.013"/>
+            <geom name="mf_md_uspa44_sensor_patch_2_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.03 0.0125 -0.013"/>
+            <geom name="mf_md_uspa44_sensor_patch_3_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.025 0.0125 -0.013"/>
+            <geom name="mf_md_uspa44_sensor_patch_0_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.04 0.0125 -0.018"/>
+            <geom name="mf_md_uspa44_sensor_patch_1_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.035 0.0125 -0.018"/>
+            <geom name="mf_md_uspa44_sensor_patch_2_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.03 0.0125 -0.018"/>
+            <geom name="mf_md_uspa44_sensor_patch_3_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.025 0.0125 -0.018"/>
+            <geom name="mf_md_uspa44_sensor_patch_0_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.04 0.0125 -0.023"/>
+            <geom name="mf_md_uspa44_sensor_patch_1_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.035 0.0125 -0.023"/>
+            <geom name="mf_md_uspa44_sensor_patch_2_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.03 0.0125 -0.023"/>
+            <geom name="mf_md_uspa44_sensor_patch_3_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.025 0.0125 -0.023"/>
+            <site name="mf_md_uspa44" class="md_uspa44" pos="0.04 0.015 -0.008"/>
+            <body name="mf_ds" pos="0.0361 0 -0.0291" quat="0.707107 0 0 0.707107">
+              <inertial pos="-0.00193531 -0.0359351 0.0145854" quat="0.694152 0.719273 0.0276433 -0.00591063" mass="0.016" diaginertia="7.05616e-05 6.58815e-05 3.62962e-05"/>
+              <joint name="mf_dip" class="dip" pos="0 0 0" axis="0 0 1"/>
+              <geom name="mf_ds_visual" class="visual" pos="-0.00135925 -0.025 0.0145" quat="0.5 -0.5 -0.5 -0.5" material="black" mesh="fingertop_unfied"/>
+              <geom name="mf_ds_collision_1" class="collision" size="0.017 0.01 0.004" pos="0 -0.009 -0.001" quat="0.707388 0 0 0.706825"/>
+              <geom name="mf_ds_collision_2" class="collision" size="0.017 0.01 0.004" pos="0 -0.009 0.03" quat="0.707388 0 0 0.706825"/>
+              <geom name="mf_ds_collision_3" class="collision" size="0.01 0.002 0.002" pos="-0.0005 0 0.035"/>
+              <geom name="mf_ds_collision_4" class="collision" size="0.006 0.022 0.015" pos="-0.016 -0.0325 0.015"/>
+              <geom name="mf_fingertip_sensor_top_surface_1" class="fingertip_sensor_top_surface_1" pos="0.01 -0.035 0.0145"/>
+              <geom name="mf_fingertip_sensor_top_surface_2" class="fingertip_sensor_top_surface_2" pos="0.01 -0.045 0.0145"/>
+              <geom name="mf_fingertip_sensor_top_surface_3" class="fingertip_sensor_top_surface_3" pos="0.004 -0.057 0.0145" quat="0.939373 0 0 0.342898"/>
+              <geom name="mf_fingertip_sensor_left_surface_1" class="fingertip_sensor_left_surface_1" pos="0.007 -0.035 0.023" quat="0.900447 0 -0.434966 0"/>
+              <geom name="mf_fingertip_sensor_left_surface_2" class="fingertip_sensor_left_surface_2" pos="0.007 -0.045 0.023" quat="0.900447 0 -0.434966 0"/>
+              <geom name="mf_fingertip_sensor_right_surface_1" class="fingertip_sensor_right_surface_1" pos="0.007 -0.035 0.006" quat="0.900447 0 0.434966 0"/>
+              <geom name="mf_fingertip_sensor_right_surface_2" class="fingertip_sensor_right_surface_2" pos="0.007 -0.045 0.006" quat="0.900447 0 0.434966 0"/>
+              <geom name="mf_ds_tip" class="uSCuALHA" pos="-0.0009 -0.025 0.0145" quat="0.500398 -0.5 -0.499602 -0.5" mesh="outer_skin_v1_3_1"/>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="rf_bs" pos="-0.02317 -0.0165 0.1436" quat="0 0.707107 0 0.707107">
+        <inertial pos="0.0342889 -0.0265621 -0.0145004" quat="0.612791 0.580477 0.431308 0.318601" mass="0.044" diaginertia="7.5816e-05 7.223e-05 3.79383e-05"/>
+        <joint name="rf_mcp" class="mcp" pos="0 0 0" axis="0 0 1"/>
+        <geom name="rf_bs_visual" class="visual" pos="0.0048 0 -0.0145" quat="0.5 0.5 0.5 -0.5" material="black" mesh="p4_unified"/>
+        <geom name="rf_bs_collision_1" class="collision" size="0.03 0.01 0.0025" pos="0.013 -0.016 0.0015" quat="0.889293 0 0 -0.457338"/>
+        <geom name="rf_bs_collision_2" class="collision" size="0.003 0.01 0.002" pos="-0.0005 0 0.0055"/>
+        <geom name="rf_bs_collision_3" class="collision" size="0.03 0.01 0.0025" pos="0.013 -0.016 -0.0305" quat="0.889293 0 0 -0.457338"/>
+        <geom name="rf_bs_collision_4" class="collision" size="0.02 0.016 0.015" pos="0.04 -0.031 -0.015"/>
+        <body name="rf_px" pos="0.0326 -0.0123 -0.0145" quat="0.5 -0.5 -0.5 -0.5">
+          <inertial pos="-0.000258994 0.00848001 0.0133488" quat="0.367834 0.431156 -0.638662 0.520494" mass="0.032" diaginertia="2.33931e-05 2.31607e-05 1.72678e-05"/>
+          <joint name="rf_rot" class="rot" pos="0 0 0" axis="0 0 1"/>
+          <geom name="rf_px_visual" class="visual" pos="0 0.0075 0" quat="0.5 -0.5 -0.5 -0.5" material="black" mesh="p3_unified"/>
+          <geom name="rf_px_collision_1" class="collision" size="0.015 0.0175 0.012" pos="0 0.0072 0.011"/>
+          <geom name="rf_px_uspa44_sensor_patch_0_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.006 0.02 0.0255"/>
+          <geom name="rf_px_uspa44_sensor_patch_1_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.006 0.015 0.0255"/>
+          <geom name="rf_px_uspa44_sensor_patch_2_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.006 0.01 0.0255"/>
+          <geom name="rf_px_uspa44_sensor_patch_3_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.006 0.005 0.0255"/>
+          <geom name="rf_px_uspa44_sensor_patch_0_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.001 0.02 0.0255"/>
+          <geom name="rf_px_uspa44_sensor_patch_1_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.001 0.015 0.0255"/>
+          <geom name="rf_px_uspa44_sensor_patch_2_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.001 0.01 0.0255"/>
+          <geom name="rf_px_uspa44_sensor_patch_3_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.001 0.005 0.0255"/>
+          <geom name="rf_px_uspa44_sensor_patch_0_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.004 0.02 0.0255"/>
+          <geom name="rf_px_uspa44_sensor_patch_1_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.004 0.015 0.0255"/>
+          <geom name="rf_px_uspa44_sensor_patch_2_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.004 0.01 0.0255"/>
+          <geom name="rf_px_uspa44_sensor_patch_3_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.004 0.005 0.0255"/>
+          <geom name="rf_px_uspa44_sensor_patch_0_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.009 0.02 0.0255"/>
+          <geom name="rf_px_uspa44_sensor_patch_1_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.009 0.015 0.0255"/>
+          <geom name="rf_px_uspa44_sensor_patch_2_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.009 0.01 0.0255"/>
+          <geom name="rf_px_uspa44_sensor_patch_3_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.009 0.005 0.0255"/>
+          <site name="rf_px_uspa44" class="px_uspa44" pos="0.006 0.02 0.028"/>
+          <body name="rf_md" pos="0.0145 0.015 0.013" quat="0.5 0.5 0.5 0.5">
+            <inertial pos="0.0304899 -0.00688132 -0.0146269" quat="0.429182 0.64565 -0.344415 0.52945" mass="0.037" diaginertia="5.92221e-05 5.44273e-05 4.40625e-05"/>
+            <joint name="rf_pip" class="pip" pos="0 0 0" axis="0 0 1"/>
+            <geom name="rf_md_visual" class="visual" pos="0.00905 0 -0.0145" quat="0.5 0.5 0.5 -0.5" material="black" mesh="p2_unified"/>
+            <geom name="rf_md_collision_1" class="collision" size="0.02 0.01 0.004" pos="0.02 -0.009 0.0015" quat="0.889293 0 0 -0.457338"/>
+            <geom name="rf_md_collision_2" class="collision" size="0.008 0.005" pos="0 0 0.0035" type="cylinder"/>
+            <geom name="rf_md_collision_3" class="collision" size="0.02 0.01 0.004" pos="0.02 -0.009 -0.0305" quat="0.889293 0 0 -0.457338"/>
+            <geom name="rf_md_collision_4" class="collision" size="0.008 0.003" pos="0 0 -0.03" type="cylinder"/>
+            <geom name="rf_md_collision_5" class="collision" size="0.015 0.02 0.014" pos="0.033 -0.011 -0.0145"/>
+            <geom name="rf_md_uspa44_sensor_patch_0_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.04 0.0125 -0.008"/>
+            <geom name="rf_md_uspa44_sensor_patch_1_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.035 0.0125 -0.008"/>
+            <geom name="rf_md_uspa44_sensor_patch_2_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.03 0.0125 -0.008"/>
+            <geom name="rf_md_uspa44_sensor_patch_3_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.025 0.0125 -0.008"/>
+            <geom name="rf_md_uspa44_sensor_patch_0_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.04 0.0125 -0.013"/>
+            <geom name="rf_md_uspa44_sensor_patch_1_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.035 0.0125 -0.013"/>
+            <geom name="rf_md_uspa44_sensor_patch_2_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.03 0.0125 -0.013"/>
+            <geom name="rf_md_uspa44_sensor_patch_3_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.025 0.0125 -0.013"/>
+            <geom name="rf_md_uspa44_sensor_patch_0_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.04 0.0125 -0.018"/>
+            <geom name="rf_md_uspa44_sensor_patch_1_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.035 0.0125 -0.018"/>
+            <geom name="rf_md_uspa44_sensor_patch_2_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.03 0.0125 -0.018"/>
+            <geom name="rf_md_uspa44_sensor_patch_3_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.025 0.0125 -0.018"/>
+            <geom name="rf_md_uspa44_sensor_patch_0_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.04 0.0125 -0.023"/>
+            <geom name="rf_md_uspa44_sensor_patch_1_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.035 0.0125 -0.023"/>
+            <geom name="rf_md_uspa44_sensor_patch_2_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.03 0.0125 -0.023"/>
+            <geom name="rf_md_uspa44_sensor_patch_3_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.025 0.0125 -0.023"/>
+            <site name="rf_md_uspa44" class="md_uspa44" pos="0.04 0.015 -0.008"/>
+            <body name="rf_ds" pos="0.0361 0 -0.0291" quat="0.707107 0 0 0.707107">
+              <inertial pos="-0.00193531 -0.0359351 0.0145854" quat="0.694152 0.719273 0.0276433 -0.00591063" mass="0.016" diaginertia="7.05616e-05 6.58815e-05 3.62962e-05"/>
+              <joint name="rf_dip" class="dip" pos="0 0 0" axis="0 0 1"/>
+              <geom name="rf_ds_visual" class="visual" pos="-0.00135925 -0.025 0.0145" quat="0.5 -0.5 -0.5 -0.5" material="black" mesh="fingertop_unfied"/>
+              <geom name="rf_ds_collision_1" class="collision" size="0.017 0.01 0.004" pos="0 -0.009 -0.001" quat="0.707388 0 0 0.706825"/>
+              <geom name="rf_ds_collision_2" class="collision" size="0.017 0.01 0.004" pos="0 -0.009 0.03" quat="0.707388 0 0 0.706825"/>
+              <geom name="rf_ds_collision_3" class="collision" size="0.01 0.002 0.002" pos="-0.0005 0 0.035"/>
+              <geom name="rf_ds_collision_4" class="collision" size="0.006 0.022 0.015" pos="-0.016 -0.0325 0.015"/>
+              <geom name="rf_fingertip_sensor_top_surface_1" class="fingertip_sensor_top_surface_1" pos="0.01 -0.035 0.0145"/>
+              <geom name="rf_fingertip_sensor_top_surface_2" class="fingertip_sensor_top_surface_2" pos="0.01 -0.045 0.0145"/>
+              <geom name="rf_fingertip_sensor_top_surface_3" class="fingertip_sensor_top_surface_3" pos="0.004 -0.057 0.0145" quat="0.939373 0 0 0.342898"/>
+              <geom name="rf_fingertip_sensor_left_surface_1" class="fingertip_sensor_left_surface_1" pos="0.007 -0.035 0.023" quat="0.900447 0 -0.434966 0"/>
+              <geom name="rf_fingertip_sensor_left_surface_2" class="fingertip_sensor_left_surface_2" pos="0.007 -0.045 0.023" quat="0.900447 0 -0.434966 0"/>
+              <geom name="rf_fingertip_sensor_right_surface_1" class="fingertip_sensor_right_surface_1" pos="0.007 -0.035 0.006" quat="0.900447 0 0.434966 0"/>
+              <geom name="rf_fingertip_sensor_right_surface_2" class="fingertip_sensor_right_surface_2" pos="0.007 -0.045 0.006" quat="0.900447 0 0.434966 0"/>
+              <geom name="rf_ds_tip" class="uSCuALHA" pos="-0.0009 -0.025 0.0145" quat="0.500398 -0.5 -0.499602 -0.5" mesh="outer_skin_v1_3_1"/>
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="th_mp" pos="0.0480627 -0.013 0.07" quat="0 0 1 0">
+        <inertial pos="-0.000232587 0.00882444 0.0117326" quat="0.495423 0.510358 -0.49396 0.500094" mass="0.032" diaginertia="2.83447e-05 2.37893e-05 1.73524e-05"/>
+        <joint name="th_cmc" class="thumb_cmc" pos="0 0 0" axis="0 0 1"/>
+        <geom name="th_mp_visual" class="visual" pos="0 0.0075 0" quat="0.5 -0.5 -0.5 -0.5" material="black" mesh="thp2_unified"/>
+        <geom name="th_mp_collision" class="collision" size="0.015 0.019 0.0125" pos="0 0.0085 0.0115"/>
+        <body name="th_bs" pos="-0.0144 0 0.013" quat="0.5 -0.5 -0.5 0.5">
+          <inertial pos="0 0 0" quat="0.490798 0.503177 0.46187 0.540932" mass="0.003" diaginertia="7.74918e-06 7.40667e-06 2.86333e-06"/>
+          <joint name="th_axl" class="thumb_axl" pos="0 0 0" axis="0 0 1"/>
+          <geom name="th_bs_visual_1" class="visual" pos="-0.0173 0 0.019" quat="0.707107 0.707107 0 0" material="black" mesh="thconnector"/>
+          <geom name="th_bs_visual_2" class="visual" pos="0.0155 -0.006 0.019" quat="0 -0.707107 -0.707107 0" material="black" mesh="clipper"/>
+          <geom name="th_bs_collision_1" class="collision" size="0.002 0.013 0.0125" pos="0.016 -0.002 0.015"/>
+          <geom name="th_bs_collision_2" class="collision" size="0.002 0.013 0.0125" pos="-0.016 -0.002 0.015"/>
+          <geom name="th_bs_collision_3" class="collision" size="0.018 0.01 0.002" pos="0 0 0.0015"/>
+          <geom name="th_bs_collision_4" class="collision" size="0.002 0.01 0.003" pos="0.02 0 0.019"/>
+          <geom name="th_bs_uspa44_sensor_patch_0_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.007 0.0125 0.035"/>
+          <geom name="th_bs_uspa44_sensor_patch_1_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.002 0.0125 0.035"/>
+          <geom name="th_bs_uspa44_sensor_patch_2_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.003 0.0125 0.035"/>
+          <geom name="th_bs_uspa44_sensor_patch_3_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.008 0.0125 0.035"/>
+          <geom name="th_bs_uspa44_sensor_patch_0_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.007 0.0125 0.03"/>
+          <geom name="th_bs_uspa44_sensor_patch_1_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.002 0.0125 0.03"/>
+          <geom name="th_bs_uspa44_sensor_patch_2_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.003 0.0125 0.03"/>
+          <geom name="th_bs_uspa44_sensor_patch_3_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.008 0.0125 0.03"/>
+          <geom name="th_bs_uspa44_sensor_patch_0_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.007 0.0125 0.025"/>
+          <geom name="th_bs_uspa44_sensor_patch_1_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.002 0.0125 0.025"/>
+          <geom name="th_bs_uspa44_sensor_patch_2_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.003 0.0125 0.025"/>
+          <geom name="th_bs_uspa44_sensor_patch_3_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.008 0.0125 0.025"/>
+          <geom name="th_bs_uspa44_sensor_patch_0_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.007 0.0125 0.02"/>
+          <geom name="th_bs_uspa44_sensor_patch_1_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.002 0.0125 0.02"/>
+          <geom name="th_bs_uspa44_sensor_patch_2_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.003 0.0125 0.02"/>
+          <geom name="th_bs_uspa44_sensor_patch_3_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.008 0.0125 0.02"/>
+          <site name="th_bs_uspa44" class="th_bs_uspa44" pos="0.007 0.015 0.035"/>
+          <body name="th_px" pos="0.0145 0 0.019" quat="0.5 0.5 -0.5 -0.5">
+            <inertial pos="0.00144426 0.0112332 0.0144179" quat="0.714398 0.675784 0.134595 -0.121801" mass="0.038" diaginertia="5.25159e-05 5.07146e-05 3.20027e-05"/>
+            <joint name="th_mcp" class="thumb_mcp" pos="0 0 0" axis="0 0 1"/>
+            <geom name="th_px_visual_1" class="visual" pos="0 0.0245 0.0145" quat="1 0 0 0" material="black" mesh="thp1_unified"/>
+            <geom name="th_px_collision_1" class="collision" size="0.015 0.017 0.015" pos="0.005 0.007 0.0145"/>
+            <geom name="th_px_collision_2" class="collision" size="0.015 0.004 0.015" pos="0.005 0.025 0.0145"/>
+            <geom name="th_px_collision_3" class="collision" size="0.01 0.014 0.002" pos="0 0.039 -0.001"/>
+            <geom name="th_px_collision_4" class="collision" size="0.01 0.0025 0.002" pos="0 0.045 -0.005"/>
+            <geom name="th_px_collision_5" class="collision" size="0.01 0.014 0.002" pos="0 0.039 0.0305"/>
+            <geom name="th_px_uspa44_sensor_patch_0_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.0125 0.0605 0.008"/>
+            <geom name="th_px_uspa44_sensor_patch_1_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.0125 0.0555 0.008"/>
+            <geom name="th_px_uspa44_sensor_patch_2_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.0125 0.0505 0.008"/>
+            <geom name="th_px_uspa44_sensor_patch_3_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.0125 0.0455 0.008"/>
+            <geom name="th_px_uspa44_sensor_patch_0_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.0125 0.0605 0.013"/>
+            <geom name="th_px_uspa44_sensor_patch_1_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.0125 0.0555 0.013"/>
+            <geom name="th_px_uspa44_sensor_patch_2_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.0125 0.0505 0.013"/>
+            <geom name="th_px_uspa44_sensor_patch_3_1" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.0125 0.0455 0.013"/>
+            <geom name="th_px_uspa44_sensor_patch_0_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.0125 0.0605 0.018"/>
+            <geom name="th_px_uspa44_sensor_patch_1_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.0125 0.0555 0.018"/>
+            <geom name="th_px_uspa44_sensor_patch_2_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.0125 0.0505 0.018"/>
+            <geom name="th_px_uspa44_sensor_patch_3_2" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.0125 0.0455 0.018"/>
+            <geom name="th_px_uspa44_sensor_patch_0_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.0125 0.0605 0.023"/>
+            <geom name="th_px_uspa44_sensor_patch_1_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.0125 0.0555 0.023"/>
+            <geom name="th_px_uspa44_sensor_patch_2_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.0125 0.0505 0.023"/>
+            <geom name="th_px_uspa44_sensor_patch_3_3" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.0125 0.0455 0.023"/>
+            <site name="th_px_uspa44" class="th_px_uspa44" pos="-0.015 0.0605 0.008"/>
+            <body name="th_ds" pos="0 0.0446 0" quat="0 0 0 1">
+              <inertial pos="-0.00210586 -0.0274158 0.0145397" quat="0.521383 0.52904 -0.470977 0.475875" mass="0.049" diaginertia="0.000213149 0.000206712 5.56674e-05"/>
+              <joint name="th_ipl" class="thumb_ipl" pos="0 0 0" axis="0 0 1"/>
+              <geom name="th_ds_visual" class="visual" pos="0 -0.0275 0.014504" quat="0.707107 0.707107 0 0" material="black" mesh="thfingertip_unified"/>
+              <geom name="th_ds_collision_1" class="collision" size="0.015 0.017 0.015" pos="-0.006 -0.008 0.014"/>
+              <geom name="th_ds_collision_3" class="collision" size="0.004 0.017 0.015" pos="-0.018 -0.042 0.014"/>
+              <geom name="th_ds_tip" class="uSCuALHA" pos="-0.00135925 -0.0300003 0.014504" quat="0.500398 -0.5 -0.499602 -0.5" mesh="outer_skin_v1_3_1"/>
+              <geom name="th_sensor_1" class="sensor_patch" pos="0.01 -0.04 0.0145"/>
+              <geom name="th_sensor_2" class="sensor_patch" pos="0.01 -0.05 0.0145"/>
+              <geom name="th_sensor_3" class="sensor_patch" pos="0.004 -0.062 0.0145" quat="0.939373 0 0 0.342898"/>
+              <geom name="th_sensor_4" class="sensor_patch" pos="0.007 -0.04 0.023" quat="0.900447 0 -0.434966 0"/>
+              <geom name="th_sensor_5" class="sensor_patch" pos="0.007 -0.05 0.023" quat="0.900447 0 -0.434966 0"/>
+              <geom name="th_sensor_6" class="sensor_patch" pos="0.007 -0.04 0.006" quat="0.900447 0 0.434966 0"/>
+              <geom name="th_sensor_7" class="sensor_patch" pos="0.007 -0.05 0.006" quat="0.900447 0 0.434966 0"/>
+              <site name="th_uSCuALHA_construction_line_0" class="uSCuALHA" pos="0.015 -0.03 0.0145"/>
+              <site name="th_uSCuALHA_construction_line_1" class="uSCuALHA" pos="0.015 -0.035 0.0145"/>
+              <site name="th_uSCuALHA_construction_line_2" class="uSCuALHA" pos="0.015 -0.04 0.0145"/>
+              <site name="th_uSCuALHA_construction_line_3" class="uSCuALHA" pos="0.0148 -0.045 0.0145"/>
+              <site name="th_uSCuALHA_construction_line_4" class="uSCuALHA" pos="0.0142 -0.05 0.0145"/>
+              <site name="th_uSCuALHA_construction_line_5" class="uSCuALHA" pos="0.0134 -0.055 0.0145"/>
+              <site name="th_uSCuALHA_construction_line_6" class="uSCuALHA" pos="0.0115 -0.06 0.0145"/>
+              <site name="th_uSCuALHA_construction_line_7" class="uSCuALHA" pos="0.008 -0.065 0.0145"/>
+              <site name="th_uSCuALHA_construction_line_8" class="uSCuALHA" pos="0.004 -0.068 0.0145"/>
+              <site name="th_uSCuALHA_construction_line_9" class="uSCuALHA" pos="-0.002 -0.0695 0.0145"/>
+              <site name="th_v1_construction_line_1" class="uSCuALHA" pos="0.014 -0.04 0.02"/>
+              <site name="th_v1_construction_line_2" class="uSCuALHA" pos="0.011 -0.04 0.025"/>
+              <site name="th_v1_construction_line_3" class="uSCuALHA" pos="0.005 -0.04 0.029"/>
+              <site name="th_v1_construction_line_4" class="uSCuALHA" pos="0 -0.04 0.03"/>
+              <site name="th_v1_construction_line_5" class="uSCuALHA" pos="0.014 -0.04 0.008"/>
+              <site name="th_v1_construction_line_6" class="uSCuALHA" pos="0.011 -0.04 0.004"/>
+              <site name="th_v1_construction_line_7" class="uSCuALHA" pos="0.005 -0.04 0"/>
+              <site name="th_v1_construction_line_8" class="uSCuALHA" pos="0 -0.04 -0.001"/>
+              <site name="th_v2_construction_line_1" class="uSCuALHA" pos="0.013 -0.05 0.02"/>
+              <site name="th_v2_construction_line_2" class="uSCuALHA" pos="0.01 -0.05 0.025"/>
+              <site name="th_v2_construction_line_3" class="uSCuALHA" pos="0.002 -0.05 0.029"/>
+              <site name="th_v2_construction_line_4" class="uSCuALHA" pos="0.013 -0.05 0.008"/>
+              <site name="th_v2_construction_line_5" class="uSCuALHA" pos="0.01 -0.05 0.004"/>
+              <site name="th_v2_construction_line_6" class="uSCuALHA" pos="0.002 -0.05 -0.0001"/>
+              <site name="th_tip" class="marker" pos="-0.004 -0.067 0.0145"/>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <contact>
+    <exclude body1="palm" body2="if_bs"/>
+    <exclude body1="palm" body2="if_px"/>
+    <exclude body1="palm" body2="if_md"/>
+    <exclude body1="palm" body2="mf_bs"/>
+    <exclude body1="palm" body2="mf_px"/>
+    <exclude body1="palm" body2="mf_md"/>
+    <exclude body1="palm" body2="rf_bs"/>
+    <exclude body1="palm" body2="rf_px"/>
+    <exclude body1="palm" body2="rf_md"/>
+    <exclude body1="palm" body2="th_mp"/>
+    <exclude body1="palm" body2="th_bs"/>
+    <exclude body1="palm" body2="th_px"/>
+    <exclude body1="if_bs" body2="if_md"/>
+    <exclude body1="if_bs" body2="mf_bs"/>
+    <exclude body1="if_bs" body2="rf_bs"/>
+    <exclude body1="if_bs" body2="th_mp"/>
+    <exclude body1="mf_bs" body2="mf_md"/>
+    <exclude body1="mf_bs" body2="rf_bs"/>
+    <exclude body1="mf_bs" body2="th_mp"/>
+    <exclude body1="rf_bs" body2="rf_md"/>
+    <exclude body1="rf_bs" body2="th_mp"/>
+  </contact>
+
+  <actuator>
+    <general name="if_mcp_act" class="mcp" joint="if_mcp"/>
+    <general name="if_rot_act" class="rot" joint="if_rot"/>
+    <general name="if_pip_act" class="pip" joint="if_pip"/>
+    <general name="if_dip_act" class="dip" joint="if_dip"/>
+    <general name="mf_mcp_act" class="mcp" joint="mf_mcp"/>
+    <general name="mf_rot_act" class="rot" joint="mf_rot"/>
+    <general name="mf_pip_act" class="pip" joint="mf_pip"/>
+    <general name="mf_dip_act" class="dip" joint="mf_dip"/>
+    <general name="rf_mcp_act" class="mcp" joint="rf_mcp"/>
+    <general name="rf_rot_act" class="rot" joint="rf_rot"/>
+    <general name="rf_pip_act" class="pip" joint="rf_pip"/>
+    <general name="rf_dip_act" class="dip" joint="rf_dip"/>
+    <general name="th_cmc_act" class="thumb_cmc" joint="th_cmc"/>
+    <general name="th_axl_act" class="thumb_axl" joint="th_axl"/>
+    <general name="th_mcp_act" class="thumb_mcp" joint="th_mcp"/>
+    <general name="th_ipl_act" class="thumb_ipl" joint="th_ipl"/>
+  </actuator>
+
+  <sensor>
+    <jointpos joint="if_mcp" name="if_mcp_sensor"/>
+    <jointpos joint="if_rot" name="if_rot_sensor"/>
+    <jointpos joint="if_pip" name="if_pip_sensor"/>
+    <jointpos joint="if_dip" name="if_dip_sensor"/>
+    <jointpos joint="mf_mcp" name="mf_mcp_sensor"/>
+    <jointpos joint="mf_rot" name="mf_rot_sensor"/>
+    <jointpos joint="mf_pip" name="mf_pip_sensor"/>
+    <jointpos joint="mf_dip" name="mf_dip_sensor"/>
+    <jointpos joint="rf_mcp" name="rf_mcp_sensor"/>
+    <jointpos joint="rf_rot" name="rf_rot_sensor"/>
+    <jointpos joint="rf_pip" name="rf_pip_sensor"/>
+    <jointpos joint="rf_dip" name="rf_dip_sensor"/>
+    <jointpos joint="th_cmc" name="th_cmc_sensor"/>
+    <jointpos joint="th_axl" name="th_axl_sensor"/>
+    <jointpos joint="th_mcp" name="th_mcp_sensor"/>
+    <jointpos joint="th_ipl" name="th_ipl_sensor"/>
+  </sensor>
+</mujoco>
