@@ -13,6 +13,126 @@
 
 import mujoco as mj
 
+
+def remove_collsions_geom_convering_sensors_except_for_finger(spec):
+    for idx in range(3):
+        name = f"uspa46_{idx+1}"
+        geom = spec.geom(name)
+        spec.delete(geom)
+    
+    for finger in ["if", "mf", "rf"]:
+        name = f"{finger}_bs_uspa44"
+        geom = spec.geom(name)
+        spec.delete(geom)
+        name = f"{finger}_px_uspa44"
+        geom = spec.geom(name)
+        spec.delete(geom)
+        name = f"{finger}_md_uspa44"
+        geom = spec.geom(name)
+        spec.delete(geom)
+    
+
+
+def add_sensor_patch_defaults_for_if_mf_rf(spec,sensor_patch_default):
+
+    sensor_patch_default_dict = {}
+    sensor_patch_params = {}  # Store pos and euler for each default
+    
+    # top surface
+    locations = [([0.01, -0.035, 0.0145],[0,0,0]),
+                ([0.0100, -0.045, 0.0145],[0,0,0]),
+                ([0.004, -0.057, 0.0145],[0,0,0.7])]
+    for idx,loc in enumerate(locations):
+        pos,euler = loc
+        ref = spec.add_default(f"fingertip_sensor_top_surface_{idx+1}",sensor_patch_default)
+        ref.geom.pos = pos
+        # Note: euler cannot be set on geom defaults, will be set when adding geom
+
+        sensor_patch_default_dict[f"fingertip_sensor_top_surface_{idx+1}"] = ref
+        sensor_patch_params[f"fingertip_sensor_top_surface_{idx+1}"] = {"pos": pos, "euler": euler}
+    
+    # left surface
+    locations = [([0.007, -0.035, 0.023],[0,-0.9,0]),
+                ([0.007, -0.045, 0.023],[0,-0.9,0])]
+    for idx,loc in enumerate(locations):
+        pos,euler = loc
+        ref = spec.add_default(f"fingertip_sensor_left_surface_{idx+1}",sensor_patch_default)
+        ref.geom.pos = pos
+        # Note: euler cannot be set on geom defaults, will be set when adding geom
+
+        sensor_patch_default_dict[f"fingertip_sensor_left_surface_{idx+1}"] = ref
+        sensor_patch_params[f"fingertip_sensor_left_surface_{idx+1}"] = {"pos": pos, "euler": euler}
+    
+    # right surface
+    locations = [([0.007, -0.035, 0.006],[0,0.9,0]),
+                ([0.007, -0.045, 0.006],[0,0.9,0])]
+    for idx,loc in enumerate(locations):
+        pos,euler = loc
+        ref = spec.add_default(f"fingertip_sensor_right_surface_{idx+1}",sensor_patch_default)
+        ref.geom.pos = pos
+        # Note: euler cannot be set on geom defaults, will be set when adding geom
+
+        sensor_patch_default_dict[f"fingertip_sensor_right_surface_{idx+1}"] = ref
+        sensor_patch_params[f"fingertip_sensor_right_surface_{idx+1}"] = {"pos": pos, "euler": euler}
+
+    return sensor_patch_default_dict, sensor_patch_params
+
+def add_sensor_path_to_if_mf_rf(spec, finger_name = "if", sensor_patch_default_dict = None, sensor_patch_params = None):
+    body = spec.body(f"{finger_name}_ds")
+    
+    # top surface
+    for idx in range(3):
+        default_key = f"fingertip_sensor_top_surface_{idx+1}"
+        params = sensor_patch_params[default_key]
+        body.add_geom(
+            name=f"{finger_name}_sensor_top_surface_{idx+1}",
+            default=sensor_patch_default_dict[default_key],
+            pos=params["pos"],
+            euler=params["euler"],
+        )
+
+    # left surface
+    for idx in range(2):
+        default_key = f"fingertip_sensor_left_surface_{idx+1}"
+        params = sensor_patch_params[default_key]
+        body.add_geom(
+            name=f"{finger_name}_sensor_left_surface_{idx+1}",
+            default=sensor_patch_default_dict[default_key],
+            pos=params["pos"],
+            euler=params["euler"],
+        )
+    # right surface
+    for idx in range(2):
+        default_key = f"fingertip_sensor_right_surface_{idx+1}"
+        params = sensor_patch_params[default_key]
+        body.add_geom(
+            name=f"{finger_name}_sensor_right_surface_{idx+1}",
+            default=sensor_patch_default_dict[default_key],
+            pos=params["pos"],
+            euler=params["euler"],
+        )
+
+def add_sensor_path_to_th(spec, sensor_default = None):
+    # (pos,euler)
+    locations =[
+        ([0.01, -0.040, 0.0145],[0,0,0]),
+        ([0.0100, -0.050 ,0.0145],[0,0,0]),
+        ([0.004 ,-0.062  ,0.0145],[0,0,0.7]),
+        ([0.007 ,-0.040  ,0.023],[0,-0.9,0]),
+        ([0.007 ,-0.050  ,0.023],[0,-0.9,0]),
+        ([0.007 ,-0.040  ,0.006],[0,0.9,0]),
+        ([0.007 ,-0.050  ,0.006],[0,0.9,0]),
+    ]
+    for idx,loc in enumerate(locations):
+        pos,euler = loc
+        spec.body("th_ds").add_geom(
+            name=f"th_sensor_{idx+1}",
+            pos=pos,
+            euler=euler,
+            default=sensor_default
+        )
+
+
 def add_uspa44(spec, site_name,link_name,sensor_default):
 
     site_x0_y0 = spec.site(site_name)
@@ -77,7 +197,7 @@ def write_xml_model(spec):
     f.write(xml)
 
 if __name__ == "__main__":
-    spec = mj.MjSpec.from_file("robot_touch_sensor_array_base_model.xml")
+    spec = mj.MjSpec.from_file("leapXela_base_model.xml")
     site_names = ["if_bs_uspa44", "mf_bs_uspa44" ,"rf_bs_uspa44",
                   "if_md_uspa44", "mf_md_uspa44" ,"rf_md_uspa44",
                   "if_px_uspa44", "mf_px_uspa44" ,"rf_px_uspa44",
@@ -86,24 +206,38 @@ if __name__ == "__main__":
     th_site_names = ["th_bs_uspa44","th_px_uspa44"]
     palm_site_names = ["uspa46_1", "uspa46_2" ,"uspa46_3"]
 
-    geom_default = spec.geom("th_sensor_1").classname
+    collision_default = spec.geom("if_ds_collision_1").classname
+
+    # add sensor_patch to collision default
+    sensor_patch_default = spec.add_default("sensor_patch",collision_default)
+    sensor_patch_default.geom.size=[0.005, 0.005, 0.005]
+    sensor_patch_default.geom.rgba=[1, 0, 0, 1]
+    sensor_patch_default.geom.group=4
+
+    remove_collsions_geom_convering_sensors_except_for_finger(spec)
  
+    # add sensor_patch to finger links
     for site_name in site_names:
         if "bs" in site_name:
-            add_uspa44(spec, site_name,"bs",geom_default)
+            add_uspa44(spec, site_name,"bs",sensor_patch_default)
         elif "md" in site_name:
-            add_uspa44(spec, site_name,"md",geom_default)
+            add_uspa44(spec, site_name,"md",sensor_patch_default)
         elif "px" in site_name:
-            add_uspa44(spec, site_name,"px",geom_default)
+            add_uspa44(spec, site_name,"px",sensor_patch_default)
+    sensor_patch_default_dict, sensor_patch_params = add_sensor_patch_defaults_for_if_mf_rf(spec,sensor_patch_default)
+    for finger in ["if", "mf", "rf"]:
+        add_sensor_path_to_if_mf_rf(spec, finger, sensor_patch_default_dict, sensor_patch_params)
        
-
+    # add sensor_patch to thumb links
     for site_name in th_site_names:
         if "th_bs" in site_name:
-            add_uspa44(spec, site_name,"th_bs",geom_default)
+            add_uspa44(spec, site_name,"th_bs",sensor_patch_default)
         elif "th_px" in site_name:
-            add_uspa44(spec, site_name,"th_px",geom_default)
+            add_uspa44(spec, site_name,"th_px",sensor_patch_default)
+    add_sensor_path_to_th(spec,sensor_patch_default)
     
+    # add sensor_patch to palm
     for site_name in palm_site_names:
-        add_uspa46(spec, site_name,geom_default)
+        add_uspa46(spec, site_name,sensor_patch_default)
 
     write_xml_model(spec)

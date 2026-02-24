@@ -19,19 +19,19 @@ for i in range(3):
     for side in ["left", "right","top"]:
         if side != "top" and i == 2:
             continue
-        uSCuALHA_if.append(f"if_fingertip_sensor_{side}_surface_{i+1}")
+        uSCuALHA_if.append(f"if_sensor_{side}_surface_{i+1}")
 
 for i in range(3):
     for side in ["left", "right","top"]:
         if side != "top" and i == 2:
             continue
-        uSCuALHA_mf.append(f"mf_fingertip_sensor_{side}_surface_{i+1}")
+        uSCuALHA_mf.append(f"mf_sensor_{side}_surface_{i+1}")
 
 for i in range(3):
     for side in ["left", "right","top"]:
         if side != "top" and i == 2:
             continue
-        uSCuALHA_rf.append(f"rf_fingertip_sensor_{side}_surface_{i+1}")
+        uSCuALHA_rf.append(f"rf_sensor_{side}_surface_{i+1}")
 
 for i in range(7):
         uSCuALHA_th.append(f"th_sensor_{i+1}")
@@ -47,7 +47,7 @@ uspa44_rf_md_grid_locations = {f"rf_md_uspa44_sensor_patch_{i}_{j}":(i,j) for i 
 th_bs_grid_locations = {f"th_bs_uspa44_sensor_patch_{i}_{j}":(i,j) for i in range(4) for j in range(4)}
 th_px_grid_locations = {f"th_px_uspa44_sensor_patch_{i}_{j}":(i,j) for i in range(4) for j in range(4)}
 
-cube_collsion_name = "cube_collision"
+cube_collsion_name = "cube"
 
 
 
@@ -59,7 +59,7 @@ if __name__ == "__main__":
   model = spec.compile()
   data = mj.MjData(model)
 
-  cube_collision_id = data.geom("cube_collision").id
+  cube_collision_id = data.geom(cube_collsion_name).id
   
 
   uspa46_1_grid_geoms_id = {data.geom(key).id:key for key in uspa46_1_grid_locations.keys()} 
@@ -99,10 +99,15 @@ if __name__ == "__main__":
   
       for i in range(data.ncon):
         con = data.contact[i]
-
+        force6 = np.zeros(6)
+        
         g1 = con.geom1
         g2 = con.geom2
         if g1 == cube_collision_id:
+            ###
+            mj.mj_contactForce(model,data,i, force6)
+            print(f"force::{force6}")
+            ###
             if g2 in uspa46_1_grid_geoms_id.keys():
                 activated_sensors.append(uspa46_1_grid_geoms_id[g2])
             elif g2 in uspa46_2_grid_geoms_id.keys():
@@ -140,6 +145,10 @@ if __name__ == "__main__":
             elif g2 in uSCuALHA_th_grid_geoms_id.keys():
                 activated_sensors.append(uSCuALHA_th_grid_geoms_id[g2])
         elif g2 == cube_collision_id:
+            ###
+            mj.mj_contactForce(model,data,i, force6)
+            print(f"force::{force6}")
+            ###
             if g1 in uspa46_1_grid_geoms_id.keys():
                 activated_sensors.append(uspa46_1_grid_geoms_id[g1])
             elif g1 in uspa46_2_grid_geoms_id.keys():
@@ -177,11 +186,7 @@ if __name__ == "__main__":
             elif g1 in uSCuALHA_th_grid_geoms_id.keys():
                 activated_sensors.append(uSCuALHA_th_grid_geoms_id[g1])
         
-
-
-        # name1 = mj.mj_id2name(model, mj.mjtObj.mjOBJ_GEOM, g1)
-        # name2 = mj.mj_id2name(model, mj.mjtObj.mjOBJ_GEOM, g2)
-        # print(f"Contact {i}: {name1} and {name2}")
+      
       
       print(f"activated_sensors::{set(activated_sensors)}")
       activated_sensors = []

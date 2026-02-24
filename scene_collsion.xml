@@ -1,5 +1,5 @@
 <mujoco model="leap_scene">
-  <include file="robot_touch_sensor_array_binary_touchgrid_generated.xml"/>
+  <include file="robot_touch_sensor_array_binary_touchgrid_generated_mjx.xml"/>
   <include file="reorientation_cube.xml"/>
 
   <statistic center="0.15 0 0" extent="0.4" meansize="0.01"/>

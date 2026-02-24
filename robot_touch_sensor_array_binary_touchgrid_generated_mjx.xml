@@ -127,7 +127,8 @@
   </asset>
 
   <worldbody>
-    <body name="palm" pos="0 0 0.1" quat="0.707107 -0.707107 0 0">
+    <site name="grasp_site" pos="0.11 0 0.03" group="4"/>
+    <body name="palm" pos="0 0.011 -0.01" quat="0.411476 -0.574943 0.575401 -0.411148">
       <inertial pos="0.00388456 -0.00321858 0.0893448" quat="0.718238 0.0745346 0.0438938 0.6904" mass="0.237" diaginertia="0.00769061 0.00594175 0.00341044"/>
       <geom name="palm_visual_1" class="visual" pos="0.0180627 0.023 0.0834096" quat="0 0.707107 0 -0.707107" material="black" mesh="leap_hand_xela_motorholder"/>
       <geom name="palm_visual_2" class="visual" pos="-0.005515 -0.027 0.0631" quat="0 0 0 -1" material="black" mesh="uspa46"/>
@@ -147,16 +148,7 @@
       <geom name="palm_collision_5" class="collision" size="0.015 0.023 0.015" pos="0.0529 -0.002 0.14"/>
       <geom name="palm_collision_7" class="collision" size="0.035 0.03 0.02" pos="-0.012 0 0.1"/>
       <geom name="palm_collision_8" class="collision" size="0.025 0.03 0.02" pos="-0.003 0 0.06"/>
-      <geom name="palm_collision_9" class="collision" size="0.04 0.03 0.01" pos="-0.037 0 0.08" quat="0.802096 0 0.597195 0"/>
       <geom name="palm_collision_10" class="collision" size="0.035 0.005 0.02" pos="0.036 -0.025 0.1"/>
-      <geom name="palm_collision_11" class="collision" size="0.035 0.005 0.02" pos="0.036 0.025 0.1"/>
-      <geom name="palm_collision_12" class="collision" size="0.035 0.03 0.005" pos="0.036 0 0.115"/>
-      <geom name="palm_collision_13" class="collision" size="0.02 0.012 0.015" pos="0.039 -0.013 0.085"/>
-      <geom name="palm_collision_17" class="collision" size="0.02 0.02" pos="0 0 0.02" type="cylinder"/>
-      <geom name="palm_collision_18" class="collision" size="0.035 0.005" pos="0 0 0.005" type="cylinder"/>
-      <geom name="palm_collision_19" class="collision" size="0.012 0.011 0.005" pos="0.0529 -0.003 0.12"/>
-      <geom name="palm_collision_20" class="collision" size="0.012 0.011 0.005" pos="0.008 -0.003 0.12"/>
-      <geom name="palm_collision_21" class="collision" size="0.012 0.011 0.005" pos="-0.0375 -0.003 0.12"/>
       <geom name="if_bs_uspa44_sensor_patch_0_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.015 -0.0295 0.149"/>
       <geom name="if_bs_uspa44_sensor_patch_1_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.01 -0.0295 0.149"/>
       <geom name="if_bs_uspa44_sensor_patch_2_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.005 -0.0295 0.149"/>
@@ -311,10 +303,6 @@
         <inertial pos="0.0342889 -0.0265621 -0.0145004" quat="0.612791 0.580477 0.431308 0.318601" mass="0.044" diaginertia="7.5816e-05 7.223e-05 3.79383e-05"/>
         <joint name="if_mcp" class="mcp" pos="0 0 0" axis="0 0 1"/>
         <geom name="if_bs_visual" class="visual" pos="0.0048 0 -0.0145" quat="0.5 0.5 0.5 -0.5" material="black" mesh="p4_unified"/>
-        <geom name="if_bs_collision_1" class="collision" size="0.03 0.01 0.0025" pos="0.013 -0.016 0.0015" quat="0.889293 0 0 -0.457338"/>
-        <geom name="if_bs_collision_2" class="collision" size="0.003 0.01 0.002" pos="-0.0005 0 0.0055"/>
-        <geom name="if_bs_collision_3" class="collision" size="0.03 0.01 0.0025" pos="0.013 -0.016 -0.0305" quat="0.889293 0 0 -0.457338"/>
-        <geom name="if_bs_collision_4" class="collision" size="0.02 0.016 0.015" pos="0.04 -0.031 -0.015"/>
         <body name="if_px" pos="0.0326 -0.0123 -0.0145" quat="0.5 -0.5 -0.5 -0.5">
           <inertial pos="-0.000258994 0.00848001 0.0133488" quat="0.367834 0.431156 -0.638662 0.520494" mass="0.032" diaginertia="2.33931e-05 2.31607e-05 1.72678e-05"/>
           <joint name="if_rot" class="rot" pos="0 0 0" axis="0 0 1"/>
@@ -341,10 +329,6 @@
             <inertial pos="0.0304899 -0.00688132 -0.0146269" quat="0.429182 0.64565 -0.344415 0.52945" mass="0.037" diaginertia="5.92221e-05 5.44273e-05 4.40625e-05"/>
             <joint name="if_pip" class="pip" pos="0 0 0" axis="0 0 1"/>
             <geom name="if_md_visual" class="visual" pos="0.00905 0 -0.0145" quat="0.5 0.5 0.5 -0.5" material="black" mesh="p2_unified"/>
-            <geom name="if_md_collision_1" class="collision" size="0.02 0.01 0.004" pos="0.02 -0.009 0.0015" quat="0.889293 0 0 -0.457338"/>
-            <geom name="if_md_collision_2" class="collision" size="0.008 0.005" pos="0 0 0.0035" type="cylinder"/>
-            <geom name="if_md_collision_3" class="collision" size="0.02 0.01 0.004" pos="0.02 -0.009 -0.0305" quat="0.889293 0 0 -0.457338"/>
-            <geom name="if_md_collision_4" class="collision" size="0.008 0.003" pos="0 0 -0.03" type="cylinder"/>
             <geom name="if_md_collision_5" class="collision" size="0.015 0.02 0.014" pos="0.033 -0.011 -0.0145"/>
             <geom name="if_md_uspa44_sensor_patch_0_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.04 0.0125 -0.008"/>
             <geom name="if_md_uspa44_sensor_patch_1_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.035 0.0125 -0.008"/>
@@ -367,12 +351,8 @@
               <inertial pos="-0.00193531 -0.0359351 0.0145854" quat="0.694152 0.719273 0.0276433 -0.00591063" mass="0.016" diaginertia="7.05616e-05 6.58815e-05 3.62962e-05"/>
               <joint name="if_dip" class="dip" pos="0 0 0" axis="0 0 1"/>
               <geom class="visual" pos="-0.00135925 -0.025 0.0145" quat="0.5 -0.5 -0.5 -0.5" material="black" mesh="fingertop_unfied"/>
-              <geom name="if_ds_collision_1" class="collision" size="0.017 0.01 0.004" pos="0 -0.009 -0.001" quat="0.707388 0 0 0.706825"/>
-              <geom name="if_ds_collision_2" class="collision" size="0.017 0.01 0.004" pos="0 -0.009 0.03" quat="0.707388 0 0 0.706825"/>
-              <geom name="if_ds_collision_3" class="collision" size="0.01 0.002 0.002" pos="-0.0005 0 0.035"/>
-              <geom name="if_ds_collision_4" class="collision" size="0.006 0.022 0.015" pos="-0.016 -0.0325 0.015"/>
               <geom name="if_ds_collision_5" class="collision" size="0.01 0.0025 0.0175" pos="0 -0.0225 0.0145"/>
-              <geom name="if_ds_tip" class="uSCuALHA" pos="-0.0009 -0.025 0.0145" quat="0.500398 -0.5 -0.499602 -0.5" mesh="outer_skin_v1_3_1"/>
+              <geom name="if_tip" class="uSCuALHA" pos="-0.0009 -0.025 0.0145" quat="0.500398 -0.5 -0.499602 -0.5" mesh="outer_skin_v1_3_1"/>
               <geom name="if_sensor_top_surface_1" class="fingertip_sensor_top_surface_1" pos="0.01 -0.035 0.0145"/>
               <geom name="if_sensor_top_surface_2" class="fingertip_sensor_top_surface_2" pos="0.01 -0.045 0.0145"/>
               <geom name="if_sensor_top_surface_3" class="fingertip_sensor_top_surface_3" pos="0.004 -0.057 0.0145" quat="0.939373 0 0 0.342898"/>
@@ -404,6 +384,7 @@
               <site name="if_uSCuALHA_h2_construction_line_4" class="h2_construction_line_4" pos="0.013 -0.045 0.008"/>
               <site name="if_uSCuALHA_h2_construction_line_5" class="h2_construction_line_5" pos="0.01 -0.045 0.004"/>
               <site name="if_uSCuALHA_h2_construction_line_6" class="h2_construction_line_6" pos="0.002 -0.045 -0.0001"/>
+              <site name="if_tip" class="marker" pos="0 0 0"/>
             </body>
           </body>
         </body>
@@ -412,10 +393,6 @@
         <inertial pos="0.0342889 -0.0265621 -0.0145004" quat="0.612791 0.580477 0.431308 0.318601" mass="0.044" diaginertia="7.5816e-05 7.223e-05 3.79383e-05"/>
         <joint name="mf_mcp" class="mcp" pos="0 0 0" axis="0 0 1"/>
         <geom name="mf_bs_visual" class="visual" pos="0.0048 0 -0.0145" quat="0.5 0.5 0.5 -0.5" material="black" mesh="p4_unified"/>
-        <geom name="mf_bs_collision_1" class="collision" size="0.03 0.01 0.0025" pos="0.013 -0.016 0.0015" quat="0.889293 0 0 -0.457338"/>
-        <geom name="mf_bs_collision_2" class="collision" size="0.003 0.01 0.002" pos="-0.0005 0 0.0055"/>
-        <geom name="mf_bs_collision_3" class="collision" size="0.03 0.01 0.0025" pos="0.013 -0.016 -0.0305" quat="0.889293 0 0 -0.457338"/>
-        <geom name="mf_bs_collision_4" class="collision" size="0.02 0.016 0.015" pos="0.04 -0.031 -0.015"/>
         <body name="mf_px" pos="0.0326 -0.0123 -0.0145" quat="0.5 -0.5 -0.5 -0.5">
           <inertial pos="-0.000258994 0.00848001 0.0133488" quat="0.367834 0.431156 -0.638662 0.520494" mass="0.032" diaginertia="2.33931e-05 2.31607e-05 1.72678e-05"/>
           <joint name="mf_rot" class="rot" pos="0 0 0" axis="0 0 1"/>
@@ -442,10 +419,6 @@
             <inertial pos="0.0304899 -0.00688132 -0.0146269" quat="0.429182 0.64565 -0.344415 0.52945" mass="0.037" diaginertia="5.92221e-05 5.44273e-05 4.40625e-05"/>
             <joint name="mf_pip" class="pip" pos="0 0 0" axis="0 0 1"/>
             <geom name="mf_md_visual" class="visual" pos="0.00905 0 -0.0145" quat="0.5 0.5 0.5 -0.5" material="black" mesh="p2_unified"/>
-            <geom name="mf_md_collision_1" class="collision" size="0.02 0.01 0.004" pos="0.02 -0.009 0.0015" quat="0.889293 0 0 -0.457338"/>
-            <geom name="mf_md_collision_2" class="collision" size="0.008 0.005" pos="0 0 0.0035" type="cylinder"/>
-            <geom name="mf_md_collision_3" class="collision" size="0.02 0.01 0.004" pos="0.02 -0.009 -0.0305" quat="0.889293 0 0 -0.457338"/>
-            <geom name="mf_md_collision_4" class="collision" size="0.008 0.003" pos="0 0 -0.03" type="cylinder"/>
             <geom name="mf_md_collision_5" class="collision" size="0.015 0.02 0.014" pos="0.033 -0.011 -0.0145"/>
             <geom name="mf_md_uspa44_sensor_patch_0_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.04 0.0125 -0.008"/>
             <geom name="mf_md_uspa44_sensor_patch_1_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.035 0.0125 -0.008"/>
@@ -468,12 +441,8 @@
               <inertial pos="-0.00193531 -0.0359351 0.0145854" quat="0.694152 0.719273 0.0276433 -0.00591063" mass="0.016" diaginertia="7.05616e-05 6.58815e-05 3.62962e-05"/>
               <joint name="mf_dip" class="dip" pos="0 0 0" axis="0 0 1"/>
               <geom name="mf_ds_visual" class="visual" pos="-0.00135925 -0.025 0.0145" quat="0.5 -0.5 -0.5 -0.5" material="black" mesh="fingertop_unfied"/>
-              <geom name="mf_ds_collision_1" class="collision" size="0.017 0.01 0.004" pos="0 -0.009 -0.001" quat="0.707388 0 0 0.706825"/>
-              <geom name="mf_ds_collision_2" class="collision" size="0.017 0.01 0.004" pos="0 -0.009 0.03" quat="0.707388 0 0 0.706825"/>
-              <geom name="mf_ds_collision_3" class="collision" size="0.01 0.002 0.002" pos="-0.0005 0 0.035"/>
-              <geom name="mf_ds_collision_4" class="collision" size="0.006 0.022 0.015" pos="-0.016 -0.0325 0.015"/>
               <geom name="mf_ds_collision_5" class="collision" size="0.01 0.0025 0.0175" pos="0 -0.0225 0.0145"/>
-              <geom name="mf_ds_tip" class="uSCuALHA" pos="-0.0009 -0.025 0.0145" quat="0.500398 -0.5 -0.499602 -0.5" mesh="outer_skin_v1_3_1"/>
+              <geom name="mf_tip" class="uSCuALHA" pos="-0.0009 -0.025 0.0145" quat="0.500398 -0.5 -0.499602 -0.5" mesh="outer_skin_v1_3_1"/>
               <geom name="mf_sensor_top_surface_1" class="fingertip_sensor_top_surface_1" pos="0.01 -0.035 0.0145"/>
               <geom name="mf_sensor_top_surface_2" class="fingertip_sensor_top_surface_2" pos="0.01 -0.045 0.0145"/>
               <geom name="mf_sensor_top_surface_3" class="fingertip_sensor_top_surface_3" pos="0.004 -0.057 0.0145" quat="0.939373 0 0 0.342898"/>
@@ -481,6 +450,7 @@
               <geom name="mf_sensor_left_surface_2" class="fingertip_sensor_left_surface_2" pos="0.007 -0.045 0.023" quat="0.900447 0 -0.434966 0"/>
               <geom name="mf_sensor_right_surface_1" class="fingertip_sensor_right_surface_1" pos="0.007 -0.035 0.006" quat="0.900447 0 0.434966 0"/>
               <geom name="mf_sensor_right_surface_2" class="fingertip_sensor_right_surface_2" pos="0.007 -0.045 0.006" quat="0.900447 0 0.434966 0"/>
+              <site name="mf_tip" class="marker" pos="0 0 0"/>
             </body>
           </body>
         </body>
@@ -489,10 +459,6 @@
         <inertial pos="0.0342889 -0.0265621 -0.0145004" quat="0.612791 0.580477 0.431308 0.318601" mass="0.044" diaginertia="7.5816e-05 7.223e-05 3.79383e-05"/>
         <joint name="rf_mcp" class="mcp" pos="0 0 0" axis="0 0 1"/>
         <geom name="rf_bs_visual" class="visual" pos="0.0048 0 -0.0145" quat="0.5 0.5 0.5 -0.5" material="black" mesh="p4_unified"/>
-        <geom name="rf_bs_collision_1" class="collision" size="0.03 0.01 0.0025" pos="0.013 -0.016 0.0015" quat="0.889293 0 0 -0.457338"/>
-        <geom name="rf_bs_collision_2" class="collision" size="0.003 0.01 0.002" pos="-0.0005 0 0.0055"/>
-        <geom name="rf_bs_collision_3" class="collision" size="0.03 0.01 0.0025" pos="0.013 -0.016 -0.0305" quat="0.889293 0 0 -0.457338"/>
-        <geom name="rf_bs_collision_4" class="collision" size="0.02 0.016 0.015" pos="0.04 -0.031 -0.015"/>
         <body name="rf_px" pos="0.0326 -0.0123 -0.0145" quat="0.5 -0.5 -0.5 -0.5">
           <inertial pos="-0.000258994 0.00848001 0.0133488" quat="0.367834 0.431156 -0.638662 0.520494" mass="0.032" diaginertia="2.33931e-05 2.31607e-05 1.72678e-05"/>
           <joint name="rf_rot" class="rot" pos="0 0 0" axis="0 0 1"/>
@@ -519,10 +485,6 @@
             <inertial pos="0.0304899 -0.00688132 -0.0146269" quat="0.429182 0.64565 -0.344415 0.52945" mass="0.037" diaginertia="5.92221e-05 5.44273e-05 4.40625e-05"/>
             <joint name="rf_pip" class="pip" pos="0 0 0" axis="0 0 1"/>
             <geom name="rf_md_visual" class="visual" pos="0.00905 0 -0.0145" quat="0.5 0.5 0.5 -0.5" material="black" mesh="p2_unified"/>
-            <geom name="rf_md_collision_1" class="collision" size="0.02 0.01 0.004" pos="0.02 -0.009 0.0015" quat="0.889293 0 0 -0.457338"/>
-            <geom name="rf_md_collision_2" class="collision" size="0.008 0.005" pos="0 0 0.0035" type="cylinder"/>
-            <geom name="rf_md_collision_3" class="collision" size="0.02 0.01 0.004" pos="0.02 -0.009 -0.0305" quat="0.889293 0 0 -0.457338"/>
-            <geom name="rf_md_collision_4" class="collision" size="0.008 0.003" pos="0 0 -0.03" type="cylinder"/>
             <geom name="rf_md_collision_5" class="collision" size="0.015 0.02 0.014" pos="0.033 -0.011 -0.0145"/>
             <geom name="rf_md_uspa44_sensor_patch_0_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.04 0.0125 -0.008"/>
             <geom name="rf_md_uspa44_sensor_patch_1_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.035 0.0125 -0.008"/>
@@ -545,12 +507,8 @@
               <inertial pos="-0.00193531 -0.0359351 0.0145854" quat="0.694152 0.719273 0.0276433 -0.00591063" mass="0.016" diaginertia="7.05616e-05 6.58815e-05 3.62962e-05"/>
               <joint name="rf_dip" class="dip" pos="0 0 0" axis="0 0 1"/>
               <geom name="rf_ds_visual" class="visual" pos="-0.00135925 -0.025 0.0145" quat="0.5 -0.5 -0.5 -0.5" material="black" mesh="fingertop_unfied"/>
-              <geom name="rf_ds_collision_1" class="collision" size="0.017 0.01 0.004" pos="0 -0.009 -0.001" quat="0.707388 0 0 0.706825"/>
-              <geom name="rf_ds_collision_2" class="collision" size="0.017 0.01 0.004" pos="0 -0.009 0.03" quat="0.707388 0 0 0.706825"/>
-              <geom name="rf_ds_collision_3" class="collision" size="0.01 0.002 0.002" pos="-0.0005 0 0.035"/>
-              <geom name="rf_ds_collision_4" class="collision" size="0.006 0.022 0.015" pos="-0.016 -0.0325 0.015"/>
               <geom name="rf_ds_collision_5" class="collision" size="0.01 0.0025 0.0175" pos="0 -0.0225 0.0145"/>
-              <geom name="rf_ds_tip" class="uSCuALHA" pos="-0.0009 -0.025 0.0145" quat="0.500398 -0.5 -0.499602 -0.5" mesh="outer_skin_v1_3_1"/>
+              <geom name="rf_tip" class="uSCuALHA" pos="-0.0009 -0.025 0.0145" quat="0.500398 -0.5 -0.499602 -0.5" mesh="outer_skin_v1_3_1"/>
               <geom name="rf_sensor_top_surface_1" class="fingertip_sensor_top_surface_1" pos="0.01 -0.035 0.0145"/>
               <geom name="rf_sensor_top_surface_2" class="fingertip_sensor_top_surface_2" pos="0.01 -0.045 0.0145"/>
               <geom name="rf_sensor_top_surface_3" class="fingertip_sensor_top_surface_3" pos="0.004 -0.057 0.0145" quat="0.939373 0 0 0.342898"/>
@@ -558,6 +516,7 @@
               <geom name="rf_sensor_left_surface_2" class="fingertip_sensor_left_surface_2" pos="0.007 -0.045 0.023" quat="0.900447 0 -0.434966 0"/>
               <geom name="rf_sensor_right_surface_1" class="fingertip_sensor_right_surface_1" pos="0.007 -0.035 0.006" quat="0.900447 0 0.434966 0"/>
               <geom name="rf_sensor_right_surface_2" class="fingertip_sensor_right_surface_2" pos="0.007 -0.045 0.006" quat="0.900447 0 0.434966 0"/>
+              <site name="rf_tip" class="marker" pos="0 0 0"/>
             </body>
           </body>
         </body>
@@ -572,10 +531,6 @@
           <joint name="th_axl" class="thumb_axl" pos="0 0 0" axis="0 0 1"/>
           <geom name="th_bs_visual_1" class="visual" pos="-0.0173 0 0.019" quat="0.707107 0.707107 0 0" material="black" mesh="thconnector"/>
           <geom name="th_bs_visual_2" class="visual" pos="0.0155 -0.006 0.019" quat="0 -0.707107 -0.707107 0" material="black" mesh="clipper"/>
-          <geom name="th_bs_collision_1" class="collision" size="0.002 0.013 0.0125" pos="0.016 -0.002 0.015"/>
-          <geom name="th_bs_collision_2" class="collision" size="0.002 0.013 0.0125" pos="-0.016 -0.002 0.015"/>
-          <geom name="th_bs_collision_3" class="collision" size="0.018 0.01 0.002" pos="0 0 0.0015"/>
-          <geom name="th_bs_collision_4" class="collision" size="0.002 0.01 0.003" pos="0.02 0 0.019"/>
           <geom name="th_bs_uspa44" class="th_bs_uspa44" pos="0 0.004 0.026"/>
           <geom name="th_bs_uspa44_sensor_patch_0_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.007 0.0125 0.035"/>
           <geom name="th_bs_uspa44_sensor_patch_1_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="0.002 0.0125 0.035"/>
@@ -599,10 +554,6 @@
             <joint name="th_mcp" class="thumb_mcp" pos="0 0 0" axis="0 0 1"/>
             <geom name="th_px_visual_1" class="visual" pos="0 0.0245 0.0145" quat="1 0 0 0" material="black" mesh="thp1_unified"/>
             <geom name="th_px_collision_1" class="collision" size="0.015 0.017 0.015" pos="0.005 0.007 0.0145"/>
-            <geom name="th_px_collision_2" class="collision" size="0.015 0.004 0.015" pos="0.005 0.025 0.0145"/>
-            <geom name="th_px_collision_3" class="collision" size="0.01 0.014 0.002" pos="0 0.039 -0.001"/>
-            <geom name="th_px_collision_4" class="collision" size="0.01 0.0025 0.002" pos="0 0.045 -0.005"/>
-            <geom name="th_px_collision_5" class="collision" size="0.01 0.014 0.002" pos="0 0.039 0.0305"/>
             <geom name="th_px_uspa44" class="th_px_uspa44" pos="-0.004 0.053 0.0145"/>
             <geom name="th_px_uspa44_sensor_patch_0_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.0125 0.0605 0.008"/>
             <geom name="th_px_uspa44_sensor_patch_1_0" class="sensor_patch" size="0.0025 0.0025 0.0025" pos="-0.0125 0.0555 0.008"/>
@@ -626,8 +577,7 @@
               <joint name="th_ipl" class="thumb_ipl" pos="0 0 0" axis="0 0 1"/>
               <geom name="th_ds_visual" class="visual" pos="0 -0.0275 0.014504" quat="0.707107 0.707107 0 0" material="black" mesh="thfingertip_unified"/>
               <geom name="th_ds_collision_1" class="collision" size="0.015 0.017 0.015" pos="-0.006 -0.008 0.014"/>
-              <geom name="th_ds_collision_3" class="collision" size="0.004 0.017 0.015" pos="-0.018 -0.042 0.014"/>
-              <geom name="th_ds_tip" class="uSCuALHA" pos="-0.00135925 -0.0300003 0.014504" quat="0.500398 -0.5 -0.499602 -0.5" mesh="outer_skin_v1_3_1"/>
+              <geom name="th_tip" class="uSCuALHA" pos="-0.00135925 -0.0300003 0.014504" quat="0.500398 -0.5 -0.499602 -0.5" mesh="outer_skin_v1_3_1"/>
               <geom name="th_sensor_1" class="sensor_patch" pos="0.01 -0.04 0.0145"/>
               <geom name="th_sensor_2" class="sensor_patch" pos="0.01 -0.05 0.0145"/>
               <geom name="th_sensor_3" class="sensor_patch" pos="0.004 -0.062 0.0145" quat="0.939373 0 0 0.342898"/>

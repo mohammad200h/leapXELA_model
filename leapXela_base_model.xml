@@ -1,0 +1,685 @@
+<?xml version="1.0" ?>
+<!-- Generated using onshape-to-robot -->
+<!-- Onshape https://cad.onshape.com/documents/8570a76a8c0c31c84724c6f7/w/72ba6e2072d2b92f117e67a0/e/b5b8d162590c6484df5b91e8 -->
+<mujoco model="leapXELA">
+  <compiler angle="radian" meshdir="./assets/"/>
+  <option integrator="implicitfast" cone="elliptic" impratio="100"/>
+
+  <!-- mesh assets -->
+  <asset>
+    <material name="black" rgba="0.2 0.2 0.2 1" />
+    <material name="col" rgba="0.6 1.0 0.6 0.2" />
+    <material name="orange" rgba="1.0 0.5 0.0 0.2" />
+    <material name="marker" rgba="1.0 0.0 0.0 1.0" />
+
+    <mesh file="outer_skin_v1_3_1.stl"/>
+
+    <mesh file="outer_skin_collision_1.stl"/>
+    <mesh file="outer_skin_collision_2.stl"/>
+    <mesh file="outer_skin_collision_3.stl"/>
+    <mesh file="outer_skin_collision_4.stl"/>
+    <mesh file="outer_skin_collision_5.stl"/>
+    <mesh file="outer_skin_collision_6.stl"/>
+
+    <mesh file="thfingertip_unified.stl"/>
+    <mesh file="leap_hand_xela_bottom.stl"/>
+    <mesh file="p2_unified.stl"/>
+    <mesh file="fingertop_unfied.stl"/>
+    <mesh file="thp2_unified.stl"/>
+    <mesh file="leap_hand_xela_motorholder.stl"/>
+    <mesh file="uspa46.stl"/>
+    <mesh file="thp0_unified.stl"/>
+    <mesh file="p3_unified.stl"/>
+    <mesh file="clipper.stl"/>
+    <mesh file="thp1_unified.stl"/>
+    <mesh file="leap_hand_xela_side_cover.stl"/>
+    <mesh file="thconnector.stl"/>
+    <mesh file="p5_unified.stl"/>
+    <mesh file="top_palm.stl"/>
+    <mesh file="p4_unified.stl"/>
+    <mesh file="palm_face.stl"/>
+    <mesh file="leap_hand_xela_back_cover.stl"/>
+  </asset>
+
+  <!-- defaults -->
+  <default >
+    <default class="leapXELA">
+      <!-- constraint stiffness -->
+      <geom solimp="0.999 0.999 0.001 0.0001 1" solref="0.0001 1" friction=".2"/>
+
+      <!-- actuator defaults -->
+      <position kp="3.0" kv="0.01" />
+      <joint damping="0.03" frictionloss="0.001"/>
+
+      <!-- geom class defaults -->    
+      <default class="visual">
+        <geom type="mesh" contype="0" conaffinity="0" group="2"/>
+      </default>
+
+      <default class="collision">
+        <geom type="box" group="3" material="col"/>
+      </default>
+
+
+      <!-- marker defaults-->
+      <default class="marker">
+        <site size="0.005" pos="-0.004 -0.062 0.015" group="5"/>
+      </default>
+
+      <!-- touch grid palm -->
+      <default class="uspa46">
+        <geom type="box" group="3"  size = "0.021 0.01 0.015" material="orange" />
+        <site group="3" size="0.001" />
+      </default>
+      <!-- touch grid finger links -->
+      <default class="uspa44">
+        <geom type="box" group="3"  material="orange" size="0.011 0.011 0.011" />
+        <site group="4" size="0.001" />
+        <default class="px_uspa44">
+          <geom pos="0.00 0.012 0.017"  />
+          <site pos="0.006 0.020 0.028" />
+        </default>
+        <default class="md_uspa44">
+          <geom pos="0.0322 0.005 -0.015"  />
+          <site pos="0.040 0.015 -0.008" />
+        </default>
+
+        <default class="th_bs_uspa44">
+          <geom pos="0.0 0.004 0.026"/>
+          <site pos="0.007 0.015 0.035"/>
+        </default>
+        <default class="th_px_uspa44">
+          <geom pos="-0.004 0.053 0.0145"/>
+          <site pos="-0.015 0.0605 0.008"/>
+        </default>
+         <!-- Construction lines for fingertips -->
+         <!-- Vertical Construction Line -->
+         <default class="construction_line_0">
+          <site pos="0.015 -0.025 0.0145"  />
+         </default>
+         <default class="construction_line_1">
+          <site pos="0.015 -0.030 0.0145" />
+         </default>
+         <default class="construction_line_2">
+          <site pos="0.015 -0.035 0.0145" />
+         </default>
+         <default class="construction_line_3">
+          <site pos="0.0148 -0.040 0.0145" />
+         </default>
+         <default class="construction_line_4">
+          <site pos="0.0142 -0.045 0.0145"/>
+         </default>
+         <default class="construction_line_5">
+          <site pos="0.0134 -0.050 0.0145" />
+         </default>
+         <default class="construction_line_6">
+          <site pos="0.0115 -0.055 0.0145"  />
+         </default>
+         <default class="construction_line_7">
+          <site pos="0.008 -0.060 0.0145"  />
+         </default>
+         <default class="construction_line_8">
+          <site  pos="0.004 -0.063 0.0145" />
+         </default>
+         <default class="construction_line_9">
+          <site pos="-0.002 -0.0645 0.0145"/>
+         </default>
+         <!-- Horizontal Construction Line One -->
+        <default class="h1_construction_line_1">
+          <site pos="0.014 -0.035 0.02" />
+        </default>
+        <default class="h1_construction_line_2">
+          <site pos="0.011 -0.035 0.025" />
+        </default>
+        <default class="h1_construction_line_3">
+          <site pos="0.005 -0.035 0.029" />
+        </default>
+        <default class="h1_construction_line_4">
+          <site pos="0.00 -0.035 0.03" />
+        </default>
+
+        <default class="h1_construction_line_5">
+          <site pos="0.014 -0.035 0.008" />
+        </default>
+        <default class="h1_construction_line_6">
+          <site pos="0.011 -0.035 0.004" />
+        </default>
+        <default class="h1_construction_line_7">
+          <site pos="0.005 -0.035 0.000" />
+        </default>
+        <default class="h1_construction_line_8">
+          <site pos="0.00 -0.035 -0.001" />
+        </default>
+        <!-- Horizontal Construction Line Two -->
+        <default class="h2_construction_line_1">
+          <site pos="0.013 -0.045 0.02" />
+        </default>
+        <default class="h2_construction_line_2">
+          <site pos="0.01 -0.045 0.025" />
+        </default>
+        <default class="h2_construction_line_3">
+          <site pos="0.002 -0.045 0.029" />
+        </default>
+
+        <default class="h2_construction_line_4">
+          <site pos="0.013 -0.045 0.008" />
+        </default>
+        <default class="h2_construction_line_5">
+          <site pos="0.01 -0.045 0.004" />
+        </default>
+        <default class="h2_construction_line_6">
+          <site pos="0.002 -0.045 -0.0001" />
+        </default>
+      </default>
+
+
+
+       <!-- touch grid fingertips -->
+      <default class="uSCuALHA">
+        <geom  group="3" type="mesh" mesh="outer_skin_v1_3_1" pos="-0.0009 -0.025 0.0145"
+                 euler="-1.57 0 -1.57" friction="0.5" material="orange" />
+        <site group="4" pos="0.014 -0.045 0.015" size="0.001" />
+        <default class="outer_skin_collision_1">
+          <geom mesh="outer_skin_collision_1" />
+        </default>
+        <default class="outer_skin_collision_2">
+          <geom mesh="outer_skin_collision_2" />
+        </default>
+        <default class="outer_skin_collision_3">
+          <geom mesh="outer_skin_collision_3" />
+        </default>
+        <default class="outer_skin_collision_4">
+          <geom mesh="outer_skin_collision_4" />
+        </default>
+        <default class="outer_skin_collision_5">
+          <geom mesh="outer_skin_collision_5" />
+        </default>
+        <default class="outer_skin_collision_6">
+          <geom mesh="outer_skin_collision_6" />
+        </default>
+      </default>
+
+       <!-- joint class defaults -->
+      <default class="mcp">
+        <joint pos="0 0 0" axis="0 0 1"
+          limited="true" range="-0.314 2.23" />
+        <position ctrlrange="-0.314 2.23" />
+      </default>
+      <default class="rot">
+        <joint pos="0 0 0" axis="0 0 1"
+          limited="true" range="-1.047 1.047" />
+        <position ctrlrange="-1.047 1.047" />
+      </default>
+      <default class="pip">
+        <joint pos="0 0 0" axis="0 0 1"
+          limited="true" range="-0.506 1.885" />
+        <position ctrlrange="-0.506 1.885" />
+      </default>
+      <default class="dip">
+        <joint pos="0 0 0" axis="0 0 1"
+          limited="true" range="-0.366 2.042" />
+        <position ctrlrange="-0.366 2.042" />
+      </default>
+      <default class="thumb_cmc">
+        <joint pos="0 0 0" axis="0 0 1"
+          limited="true" range="-0.349 2.094" />
+        <position ctrlrange="-0.349 2.094" />
+      </default>
+      <default class="thumb_axl">
+        <joint pos="0 0 0" axis="0 0 1"
+          limited="true" range="-0.349 2.094" />
+        <position ctrlrange="-0.349 2.094" />
+      </default>
+      <default class="thumb_mcp">
+        <joint pos="0 0 0" axis="0 0 1"
+          limited="true" range="-0.47 2.443" />
+        <position ctrlrange="-0.47 2.443" />
+      </default>
+      <default class="thumb_ipl">
+        <joint pos="0 0 0" axis="0 0 1"
+          limited="true" range="-1.34 1.88" />
+        <position ctrlrange="-1.34 1.88" />
+      </default>
+    </default>
+  </default>
+
+  <!-- collision filtering -->
+  <contact>
+    <exclude body1="palm" body2="if_bs" />
+    <exclude body1="palm" body2="mf_bs" />
+    <exclude body1="palm" body2="rf_bs" />
+    <exclude body1="palm" body2="th_mp" />
+
+    <exclude body1="palm" body2="if_px" />
+    <exclude body1="palm" body2="mf_px" />
+    <exclude body1="palm" body2="rf_px" />
+    <exclude body1="palm" body2="th_bs" />
+
+    <exclude body1="palm" body2="if_md" />
+    <exclude body1="palm" body2="mf_md" />
+    <exclude body1="palm" body2="rf_md" />
+    <exclude body1="palm" body2="th_px" />
+
+    <exclude body1="if_bs" body2="mf_bs" />
+    <exclude body1="if_bs" body2="rf_bs" />
+    <exclude body1="mf_bs" body2="rf_bs" />
+
+    <exclude body1="th_mp" body2="if_bs" />
+    <exclude body1="th_mp" body2="mf_bs" />
+    <exclude body1="th_mp" body2="rf_bs" />
+
+    <exclude body1="if_md" body2="if_bs" />
+    <exclude body1="mf_md" body2="mf_bs" />
+    <exclude body1="rf_md" body2="rf_bs" />
+  </contact>
+
+  <!-- actuators -->
+  <actuator>
+    <!-- index -->
+    <position  name="if_mcp_act" joint="if_mcp" class="mcp"/>
+    <position  name="if_rot_act" joint="if_rot" class="rot"/>
+    <position  name="if_pip_act" joint="if_pip" class="pip"/>
+    <position  name="if_dip_act" joint="if_dip" class="dip"/>
+  
+    <!-- middle -->
+    <position name="mf_mcp_act" joint="mf_mcp" class="mcp"/>
+    <position name="mf_rot_act" joint="mf_rot" class="rot"/>
+    <position name="mf_pip_act" joint="mf_pip" class="pip"/>
+    <position name="mf_dip_act" joint="mf_dip" class="dip"/>
+
+    <!-- ring  -->
+    <position name="rf_mcp_act" joint="rf_mcp" class="mcp"/>
+    <position name="rf_rot_act" joint="rf_rot" class="rot"/>
+    <position name="rf_pip_act" joint="rf_pip" class="pip"/>
+    <position name="rf_dip_act" joint="rf_dip" class="dip"/>
+    
+    <!-- thumb -->
+    <position name="th_cmc_act" joint="th_cmc" class="thumb_cmc"/>
+    <position name="th_axl_act" joint="th_axl" class="thumb_axl"/>
+    <position name="th_mcp_act" joint="th_mcp" class="thumb_mcp"/>
+    <position name="th_ipl_act" joint="th_ipl" class="thumb_ipl"/>
+  </actuator>
+
+  <!-- sensors -->
+  <sensor>
+
+    <!-- index -->
+    <jointpos name="if_mcp_sensor" joint="if_mcp" />
+    <jointpos name="if_rot_sensor" joint="if_rot" />
+    <jointpos name="if_pip_sensor" joint="if_pip" />
+    <jointpos name="if_dip_sensor" joint="if_dip" />
+
+    <!-- middle -->
+    <jointpos name="mf_mcp_sensor" joint="mf_mcp" />
+    <jointpos name="mf_rot_sensor" joint="mf_rot" />
+    <jointpos name="mf_pip_sensor" joint="mf_pip" />
+    <jointpos name="mf_dip_sensor" joint="mf_dip" />
+
+    <!-- ring -->
+    <jointpos name="rf_mcp_sensor" joint="rf_mcp" />
+    <jointpos name="rf_rot_sensor" joint="rf_rot" />
+    <jointpos name="rf_pip_sensor" joint="rf_pip" />
+    <jointpos name="rf_dip_sensor" joint="rf_dip" />
+
+    <!-- thumb -->
+    <jointpos name="th_cmc_sensor" joint="th_cmc" />
+    <jointpos name="th_axl_sensor" joint="th_axl" />
+    <jointpos name="th_mcp_sensor" joint="th_mcp" />
+    <jointpos name="th_ipl_sensor" joint="th_ipl" />
+
+  </sensor>
+
+  <worldbody>
+    <body name="palm" pos="0 0 0.1" quat="1 -1 0  0" childclass="leapXELA">
+    <!-- <body name="palm" quat=" 0 0 0 1" > -->
+      <!-- palm -->
+      <inertial pos="0.00388456 -0.00321858 0.0893448" mass="0.237" fullinertia="0.00587523 0.00767916 0.00348841 9.4314e-05 -0.000410847 0.00018544"/>
+      <geom name="palm_visual_1" class="visual" pos="0.0180627 0.023 0.0834096" quat="7.73061e-18 0.707107 0 -0.707107" mesh="leap_hand_xela_motorholder" material="black"/>
+      <geom name="palm_visual_2" class="visual" pos="-0.005515 -0.027 0.0631" quat="1.11022e-16 -2.02699e-16 -1.11022e-16 -1" mesh="uspa46" material="black"/>
+      <geom name="palm_visual_3" class="visual" pos="0.0235627 -0.013 0.0845" quat="0.707107 -3.84621e-15 -3.66374e-15 0.707107" mesh="thp0_unified" material="black"/>
+      <geom name="palm_visual_4" class="visual" pos="-0.03767 -0.009 0.1306" quat="0.5 0.5 -0.5 0.5" mesh="p5_unified" material="black"/>
+      <geom name="palm_visual_5" class="visual" pos="0.00785 -0.023 0.123706" quat="5.44009e-15 -4.77641e-18 1 -1.9082e-16" mesh="top_palm" material="black"/>
+      <geom name="palm_visual_6" class="visual" pos="0.00778 -0.009 0.1306" quat="0.5 0.5 -0.5 0.5" mesh="p5_unified" material="black"/>
+      <geom name="palm_visual_7" class="visual" pos="-0.005515 -0.027 0.0962" quat="1.11022e-16 -2.02699e-16 -1.11022e-16 -1" mesh="uspa46" material="black"/>
+      <geom name="palm_visual_8" class="visual" pos="0.05323 -0.009 0.1306" quat="0.5 0.5 -0.5 0.5" mesh="p5_unified" material="black"/>  
+      <geom name="palm_visual_9" class="visual" pos="0.044015 -0.027 0.0962" quat="1.04466e-17 -1 4.83299e-17 2.02699e-16" mesh="uspa46" material="black"/>
+      <geom name="palm_visual_10" class="visual" pos="-0.0293149 0.023 0.131221" quat="0.707107 -2.32148e-18 -0.707107 0" mesh="leap_hand_xela_back_cover" material="black"/>
+      <geom name="palm_visual_11" class="visual" pos="-0.0503368 1.249e-16 0.110009" quat="0.707104 0.707104 0.00183435 -0.00183435" mesh="leap_hand_xela_side_cover" material="black"/>
+      <geom name="palm_visual_12" class="visual" pos="0 -0.023 0.0425" quat="0 0 -1 -1.66533e-16" mesh="leap_hand_xela_bottom" material="black"/>
+      <geom name="palm_visual_13" class="visual" pos="-0.0283776 -0.029 0.131221" quat="0.707107 -2.32148e-18 -0.707107 0" mesh="palm_face" material="black"/>
+      
+      <geom name="palm_collision_1" class="collision" pos="-0.038 -0.002 0.14" euler="0 0 0" size="0.015 0.023 0.015" />
+      <geom name="palm_collision_3" class="collision" pos="0.00745 -0.002 0.14" euler="0 0 0" size="0.015 0.023 0.015" />
+      <geom name="palm_collision_5" class="collision" pos="0.0529 -0.002 0.14" euler="0 0 0" size="0.015 0.023 0.015" />
+      <geom name="palm_collision_7" class="collision" pos="-0.012 0 0.1" size="0.035 0.03 0.02"/>
+      <geom name="palm_collision_8" class="collision" pos="-0.003 0 0.06" size="0.025 0.03 0.02"/>
+      <geom name="palm_collision_9" class="collision" pos="-0.037 0 0.08" euler="0 1.28 0" size="0.04 0.03 0.01"/>
+      <geom name="palm_collision_10" class="collision" pos="0.036 -0.025 0.1" size="0.035 0.005 0.02"/>
+      <geom name="palm_collision_11" class="collision" pos="0.036 0.025 0.1" size="0.035 0.005 0.02"/>
+      <geom name="palm_collision_12" class="collision" pos="0.036 0 0.115" size="0.035 0.03 0.005"/>
+      <geom name="palm_collision_13" class="collision" pos="0.039 -0.013 0.085" euler="0 0 0" size="0.02 0.012  0.015" />
+    
+      <geom name="palm_collision_17" class="collision" type="cylinder" pos="0 0 0.02" size="0.02 0.02"/>
+      <geom name="palm_collision_18" class="collision" type="cylinder" pos="0 0 0.005" size="0.035 0.005"/>
+      <geom name="palm_collision_19" class="collision" pos="0.0529 -0.003 0.12" euler="0 0 0" size="0.012 0.011 0.005" />
+      <geom name="palm_collision_20" class="collision" pos="0.008 -0.003 0.12" euler="0 0 0" size="0.012 0.011 0.005" />
+      <geom name="palm_collision_21" class="collision" pos="-0.0375 -0.003 0.12" euler="0 0 0" size="0.012 0.011 0.005" />
+      
+      <!-- palm touch sensors -->
+      <geom name="uspa46_1" class="uspa46" pos="-0.005 -0.022 0.096" />
+      <geom name="uspa46_2" class="uspa46" pos="0.044 -0.022 0.096" />
+      <geom name="uspa46_3" class="uspa46" pos="-0.005 -0.022 0.063" />
+  
+
+      <geom name="if_bs_uspa44" pos="0.053 -0.01977 0.141" class="uspa44"/>
+      <geom name="mf_bs_uspa44" pos="0.008 -0.01977 0.141" class="uspa44"/>
+      <geom name="rf_bs_uspa44" pos="-0.038 -0.01977 0.141" class="uspa44"/>
+      
+      <site name="uspa46_1" class="uspa46" pos="0.013 -0.032 0.107"/>
+      <site name="uspa46_2" class="uspa46" pos="0.061 -0.032 0.107"/>
+      <site name="uspa46_3" class="uspa46" pos="0.013 -0.032 0.074"/>
+
+      <site name="if_bs_uspa44" class="uspa44" pos="0.015 -0.032 0.149" />
+      <site name="mf_bs_uspa44" class="uspa44" pos="0.059 -0.032 0.149" />
+      <site name="rf_bs_uspa44" class="uspa44" pos="-0.03 -0.032 0.149" />
+
+      <!--index-->
+      <body name="if_bs" pos="0.06773 -0.0165 0.1436" quat="4.51379e-17 0.707107 -0 0.707107">
+        <joint  name="if_mcp" class="mcp"/>
+        <inertial pos="0.0342889 -0.0265621 -0.0145004" mass="0.044" fullinertia="4.51947e-05 6.85417e-05 7.22479e-05 1.48097e-05 1.17419e-06 -1.19534e-06"/>
+        <geom name="if_bs_visual" class="visual" pos="0.0048 -6.93889e-18 -0.0145" quat="0.5 0.5 0.5 -0.5" mesh="p4_unified" material="black"/>
+        <geom name="if_bs_collision_1" class="collision" pos="0.013 -0.016 0.0015" euler="0 0 -0.95" size="0.03 0.01 0.0025" />
+        <geom name="if_bs_collision_2" class="collision" pos="-0.0005 -0.0 0.0055" euler="0 0 0" size="0.003 0.01 0.002" />
+        <geom name="if_bs_collision_3" class="collision" pos="0.013 -0.016 -0.0305" euler="0 0 -0.95" size="0.03 0.01 0.0025" />
+        <geom name="if_bs_collision_4" class="collision" pos="0.04 -0.031 -0.015" euler="0 0 0.0" size="0.02 0.016 0.015" />
+        <!-- <geom name="if_bs_uspa44" class="bs_uspa44"/> -->
+       
+        <body name="if_px" pos="0.0326 -0.0123 -0.0145" quat="0.5 -0.5 -0.5 -0.5">
+          <joint  name="if_rot" class="rot"/>
+          <inertial pos="-0.000258994 0.00848001 0.0133488" mass="0.032" fullinertia="2.31878e-05 1.74843e-05 2.31495e-05 -1.07668e-07 -9.95794e-08 -1.12128e-06"/>
+          <geom name="if_px_visual" class="visual" pos="0 0.0075 -8.67362e-19" quat="0.5 -0.5 -0.5 -0.5" mesh="p3_unified" material="black"/>
+          <geom name="if_px_collision_1" class="collision" pos="0.0 0.0072 0.011" euler="0 0 0.0" size="0.015 0.0175 0.012" />
+          <geom name="if_px_uspa44" class="px_uspa44"/>
+          <site name="if_px_uspa44" class="px_uspa44"/>
+
+          <body name="if_md" pos="0.0145 0.015 0.013" quat="0.5 0.5 0.5 0.5">
+            <joint  name="if_pip" class="pip"/>
+            <inertial pos="0.0304899 -0.00688132 -0.0146269" mass="0.037" fullinertia="5.30625e-05 4.56759e-05 5.89736e-05 3.70526e-06 1.23454e-06 -6.30317e-07"/>
+            <geom name="if_md_visual" class="visual" pos="0.00905 -6.93889e-18 -0.0145" quat="0.5 0.5 0.5 -0.5" mesh="p2_unified" material="black"/> 
+            <geom name="if_md_collision_1" class="collision" pos="0.02 -0.009 0.0015" euler="0 0 -0.95" size="0.02 0.01 0.004" />
+            <geom name="if_md_collision_2" class="collision" type="cylinder" pos="0.0 0 0.0035" size="0.008 0.005 " />
+            <geom name="if_md_collision_3" class="collision" pos="0.02 -0.009 -0.0305" euler="0 0 -0.95" size="0.02 0.01 0.004" />
+            <geom name="if_md_collision_4" class="collision" type="cylinder" pos="0.0 0 -0.03" size="0.008 0.003 " />
+            <geom name="if_md_collision_5" class="collision" pos="0.033 -0.011 -0.0145" euler="0 0 0" size="0.015 0.02 0.014" />
+            <geom name="if_md_uspa44" class="md_uspa44"/>
+            <site name="if_md_uspa44" class="md_uspa44"/>
+
+            <body name="if_ds" pos="0.0361 -1.11022e-16 -0.0291" quat="0.707107 -2.30991e-16 4.44089e-16 0.707107">
+              <joint  name="if_dip" class="dip"/>
+              <inertial pos="-0.00193531 -0.0359351 0.0145854" mass="0.016" fullinertia="7.05202e-05 3.63661e-05 6.58529e-05 1.03034e-06 -1.87024e-07 -1.07782e-06"/>
+              <geom class="visual" pos="-0.00135925 -0.025 0.0145" quat="0.5 -0.5 -0.5 -0.5" mesh="fingertop_unfied" material="black"/>
+              <geom name="if_ds_collision_1" class="collision" pos="0.0 -0.009 -0.001" euler="0 0 1.57" size="0.017 0.01 0.004" />
+              <geom name="if_ds_collision_2" class="collision" pos="0.0 -0.009  0.03"  euler="0 0 1.57" size="0.017 0.01 0.004" />
+              <geom name="if_ds_collision_3" class="collision" pos="-0.0005 0.0 0.035" euler="0 0 0" size="0.01 0.002 0.002" />
+              <geom name="if_ds_collision_4" class="collision" pos="-0.016 -0.0325 0.015" euler="0 0 0" size="0.006 0.022 0.015" />
+              <geom name="if_ds_collision_5" class="collision" pos="-0.0 -0.0225 0.0145" euler="0 0 0" size="0.01 0.0025 0.0175" />
+
+              
+              <geom name="if_ds_tip" class="outer_skin_collision_1" />
+              <geom name="if_ds_tip_2" class="outer_skin_collision_2" />
+              <geom name="if_ds_tip_3" class="outer_skin_collision_3" />
+              <geom name="if_ds_tip_4" class="outer_skin_collision_4" />
+              <geom name="if_ds_tip_5" class="outer_skin_collision_5" />
+              <geom name="if_ds_tip_6" class="outer_skin_collision_6" />
+
+
+               <!-- center line-->
+              <site name="if_uSCuALHA_construction_line_0" class="construction_line_0" />
+              <site name="if_uSCuALHA_construction_line_1" class="construction_line_1" />
+              <site name="if_uSCuALHA_construction_line_2" class="construction_line_2" />
+              <site name="if_uSCuALHA_construction_line_3" class="construction_line_3" />
+              <site name="if_uSCuALHA_construction_line_4" class="construction_line_4" />
+              <site name="if_uSCuALHA_construction_line_5" class="construction_line_5" />
+              <site name="if_uSCuALHA_construction_line_6" class="construction_line_6" />
+              <site name="if_uSCuALHA_construction_line_7" class="construction_line_7" />
+              <site name="if_uSCuALHA_construction_line_8" class="construction_line_8" />
+              <site name="if_uSCuALHA_construction_line_9" class="construction_line_9" />
+              <!-- End::center line-->
+              <!-- Horizontal Construction line 1 -->
+              <site name="if_uSCuALHA_h1_construction_line_1" class="h1_construction_line_1" />
+              <site name="if_uSCuALHA_h1_construction_line_2" class="h1_construction_line_2" />
+              <site name="if_uSCuALHA_h1_construction_line_3" class="h1_construction_line_3" />
+              <site name="if_uSCuALHA_h1_construction_line_4" class="h1_construction_line_4" />
+              <site name="if_uSCuALHA_h1_construction_line_5" class="h1_construction_line_5" />
+              <site name="if_uSCuALHA_h1_construction_line_6" class="h1_construction_line_6" />
+              <site name="if_uSCuALHA_h1_construction_line_7" class="h1_construction_line_7" />
+              <site name="if_uSCuALHA_h1_construction_line_8" class="h1_construction_line_8" />
+              <!-- End:Horizontal Construction line 1-->
+              <!-- Horizontal Construction line 2 -->
+              <site name="if_uSCuALHA_h2_construction_line_1" class="h2_construction_line_1" />
+              <site name="if_uSCuALHA_h2_construction_line_2" class="h2_construction_line_2" />
+              <site name="if_uSCuALHA_h2_construction_line_3" class="h2_construction_line_3" />
+              <site name="if_uSCuALHA_h2_construction_line_4" class="h2_construction_line_4" />
+              <site name="if_uSCuALHA_h2_construction_line_5" class="h2_construction_line_5" />
+              <site name="if_uSCuALHA_h2_construction_line_6" class="h2_construction_line_6" />              
+              <!-- End:Horizontal Construction line 2-->
+
+       
+           
+            </body>
+          </body>
+        </body>
+      </body>
+      <!--index-->
+      
+      <!--middle-->
+      <body name="mf_bs" pos="0.02228 -0.0165 0.1436" quat="4.51379e-17 0.707107 -0 0.707107">
+        <joint  name="mf_mcp" class="mcp"/>
+        <inertial pos="0.0342889 -0.0265621 -0.0145004" mass="0.044" fullinertia="4.51947e-05 6.85417e-05 7.22479e-05 1.48097e-05 1.17419e-06 -1.19534e-06"/>
+        <geom name="mf_bs_visual" class="visual" pos="0.0048 -3.46945e-18 -0.0145" quat="0.5 0.5 0.5 -0.5" mesh="p4_unified" material="black"/>
+        <geom name="mf_bs_collision_1" class="collision" pos="0.013 -0.016 0.0015" euler="0 0 -0.95" size="0.03 0.01 0.0025" />
+        <geom name="mf_bs_collision_2" class="collision" pos="-0.0005 -0.0 0.0055" euler="0 0 0" size="0.003 0.01 0.002" />
+        <geom name="mf_bs_collision_3" class="collision" pos="0.013 -0.016 -0.0305" euler="0 0 -0.95" size="0.03 0.01 0.0025" />
+        <geom name="mf_bs_collision_4" class="collision" pos="0.04 -0.031 -0.015" euler="0 0 0.0" size="0.02 0.016 0.015" />
+        
+        <body name="mf_px" pos="0.0326 -0.0123 -0.0145" quat="0.5 -0.5 -0.5 -0.5">
+          <joint  name="mf_rot" class="rot"/>
+          <inertial pos="-0.000258994 0.00848001 0.0133488" mass="0.032" fullinertia="2.31878e-05 1.74843e-05 2.31495e-05 -1.07668e-07 -9.95794e-08 -1.12128e-06"/>
+          <geom name="mf_px_visual"  type="mesh" class="visual" pos="-8.67362e-19 0.0075 -8.67362e-19" quat="0.5 -0.5 -0.5 -0.5" mesh="p3_unified" material="black"/>
+          <geom name="mf_px_collision_1" class="collision" size="0.015 0.0175 0.012" pos="0 0.0072 0.011"/>
+          <geom name="mf_px_uspa44" class="px_uspa44"/>
+          <site name="mf_px_uspa44" class="px_uspa44"/>
+
+          <body name="mf_md" pos="0.0145 0.015 0.013" quat="0.5 0.5 0.5 0.5">
+            <joint  name="mf_pip" class="pip"/>
+            <inertial pos="0.0304899 -0.00688132 -0.0146269" mass="0.037" fullinertia="5.30625e-05 4.56759e-05 5.89736e-05 3.70526e-06 1.23454e-06 -6.30317e-07"/>
+            <geom name="mf_md_visual" class="visual" pos="0.00905 -1.04083e-17 -0.0145" quat="0.5 0.5 0.5 -0.5" mesh="p2_unified" material="black"/>
+            <geom name="mf_md_collision_1" class="collision" pos="0.02 -0.009 0.0015" euler="0 0 -0.95" size="0.02 0.01 0.004" />
+            <geom name="mf_md_collision_2" class="collision" type="cylinder" pos="0.0 0 0.0035" size="0.008 0.005 " />
+            <geom name="mf_md_collision_3" class="collision" pos="0.02 -0.009 -0.0305" euler="0 0 -0.95" size="0.02 0.01 0.004" />
+            <geom name="mf_md_collision_4" class="collision" type="cylinder" pos="0.0 0 -0.03" size="0.008 0.003 " />
+            <geom name="mf_md_collision_5" class="collision" pos="0.033 -0.011 -0.0145" euler="0 0 0" size="0.015 0.02 0.014" />
+            <geom name="mf_md_uspa44" class="md_uspa44"/>
+            <site name="mf_md_uspa44" class="md_uspa44"/>
+
+            <body name="mf_ds" pos="0.0361 -1.14492e-16 -0.0291" quat="0.707107 -2.30991e-16 4.44089e-16 0.707107">
+              <joint  name="mf_dip" class="dip"/>
+              <inertial pos="-0.00193531 -0.0359351 0.0145854" mass="0.016" fullinertia="7.05202e-05 3.63661e-05 6.58529e-05 1.03034e-06 -1.87024e-07 -1.07782e-06"/>
+              <geom name="mf_ds_visual" class="visual" pos="-0.00135925 -0.025 0.0145" quat="0.5 -0.5 -0.5 -0.5" mesh="fingertop_unfied" material="black"/>
+              <geom name="mf_ds_collision_1" class="collision" pos="0.0 -0.009 -0.001" euler="0 0 1.57" size="0.017 0.01 0.004" />
+              <geom name="mf_ds_collision_2" class="collision" pos="0.0 -0.009  0.03"  euler="0 0 1.57" size="0.017 0.01 0.004" />
+              <geom name="mf_ds_collision_3" class="collision" pos="-0.0005 0.0 0.035" euler="0 0 0" size="0.01 0.002 0.002" />
+              <geom name="mf_ds_collision_4" class="collision" pos="-0.016 -0.0325 0.015" euler="0 0 0" size="0.006 0.022 0.015" />
+              <geom name="mf_ds_collision_5" class="collision" pos="-0.0 -0.0225 0.0145" euler="0 0 0" size="0.01 0.0025 0.0175" />
+
+   
+              <geom name="mf_ds_tip" class="outer_skin_collision_1"/>
+              <geom name="mf_ds_tip_2" class="outer_skin_collision_2" />
+              <geom name="mf_ds_tip_3" class="outer_skin_collision_3" />
+              <geom name="mf_ds_tip_4" class="outer_skin_collision_4" />
+              <geom name="mf_ds_tip_5" class="outer_skin_collision_5" />
+              <geom name="mf_ds_tip_6" class="outer_skin_collision_6" />
+            
+            </body>
+          </body>
+        </body>
+      </body> <!--middle-->
+      
+      <!--ring-->
+      <body name="rf_bs" pos="-0.02317 -0.0165 0.1436" quat="4.51379e-17 0.707107 -0 0.707107">
+        <joint  name="rf_mcp" class="mcp"/>
+        <inertial pos="0.0342889 -0.0265621 -0.0145004" mass="0.044" fullinertia="4.51947e-05 6.85417e-05 7.22479e-05 1.48097e-05 1.17419e-06 -1.19534e-06"/>
+        <geom name="rf_bs_visual" class="visual" pos="0.0048 -6.93889e-18 -0.0145" quat="0.5 0.5 0.5 -0.5" mesh="p4_unified" material="black"/>
+        <geom name="rf_bs_collision_1" class="collision" pos="0.013 -0.016 0.0015" euler="0 0 -0.95" size="0.03 0.01 0.0025" />
+        <geom name="rf_bs_collision_2" class="collision" pos="-0.0005 -0.0 0.0055" euler="0 0 0" size="0.003 0.01 0.002" />
+        <geom name="rf_bs_collision_3" class="collision" pos="0.013 -0.016 -0.0305" euler="0 0 -0.95" size="0.03 0.01 0.0025" />
+        <geom name="rf_bs_collision_4" class="collision" pos="0.04 -0.031 -0.015" euler="0 0 0.0" size="0.02 0.016 0.015" />
+
+        <body name="rf_px" pos="0.0326 -0.0123 -0.0145" quat="0.5 -0.5 -0.5 -0.5">
+          <joint  name="rf_rot" class="rot"/>
+          <inertial pos="-0.000258994 0.00848001 0.0133488" mass="0.032" fullinertia="2.31878e-05 1.74843e-05 2.31495e-05 -1.07668e-07 -9.95794e-08 -1.12128e-06"/>
+          <geom name="rf_px_visual" class="visual" pos="0 0.0075 -8.67362e-19" quat="0.5 -0.5 -0.5 -0.5" 
+          mesh="p3_unified" material="black"/>
+          <geom name="rf_px_collision_1" class="collision" pos="0.0 0.0072 0.011" euler="0 0 0.0" size="0.015 0.0175 0.012" />
+          <geom name="rf_px_uspa44" class="px_uspa44"/>
+          <site name="rf_px_uspa44" class="px_uspa44"/>
+
+          <body name="rf_md" pos="0.0145 0.015 0.013" quat="0.5 0.5 0.5 0.5">
+            <joint  name="rf_pip" class="pip"/>
+            <inertial pos="0.0304899 -0.00688132 -0.0146269" mass="0.037" fullinertia="5.30625e-05 4.56759e-05 5.89736e-05 3.70526e-06 1.23454e-06 -6.30317e-07"/>
+            <geom name="rf_md_visual" class="visual" pos="0.00905 -6.93889e-18 -0.0145" quat="0.5 0.5 0.5 -0.5" 
+            mesh="p2_unified" material="black"/>
+            <geom name="rf_md_collision_1" class="collision" pos="0.02 -0.009 0.0015" euler="0 0 -0.95" size="0.02 0.01 0.004" />
+            <geom name="rf_md_collision_2" class="collision" type="cylinder" pos="0.0 0 0.0035" size="0.008 0.005 " />
+            <geom name="rf_md_collision_3" class="collision" pos="0.02 -0.009 -0.0305" euler="0 0 -0.95" size="0.02 0.01 0.004" />
+            <geom name="rf_md_collision_4" class="collision" type="cylinder" pos="0.0 0 -0.03" size="0.008 0.003 " />
+            <geom name="rf_md_collision_5" class="collision" pos="0.033 -0.011 -0.0145" euler="0 0 0" size="0.015 0.02 0.014" />
+            <geom name="rf_md_uspa44" class="md_uspa44"/>
+            <site name="rf_md_uspa44" class="md_uspa44"/>
+
+            <body name="rf_ds" pos="0.0361 -1.11022e-16 -0.0291" quat="0.707107 -2.30991e-16 4.44089e-16 0.707107">
+              <joint  name="rf_dip" class="dip"/>
+              <inertial pos="-0.00193531 -0.0359351 0.0145854" mass="0.016" fullinertia="7.05202e-05 3.63661e-05 6.58529e-05 1.03034e-06 -1.87024e-07 -1.07782e-06"/>
+              <geom name="rf_ds_visual" class="visual" pos="-0.00135925 -0.025 0.0145" quat="0.5 -0.5 -0.5 -0.5" 
+              mesh="fingertop_unfied" material="black"/>
+              <geom name="rf_ds_collision_1" class="collision" pos="0.0 -0.009 -0.001" euler="0 0 1.57" size="0.017 0.01 0.004" />
+              <geom name="rf_ds_collision_2" class="collision" pos="0.0 -0.009  0.03"  euler="0 0 1.57" size="0.017 0.01 0.004" />
+              <geom name="rf_ds_collision_3" class="collision" pos="-0.0005 0.0 0.035" euler="0 0 0" size="0.01 0.002 0.002" />
+              <geom name="rf_ds_collision_4" class="collision" pos="-0.016 -0.0325 0.015" euler="0 0 0" size="0.006 0.022 0.015" />
+              <geom name="rf_ds_collision_5" class="collision" pos="-0.0 -0.0225 0.0145" euler="0 0 0" size="0.01 0.0025 0.0175" />
+
+    
+              <geom name="rf_ds_tip" class="outer_skin_collision_1"/>
+              <geom name="rf_ds_tip_2" class="outer_skin_collision_2" />
+              <geom name="rf_ds_tip_3" class="outer_skin_collision_3" />
+              <geom name="rf_ds_tip_4" class="outer_skin_collision_4" />
+              <geom name="rf_ds_tip_5" class="outer_skin_collision_5" />
+              <geom name="rf_ds_tip_6" class="outer_skin_collision_6" />
+
+            </body>
+          </body>
+        </body>
+      </body> <!--ring-->
+
+      <!--thumb-->
+      <body name="th_mp" pos="0.0480627 -0.013 0.07" quat="5.44009e-15 1.1935e-16 1 -5.55112e-17">
+        <joint name="th_cmc" class="thumb_cmc"/>
+        <inertial pos="-0.000232587 0.00882444 0.0117326" mass="0.032" 
+        fullinertia="2.37871e-05 1.73561e-05 2.83432e-05 1.34767e-07 5.50367e-08 -9.6937e-08"/>
+        <geom name="th_mp_visual" class="visual" pos="0 0.0075 0" quat="0.5 -0.5 -0.5 -0.5" mesh="thp2_unified" material="black"/>
+        <geom name="th_mp_collision" class="collision" pos="0 0.0085 0.0115" euler="0 0 0" size="0.015 0.019 0.0125" />
+        
+        <body name="th_bs" pos="-0.0144 -8.32667e-17 0.013" quat="0.5 -0.5 -0.5 0.5">
+          <joint  name="th_axl" class="thumb_axl"/>
+          <inertial pos="0 0 0" mass="0.003" fullinertia="2.88391e-06 7.74614e-06 7.38912e-06 -3.01753e-08 -3.03989e-07 2.92826e-08"/>
+          <geom name="th_bs_visual_1" class="visual" pos="-0.0173 0 0.019" quat="0.707107 0.707107 -0 -0" mesh="thconnector" material="black"/>
+          <geom name="th_bs_visual_2" class="visual" pos="0.0155 -0.006 0.019" quat="1.85719e-15 -0.707107 -0.707107 2.14491e-15" mesh="clipper" material="black"/>
+          <geom name="th_bs_collision_1" class="collision" pos="0.016 -0.002 0.015" euler="0 0 0" size="0.002 0.013 0.0125" />
+          <geom name="th_bs_collision_2" class="collision" pos="-0.016 -0.002 0.015" euler="0 0 0" size="0.002 0.013 0.0125" />
+          <geom name="th_bs_collision_3" class="collision" pos="0 0 0.0015" euler="0 0 0" size="0.018 0.01 0.002" />
+          <geom name="th_bs_collision_4" class="collision" pos="0.02 0.0 0.019" euler="0 0 0" size="0.002 0.01 0.003" />
+          <geom name="th_bs_uspa44" class="th_bs_uspa44"/>
+          <site name="th_bs_uspa44" class="th_bs_uspa44"/>
+
+          <body name="th_px" pos="0.0145 -3.46945e-18 0.019" quat="0.5 0.5 -0.5 -0.5">
+            <joint name="th_mcp" class="thumb_mcp"/>
+            <inertial pos="0.00144426 0.0112332 0.0144179" mass="0.038" 
+            fullinertia="5.2272e-05 3.20647e-05 5.08966e-05 5.30483e-07 -6.26679e-07 9.36463e-07"/>
+            <geom name="th_px_visual_1" class="visual" pos="-1.11022e-16 0.0245 0.0145" quat="1 0 -2.22045e-16 0" mesh="thp1_unified" material="black"/>
+            <geom name="th_px_collision_1" class="collision" pos="0.005 0.007 0.0145" euler="0 0 0" size="0.015 0.017 0.015" />
+            <geom name="th_px_collision_2" class="collision" pos="0.005 0.025 0.0145" euler="0 0 0" size="0.015 0.004 0.015" />
+            <geom name="th_px_collision_3" class="collision" pos="0.0 0.039 -0.001" euler="0 0 0" size="0.01 0.014 0.002" />
+            <geom name="th_px_collision_4" class="collision" pos="0.0 0.045 -0.005" euler="0 0 0" size="0.01 0.0025 0.002" />
+            <geom name="th_px_collision_5" class="collision" pos="0.0 0.039 0.0305" euler="0 0 0" size="0.01 0.014 0.002" />
+            <geom name="th_px_uspa44" class="th_px_uspa44"/>
+            <site name="th_px_uspa44" class="th_px_uspa44"/>
+
+            <body name="th_ds" pos="-1.12757e-16 0.0446 4.16334e-17" quat="2.10665e-14 5.4264e-17 -3.33067e-16 1">
+              <joint name="th_ipl" class="thumb_ipl"/>
+              <inertial pos="-0.00210586 -0.0274158 0.0145397" mass="0.049" 
+              fullinertia="0.000206758 5.56924e-05 0.000213078 1.87064e-06 6.68628e-07 -5.27707e-07"/>
+              <geom name="th_ds_visual" class="visual" pos="-2.77556e-17 -0.0275 0.014504" 
+               quat="0.707107 0.707107 1.11022e-16 -1.20442e-16" mesh="thfingertip_unified"
+               material="black"/>
+              <geom name="th_ds_collision_1" class="collision" pos="-0.006 -0.008 0.014" size="0.015 0.017 0.015" />
+              <geom name="th_ds_collision_3" class="collision" pos="-0.018 -0.042 0.014" size="0.004 0.017 0.015" />
+              
+              <geom name="th_ds_tip" class="uSCuALHA"  
+              pos="-0.00135925 -0.0300003 0.014504" 
+              euler="-1.57 0 -1.57"/>
+              <geom name="th_ds_tip_2"   pos="-0.00135925 -0.0300003 0.014504" 
+              euler="-1.57 0 -1.57" class="outer_skin_collision_2" />
+              <geom name="th_ds_tip_3"   pos="-0.00135925 -0.0300003 0.014504" 
+              euler="-1.57 0 -1.57" class="outer_skin_collision_3" />
+              <geom name="th_ds_tip_4"   pos="-0.00135925 -0.0300003 0.014504" 
+              euler="-1.57 0 -1.57" class="outer_skin_collision_4" />
+              <geom name="th_ds_tip_5"   pos="-0.00135925 -0.0300003 0.014504" 
+              euler="-1.57 0 -1.57" class="outer_skin_collision_5" />
+              <geom name="th_ds_tip_6"   pos="-0.00135925 -0.0300003 0.014504" 
+              euler="-1.57 0 -1.57" class="outer_skin_collision_6" />
+
+              <!-- Vertical Center line-->
+              <site name="th_uSCuALHA_construction_line_0" class="uSCuALHA"  pos="0.015  -0.030 0.0145" />
+              <site name="th_uSCuALHA_construction_line_1" class="uSCuALHA"  pos="0.015  -0.035 0.0145" />
+              <site name="th_uSCuALHA_construction_line_2" class="uSCuALHA"  pos="0.015  -0.04 0.0145" />
+              <site name="th_uSCuALHA_construction_line_3" class="uSCuALHA"  pos="0.0148 -0.045 0.0145" />
+              <site name="th_uSCuALHA_construction_line_4" class="uSCuALHA"  pos="0.0142 -0.05 0.0145" />
+              <site name="th_uSCuALHA_construction_line_5" class="uSCuALHA"  pos="0.0134 -0.055 0.0145" />
+              <site name="th_uSCuALHA_construction_line_6" class="uSCuALHA"  pos="0.0115 -0.06 0.0145" />
+              <site name="th_uSCuALHA_construction_line_7" class="uSCuALHA"  pos="0.008  -0.065 0.0145" />
+              <site name="th_uSCuALHA_construction_line_8" class="uSCuALHA"  pos="0.004  -0.068 0.0145" />
+              <site name="th_uSCuALHA_construction_line_9" class="uSCuALHA"  pos="-0.002 -0.0695 0.0145" />
+              <!-- End::Vertical Center line-->
+              <!-- Horizontal Construction line 1 -->
+              <site name="th_v1_construction_line_1" class="uSCuALHA" pos="0.014 -0.040 0.02" />
+              <site name="th_v1_construction_line_2" class="uSCuALHA" pos="0.011 -0.040 0.025" />
+              <site name="th_v1_construction_line_3" class="uSCuALHA" pos="0.005 -0.040 0.029" />
+              <site name="th_v1_construction_line_4" class="uSCuALHA" pos="0.00  -0.040 0.03" />
+              <site name="th_v1_construction_line_5" class="uSCuALHA" pos="0.014 -0.040 0.008" />
+              <site name="th_v1_construction_line_6" class="uSCuALHA" pos="0.011 -0.040 0.004" />
+              <site name="th_v1_construction_line_7" class="uSCuALHA" pos="0.005 -0.040 0.000" />
+              <site name="th_v1_construction_line_8" class="uSCuALHA" pos="0.00  -0.040 -0.001" />
+              <!-- End:Horizontal Construction line 1-->
+              <!-- Horizontal Construction line 2 -->
+              <site name="th_v2_construction_line_1" class="uSCuALHA" pos="0.013 -0.050 0.02" />
+              <site name="th_v2_construction_line_2" class="uSCuALHA" pos="0.01  -0.050 0.025" />
+              <site name="th_v2_construction_line_3" class="uSCuALHA" pos="0.002 -0.050 0.029" />
+              <site name="th_v2_construction_line_4" class="uSCuALHA" pos="0.013 -0.050 0.008" />
+              <site name="th_v2_construction_line_5" class="uSCuALHA" pos="0.01  -0.050 0.004" />
+              <site name="th_v2_construction_line_6" class="uSCuALHA" pos="0.002 -0.050 -0.0001" />
+              <!-- End:Horizontal Construction line 2-->
+              
+              <!-- tip of tip sensor -->
+              <site name="th_tip" class="marker" pos="-0.004 -0.067  0.0145" />
+
+
+
+            </body>
+          </body>
+        </body>
+      </body><!--thumb-->
+    </body>
+  </worldbody>
+
+
+</mujoco>
