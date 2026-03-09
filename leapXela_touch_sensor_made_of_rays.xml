@@ -258,6 +258,13 @@
               <site name="if_uSCuALHA_h2_construction_line_4" class="h2_construction_line_4" pos="0.013 -0.045 0.008"/>
               <site name="if_uSCuALHA_h2_construction_line_5" class="h2_construction_line_5" pos="0.01 -0.045 0.004"/>
               <site name="if_uSCuALHA_h2_construction_line_6" class="h2_construction_line_6" pos="0.002 -0.045 -0.0001"/>
+              <site name="ray_1_if" pos="0.015 -0.035 0.0145" quat="0.707388 0 0.706825 0" group="2"/>
+              <site name="ray_2_if" pos="0.0142 -0.045 0.0145" quat="0.707388 0 0.706825 0" group="2"/>
+              <site name="ray_3_if" pos="0.008 -0.06 0.0145" quat="0.500398 0.5 -0.499602 0.5" group="2"/>
+              <site name="ray_4_if" pos="0.005 -0.035 0.029" group="2"/>
+              <site name="ray_5_if" pos="0.002 -0.045 0.029" group="2"/>
+              <site name="ray_7_if" pos="0.005 -0.035 0" quat="0.000796327 1 0 0" group="2"/>
+              <site name="ray_9_if" pos="0.002 -0.045 -0.0001" quat="0.000796327 1 0 0" group="2"/>
             </body>
           </body>
         </body>
@@ -305,6 +312,13 @@
               <geom name="mf_ds_tip_4" class="outer_skin_collision_4" pos="-0.0009 -0.025 0.0145" quat="0.500398 -0.5 -0.499602 -0.5" mesh="outer_skin_collision_4"/>
               <geom name="mf_ds_tip_5" class="outer_skin_collision_5" pos="-0.0009 -0.025 0.0145" quat="0.500398 -0.5 -0.499602 -0.5" mesh="outer_skin_collision_5"/>
               <geom name="mf_ds_tip_6" class="outer_skin_collision_6" pos="-0.0009 -0.025 0.0145" quat="0.500398 -0.5 -0.499602 -0.5" mesh="outer_skin_collision_6"/>
+              <site name="ray_1_mf" pos="0.015 -0.035 0.0145" quat="0.707388 0 0.706825 0" group="2"/>
+              <site name="ray_2_mf" pos="0.0142 -0.045 0.0145" quat="0.707388 0 0.706825 0" group="2"/>
+              <site name="ray_3_mf" pos="0.008 -0.06 0.0145" quat="0.500398 0.5 -0.499602 0.5" group="2"/>
+              <site name="ray_4_mf" pos="0.005 -0.035 0.029" group="2"/>
+              <site name="ray_5_mf" pos="0.002 -0.045 0.029" group="2"/>
+              <site name="ray_7_mf" pos="0.005 -0.035 0" quat="0.000796327 1 0 0" group="2"/>
+              <site name="ray_9_mf" pos="0.002 -0.045 -0.0001" quat="0.000796327 1 0 0" group="2"/>
             </body>
           </body>
         </body>
@@ -352,6 +366,13 @@
               <geom name="rf_ds_tip_4" class="outer_skin_collision_4" pos="-0.0009 -0.025 0.0145" quat="0.500398 -0.5 -0.499602 -0.5" mesh="outer_skin_collision_4"/>
               <geom name="rf_ds_tip_5" class="outer_skin_collision_5" pos="-0.0009 -0.025 0.0145" quat="0.500398 -0.5 -0.499602 -0.5" mesh="outer_skin_collision_5"/>
               <geom name="rf_ds_tip_6" class="outer_skin_collision_6" pos="-0.0009 -0.025 0.0145" quat="0.500398 -0.5 -0.499602 -0.5" mesh="outer_skin_collision_6"/>
+              <site name="ray_1_rf" pos="0.015 -0.035 0.0145" quat="0.707388 0 0.706825 0" group="2"/>
+              <site name="ray_2_rf" pos="0.0142 -0.045 0.0145" quat="0.707388 0 0.706825 0" group="2"/>
+              <site name="ray_3_rf" pos="0.008 -0.06 0.0145" quat="0.500398 0.5 -0.499602 0.5" group="2"/>
+              <site name="ray_4_rf" pos="0.005 -0.035 0.029" group="2"/>
+              <site name="ray_5_rf" pos="0.002 -0.045 0.029" group="2"/>
+              <site name="ray_7_rf" pos="0.005 -0.035 0" quat="0.000796327 1 0 0" group="2"/>
+              <site name="ray_9_rf" pos="0.002 -0.045 -0.0001" quat="0.000796327 1 0 0" group="2"/>
             </body>
           </body>
         </body>
@@ -499,5 +520,26 @@
     <rangefinder camera="mf_md_uspa44_cam" data="dist dir origin point normal depth" name="mf_md_uspa44_cam_rf"/>
     <rangefinder camera="rf_px_uspa44_cam" data="dist dir origin point normal depth" name="rf_px_uspa44_cam_rf"/>
     <rangefinder camera="rf_md_uspa44_cam" data="dist dir origin point normal depth" name="rf_md_uspa44_cam_rf"/>
+    <rangefinder site="ray_1_if" data="dist dir origin point normal depth" name="ray_1_if_rf"/>
+    <rangefinder site="ray_2_if" data="dist dir origin point normal depth" name="ray_2_if_rf"/>
+    <rangefinder site="ray_3_if" data="dist dir origin point normal depth" name="ray_3_if_rf"/>
+    <rangefinder site="ray_4_if" data="dist dir origin point normal depth" name="ray_4_if_rf"/>
+    <rangefinder site="ray_5_if" data="dist dir origin point normal depth" name="ray_5_if_rf"/>
+    <rangefinder site="ray_7_if" data="dist dir origin point normal depth" name="ray_7_if_rf"/>
+    <rangefinder site="ray_9_if" data="dist dir origin point normal depth" name="ray_9_if_rf"/>
+    <rangefinder site="ray_1_mf" data="dist dir origin point normal depth" name="ray_1_mf_rf"/>
+    <rangefinder site="ray_2_mf" data="dist dir origin point normal depth" name="ray_2_mf_rf"/>
+    <rangefinder site="ray_3_mf" data="dist dir origin point normal depth" name="ray_3_mf_rf"/>
+    <rangefinder site="ray_4_mf" data="dist dir origin point normal depth" name="ray_4_mf_rf"/>
+    <rangefinder site="ray_5_mf" data="dist dir origin point normal depth" name="ray_5_mf_rf"/>
+    <rangefinder site="ray_7_mf" data="dist dir origin point normal depth" name="ray_7_mf_rf"/>
+    <rangefinder site="ray_9_mf" data="dist dir origin point normal depth" name="ray_9_mf_rf"/>
+    <rangefinder site="ray_1_rf" data="dist dir origin point normal depth" name="ray_1_rf_rf"/>
+    <rangefinder site="ray_2_rf" data="dist dir origin point normal depth" name="ray_2_rf_rf"/>
+    <rangefinder site="ray_3_rf" data="dist dir origin point normal depth" name="ray_3_rf_rf"/>
+    <rangefinder site="ray_4_rf" data="dist dir origin point normal depth" name="ray_4_rf_rf"/>
+    <rangefinder site="ray_5_rf" data="dist dir origin point normal depth" name="ray_5_rf_rf"/>
+    <rangefinder site="ray_7_rf" data="dist dir origin point normal depth" name="ray_7_rf_rf"/>
+    <rangefinder site="ray_9_rf" data="dist dir origin point normal depth" name="ray_9_rf_rf"/>
   </sensor>
 </mujoco>
