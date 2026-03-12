@@ -1,7 +1,7 @@
 <mujoco model="leapXELA">
   <compiler angle="radian" meshdir="./assets/"/>
 
-    <option timestep="0.001" integrator="Euler" iterations="5" ls_iterations="8">
+    <option timestep="0.01" integrator="Euler" iterations="5" ls_iterations="8">
     <flag eulerdamp="disable"/>
   </option>
 
@@ -156,7 +156,7 @@
 
   <worldbody>
     <site name="grasp_site" pos="0.11 0 0.03" group="4"/>
-    <body name="palm" childclass="leapXELA" pos="0 0.011 -0.01" quat="0.425731 -0.564485 0.564935 -0.425392">
+    <body name="palm" childclass="leapXELA" pos="0 0.011 -0.01" quat="0.417209 -0.570802 0.571257 -0.416877">
       <inertial pos="0.00388456 -0.00321858 0.0893448" quat="0.718238 0.0745346 0.0438938 0.6904" mass="0.237" diaginertia="0.00769061 0.00594175 0.00341044"/>
       <geom name="palm_visual_1" class="visual" pos="0.0180627 0.023 0.0834096" quat="0 0.707107 0 -0.707107" material="black" mesh="leap_hand_xela_motorholder"/>
       <geom name="palm_visual_2" class="visual" pos="-0.005515 -0.027 0.0631" quat="0 0 0 -1" material="black" mesh="uspa46"/>
@@ -324,7 +324,7 @@
               <joint name="th_ipl" class="thumb_ipl" pos="0 0 0" axis="0 0 1"/>
               <geom name="th_ds_visual" class="visual" pos="0 -0.0275 0.014504" quat="0.707107 0.707107 0 0" material="black" mesh="thfingertip_unified"/>
               <geom name="th_ds_collision_1" class="collision" size="0.015 0.017 0.015" pos="-0.006 -0.008 0.014"/>
-              <geom name="th_tip" class="uSCuALHA_simplified" pos="0.0009 -0.045 0.0145" quat="0.999688 0 0 0.024997"/>
+              <geom name="th_tip" class="uSCuALHA_simplified" pos="-0.001 -0.045 0.0145" quat="0.999688 0 0 0.024997"/>
               <site name="th_uSCuALHA_construction_line_0" class="uSCuALHA" pos="0.015 -0.03 0.0145"/>
               <site name="th_uSCuALHA_construction_line_1" class="uSCuALHA" pos="0.015 -0.035 0.0145"/>
               <site name="th_uSCuALHA_construction_line_2" class="uSCuALHA" pos="0.015 -0.04 0.0145"/>

@@ -1,6 +1,9 @@
+from email.policy import default
 from pickletools import read_unicodestring1
+import argparse
 import mujoco as mj
 import re
+import numpy as np
 
 finger_tips_black_list = ["if_ds_tip", "mf_ds_tip", "rf_ds_tip", "th_ds_tip"]
 touch_grid_black_list = ["if_bs_uspa44", "mf_bs_uspa44", "rf_bs_uspa44",
@@ -68,7 +71,13 @@ black_list = [
     "th_ds_collision_2",
 ]
 
-finger_tip_types = ["decomposd","touchgrid"]
+finger_tip_types = ["CoACD","Box"]
+
+LEAPHAND_ENV_QUAT = [0.411476, -0.574943, 0.575401, -0.411148]
+LEAPXELA_ENV_QUAT = [0.425731, -0.564485, 0.564935, -0.425392]
+LEAPXELA_ENV_ELUR = [0, 1.88, -1.57]
+
+LEAPXELA_ENV_CUBE_FRICTION = 0.3
 
 def rename_finger_tips(spec):
     fingers = ["if","mf","rf","th"]
@@ -82,11 +91,55 @@ def overwrite_pose_of_the_hand(spec):
     pos="0 0.011 -0.01" quat="0.411476 -0.574943 0.575401 -0.411148"
     """
 
+    # Compute quaternion from Euler angles using MuJoCo helper
+    quat = np.zeros((4, 1), dtype=np.float64)
+    euler = np.array(LEAPXELA_ENV_ELUR, dtype=np.float64).reshape(3, 1)
+    mj.mju_euler2Quat(quat, euler, "xyz")
 
     spec.body("palm").pos = [0, 0.011, -0.01]
-    spec.body("palm").quat = [0.411476, -0.574943, 0.575401, -0.411148]
+    # `mju_euler2Quat` writes into `quat` in-place; flatten for MuJoCo spec assignment
+    spec.body("palm").quat = quat.flatten().tolist()
     
     return spec
+
+def overwrite_cube_friction():
+    xml = f"""
+        <mujoco>
+          <default>
+            <default class="cube">
+              <geom friction="{LEAPXELA_ENV_CUBE_FRICTION} 0.05" conaffinity="2" condim="3"/>
+            </default>
+          </default>
+
+          <asset>
+            <texture name="cube" type="cube" fileup="reorientation_cube_textures/fileup.png"
+              fileback="reorientation_cube_textures/fileback.png" filedown="reorientation_cube_textures/filedown.png"
+              filefront="reorientation_cube_textures/filefront.png" fileleft="reorientation_cube_textures/fileleft.png"
+              fileright="reorientation_cube_textures/fileright.png"/>
+            <material name="cube" texture="cube"/>
+            <texture name="graycube" type="cube" fileup="reorientation_cube_textures/grayup.png"
+              fileback="reorientation_cube_textures/grayback.png" filedown="reorientation_cube_textures/graydown.png"
+              filefront="reorientation_cube_textures/grayfront.png" fileleft="reorientation_cube_textures/grayleft.png"
+              fileright="reorientation_cube_textures/grayright.png"/>
+            <material name="graycube" texture="graycube"/>
+            <texture name="dexcube" type="2d" file="reorientation_cube_textures/dex_cube.png"/>
+            <material name="dexcube" texture="dexcube"/>
+            <mesh name="cube_mesh" file="./meshes/dex_cube.obj" scale="0.035 0.035 0.035"/>
+          </asset>
+
+          <worldbody>
+            <body name="cube" pos="0.11 0.0 0.1" quat="1 0 0 0" childclass="cube">
+              <freejoint name="cube_freejoint"/>
+              <geom type="mesh" mesh="cube_mesh" material="dexcube" contype="0" conaffinity="0" density="0" group="2"/>
+              <geom name="cube" type="box" size=".035 .035 .035" mass=".108" group="3"/>
+              <site name="cube_center" pos="0 0 0" group="4"/>
+            </body>
+          </worldbody>
+        </mujoco>
+    """
+
+    return xml
+
 
 def remove_collision_geom_from_model(spec=None):
 
@@ -107,7 +160,7 @@ def add_grasp_site(spec):
     )
     return spec
 
-def add_finger_tips_collision_geom_to_model(spec):
+def add_simplified_finger_tips_collision_geom_to_model(spec):
     # https://github.com/google-deepmind/mujoco/blob/a26f09accfdb52c8967474d7c35350fc9651f1be/python/mujoco/specs_test.py#L573
     """
     <material name="col" rgba="0.6 1 0.6 0.2"/>
@@ -116,19 +169,49 @@ def add_finger_tips_collision_geom_to_model(spec):
     </default>
     <geom name="rf_ds_collision_1" class="collision" pos="-0.004 -0.04 0.0145" size="0.019 0.02 0.016"/>
     """
-    # get collison default
-    geom_col_palm = spec.geom("palm_collision_1")
 
-    finger =  ["if","mf","rf","th"]
-    for name in finger:
-        body_name = f"{name}_ds"
+    # remove fingertip meshes
+    tips = []
+    for finger in ["if","mf","rf","th"]:
+        tips += [f"{finger}_ds_tip"]
+        tips += [f"{finger}_ds_tip_{idx}" for idx in range(2, 7)]
+    for tip in tips:
+        spec.delete(spec.geom(tip))
+
+    print(f"\n\ntips:: {tips}\n\n")
+    # create default for fingertps 
+    """
+    <default class="uSCuALHA_simplified">
+        <geom  group="3" type="box" size="0.015 0.02 0.014" pos="-0.0009 -0.04 0.0145"
+                 euler="0 0 0.05" friction="0.5" material="orange" />
+    </default>
+    """
+    # uSCuALHA =spec.find_default('uSCuALHA')
+    # print(f"uSCuALHA::geom::friction:: {uSCuALHA.geom.friction}")
+    
+    main_def = spec.default
+    uSCuALHA_simplified = spec.add_default("uSCuALHA_simplified",main_def)
+    uSCuALHA_simplified.geom.type = mj.mjtGeom.mjGEOM_BOX
+    uSCuALHA_simplified.geom.size = [0.015, 0.02, 0.014]
+    uSCuALHA_simplified.geom.pos = [-0.0009, -0.04, 0.0145]
+    uSCuALHA_simplified.geom.quat = [0.9996875, 0, 0, 0.024997]
+    uSCuALHA_simplified.geom.friction[0] = 0.5
+    uSCuALHA_simplified.geom.material = "orange"
+    uSCuALHA_simplified.geom.group = 3
+
+    for finger in ["if","mf","rf","th"]:
+        body_name = f"{finger}_ds"
         body = spec.body(body_name)
-        geom_ref=body.add_geom(
-            name= f"{name}_tip",
-            type=mj.mjtGeom.mjGEOM_BOX,
-         size=[0.019, 0.02, 0.016],
-         pos=[-0.004, -0.04, 0.0145], 
-        default=geom_col_palm.classname)
+        if finger == "th":
+            body.add_geom(
+                pos = [-0.001, -0.045, 0.0145],
+                name= f"{finger}_ds_tip",
+                default=uSCuALHA_simplified)
+        else:
+            body.add_geom(
+                name= f"{finger}_ds_tip",
+                default=uSCuALHA_simplified)
+        
 
     return spec
        
@@ -152,14 +235,14 @@ def write_xml_given_spec_model(spec):
   with open("leapXela_generated_mjx.xml", "w") as f:
     f.write(xml)
 
-def write_xml(xml):
-    with open("leapXela_generated_mjx.xml", "w") as f:
+def write_xml(xml, filename):
+    with open(filename, "w") as f:
         f.write(xml)
 
 
 def replace_solver_options(xml):
     # Remove existing option tags and replace with option_str
-    option_str = """  <option timestep="0.001" integrator="Euler" iterations="5" ls_iterations="8">
+    option_str = """  <option timestep="0.01" integrator="Euler" iterations="5" ls_iterations="8">
     <flag eulerdamp="disable"/>
   </option>"""
 
@@ -272,10 +355,95 @@ def add_custome_settings(xml):
     
     return xml
 
+
+def write_scene_xml(filename):
+    xml = f"""
+    <mujoco model="leap_scene">
+      <include file="{filename}"/>
+      <include file="reorientation_cube_generated_mjx.xml"/>
+
+      <statistic center="0.15 0 0" extent="0.4" meansize="0.01"/>
+
+      <visual>
+        <headlight diffuse=".8 .8 .8" ambient=".2 .2 .2" specular="1 1 1"/>
+        <rgba force="1 0 0 1"/>
+        <global azimuth="120" elevation="-20"/>
+        <map force="0.01" stiffness="500"/>
+        <scale forcewidth="0.1" contactwidth="0.5" contactheight="0.2"/>
+        <quality shadowsize="8192"/>
+      </visual>
+
+      <asset>
+        <texture type="skybox" builtin="gradient" rgb1="1 1 1" rgb2="1 1 1" width="800" height="800"/>
+        <texture type="2d" name="groundplane" builtin="checker" mark="edge" rgb1="1 1 1" rgb2="1 1 1" markrgb="0 0 0"
+          width="300" height="300"/>
+        <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5" reflectance="0"/>
+      </asset>
+
+      <worldbody>
+        <camera name="side" pos="-0.183 0.396 0.296" xyaxes="-0.783 -0.622 -0.000 0.332 -0.419 0.845"/>
+        <geom name="floor" pos="0 0 -0.25" size="0 0 0.01" type="plane" material="groundplane" contype="2" conaffinity="2"/>
+        <body name="goal" mocap="true" pos="0.325 0.17 0.0475">
+          <!-- <geom type="mesh" mesh="cube_mesh" material="dexcube" contype="0" conaffinity="0" density="0" group="2"/> -->
+          <geom type="mesh" mesh="cube_mesh" material="dexcube" contype="0" conaffinity="0" density="0" group="2"/>
+          <geom type="box" size=".035 .035 .035" mass=".108" group="3"/>
+        </body>
+      </worldbody>
+
+      <sensor>
+        <!-- cube. -->
+        <framepos name="cube_position" objtype="body" objname="cube"/>
+        <framequat name="cube_orientation" objtype="body" objname="cube"/>
+        <framelinvel name="cube_linvel" objtype="body" objname="cube"/>
+        <frameangvel name="cube_angvel" objtype="body" objname="cube"/>
+        <frameangacc name="cube_angacc" objtype="body" objname="cube"/>
+        <framezaxis name="cube_upvector" objtype="body" objname="cube"/>
+
+        <!-- hand. -->
+        <framepos name="palm_position" objtype="site" objname="grasp_site"/>
+        <framepos name="th_tip_position" objtype="site" objname="th_tip" reftype="site" refname="grasp_site"/>
+        <framepos name="if_tip_position" objtype="site" objname="if_tip" reftype="site" refname="grasp_site"/>
+        <framepos name="mf_tip_position" objtype="site" objname="mf_tip" reftype="site" refname="grasp_site"/>
+        <framepos name="rf_tip_position" objtype="site" objname="rf_tip" reftype="site" refname="grasp_site"/>
+
+        <!-- goal. -->
+        <framequat name="cube_goal_orientation" objtype="body" objname="goal"/>
+        <framezaxis name="cube_goal_upvector" objtype="body" objname="goal"/>
+      </sensor>
+
+      <keyframe>
+        <key name="home"
+          qpos="
+          0.8 0 0.8 0.8
+          0.8 0 0.8 0.8
+          0.8 0 0.8 0.8
+          0.8 0.8 0.8 0
+          0.1 0.0 0.05 0.810967 -0.00262895 -0.585086 -0.000254303"
+          ctrl="
+          0.8 0 0.8 0.8
+          0.8 0 0.8 0.8
+          0.8 0 0.8 0.8
+          0.8 0.8 0.8 0" mpos="0.25 0.16 0"
+          mquat="1 0 0 0"/>
+      </keyframe>
+    </mujoco>
+    """
+    return xml
+    
+
 if __name__ == "__main__":
     spec= None
-    mode = "decomposd" # Argparser
-    if mode == "decomposd":
+
+    parser = argparse.ArgumentParser(description="Simplify LeapXELA model for MuJoCo.")
+    parser.add_argument(
+        "--mode",
+        choices=finger_tip_types,
+        default="CoACD",
+        help="Type of fingertip representation to use.",
+    )
+    args = parser.parse_args()
+    mode = args.mode
+    if mode in finger_tip_types:
         spec = mj.MjSpec.from_file("leapXela_base_model.xml")
     elif mode == "touchgrid":
         spec = mj.MjSpec.from_file("robot_touch_sensor_array_binary_touchgrid_generated.xml")
@@ -284,7 +452,8 @@ if __name__ == "__main__":
 
     spec = remove_collision_geom_from_model(spec)
     spec = add_grasp_site(spec)
-    # spec = add_finger_tips_collision_geom_to_model(spec)
+    if mode =="Box":
+        spec = add_simplified_finger_tips_collision_geom_to_model(spec)
     spec = add_marker_to_model(spec)
     spec = overwrite_pose_of_the_hand(spec)
     spec= rename_finger_tips(spec)
@@ -292,4 +461,13 @@ if __name__ == "__main__":
     xml = replace_solver_options(xml)
     xml = replace_dynamics_options(xml)
     xml = add_custome_settings(xml)
-    write_xml(xml)
+    filename = f"leapXela_generated_mjx_{mode}.xml"
+    write_xml(xml, filename)
+
+    #########Cube#########
+    xml = overwrite_cube_friction()
+    write_xml(xml, "reorientation_cube_generated_mjx.xml")
+    ##### Write Scene XML #####
+    xml = write_scene_xml(filename)
+    write_xml(xml, f"scene_mjx_cube_{mode}_mjx.xml")
+    

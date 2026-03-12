@@ -1,7 +1,7 @@
 <mujoco>
   <default>
     <default class="cube">
-      <geom friction=".3 0.05" conaffinity="2" condim="3"/>
+      <geom friction=".49 0.05" conaffinity="2" condim="3"/>
     </default>
   </default>
 

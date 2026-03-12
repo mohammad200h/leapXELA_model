@@ -1,6 +1,6 @@
 <mujoco model="leap_scene">
   <include file="leapXela_generated_mjx.xml"/>
-  <include file="reorientation_cube.xml"/>
+  <include file="reorientation_cube_generated_mjx.xml"/>
 
   <statistic center="0.15 0 0" extent="0.4" meansize="0.01"/>
 
