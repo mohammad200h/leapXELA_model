@@ -113,7 +113,7 @@ def overwrite_cube(friction, scale_factor, pos, euler):
     euler = np.array(euler, dtype=np.float64).reshape(3, 1)
     mj.mju_euler2Quat(quat, euler, "xyz")
     quat = quat.flatten().tolist()
-    size = scale = [0.35 * scale_factor] * 3
+    size = scale = [0.035 * scale_factor] * 3
     xml = f"""
         <mujoco>
           <default>
