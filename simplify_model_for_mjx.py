@@ -1,6 +1,7 @@
 from email.policy import default
 from pickletools import read_unicodestring1
 import argparse
+from pathlib import Path
 import mujoco as mj
 import re
 import numpy as np
@@ -247,8 +248,10 @@ def write_xml_given_spec_model(spec):
     f.write(xml)
 
 def write_xml(xml, filename):
-    with open(filename, "w") as f:
-        f.write(xml)
+  model_dir = Path(__file__).resolve().parent
+  path = model_dir / filename
+  with open(path.as_posix(), "w") as f:
+    f.write(xml)
 
 
 def replace_solver_options(xml):
@@ -444,9 +447,10 @@ def write_scene_xml(filename):
 
 def load_base_model(mode):
   spec = None
+  model_dir = Path(__file__).resolve().parent
   path = {
-    "base_model": "leapXela_base_model.xml",
-    "touchgrid": "robot_touch_sensor_array_binary_touchgrid_generated.xml",
+    "base_model": (model_dir / "leapXela_base_model.xml").as_posix(),
+    "touchgrid": (model_dir / "robot_touch_sensor_array_binary_touchgrid_generated.xml").as_posix(),
   }
   if mode in finger_tip_types:
         spec = mj.MjSpec.from_file(path["base_model"])
