@@ -73,9 +73,14 @@ black_list = [
 
 finger_tip_types = ["CoACD","Box"]
 
-LEAPHAND_ENV_QUAT = [0.411476, -0.574943, 0.575401, -0.411148]
-LEAPXELA_ENV_QUAT = [0.425731, -0.564485, 0.564935, -0.425392]
-LEAPXELA_ENV_ELUR = [0, 1.88, -1.57]
+
+LEAPXELA_PALM_ELUR = [0, 1.57 + 0.31, -1.57]
+CUBE_SCALE_FACTOR = 1.1
+CUBE_POS = [0.11, 0.0, 0.1]
+CUBE_EULER = [0, 0, 0]
+
+
+
 
 LEAPXELA_ENV_CUBE_FRICTION = 0.3
 
@@ -86,14 +91,14 @@ def rename_finger_tips(spec):
         spec.geom(name).name = f"{finger}_tip"
     return spec
 
-def overwrite_pose_of_the_hand(spec):
+def overwrite_pose_of_the_hand(spec , euler):
     """
     pos="0 0.011 -0.01" quat="0.411476 -0.574943 0.575401 -0.411148"
     """
 
     # Compute quaternion from Euler angles using MuJoCo helper
     quat = np.zeros((4, 1), dtype=np.float64)
-    euler = np.array(LEAPXELA_ENV_ELUR, dtype=np.float64).reshape(3, 1)
+    euler = np.array(euler, dtype=np.float64).reshape(3, 1)
     mj.mju_euler2Quat(quat, euler, "xyz")
 
     spec.body("palm").pos = [0, 0.011, -0.01]
@@ -102,12 +107,17 @@ def overwrite_pose_of_the_hand(spec):
     
     return spec
 
-def overwrite_cube_friction():
+def overwrite_cube(friction, scale_factor, pos, euler):
+    quat = np.zeros((4, 1), dtype=np.float64)
+    euler = np.array(euler, dtype=np.float64).reshape(3, 1)
+    mj.mju_euler2Quat(quat, euler, "xyz")
+    quat = quat.flatten().tolist()
+    size = scale = [0.35 * scale_factor] * 3
     xml = f"""
         <mujoco>
           <default>
             <default class="cube">
-              <geom friction="{LEAPXELA_ENV_CUBE_FRICTION} 0.05" conaffinity="2" condim="3"/>
+              <geom friction="{friction} 0.05" conaffinity="2" condim="3"/>
             </default>
           </default>
 
@@ -124,14 +134,15 @@ def overwrite_cube_friction():
             <material name="graycube" texture="graycube"/>
             <texture name="dexcube" type="2d" file="reorientation_cube_textures/dex_cube.png"/>
             <material name="dexcube" texture="dexcube"/>
-            <mesh name="cube_mesh" file="./meshes/dex_cube.obj" scale="0.035 0.035 0.035"/>
+            <mesh name="cube_mesh" file="./meshes/dex_cube.obj" scale="{scale[0]} {scale[1]} {scale[2]}"/>
           </asset>
 
           <worldbody>
-            <body name="cube" pos="0.11 0.0 0.1" quat="1 0 0 0" childclass="cube">
+            <body name="cube" pos="{pos[0]} {pos[1]} {pos[2]}" 
+            quat="{quat[0]} {quat[1]} {quat[2]} {quat[3]}" childclass="cube">
               <freejoint name="cube_freejoint"/>
               <geom type="mesh" mesh="cube_mesh" material="dexcube" contype="0" conaffinity="0" density="0" group="2"/>
-              <geom name="cube" type="box" size=".035 .035 .035" mass=".108" group="3"/>
+              <geom name="cube" type="box" size="{size[0]} {size[1]} {size[2]}" mass=".108" group="3"/>
               <site name="cube_center" pos="0 0 0" group="4"/>
             </body>
           </worldbody>
@@ -178,7 +189,7 @@ def add_simplified_finger_tips_collision_geom_to_model(spec):
     for tip in tips:
         spec.delete(spec.geom(tip))
 
-    print(f"\n\ntips:: {tips}\n\n")
+    # print(f"\n\ntips:: {tips}\n\n")
     # create default for fingertps 
     """
     <default class="uSCuALHA_simplified">
@@ -429,7 +440,75 @@ def write_scene_xml(filename):
     </mujoco>
     """
     return xml
+
+
+def load_base_model(mode):
+  spec = None
+  path = {
+    "base_model": "leapXela_base_model.xml",
+    "touchgrid": "robot_touch_sensor_array_binary_touchgrid_generated.xml",
+  }
+  if mode in finger_tip_types:
+        spec = mj.MjSpec.from_file(path["base_model"])
+        print(f"Loaded base model from {path['base_model']}")
+  elif mode == "touchgrid":
+      spec = mj.MjSpec.from_file(path["touchgrid"])
+      print(f"Loaded base model from {path['touchgrid']}")
+
+  else:
+      raise ValueError(f"Invalid mode: {mode}")
+  return spec
+
+def generate_model_with_box_finger_tips(spec,mode, palm_euler, cube_friction, cube_scale_factor, cube_pos, cube_euler):
+    print("Generating model with box finger tips")
+    spec = remove_collision_geom_from_model(spec)
+    spec = add_grasp_site(spec)
+ 
+    spec = add_simplified_finger_tips_collision_geom_to_model(spec)
     
+    spec = add_marker_to_model(spec)
+    spec = overwrite_pose_of_the_hand(spec, euler=palm_euler)
+    spec= rename_finger_tips(spec)
+    xml = spec.to_xml()
+    xml = replace_solver_options(xml)
+    xml = replace_dynamics_options(xml)
+    xml = add_custome_settings(xml)
+    filename = f"leapXela_generated_mjx_{mode}.xml"
+    write_xml(xml, filename)
+
+    #########Cube#########
+    xml = overwrite_cube(friction=cube_friction, 
+                         scale_factor=cube_scale_factor,
+                         pos=cube_pos,
+                         euler=cube_euler)
+    write_xml(xml, "reorientation_cube_generated_mjx.xml")
+    ##### Write Scene XML #####
+    xml = write_scene_xml(filename)
+    write_xml(xml, f"scene_mjx_cube_{mode}_mjx.xml")
+
+def generate_model_with_coacd_finger_tips(spec,mode, palm_euler, cube_friction, cube_scale_factor, cube_pos, cube_euler):
+    print("Generating model with coacd finger tips")
+    spec = remove_collision_geom_from_model(spec)
+    spec = add_grasp_site(spec)
+    spec = add_marker_to_model(spec)
+    spec = overwrite_pose_of_the_hand(spec, euler=LEAPXELA_PALM_ELUR)
+    spec= rename_finger_tips(spec)
+    xml = spec.to_xml()
+    xml = replace_solver_options(xml)
+    xml = replace_dynamics_options(xml)
+    xml = add_custome_settings(xml)
+    filename = f"leapXela_generated_mjx_{mode}.xml"
+    write_xml(xml, filename)
+
+    #########Cube#########
+    xml = overwrite_cube(friction=LEAPXELA_ENV_CUBE_FRICTION, 
+                         scale_factor=CUBE_SCALE_FACTOR,
+                         pos=CUBE_POS,
+                         euler=CUBE_EULER)
+    write_xml(xml, "reorientation_cube_generated_mjx.xml")
+    ##### Write Scene XML #####
+    xml = write_scene_xml(filename)
+    write_xml(xml, f"scene_mjx_cube_{mode}_mjx.xml")
 
 if __name__ == "__main__":
     spec= None
@@ -443,31 +522,14 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
     mode = args.mode
-    if mode in finger_tip_types:
-        spec = mj.MjSpec.from_file("leapXela_base_model.xml")
-    elif mode == "touchgrid":
-        spec = mj.MjSpec.from_file("robot_touch_sensor_array_binary_touchgrid_generated.xml")
+    
+
+    spec = load_base_model(mode)
+    if mode == "Box":
+        generate_model_with_box_finger_tips(spec, mode, LEAPXELA_PALM_ELUR, LEAPXELA_ENV_CUBE_FRICTION, CUBE_SCALE_FACTOR, CUBE_POS, CUBE_EULER)
+    elif mode == "CoACD":
+        generate_model_with_coacd_finger_tips(spec, mode, LEAPXELA_PALM_ELUR, LEAPXELA_ENV_CUBE_FRICTION, CUBE_SCALE_FACTOR, CUBE_POS, CUBE_EULER)
     else:
         raise ValueError(f"Invalid mode: {mode}")
-
-    spec = remove_collision_geom_from_model(spec)
-    spec = add_grasp_site(spec)
-    if mode =="Box":
-        spec = add_simplified_finger_tips_collision_geom_to_model(spec)
-    spec = add_marker_to_model(spec)
-    spec = overwrite_pose_of_the_hand(spec)
-    spec= rename_finger_tips(spec)
-    xml = spec.to_xml()
-    xml = replace_solver_options(xml)
-    xml = replace_dynamics_options(xml)
-    xml = add_custome_settings(xml)
-    filename = f"leapXela_generated_mjx_{mode}.xml"
-    write_xml(xml, filename)
-
-    #########Cube#########
-    xml = overwrite_cube_friction()
-    write_xml(xml, "reorientation_cube_generated_mjx.xml")
-    ##### Write Scene XML #####
-    xml = write_scene_xml(filename)
-    write_xml(xml, f"scene_mjx_cube_{mode}_mjx.xml")
     
+    print("Model generation completed")
