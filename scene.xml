@@ -1,5 +1,5 @@
 <mujoco model="scene">
-    <include file="robot_touch_sensor_array_gem.xml"/>
+    <include file="leapXela.xml"/>
 
     <default>
         <default class="iteractive">
@@ -27,31 +27,9 @@
         <light pos="0 0 3.5" dir="0 0 -1" directional="true" />
         <geom name="floor" size="0 0 0.05" pos="0 0 0" type="plane" material="groundplane" />
        
-        <body name="ball_palm" pos="0 0.063 0.15">
-          <joint name="ball_palm_x" type="slide" axis="1 0 0" range="-0.06 0.08"/>
-          <joint name="ball_palm_y" type="slide" axis="0 1 0" range="-0.01 0.23"/>
-          <joint name="ball_palm_z" type="slide" axis="0 0 1" range="-0.015 0.005"/>
-          <geom class="iteractive" type="box" size="0.015 0.015 0.015" rgba=".5 .7 .5 0.3" friction=".5" priority="1"/>
-        </body> 
-  
-        <body name="ball_thumb" pos="0.09 0.09 0.112">
-          <joint name="ball_thumb_x" type="slide" axis="1 0 0" range="-0.006 0.09"/>
-          <joint name="ball_thumb_y" type="slide" axis="0 1 0" range="-0.012 0.001"/>
-          <joint name="ball_thumb_z" type="slide" axis="0 0 1" range="-0.009 0.009"/>
-          <geom class="iteractive" type="box" size="0.015 0.015 0.015" rgba=".5 .7 .5 0.3" friction=".5" priority="1"/>
-        </body> 
+     
     </worldbody>
 
-    <actuator>
-        <!-- ball palm actuators -->
-        <position name="ball_palm_x_act" joint="ball_palm_x" ctrlrange="-0.06 0.08"/>
-        <position name="ball_palm_y_act" joint="ball_palm_y" ctrlrange="-0.01 0.23"/>
-        <position name="ball_palm_z_act" joint="ball_palm_z" ctrlrange="-0.015 0.005"/>
-        
-        <!-- ball thumb actuators -->
-        <position name="ball_thumb_x_act" joint="ball_thumb_x" ctrlrange="-0.006 0.09"/>
-        <position name="ball_thumb_y_act" joint="ball_thumb_y" ctrlrange="-0.012 0.001"/>
-        <position name="ball_thumb_z_act" joint="ball_thumb_z" ctrlrange="-0.009 0.009"/>
-    </actuator>
+  
 
 </mujoco>
