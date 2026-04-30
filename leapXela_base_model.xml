@@ -84,13 +84,13 @@
           <site pos="0.040 0.015 -0.008" />
         </default>
 
-        <default class="th_bs_uspa44">
-          <geom pos="0.0 0.004 0.026"/>
-          <site pos="0.007 0.015 0.035"/>
-        </default>
         <default class="th_px_uspa44">
-          <geom pos="-0.004 0.053 0.0145"/>
-          <site pos="-0.015 0.0605 0.008"/>
+          <geom pos="-0.004 0.008 0.0145"/>
+          <site pos="-0.018 0.015 0.022"/>
+        </default>
+        <default class="th_ds_uspa44">
+          <geom pos="0.004 -0.008 0.0145"/>
+          <site pos="0.015 -0.015 0.022"/>
         </default>
          <!-- Construction lines for fingertips -->
          <!-- Vertical Construction Line -->
@@ -581,7 +581,7 @@
         </body>
       </body> <!--ring-->
 
-      <!--thumb-->
+       <!--thumb-->
       <body name="th_mp" pos="0.0480627 -0.013 0.07" quat="5.44009e-15 1.1935e-16 1 -5.55112e-17">
         <joint name="th_cmc" class="thumb_cmc"/>
         <inertial pos="-0.000232587 0.00882444 0.0117326" mass="0.032" 
@@ -598,8 +598,7 @@
           <geom name="th_bs_collision_2" class="collision" pos="-0.016 -0.002 0.015" euler="0 0 0" size="0.002 0.013 0.0125" />
           <geom name="th_bs_collision_3" class="collision" pos="0 0 0.0015" euler="0 0 0" size="0.018 0.01 0.002" />
           <geom name="th_bs_collision_4" class="collision" pos="0.02 0.0 0.019" euler="0 0 0" size="0.002 0.01 0.003" />
-          <geom name="th_bs_uspa44" class="th_bs_uspa44"/>
-          <site name="th_bs_uspa44" class="th_bs_uspa44"/>
+
 
           <body name="th_px" pos="0.0145 -3.46945e-18 0.019" quat="0.5 0.5 -0.5 -0.5">
             <joint name="th_mcp" class="thumb_mcp"/>
@@ -611,8 +610,10 @@
             <geom name="th_px_collision_3" class="collision" pos="0.0 0.039 -0.001" euler="0 0 0" size="0.01 0.014 0.002" />
             <geom name="th_px_collision_4" class="collision" pos="0.0 0.045 -0.005" euler="0 0 0" size="0.01 0.0025 0.002" />
             <geom name="th_px_collision_5" class="collision" pos="0.0 0.039 0.0305" euler="0 0 0" size="0.01 0.014 0.002" />
+                      
             <geom name="th_px_uspa44" class="th_px_uspa44"/>
             <site name="th_px_uspa44" class="th_px_uspa44"/>
+         
 
             <body name="th_ds" pos="-1.12757e-16 0.0446 4.16334e-17" quat="2.10665e-14 5.4264e-17 -3.33067e-16 1">
               <joint name="th_ipl" class="thumb_ipl"/>
@@ -623,6 +624,9 @@
                material="black"/>
               <geom name="th_ds_collision_1" class="collision" pos="-0.006 -0.008 0.014" size="0.015 0.017 0.015" />
               <geom name="th_ds_collision_3" class="collision" pos="-0.018 -0.042 0.014" size="0.004 0.017 0.015" />
+
+              <geom name="th_ds_uspa44" class="th_ds_uspa44"/>
+              <site name="th_ds_uspa44" class="th_ds_uspa44"/>
               
               <geom name="th_ds_tip" class="uSCuALHA"  
               pos="-0.00135925 -0.0300003 0.014504" 
