@@ -5,6 +5,7 @@ from pathlib import Path
 import mujoco as mj
 import re
 import numpy as np
+import json
 
 finger_tips_black_list = ["if_ds_tip", "mf_ds_tip", "rf_ds_tip", "th_ds_tip"]
 touch_grid_black_list = ["if_bs_uspa44", "mf_bs_uspa44", "rf_bs_uspa44",
@@ -84,6 +85,12 @@ CUBE_EULER = [0, 0, 0]
 
 
 LEAPXELA_ENV_CUBE_FRICTION = 0.3
+
+
+def load_joint_config(joint_config_path):
+  with open(joint_config_path, "r") as f:
+    joint_config = json.load(f)
+  return joint_config
 
 def rename_finger_tips(spec):
     fingers = ["if","mf","rf","th"]
@@ -463,7 +470,7 @@ def load_base_model(mode):
       raise ValueError(f"Invalid mode: {mode}")
   return spec
 
-def generate_model_with_box_finger_tips(spec,mode, palm_euler, cube_friction, cube_scale_factor, cube_pos, cube_euler):
+def generate_model_with_box_finger_tips(spec,mode, joint_config, palm_euler, cube_friction, cube_scale_factor, cube_pos, cube_euler):
     print("Generating model with box finger tips")
     spec = remove_collision_geom_from_model(spec)
     spec = add_grasp_site(spec)
@@ -473,6 +480,7 @@ def generate_model_with_box_finger_tips(spec,mode, palm_euler, cube_friction, cu
     spec = add_marker_to_model(spec)
     spec = overwrite_pose_of_the_hand(spec, euler=palm_euler)
     spec= rename_finger_tips(spec)
+    spec = set_joint_limits_from_joint_config(spec, joint_config)
     xml = spec.to_xml()
     xml = replace_solver_options(xml)
     xml = replace_dynamics_options(xml)
@@ -490,13 +498,14 @@ def generate_model_with_box_finger_tips(spec,mode, palm_euler, cube_friction, cu
     xml = write_scene_xml(filename)
     write_xml(xml, f"scene_mjx_cube_{mode}_mjx.xml")
 
-def generate_model_with_coacd_finger_tips(spec,mode, palm_euler, cube_friction, cube_scale_factor, cube_pos, cube_euler):
+def generate_model_with_coacd_finger_tips(spec,mode, joint_config, palm_euler, cube_friction, cube_scale_factor, cube_pos, cube_euler):
     print("Generating model with coacd finger tips")
     spec = remove_collision_geom_from_model(spec)
     spec = add_grasp_site(spec)
     spec = add_marker_to_model(spec)
     spec = overwrite_pose_of_the_hand(spec, euler=LEAPXELA_PALM_ELUR)
     spec= rename_finger_tips(spec)
+    spec = set_joint_limits_from_joint_config(spec, joint_config)
     xml = spec.to_xml()
     xml = replace_solver_options(xml)
     xml = replace_dynamics_options(xml)
@@ -514,8 +523,34 @@ def generate_model_with_coacd_finger_tips(spec,mode, palm_euler, cube_friction, 
     xml = write_scene_xml(filename)
     write_xml(xml, f"scene_mjx_cube_{mode}_mjx.xml")
 
+
+def set_joint_limits_from_joint_config(spec,joint_config:dict):
+  default_names = ["mcp","rot","pip","dip","thumb_cmc","thumb_axl","thumb_mcp","thumb_ipl"]
+  thumb_joint_info = joint_config["leapXela"]["sim"]["thumb"]
+  finger_joint_info = joint_config["leapXela"]["sim"]["fingers"]
+  main_def = spec.default
+  for name in default_names:
+    default = spec.find_default(name)
+
+    
+    if "thumb" in name:
+      name = name.split("_")[1]
+      limit = [thumb_joint_info[name]["lower"], thumb_joint_info[name]["upper"]]
+      default.joint.range = limit
+    else:
+      limit = [finger_joint_info[name]["lower"], finger_joint_info[name]["upper"]]
+      default.joint.range = limit
+
+  return spec
+  
+    
+
+
+
+
 if __name__ == "__main__":
     spec= None
+    joint_config = load_joint_config("joint_config.json")
 
     parser = argparse.ArgumentParser(description="Simplify LeapXELA model for MuJoCo.")
     parser.add_argument(
@@ -530,9 +565,9 @@ if __name__ == "__main__":
 
     spec = load_base_model(mode)
     if mode == "Box":
-        generate_model_with_box_finger_tips(spec, mode, LEAPXELA_PALM_ELUR, LEAPXELA_ENV_CUBE_FRICTION, CUBE_SCALE_FACTOR, CUBE_POS, CUBE_EULER)
+        generate_model_with_box_finger_tips(spec, mode, joint_config, LEAPXELA_PALM_ELUR, LEAPXELA_ENV_CUBE_FRICTION, CUBE_SCALE_FACTOR, CUBE_POS, CUBE_EULER)
     elif mode == "CoACD":
-        generate_model_with_coacd_finger_tips(spec, mode, LEAPXELA_PALM_ELUR, LEAPXELA_ENV_CUBE_FRICTION, CUBE_SCALE_FACTOR, CUBE_POS, CUBE_EULER)
+        generate_model_with_coacd_finger_tips(spec, mode, joint_config, LEAPXELA_PALM_ELUR, LEAPXELA_ENV_CUBE_FRICTION, CUBE_SCALE_FACTOR, CUBE_POS, CUBE_EULER)
     else:
         raise ValueError(f"Invalid mode: {mode}")
     
