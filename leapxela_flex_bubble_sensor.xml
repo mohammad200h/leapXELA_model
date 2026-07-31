@@ -5,33 +5,20 @@
   <statistic center="0.02 0.08 0.1" extent="0.3" meansize="0.01"/>
   <visual>
     <headlight diffuse=".8 .8 .8" ambient=".2 .2 .2" specular="1 1 1"/>
-    <rgba force="1 0 0 1" haze="0.15 0.25 0.35 1"/>
+    <rgba force="1 0 0 1"/>
     <global azimuth="120" elevation="-20"/>
     <map force="0.01" stiffness="500"/>
     <scale forcewidth="0.1" contactwidth="0.5" contactheight="0.2"/>
     <quality shadowsize="4096"/>
   </visual>
 
-  <asset>
-    <texture type="skybox" builtin="gradient" rgb1="0.3 0.5 0.7" rgb2="0 0 0"
-      width="512" height="3072"/>
-    <texture type="2d" name="groundplane" builtin="checker" mark="edge"
-      rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3" markrgb="0.8 0.8 0.8"
-      width="300" height="300"/>
-    <material name="groundplane" texture="groundplane" texuniform="true"
-      texrepeat="5 5" reflectance="0.2"/>
-  </asset>
-
   <worldbody>
-    <light pos="0 0 3.5" dir="0 0 -1" directional="true"/>
     <camera name="side" pos="-0.183 0.396 0.296"
       xyaxes="-0.783 -0.622 0 0.332 -0.419 0.845"/>
-    <geom name="floor" type="plane" size="0 0 0.05" pos="0 0 -0.25"
-      material="groundplane" contype="2" conaffinity="2"/>
     <body name="sensor_probe_body" mocap="true" pos="0 0 1">
       <geom name="sensor_probe" type="sphere" size="0.004"
         mass="0.01" rgba="0.1 0.3 1 1" friction="0.8 0.005 0.0001"
-        contype="3" conaffinity="3" condim="3"/>
+        contype="1" conaffinity="1" condim="3"/>
     </body>
   </worldbody>
 </mujoco>

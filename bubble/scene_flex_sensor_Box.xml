@@ -31,7 +31,7 @@
     <body name="sensor_probe_body" mocap="true" pos="0 0 1">
       <geom name="sensor_probe" type="sphere" size="0.004"
         mass="0.01" rgba="0.1 0.3 1 1" friction="0.8 0.005 0.0001"
-        contype="3" conaffinity="3" condim="3"/>
+        contype="1" conaffinity="1" condim="3"/>
     </body>
   </worldbody>
 </mujoco>

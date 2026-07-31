@@ -333,7 +333,7 @@
     <body name="palm" pos="0 0 0.1" quat="1 -1 0  0" childclass="leapXELA">
     <!-- <body name="palm" quat=" 0 0 0 1" > -->
       <!-- palm -->
-  
+      <inertial pos="0.00388456 -0.00321858 0.0893448" mass="0.237" fullinertia="0.00587523 0.00767916 0.00348841 9.4314e-05 -0.000410847 0.00018544"/>
       <geom name="palm_visual_1" class="visual" pos="0.0180627 0.023 0.0834096" quat="7.73061e-18 0.707107 0 -0.707107" mesh="leap_hand_xela_motorholder" material="black"/>
       <geom name="palm_visual_2" class="visual" pos="-0.005515 -0.027 0.0631" quat="1.11022e-16 -2.02699e-16 -1.11022e-16 -1" mesh="uspa46" material="black"/>
       <geom name="palm_visual_3" class="visual" pos="0.0235627 -0.013 0.0845" quat="0.707107 -3.84621e-15 -3.66374e-15 0.707107" mesh="thp0_unified" material="black"/>
@@ -386,6 +386,7 @@
       <!--index-->
       <body name="if_bs" pos="0.06773 -0.0165 0.1436" quat="4.51379e-17 0.707107 -0 0.707107">
         <joint  name="if_mcp" class="mcp"/>
+        <inertial pos="0.0342889 -0.0265621 -0.0145004" mass="0.044" fullinertia="4.51947e-05 6.85417e-05 7.22479e-05 1.48097e-05 1.17419e-06 -1.19534e-06"/>
         <geom name="if_bs_visual" class="visual" pos="0.0048 -6.93889e-18 -0.0145" quat="0.5 0.5 0.5 -0.5" mesh="p4_unified" material="black"/>
         <geom name="if_bs_collision_1" class="collision" pos="0.013 -0.016 0.0015" euler="0 0 -0.95" size="0.03 0.01 0.0025" />
         <geom name="if_bs_collision_2" class="collision" pos="-0.0005 -0.0 0.0055" euler="0 0 0" size="0.003 0.01 0.002" />
@@ -395,6 +396,7 @@
        
         <body name="if_px" pos="0.0326 -0.0123 -0.0145" quat="0.5 -0.5 -0.5 -0.5">
           <joint  name="if_rot" class="rot"/>
+          <inertial pos="-0.000258994 0.00848001 0.0133488" mass="0.032" fullinertia="2.31878e-05 1.74843e-05 2.31495e-05 -1.07668e-07 -9.95794e-08 -1.12128e-06"/>
           <geom name="if_px_visual" class="visual" pos="0 0.0075 -8.67362e-19" quat="0.5 -0.5 -0.5 -0.5" mesh="p3_unified" material="black"/>
           <geom name="if_px_collision_1" class="collision" pos="0.0 0.0072 0.011" euler="0 0 0.0" size="0.015 0.0175 0.012" />
           <geom name="if_px_uspa44" class="px_uspa44"/>
@@ -402,6 +404,7 @@
 
           <body name="if_md" pos="0.0145 0.015 0.013" quat="0.5 0.5 0.5 0.5">
             <joint  name="if_pip" class="pip"/>
+            <inertial pos="0.0304899 -0.00688132 -0.0146269" mass="0.037" fullinertia="5.30625e-05 4.56759e-05 5.89736e-05 3.70526e-06 1.23454e-06 -6.30317e-07"/>
             <geom name="if_md_visual" class="visual" pos="0.00905 -6.93889e-18 -0.0145" quat="0.5 0.5 0.5 -0.5" mesh="p2_unified" material="black"/> 
             <geom name="if_md_collision_1" class="collision" pos="0.02 -0.009 0.0015" euler="0 0 -0.95" size="0.02 0.01 0.004" />
             <geom name="if_md_collision_2" class="collision" type="cylinder" pos="0.0 0 0.0035" size="0.008 0.005 " />
@@ -413,6 +416,7 @@
 
             <body name="if_ds" pos="0.0361 -1.11022e-16 -0.0291" quat="0.707107 -2.30991e-16 4.44089e-16 0.707107">
               <joint  name="if_dip" class="dip"/>
+              <inertial pos="-0.00193531 -0.0359351 0.0145854" mass="0.016" fullinertia="7.05202e-05 3.63661e-05 6.58529e-05 1.03034e-06 -1.87024e-07 -1.07782e-06"/>
               <geom class="visual" pos="-0.00135925 -0.025 0.0145" quat="0.5 -0.5 -0.5 -0.5" mesh="fingertop_unfied" material="black"/>
               <geom name="if_ds_collision_1" class="collision" pos="0.0 -0.009 -0.001" euler="0 0 1.57" size="0.017 0.01 0.004" />
               <geom name="if_ds_collision_2" class="collision" pos="0.0 -0.009  0.03"  euler="0 0 1.57" size="0.017 0.01 0.004" />
@@ -471,6 +475,7 @@
       <!--middle-->
       <body name="mf_bs" pos="0.02228 -0.0165 0.1436" quat="4.51379e-17 0.707107 -0 0.707107">
         <joint  name="mf_mcp" class="mcp"/>
+        <inertial pos="0.0342889 -0.0265621 -0.0145004" mass="0.044" fullinertia="4.51947e-05 6.85417e-05 7.22479e-05 1.48097e-05 1.17419e-06 -1.19534e-06"/>
         <geom name="mf_bs_visual" class="visual" pos="0.0048 -3.46945e-18 -0.0145" quat="0.5 0.5 0.5 -0.5" mesh="p4_unified" material="black"/>
         <geom name="mf_bs_collision_1" class="collision" pos="0.013 -0.016 0.0015" euler="0 0 -0.95" size="0.03 0.01 0.0025" />
         <geom name="mf_bs_collision_2" class="collision" pos="-0.0005 -0.0 0.0055" euler="0 0 0" size="0.003 0.01 0.002" />
@@ -479,6 +484,7 @@
         
         <body name="mf_px" pos="0.0326 -0.0123 -0.0145" quat="0.5 -0.5 -0.5 -0.5">
           <joint  name="mf_rot" class="rot"/>
+          <inertial pos="-0.000258994 0.00848001 0.0133488" mass="0.032" fullinertia="2.31878e-05 1.74843e-05 2.31495e-05 -1.07668e-07 -9.95794e-08 -1.12128e-06"/>
           <geom name="mf_px_visual"  type="mesh" class="visual" pos="-8.67362e-19 0.0075 -8.67362e-19" quat="0.5 -0.5 -0.5 -0.5" mesh="p3_unified" material="black"/>
           <geom name="mf_px_collision_1" class="collision" size="0.015 0.0175 0.012" pos="0 0.0072 0.011"/>
           <geom name="mf_px_uspa44" class="px_uspa44"/>
@@ -486,6 +492,7 @@
 
           <body name="mf_md" pos="0.0145 0.015 0.013" quat="0.5 0.5 0.5 0.5">
             <joint  name="mf_pip" class="pip"/>
+            <inertial pos="0.0304899 -0.00688132 -0.0146269" mass="0.037" fullinertia="5.30625e-05 4.56759e-05 5.89736e-05 3.70526e-06 1.23454e-06 -6.30317e-07"/>
             <geom name="mf_md_visual" class="visual" pos="0.00905 -1.04083e-17 -0.0145" quat="0.5 0.5 0.5 -0.5" mesh="p2_unified" material="black"/>
             <geom name="mf_md_collision_1" class="collision" pos="0.02 -0.009 0.0015" euler="0 0 -0.95" size="0.02 0.01 0.004" />
             <geom name="mf_md_collision_2" class="collision" type="cylinder" pos="0.0 0 0.0035" size="0.008 0.005 " />
@@ -497,6 +504,7 @@
 
             <body name="mf_ds" pos="0.0361 -1.14492e-16 -0.0291" quat="0.707107 -2.30991e-16 4.44089e-16 0.707107">
               <joint  name="mf_dip" class="dip"/>
+              <inertial pos="-0.00193531 -0.0359351 0.0145854" mass="0.016" fullinertia="7.05202e-05 3.63661e-05 6.58529e-05 1.03034e-06 -1.87024e-07 -1.07782e-06"/>
               <geom name="mf_ds_visual" class="visual" pos="-0.00135925 -0.025 0.0145" quat="0.5 -0.5 -0.5 -0.5" mesh="fingertop_unfied" material="black"/>
               <geom name="mf_ds_collision_1" class="collision" pos="0.0 -0.009 -0.001" euler="0 0 1.57" size="0.017 0.01 0.004" />
               <geom name="mf_ds_collision_2" class="collision" pos="0.0 -0.009  0.03"  euler="0 0 1.57" size="0.017 0.01 0.004" />
@@ -520,6 +528,7 @@
       <!--ring-->
       <body name="rf_bs" pos="-0.02317 -0.0165 0.1436" quat="4.51379e-17 0.707107 -0 0.707107">
         <joint  name="rf_mcp" class="mcp"/>
+        <inertial pos="0.0342889 -0.0265621 -0.0145004" mass="0.044" fullinertia="4.51947e-05 6.85417e-05 7.22479e-05 1.48097e-05 1.17419e-06 -1.19534e-06"/>
         <geom name="rf_bs_visual" class="visual" pos="0.0048 -6.93889e-18 -0.0145" quat="0.5 0.5 0.5 -0.5" mesh="p4_unified" material="black"/>
         <geom name="rf_bs_collision_1" class="collision" pos="0.013 -0.016 0.0015" euler="0 0 -0.95" size="0.03 0.01 0.0025" />
         <geom name="rf_bs_collision_2" class="collision" pos="-0.0005 -0.0 0.0055" euler="0 0 0" size="0.003 0.01 0.002" />
@@ -528,6 +537,7 @@
 
         <body name="rf_px" pos="0.0326 -0.0123 -0.0145" quat="0.5 -0.5 -0.5 -0.5">
           <joint  name="rf_rot" class="rot"/>
+          <inertial pos="-0.000258994 0.00848001 0.0133488" mass="0.032" fullinertia="2.31878e-05 1.74843e-05 2.31495e-05 -1.07668e-07 -9.95794e-08 -1.12128e-06"/>
           <geom name="rf_px_visual" class="visual" pos="0 0.0075 -8.67362e-19" quat="0.5 -0.5 -0.5 -0.5" 
           mesh="p3_unified" material="black"/>
           <geom name="rf_px_collision_1" class="collision" pos="0.0 0.0072 0.011" euler="0 0 0.0" size="0.015 0.0175 0.012" />
@@ -536,6 +546,7 @@
 
           <body name="rf_md" pos="0.0145 0.015 0.013" quat="0.5 0.5 0.5 0.5">
             <joint  name="rf_pip" class="pip"/>
+            <inertial pos="0.0304899 -0.00688132 -0.0146269" mass="0.037" fullinertia="5.30625e-05 4.56759e-05 5.89736e-05 3.70526e-06 1.23454e-06 -6.30317e-07"/>
             <geom name="rf_md_visual" class="visual" pos="0.00905 -6.93889e-18 -0.0145" quat="0.5 0.5 0.5 -0.5" 
             mesh="p2_unified" material="black"/>
             <geom name="rf_md_collision_1" class="collision" pos="0.02 -0.009 0.0015" euler="0 0 -0.95" size="0.02 0.01 0.004" />
@@ -548,6 +559,7 @@
 
             <body name="rf_ds" pos="0.0361 -1.11022e-16 -0.0291" quat="0.707107 -2.30991e-16 4.44089e-16 0.707107">
               <joint  name="rf_dip" class="dip"/>
+              <inertial pos="-0.00193531 -0.0359351 0.0145854" mass="0.016" fullinertia="7.05202e-05 3.63661e-05 6.58529e-05 1.03034e-06 -1.87024e-07 -1.07782e-06"/>
               <geom name="rf_ds_visual" class="visual" pos="-0.00135925 -0.025 0.0145" quat="0.5 -0.5 -0.5 -0.5" 
               mesh="fingertop_unfied" material="black"/>
               <geom name="rf_ds_collision_1" class="collision" pos="0.0 -0.009 -0.001" euler="0 0 1.57" size="0.017 0.01 0.004" />
@@ -572,11 +584,14 @@
        <!--thumb-->
       <body name="th_mp" pos="0.0480627 -0.013 0.07" quat="5.44009e-15 1.1935e-16 1 -5.55112e-17">
         <joint name="th_cmc" class="thumb_cmc"/>
+        <inertial pos="-0.000232587 0.00882444 0.0117326" mass="0.032" 
+        fullinertia="2.37871e-05 1.73561e-05 2.83432e-05 1.34767e-07 5.50367e-08 -9.6937e-08"/>
         <geom name="th_mp_visual" class="visual" pos="0 0.0075 0" quat="0.5 -0.5 -0.5 -0.5" mesh="thp2_unified" material="black"/>
         <geom name="th_mp_collision" class="collision" pos="0 0.0085 0.0115" euler="0 0 0" size="0.015 0.019 0.0125" />
         
         <body name="th_bs" pos="-0.0144 -8.32667e-17 0.013" quat="0.5 -0.5 -0.5 0.5">
           <joint  name="th_axl" class="thumb_axl"/>
+          <inertial pos="0 0 0" mass="0.003" fullinertia="2.88391e-06 7.74614e-06 7.38912e-06 -3.01753e-08 -3.03989e-07 2.92826e-08"/>
           <geom name="th_bs_visual_1" class="visual" pos="-0.0173 0 0.019" quat="0.707107 0.707107 -0 -0" mesh="thconnector" material="black"/>
           <geom name="th_bs_visual_2" class="visual" pos="0.0155 -0.006 0.019" quat="1.85719e-15 -0.707107 -0.707107 2.14491e-15" mesh="clipper" material="black"/>
           <geom name="th_bs_collision_1" class="collision" pos="0.016 -0.002 0.015" euler="0 0 0" size="0.002 0.013 0.0125" />
@@ -587,6 +602,8 @@
 
           <body name="th_px" pos="0.0145 -3.46945e-18 0.019" quat="0.5 0.5 -0.5 -0.5">
             <joint name="th_mcp" class="thumb_mcp"/>
+            <inertial pos="0.00144426 0.0112332 0.0144179" mass="0.038" 
+            fullinertia="5.2272e-05 3.20647e-05 5.08966e-05 5.30483e-07 -6.26679e-07 9.36463e-07"/>
             <geom name="th_px_visual_1" class="visual" pos="-1.11022e-16 0.0245 0.0145" quat="1 0 -2.22045e-16 0" mesh="thp1_unified" material="black"/>
             <geom name="th_px_collision_1" class="collision" pos="0.005 0.007 0.0145" euler="0 0 0" size="0.015 0.017 0.015" />
             <geom name="th_px_collision_2" class="collision" pos="0.005 0.025 0.0145" euler="0 0 0" size="0.015 0.004 0.015" />
@@ -600,6 +617,8 @@
 
             <body name="th_ds" pos="-1.12757e-16 0.0446 4.16334e-17" quat="2.10665e-14 5.4264e-17 -3.33067e-16 1">
               <joint name="th_ipl" class="thumb_ipl"/>
+              <inertial pos="-0.00210586 -0.0274158 0.0145397" mass="0.049" 
+              fullinertia="0.000206758 5.56924e-05 0.000213078 1.87064e-06 6.68628e-07 -5.27707e-07"/>
               <geom name="th_ds_visual" class="visual" pos="-2.77556e-17 -0.0275 0.014504" 
                quat="0.707107 0.707107 1.11022e-16 -1.20442e-16" mesh="thfingertip_unified"
                material="black"/>
