@@ -1,0 +1,24 @@
+
+<mujoco model="leap_flex_sensor_scene">
+  <include file="leapXela_generated_flex_sensor.xml"/>
+
+  <statistic center="0.02 0.08 0.1" extent="0.3" meansize="0.01"/>
+  <visual>
+    <headlight diffuse=".8 .8 .8" ambient=".2 .2 .2" specular="1 1 1"/>
+    <rgba force="1 0 0 1"/>
+    <global azimuth="120" elevation="-20"/>
+    <map force="0.01" stiffness="500"/>
+    <scale forcewidth="0.1" contactwidth="0.5" contactheight="0.2"/>
+    <quality shadowsize="4096"/>
+  </visual>
+
+  <worldbody>
+    <camera name="side" pos="-0.183 0.396 0.296"
+      xyaxes="-0.783 -0.622 0 0.332 -0.419 0.845"/>
+    <body name="sensor_probe_body" mocap="true" pos="0 0 1">
+      <geom name="sensor_probe" type="sphere" size="0.004"
+        mass="0.01" rgba="0.1 0.3 1 1" friction="0.8 0.005 0.0001"
+        contype="1" conaffinity="1" condim="3"/>
+    </body>
+  </worldbody>
+</mujoco>
