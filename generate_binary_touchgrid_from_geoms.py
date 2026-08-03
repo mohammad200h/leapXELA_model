@@ -198,7 +198,6 @@ def write_xml_model(spec):
 
 if __name__ == "__main__":
     spec = mj.MjSpec.from_file("leapXela_base_model.xml")
-    
     site_names = ["if_bs_uspa44", "mf_bs_uspa44" ,"rf_bs_uspa44",
                   "if_md_uspa44", "mf_md_uspa44" ,"rf_md_uspa44",
                   "if_px_uspa44", "mf_px_uspa44" ,"rf_px_uspa44",
