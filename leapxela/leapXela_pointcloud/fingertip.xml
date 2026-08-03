@@ -1,0 +1,949 @@
+<mujoco model="allegro_fingertip_curved">
+  <option iterations="50" timestep="0.001" solver="PGS" gravity="0 0 -9.81" />
+
+  <compiler angle="radian" meshdir="assets" eulerseq="zyx" autolimits="true" />
+
+  <default>
+    <joint limited="true" damping="0.01" armature="0.01" frictionloss="0.01" />
+    <geom condim="4" contype="1" conaffinity="15" friction="0.9 0.2 0.2" solref="0.001 2" />
+    <motor ctrllimited="true" />
+    <equality solref="0.001 2" />
+    <default class="visualgeom">
+      <geom material="visualgeom" condim="1" contype="0" conaffinity="0" />
+    </default>
+  </default>
+
+  <asset>
+    <mesh name="ft_c" content_type="model/stl" file="ft_c.stl" />
+    <texture name="texplane" type="2d" builtin="checker" rgb1=".0 .0 .0" rgb2=".8 .8 .8" width="100" height="100" />
+    <material name="matplane" reflectance="0." texture="texplane" texrepeat="1 1" texuniform="true" />
+    <material name="visualgeom" rgba="0.5 0.9 0.2 1" />
+  </asset>
+
+  <worldbody>
+    <light directional="true" diffuse="0.4 0.4 0.4" specular="0.1 0.1 0.1" pos="0 0 5.0" dir="0 0 -1" castshadow="false" />
+    <light directional="true" diffuse="0.6 0.6 0.6" specular="0.2 0.2 0.2" pos="0 0 4" dir="0 0 -1" />
+   
+    <camera name="fixed" pos="0 -3.0 0.5102266552949939" xyaxes="1 0 0 0 0 1" />
+    <camera name="track" mode="trackcom" pos="0 -3.0 0.5102266552949939" xyaxes="1 0 0 0 0 1" />
+    <body name="root" pos="0 0 0" euler="0 0 1.5708">
+      <freejoint name="root" />
+      <site name="imu" size="0.001" pos="0 0 0" />
+      <geom type="mesh" mesh="ft_c" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+      <geom type="mesh" rgba="" mesh="ft_c" />
+      <body name="1_aftc_1_base2x" pos="0.0101 0.0306 0.01254" quat="0.683013 -0.183013 0.683013 0.183013">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_1_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_1_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_1_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_1_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_1_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+
+
+
+      <body name="1_aftc_2_base2x" pos="0.0126 0.0236 0.01254" quat="0.704416 -0.0616284 0.704416 0.0616284">
+      <!-- <body name="1_aftc_2_base2x" pos="0.0126 0.0236 0.01254" quat="1 0 0 0"> -->
+
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_2_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_2_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_2_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_2_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_2_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+      <body name="1_aftc_3_base2x" pos="0.0138 0.0173 0.01254" quat="0.704416 -0.0616284 0.704416 0.0616284">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_3_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_3_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_3_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_3_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_3_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+      <body name="1_aftc_4_base2x" pos="0.0143 0.0103 0.01254" quat="0.707107 0 0.707107 0">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_4_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_4_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_4_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_4_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_4_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+      <body name="1_aftc_5_base2x" pos="0.0143 0.0038 0.01254" quat="0.707107 0 0.707107 0">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_5_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_5_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_5_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_5_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_5_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+      <body name="1_aftc_6_base2x" pos="0.0098 0.023 0.02" quat="0.902859 -0.0368336 0.42101 0.0789899">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_6_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_6_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_6_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_6_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_6_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+      <body name="1_aftc_7_base2x" pos="0.011 0.0167 0.02" quat="0.902859 -0.0368336 0.42101 0.0789899">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_7_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_7_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_7_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_7_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_7_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+      <body name="1_aftc_8_base2x" pos="0.0115 0.0103 0.02" quat="0.906308 0 0.422618 0">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_8_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_8_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_8_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_8_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_8_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+      <body name="1_aftc_9_base2x" pos="0.0115 0.0038 0.02" quat="0.906308 0 0.422618 0">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_9_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_9_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_9_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_9_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_9_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+      <body name="1_aftc_10_base2x" pos="0.0037 0.0338 0.0173" quat="0.884447 -0.393781 0.228734 0.101839">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_10_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_10_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_10_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_10_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_10_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+      <body name="1_aftc_11_base2x" pos="0.0039 0.0296 0.02155" quat="0.938933 -0.260389 0.21677 0.0601156">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_11_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_11_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_11_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_11_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_11_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+      <body name="1_aftc_12_base2x" pos="0.0039 0.023 0.02444" quat="0.977892 -0.0855544 0.190083 0.0166301">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_12_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_12_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_12_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_12_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_12_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+      <body name="1_aftc_13_base2x" pos="0.0039 0.0169 0.02544" quat="0.979513 -0.0856963 0.181542 0.0158829">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_13_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_13_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_13_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_13_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_13_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+      <body name="1_aftc_14_base2x" pos="0.0039 0.0103 0.02574" quat="0.987688 0 0.156434 0">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_14_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_14_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_14_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_14_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_14_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+      <body name="1_aftc_15_base2x" pos="0.0039 0.0038 0.02574" quat="0.987688 0 0.156434 0">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_15_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_15_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_15_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_15_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_15_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+      <body name="1_aftc_16_base2x" pos="-0.0037 0.0338 0.0173" quat="0.884447 -0.393781 -0.228734 -0.101839">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_16_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_16_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_16_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_16_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_16_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+      <body name="1_aftc_17_base2x" pos="-0.0039 0.0296 0.02155" quat="0.938933 -0.260389 -0.21677 -0.0601156">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_17_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_17_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_17_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_17_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_17_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+      <body name="1_aftc_18_base2x" pos="-0.0039 0.023 0.02444" quat="0.977892 -0.0855544 -0.190083 -0.0166301">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_18_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_18_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_18_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_18_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_18_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+      <body name="1_aftc_19_base2x" pos="-0.0039 0.0169 0.02544" quat="0.979513 -0.0856963 -0.181542 -0.0158829">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_19_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_19_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_19_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_19_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_19_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+      <body name="1_aftc_20_base2x" pos="-0.0039 0.0103 0.02574" quat="0.987688 0 -0.156434 0">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_20_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_20_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_20_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_20_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_20_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+      <body name="1_aftc_21_base2x" pos="-0.0039 0.0038 0.02574" quat="0.987688 0 -0.156434 0">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_21_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_21_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_21_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_21_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_21_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+      <body name="1_aftc_22_base2x" pos="-0.0098 0.023 0.02" quat="0.902859 -0.0368336 -0.42101 -0.0789899">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_22_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_22_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_22_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_22_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_22_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+      <body name="1_aftc_23_base2x" pos="-0.011 0.0167 0.02" quat="0.902859 -0.0368336 -0.42101 -0.0789899">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_23_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_23_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_23_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_23_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_23_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+      <body name="1_aftc_24_base2x" pos="-0.0115 0.0103 0.02" quat="0.906308 0 -0.422618 0">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_24_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_24_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_24_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_24_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_24_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+      <body name="1_aftc_25_base2x" pos="-0.0115 0.0038 0.02" quat="0.906308 0 -0.422618 0">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_25_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_25_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_25_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_25_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_25_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+      <body name="1_aftc_26_base2x" pos="-0.0101 0.0306 0.01254" quat="0.683013 -0.183013 -0.683013 -0.183013">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_26_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_26_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_26_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_26_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_26_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+      <body name="1_aftc_27_base2x" pos="-0.0126 0.0236 0.01254" quat="0.704416 -0.0616284 -0.704416 -0.0616284">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_27_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_27_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_27_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_27_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_27_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+      <body name="1_aftc_28_base2x" pos="-0.0138 0.0173 0.01254" quat="0.704416 -0.0616284 -0.704416 -0.0616284">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_28_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_28_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_28_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_28_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_28_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+      <body name="1_aftc_29_base2x" pos="-0.0143 0.0103 0.01254" quat="0.707107 0 -0.707107 0">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_29_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_29_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_29_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_29_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_29_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+      <body name="1_aftc_30_base2x" pos="-0.0143 0.0038 0.01254" quat="0.707107 0 -0.707107 0">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+        <joint name="j_30_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+        <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+        <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+        <body name="1_aftc_30_x2y">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+          <joint name="j_30_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100" />
+          <geom size="0.0001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+          <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          <body name="1_aftc_30_taxel_base_link">
+            <inertial pos="0 0 0" mass="0.005" diaginertia="1e-06 1e-06 1e-06" />
+            <joint name="j_30_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100" />
+            <geom size="0.001" rgba="0 0 0.8 1" contype="1" conaffinity="0" density="0" group="1" class="visualgeom" />
+            <geom type="sphere" rgba="0 0 0.8 1" size="0.001" />
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <motor name="j_1_x" joint="j_1_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_1_y" joint="j_1_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_1_z" joint="j_1_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_2_x" joint="j_2_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_2_y" joint="j_2_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_2_z" joint="j_2_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_3_x" joint="j_3_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_3_y" joint="j_3_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_3_z" joint="j_3_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_4_x" joint="j_4_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_4_y" joint="j_4_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_4_z" joint="j_4_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_5_x" joint="j_5_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_5_y" joint="j_5_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_5_z" joint="j_5_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_6_x" joint="j_6_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_6_y" joint="j_6_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_6_z" joint="j_6_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_7_x" joint="j_7_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_7_y" joint="j_7_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_7_z" joint="j_7_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_8_x" joint="j_8_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_8_y" joint="j_8_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_8_z" joint="j_8_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_9_x" joint="j_9_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_9_y" joint="j_9_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_9_z" joint="j_9_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_10_x" joint="j_10_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_10_y" joint="j_10_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_10_z" joint="j_10_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_11_x" joint="j_11_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_11_y" joint="j_11_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_11_z" joint="j_11_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_12_x" joint="j_12_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_12_y" joint="j_12_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_12_z" joint="j_12_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_13_x" joint="j_13_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_13_y" joint="j_13_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_13_z" joint="j_13_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_14_x" joint="j_14_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_14_y" joint="j_14_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_14_z" joint="j_14_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_15_x" joint="j_15_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_15_y" joint="j_15_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_15_z" joint="j_15_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_16_x" joint="j_16_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_16_y" joint="j_16_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_16_z" joint="j_16_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_17_x" joint="j_17_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_17_y" joint="j_17_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_17_z" joint="j_17_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_18_x" joint="j_18_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_18_y" joint="j_18_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_18_z" joint="j_18_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_19_x" joint="j_19_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_19_y" joint="j_19_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_19_z" joint="j_19_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_20_x" joint="j_20_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_20_y" joint="j_20_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_20_z" joint="j_20_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_21_x" joint="j_21_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_21_y" joint="j_21_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_21_z" joint="j_21_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_22_x" joint="j_22_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_22_y" joint="j_22_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_22_z" joint="j_22_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_23_x" joint="j_23_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_23_y" joint="j_23_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_23_z" joint="j_23_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_24_x" joint="j_24_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_24_y" joint="j_24_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_24_z" joint="j_24_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_25_x" joint="j_25_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_25_y" joint="j_25_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_25_z" joint="j_25_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_26_x" joint="j_26_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_26_y" joint="j_26_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_26_z" joint="j_26_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_27_x" joint="j_27_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_27_y" joint="j_27_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_27_z" joint="j_27_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_28_x" joint="j_28_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_28_y" joint="j_28_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_28_z" joint="j_28_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_29_x" joint="j_29_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_29_y" joint="j_29_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_29_z" joint="j_29_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_30_x" joint="j_30_x" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_30_y" joint="j_30_y" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+    <motor name="j_30_z" joint="j_30_z" ctrllimited="true" ctrlrange="-100 100" gear="1" />
+  </actuator>
+
+  <sensor>
+    <actuatorpos name="j_1_x_p" actuator="j_1_x" />
+    <actuatorvel name="j_1_x_v" actuator="j_1_x" />
+    <actuatorfrc name="j_1_x_f" actuator="j_1_x" noise="0.001" />
+    <actuatorpos name="j_1_y_p" actuator="j_1_y" />
+    <actuatorvel name="j_1_y_v" actuator="j_1_y" />
+    <actuatorfrc name="j_1_y_f" actuator="j_1_y" noise="0.001" />
+    <actuatorpos name="j_1_z_p" actuator="j_1_z" />
+    <actuatorvel name="j_1_z_v" actuator="j_1_z" />
+    <actuatorfrc name="j_1_z_f" actuator="j_1_z" noise="0.001" />
+    <actuatorpos name="j_2_x_p" actuator="j_2_x" />
+    <actuatorvel name="j_2_x_v" actuator="j_2_x" />
+    <actuatorfrc name="j_2_x_f" actuator="j_2_x" noise="0.001" />
+    <actuatorpos name="j_2_y_p" actuator="j_2_y" />
+    <actuatorvel name="j_2_y_v" actuator="j_2_y" />
+    <actuatorfrc name="j_2_y_f" actuator="j_2_y" noise="0.001" />
+    <actuatorpos name="j_2_z_p" actuator="j_2_z" />
+    <actuatorvel name="j_2_z_v" actuator="j_2_z" />
+    <actuatorfrc name="j_2_z_f" actuator="j_2_z" noise="0.001" />
+    <actuatorpos name="j_3_x_p" actuator="j_3_x" />
+    <actuatorvel name="j_3_x_v" actuator="j_3_x" />
+    <actuatorfrc name="j_3_x_f" actuator="j_3_x" noise="0.001" />
+    <actuatorpos name="j_3_y_p" actuator="j_3_y" />
+    <actuatorvel name="j_3_y_v" actuator="j_3_y" />
+    <actuatorfrc name="j_3_y_f" actuator="j_3_y" noise="0.001" />
+    <actuatorpos name="j_3_z_p" actuator="j_3_z" />
+    <actuatorvel name="j_3_z_v" actuator="j_3_z" />
+    <actuatorfrc name="j_3_z_f" actuator="j_3_z" noise="0.001" />
+    <actuatorpos name="j_4_x_p" actuator="j_4_x" />
+    <actuatorvel name="j_4_x_v" actuator="j_4_x" />
+    <actuatorfrc name="j_4_x_f" actuator="j_4_x" noise="0.001" />
+    <actuatorpos name="j_4_y_p" actuator="j_4_y" />
+    <actuatorvel name="j_4_y_v" actuator="j_4_y" />
+    <actuatorfrc name="j_4_y_f" actuator="j_4_y" noise="0.001" />
+    <actuatorpos name="j_4_z_p" actuator="j_4_z" />
+    <actuatorvel name="j_4_z_v" actuator="j_4_z" />
+    <actuatorfrc name="j_4_z_f" actuator="j_4_z" noise="0.001" />
+    <actuatorpos name="j_5_x_p" actuator="j_5_x" />
+    <actuatorvel name="j_5_x_v" actuator="j_5_x" />
+    <actuatorfrc name="j_5_x_f" actuator="j_5_x" noise="0.001" />
+    <actuatorpos name="j_5_y_p" actuator="j_5_y" />
+    <actuatorvel name="j_5_y_v" actuator="j_5_y" />
+    <actuatorfrc name="j_5_y_f" actuator="j_5_y" noise="0.001" />
+    <actuatorpos name="j_5_z_p" actuator="j_5_z" />
+    <actuatorvel name="j_5_z_v" actuator="j_5_z" />
+    <actuatorfrc name="j_5_z_f" actuator="j_5_z" noise="0.001" />
+    <actuatorpos name="j_6_x_p" actuator="j_6_x" />
+    <actuatorvel name="j_6_x_v" actuator="j_6_x" />
+    <actuatorfrc name="j_6_x_f" actuator="j_6_x" noise="0.001" />
+    <actuatorpos name="j_6_y_p" actuator="j_6_y" />
+    <actuatorvel name="j_6_y_v" actuator="j_6_y" />
+    <actuatorfrc name="j_6_y_f" actuator="j_6_y" noise="0.001" />
+    <actuatorpos name="j_6_z_p" actuator="j_6_z" />
+    <actuatorvel name="j_6_z_v" actuator="j_6_z" />
+    <actuatorfrc name="j_6_z_f" actuator="j_6_z" noise="0.001" />
+    <actuatorpos name="j_7_x_p" actuator="j_7_x" />
+    <actuatorvel name="j_7_x_v" actuator="j_7_x" />
+    <actuatorfrc name="j_7_x_f" actuator="j_7_x" noise="0.001" />
+    <actuatorpos name="j_7_y_p" actuator="j_7_y" />
+    <actuatorvel name="j_7_y_v" actuator="j_7_y" />
+    <actuatorfrc name="j_7_y_f" actuator="j_7_y" noise="0.001" />
+    <actuatorpos name="j_7_z_p" actuator="j_7_z" />
+    <actuatorvel name="j_7_z_v" actuator="j_7_z" />
+    <actuatorfrc name="j_7_z_f" actuator="j_7_z" noise="0.001" />
+    <actuatorpos name="j_8_x_p" actuator="j_8_x" />
+    <actuatorvel name="j_8_x_v" actuator="j_8_x" />
+    <actuatorfrc name="j_8_x_f" actuator="j_8_x" noise="0.001" />
+    <actuatorpos name="j_8_y_p" actuator="j_8_y" />
+    <actuatorvel name="j_8_y_v" actuator="j_8_y" />
+    <actuatorfrc name="j_8_y_f" actuator="j_8_y" noise="0.001" />
+    <actuatorpos name="j_8_z_p" actuator="j_8_z" />
+    <actuatorvel name="j_8_z_v" actuator="j_8_z" />
+    <actuatorfrc name="j_8_z_f" actuator="j_8_z" noise="0.001" />
+    <actuatorpos name="j_9_x_p" actuator="j_9_x" />
+    <actuatorvel name="j_9_x_v" actuator="j_9_x" />
+    <actuatorfrc name="j_9_x_f" actuator="j_9_x" noise="0.001" />
+    <actuatorpos name="j_9_y_p" actuator="j_9_y" />
+    <actuatorvel name="j_9_y_v" actuator="j_9_y" />
+    <actuatorfrc name="j_9_y_f" actuator="j_9_y" noise="0.001" />
+    <actuatorpos name="j_9_z_p" actuator="j_9_z" />
+    <actuatorvel name="j_9_z_v" actuator="j_9_z" />
+    <actuatorfrc name="j_9_z_f" actuator="j_9_z" noise="0.001" />
+    <actuatorpos name="j_10_x_p" actuator="j_10_x" />
+    <actuatorvel name="j_10_x_v" actuator="j_10_x" />
+    <actuatorfrc name="j_10_x_f" actuator="j_10_x" noise="0.001" />
+    <actuatorpos name="j_10_y_p" actuator="j_10_y" />
+    <actuatorvel name="j_10_y_v" actuator="j_10_y" />
+    <actuatorfrc name="j_10_y_f" actuator="j_10_y" noise="0.001" />
+    <actuatorpos name="j_10_z_p" actuator="j_10_z" />
+    <actuatorvel name="j_10_z_v" actuator="j_10_z" />
+    <actuatorfrc name="j_10_z_f" actuator="j_10_z" noise="0.001" />
+    <actuatorpos name="j_11_x_p" actuator="j_11_x" />
+    <actuatorvel name="j_11_x_v" actuator="j_11_x" />
+    <actuatorfrc name="j_11_x_f" actuator="j_11_x" noise="0.001" />
+    <actuatorpos name="j_11_y_p" actuator="j_11_y" />
+    <actuatorvel name="j_11_y_v" actuator="j_11_y" />
+    <actuatorfrc name="j_11_y_f" actuator="j_11_y" noise="0.001" />
+    <actuatorpos name="j_11_z_p" actuator="j_11_z" />
+    <actuatorvel name="j_11_z_v" actuator="j_11_z" />
+    <actuatorfrc name="j_11_z_f" actuator="j_11_z" noise="0.001" />
+    <actuatorpos name="j_12_x_p" actuator="j_12_x" />
+    <actuatorvel name="j_12_x_v" actuator="j_12_x" />
+    <actuatorfrc name="j_12_x_f" actuator="j_12_x" noise="0.001" />
+    <actuatorpos name="j_12_y_p" actuator="j_12_y" />
+    <actuatorvel name="j_12_y_v" actuator="j_12_y" />
+    <actuatorfrc name="j_12_y_f" actuator="j_12_y" noise="0.001" />
+    <actuatorpos name="j_12_z_p" actuator="j_12_z" />
+    <actuatorvel name="j_12_z_v" actuator="j_12_z" />
+    <actuatorfrc name="j_12_z_f" actuator="j_12_z" noise="0.001" />
+    <actuatorpos name="j_13_x_p" actuator="j_13_x" />
+    <actuatorvel name="j_13_x_v" actuator="j_13_x" />
+    <actuatorfrc name="j_13_x_f" actuator="j_13_x" noise="0.001" />
+    <actuatorpos name="j_13_y_p" actuator="j_13_y" />
+    <actuatorvel name="j_13_y_v" actuator="j_13_y" />
+    <actuatorfrc name="j_13_y_f" actuator="j_13_y" noise="0.001" />
+    <actuatorpos name="j_13_z_p" actuator="j_13_z" />
+    <actuatorvel name="j_13_z_v" actuator="j_13_z" />
+    <actuatorfrc name="j_13_z_f" actuator="j_13_z" noise="0.001" />
+    <actuatorpos name="j_14_x_p" actuator="j_14_x" />
+    <actuatorvel name="j_14_x_v" actuator="j_14_x" />
+    <actuatorfrc name="j_14_x_f" actuator="j_14_x" noise="0.001" />
+    <actuatorpos name="j_14_y_p" actuator="j_14_y" />
+    <actuatorvel name="j_14_y_v" actuator="j_14_y" />
+    <actuatorfrc name="j_14_y_f" actuator="j_14_y" noise="0.001" />
+    <actuatorpos name="j_14_z_p" actuator="j_14_z" />
+    <actuatorvel name="j_14_z_v" actuator="j_14_z" />
+    <actuatorfrc name="j_14_z_f" actuator="j_14_z" noise="0.001" />
+    <actuatorpos name="j_15_x_p" actuator="j_15_x" />
+    <actuatorvel name="j_15_x_v" actuator="j_15_x" />
+    <actuatorfrc name="j_15_x_f" actuator="j_15_x" noise="0.001" />
+    <actuatorpos name="j_15_y_p" actuator="j_15_y" />
+    <actuatorvel name="j_15_y_v" actuator="j_15_y" />
+    <actuatorfrc name="j_15_y_f" actuator="j_15_y" noise="0.001" />
+    <actuatorpos name="j_15_z_p" actuator="j_15_z" />
+    <actuatorvel name="j_15_z_v" actuator="j_15_z" />
+    <actuatorfrc name="j_15_z_f" actuator="j_15_z" noise="0.001" />
+    <actuatorpos name="j_16_x_p" actuator="j_16_x" />
+    <actuatorvel name="j_16_x_v" actuator="j_16_x" />
+    <actuatorfrc name="j_16_x_f" actuator="j_16_x" noise="0.001" />
+    <actuatorpos name="j_16_y_p" actuator="j_16_y" />
+    <actuatorvel name="j_16_y_v" actuator="j_16_y" />
+    <actuatorfrc name="j_16_y_f" actuator="j_16_y" noise="0.001" />
+    <actuatorpos name="j_16_z_p" actuator="j_16_z" />
+    <actuatorvel name="j_16_z_v" actuator="j_16_z" />
+    <actuatorfrc name="j_16_z_f" actuator="j_16_z" noise="0.001" />
+    <actuatorpos name="j_17_x_p" actuator="j_17_x" />
+    <actuatorvel name="j_17_x_v" actuator="j_17_x" />
+    <actuatorfrc name="j_17_x_f" actuator="j_17_x" noise="0.001" />
+    <actuatorpos name="j_17_y_p" actuator="j_17_y" />
+    <actuatorvel name="j_17_y_v" actuator="j_17_y" />
+    <actuatorfrc name="j_17_y_f" actuator="j_17_y" noise="0.001" />
+    <actuatorpos name="j_17_z_p" actuator="j_17_z" />
+    <actuatorvel name="j_17_z_v" actuator="j_17_z" />
+    <actuatorfrc name="j_17_z_f" actuator="j_17_z" noise="0.001" />
+    <actuatorpos name="j_18_x_p" actuator="j_18_x" />
+    <actuatorvel name="j_18_x_v" actuator="j_18_x" />
+    <actuatorfrc name="j_18_x_f" actuator="j_18_x" noise="0.001" />
+    <actuatorpos name="j_18_y_p" actuator="j_18_y" />
+    <actuatorvel name="j_18_y_v" actuator="j_18_y" />
+    <actuatorfrc name="j_18_y_f" actuator="j_18_y" noise="0.001" />
+    <actuatorpos name="j_18_z_p" actuator="j_18_z" />
+    <actuatorvel name="j_18_z_v" actuator="j_18_z" />
+    <actuatorfrc name="j_18_z_f" actuator="j_18_z" noise="0.001" />
+    <actuatorpos name="j_19_x_p" actuator="j_19_x" />
+    <actuatorvel name="j_19_x_v" actuator="j_19_x" />
+    <actuatorfrc name="j_19_x_f" actuator="j_19_x" noise="0.001" />
+    <actuatorpos name="j_19_y_p" actuator="j_19_y" />
+    <actuatorvel name="j_19_y_v" actuator="j_19_y" />
+    <actuatorfrc name="j_19_y_f" actuator="j_19_y" noise="0.001" />
+    <actuatorpos name="j_19_z_p" actuator="j_19_z" />
+    <actuatorvel name="j_19_z_v" actuator="j_19_z" />
+    <actuatorfrc name="j_19_z_f" actuator="j_19_z" noise="0.001" />
+    <actuatorpos name="j_20_x_p" actuator="j_20_x" />
+    <actuatorvel name="j_20_x_v" actuator="j_20_x" />
+    <actuatorfrc name="j_20_x_f" actuator="j_20_x" noise="0.001" />
+    <actuatorpos name="j_20_y_p" actuator="j_20_y" />
+    <actuatorvel name="j_20_y_v" actuator="j_20_y" />
+    <actuatorfrc name="j_20_y_f" actuator="j_20_y" noise="0.001" />
+    <actuatorpos name="j_20_z_p" actuator="j_20_z" />
+    <actuatorvel name="j_20_z_v" actuator="j_20_z" />
+    <actuatorfrc name="j_20_z_f" actuator="j_20_z" noise="0.001" />
+    <actuatorpos name="j_21_x_p" actuator="j_21_x" />
+    <actuatorvel name="j_21_x_v" actuator="j_21_x" />
+    <actuatorfrc name="j_21_x_f" actuator="j_21_x" noise="0.001" />
+    <actuatorpos name="j_21_y_p" actuator="j_21_y" />
+    <actuatorvel name="j_21_y_v" actuator="j_21_y" />
+    <actuatorfrc name="j_21_y_f" actuator="j_21_y" noise="0.001" />
+    <actuatorpos name="j_21_z_p" actuator="j_21_z" />
+    <actuatorvel name="j_21_z_v" actuator="j_21_z" />
+    <actuatorfrc name="j_21_z_f" actuator="j_21_z" noise="0.001" />
+    <actuatorpos name="j_22_x_p" actuator="j_22_x" />
+    <actuatorvel name="j_22_x_v" actuator="j_22_x" />
+    <actuatorfrc name="j_22_x_f" actuator="j_22_x" noise="0.001" />
+    <actuatorpos name="j_22_y_p" actuator="j_22_y" />
+    <actuatorvel name="j_22_y_v" actuator="j_22_y" />
+    <actuatorfrc name="j_22_y_f" actuator="j_22_y" noise="0.001" />
+    <actuatorpos name="j_22_z_p" actuator="j_22_z" />
+    <actuatorvel name="j_22_z_v" actuator="j_22_z" />
+    <actuatorfrc name="j_22_z_f" actuator="j_22_z" noise="0.001" />
+    <actuatorpos name="j_23_x_p" actuator="j_23_x" />
+    <actuatorvel name="j_23_x_v" actuator="j_23_x" />
+    <actuatorfrc name="j_23_x_f" actuator="j_23_x" noise="0.001" />
+    <actuatorpos name="j_23_y_p" actuator="j_23_y" />
+    <actuatorvel name="j_23_y_v" actuator="j_23_y" />
+    <actuatorfrc name="j_23_y_f" actuator="j_23_y" noise="0.001" />
+    <actuatorpos name="j_23_z_p" actuator="j_23_z" />
+    <actuatorvel name="j_23_z_v" actuator="j_23_z" />
+    <actuatorfrc name="j_23_z_f" actuator="j_23_z" noise="0.001" />
+    <actuatorpos name="j_24_x_p" actuator="j_24_x" />
+    <actuatorvel name="j_24_x_v" actuator="j_24_x" />
+    <actuatorfrc name="j_24_x_f" actuator="j_24_x" noise="0.001" />
+    <actuatorpos name="j_24_y_p" actuator="j_24_y" />
+    <actuatorvel name="j_24_y_v" actuator="j_24_y" />
+    <actuatorfrc name="j_24_y_f" actuator="j_24_y" noise="0.001" />
+    <actuatorpos name="j_24_z_p" actuator="j_24_z" />
+    <actuatorvel name="j_24_z_v" actuator="j_24_z" />
+    <actuatorfrc name="j_24_z_f" actuator="j_24_z" noise="0.001" />
+    <actuatorpos name="j_25_x_p" actuator="j_25_x" />
+    <actuatorvel name="j_25_x_v" actuator="j_25_x" />
+    <actuatorfrc name="j_25_x_f" actuator="j_25_x" noise="0.001" />
+    <actuatorpos name="j_25_y_p" actuator="j_25_y" />
+    <actuatorvel name="j_25_y_v" actuator="j_25_y" />
+    <actuatorfrc name="j_25_y_f" actuator="j_25_y" noise="0.001" />
+    <actuatorpos name="j_25_z_p" actuator="j_25_z" />
+    <actuatorvel name="j_25_z_v" actuator="j_25_z" />
+    <actuatorfrc name="j_25_z_f" actuator="j_25_z" noise="0.001" />
+    <actuatorpos name="j_26_x_p" actuator="j_26_x" />
+    <actuatorvel name="j_26_x_v" actuator="j_26_x" />
+    <actuatorfrc name="j_26_x_f" actuator="j_26_x" noise="0.001" />
+    <actuatorpos name="j_26_y_p" actuator="j_26_y" />
+    <actuatorvel name="j_26_y_v" actuator="j_26_y" />
+    <actuatorfrc name="j_26_y_f" actuator="j_26_y" noise="0.001" />
+    <actuatorpos name="j_26_z_p" actuator="j_26_z" />
+    <actuatorvel name="j_26_z_v" actuator="j_26_z" />
+    <actuatorfrc name="j_26_z_f" actuator="j_26_z" noise="0.001" />
+    <actuatorpos name="j_27_x_p" actuator="j_27_x" />
+    <actuatorvel name="j_27_x_v" actuator="j_27_x" />
+    <actuatorfrc name="j_27_x_f" actuator="j_27_x" noise="0.001" />
+    <actuatorpos name="j_27_y_p" actuator="j_27_y" />
+    <actuatorvel name="j_27_y_v" actuator="j_27_y" />
+    <actuatorfrc name="j_27_y_f" actuator="j_27_y" noise="0.001" />
+    <actuatorpos name="j_27_z_p" actuator="j_27_z" />
+    <actuatorvel name="j_27_z_v" actuator="j_27_z" />
+    <actuatorfrc name="j_27_z_f" actuator="j_27_z" noise="0.001" />
+    <actuatorpos name="j_28_x_p" actuator="j_28_x" />
+    <actuatorvel name="j_28_x_v" actuator="j_28_x" />
+    <actuatorfrc name="j_28_x_f" actuator="j_28_x" noise="0.001" />
+    <actuatorpos name="j_28_y_p" actuator="j_28_y" />
+    <actuatorvel name="j_28_y_v" actuator="j_28_y" />
+    <actuatorfrc name="j_28_y_f" actuator="j_28_y" noise="0.001" />
+    <actuatorpos name="j_28_z_p" actuator="j_28_z" />
+    <actuatorvel name="j_28_z_v" actuator="j_28_z" />
+    <actuatorfrc name="j_28_z_f" actuator="j_28_z" noise="0.001" />
+    <actuatorpos name="j_29_x_p" actuator="j_29_x" />
+    <actuatorvel name="j_29_x_v" actuator="j_29_x" />
+    <actuatorfrc name="j_29_x_f" actuator="j_29_x" noise="0.001" />
+    <actuatorpos name="j_29_y_p" actuator="j_29_y" />
+    <actuatorvel name="j_29_y_v" actuator="j_29_y" />
+    <actuatorfrc name="j_29_y_f" actuator="j_29_y" noise="0.001" />
+    <actuatorpos name="j_29_z_p" actuator="j_29_z" />
+    <actuatorvel name="j_29_z_v" actuator="j_29_z" />
+    <actuatorfrc name="j_29_z_f" actuator="j_29_z" noise="0.001" />
+    <actuatorpos name="j_30_x_p" actuator="j_30_x" />
+    <actuatorvel name="j_30_x_v" actuator="j_30_x" />
+    <actuatorfrc name="j_30_x_f" actuator="j_30_x" noise="0.001" />
+    <actuatorpos name="j_30_y_p" actuator="j_30_y" />
+    <actuatorvel name="j_30_y_v" actuator="j_30_y" />
+    <actuatorfrc name="j_30_y_f" actuator="j_30_y" noise="0.001" />
+    <actuatorpos name="j_30_z_p" actuator="j_30_z" />
+    <actuatorvel name="j_30_z_v" actuator="j_30_z" />
+    <actuatorfrc name="j_30_z_f" actuator="j_30_z" noise="0.001" />
+    <framequat name="orientation" objtype="site" noise="0.001" objname="imu" />
+    <gyro name="angular-velocity" site="imu" noise="0.005" cutoff="34.9" />
+  </sensor>
+</mujoco>
