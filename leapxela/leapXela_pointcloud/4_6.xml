@@ -1,0 +1,370 @@
+<mujoco model="4x6">
+  <compiler angle="radian" meshdir="assets" eulerseq="zyx" autolimits="true" />
+  <asset>
+    <mesh name="4x6" file="4x6.stl"/>
+  </asset>
+  <worldbody>
+    <geom size="0.001"/>
+    <geom type="mesh" mesh="4x6"/>
+    <body name="1_4x6_1_base2x" pos="0.01024 0.026505 0.005">
+      <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+      <joint name="1_4x6_1_joint_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+      <geom size="0.0001" rgba="0 0 0.8 1"/>
+      <body name="1_4x6_1_x2y">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+        <joint name="1_4x6_1_joint_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+        <geom size="0.0001" rgba="0 0 0.8 1"/>
+        <body name="1_4x6_1_taxel_base_link">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+          <joint name="1_4x6_1_joint_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100"/>
+          <geom size="0.001" rgba="0 0 0.8 1"/>
+        </body>
+      </body>
+    </body>
+    <body name="1_4x6_2_base2x" pos="0.01748 0.026505 0.005">
+      <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+      <joint name="1_4x6_2_joint_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+      <geom size="0.0001" rgba="0 0 0.8 1"/>
+      <body name="1_4x6_2_x2y">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+        <joint name="1_4x6_2_joint_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+        <geom size="0.0001" rgba="0 0 0.8 1"/>
+        <body name="1_4x6_2_taxel_base_link">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+          <joint name="1_4x6_2_joint_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100"/>
+          <geom size="0.001" rgba="0 0 0.8 1"/>
+        </body>
+      </body>
+    </body>
+    <body name="1_4x6_3_base2x" pos="0.02472 0.026505 0.005">
+      <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+      <joint name="1_4x6_3_joint_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+      <geom size="0.0001" rgba="0 0 0.8 1"/>
+      <body name="1_4x6_3_x2y">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+        <joint name="1_4x6_3_joint_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+        <geom size="0.0001" rgba="0 0 0.8 1"/>
+        <body name="1_4x6_3_taxel_base_link">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+          <joint name="1_4x6_3_joint_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100"/>
+          <geom size="0.001" rgba="0 0 0.8 1"/>
+        </body>
+      </body>
+    </body>
+    <body name="1_4x6_4_base2x" pos="0.03196 0.026505 0.005">
+      <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+      <joint name="1_4x6_4_joint_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+      <geom size="0.0001" rgba="0 0 0.8 1"/>
+      <body name="1_4x6_4_x2y">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+        <joint name="1_4x6_4_joint_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+        <geom size="0.0001" rgba="0 0 0.8 1"/>
+        <body name="1_4x6_4_taxel_base_link">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+          <joint name="1_4x6_4_joint_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100"/>
+          <geom size="0.001" rgba="0 0 0.8 1"/>
+        </body>
+      </body>
+    </body>
+    <body name="1_4x6_5_base2x" pos="0.0392 0.026505 0.005">
+      <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+      <joint name="1_4x6_5_joint_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+      <geom size="0.0001" rgba="0 0 0.8 1"/>
+      <body name="1_4x6_5_x2y">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+        <joint name="1_4x6_5_joint_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+        <geom size="0.0001" rgba="0 0 0.8 1"/>
+        <body name="1_4x6_5_taxel_base_link">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+          <joint name="1_4x6_5_joint_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100"/>
+          <geom size="0.001" rgba="0 0 0.8 1"/>
+        </body>
+      </body>
+    </body>
+    <body name="1_4x6_6_base2x" pos="0.04644 0.026505 0.005">
+      <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+      <joint name="1_4x6_6_joint_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+      <geom size="0.0001" rgba="0 0 0.8 1"/>
+      <body name="1_4x6_6_x2y">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+        <joint name="1_4x6_6_joint_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+        <geom size="0.0001" rgba="0 0 0.8 1"/>
+        <body name="1_4x6_6_taxel_base_link">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+          <joint name="1_4x6_6_joint_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100"/>
+          <geom size="0.001" rgba="0 0 0.8 1"/>
+        </body>
+      </body>
+    </body>
+    <body name="1_4x6_7_base2x" pos="0.01024 0.019335 0.005">
+      <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+      <joint name="1_4x6_7_joint_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+      <geom size="0.0001" rgba="0 0 0.8 1"/>
+      <body name="1_4x6_7_x2y">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+        <joint name="1_4x6_7_joint_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+        <geom size="0.0001" rgba="0 0 0.8 1"/>
+        <body name="1_4x6_7_taxel_base_link">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+          <joint name="1_4x6_7_joint_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100"/>
+          <geom size="0.001" rgba="0 0 0.8 1"/>
+        </body>
+      </body>
+    </body>
+    <body name="1_4x6_8_base2x" pos="0.01748 0.019335 0.005">
+      <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+      <joint name="1_4x6_8_joint_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+      <geom size="0.0001" rgba="0 0 0.8 1"/>
+      <body name="1_4x6_8_x2y">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+        <joint name="1_4x6_8_joint_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+        <geom size="0.0001" rgba="0 0 0.8 1"/>
+        <body name="1_4x6_8_taxel_base_link">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+          <joint name="1_4x6_8_joint_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100"/>
+          <geom size="0.001" rgba="0 0 0.8 1"/>
+        </body>
+      </body>
+    </body>
+    <body name="1_4x6_9_base2x" pos="0.02472 0.019335 0.005">
+      <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+      <joint name="1_4x6_9_joint_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+      <geom size="0.0001" rgba="0 0 0.8 1"/>
+      <body name="1_4x6_9_x2y">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+        <joint name="1_4x6_9_joint_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+        <geom size="0.0001" rgba="0 0 0.8 1"/>
+        <body name="1_4x6_9_taxel_base_link">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+          <joint name="1_4x6_9_joint_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100"/>
+          <geom size="0.001" rgba="0 0 0.8 1"/>
+        </body>
+      </body>
+    </body>
+    <body name="1_4x6_10_base2x" pos="0.03196 0.019335 0.005">
+      <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+      <joint name="1_4x6_10_joint_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+      <geom size="0.0001" rgba="0 0 0.8 1"/>
+      <body name="1_4x6_10_x2y">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+        <joint name="1_4x6_10_joint_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+        <geom size="0.0001" rgba="0 0 0.8 1"/>
+        <body name="1_4x6_10_taxel_base_link">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+          <joint name="1_4x6_10_joint_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100"/>
+          <geom size="0.001" rgba="0 0 0.8 1"/>
+        </body>
+      </body>
+    </body>
+    <body name="1_4x6_11_base2x" pos="0.0392 0.019335 0.005">
+      <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+      <joint name="1_4x6_11_joint_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+      <geom size="0.0001" rgba="0 0 0.8 1"/>
+      <body name="1_4x6_11_x2y">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+        <joint name="1_4x6_11_joint_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+        <geom size="0.0001" rgba="0 0 0.8 1"/>
+        <body name="1_4x6_11_taxel_base_link">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+          <joint name="1_4x6_11_joint_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100"/>
+          <geom size="0.001" rgba="0 0 0.8 1"/>
+        </body>
+      </body>
+    </body>
+    <body name="1_4x6_12_base2x" pos="0.04644 0.019335 0.005">
+      <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+      <joint name="1_4x6_12_joint_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+      <geom size="0.0001" rgba="0 0 0.8 1"/>
+      <body name="1_4x6_12_x2y">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+        <joint name="1_4x6_12_joint_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+        <geom size="0.0001" rgba="0 0 0.8 1"/>
+        <body name="1_4x6_12_taxel_base_link">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+          <joint name="1_4x6_12_joint_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100"/>
+          <geom size="0.001" rgba="0 0 0.8 1"/>
+        </body>
+      </body>
+    </body>
+    <body name="1_4x6_13_base2x" pos="0.01024 0.012165 0.005">
+      <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+      <joint name="1_4x6_13_joint_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+      <geom size="0.0001" rgba="0 0 0.8 1"/>
+      <body name="1_4x6_13_x2y">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+        <joint name="1_4x6_13_joint_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+        <geom size="0.0001" rgba="0 0 0.8 1"/>
+        <body name="1_4x6_13_taxel_base_link">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+          <joint name="1_4x6_13_joint_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100"/>
+          <geom size="0.001" rgba="0 0 0.8 1"/>
+        </body>
+      </body>
+    </body>
+    <body name="1_4x6_14_base2x" pos="0.01748 0.012165 0.005">
+      <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+      <joint name="1_4x6_14_joint_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+      <geom size="0.0001" rgba="0 0 0.8 1"/>
+      <body name="1_4x6_14_x2y">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+        <joint name="1_4x6_14_joint_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+        <geom size="0.0001" rgba="0 0 0.8 1"/>
+        <body name="1_4x6_14_taxel_base_link">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+          <joint name="1_4x6_14_joint_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100"/>
+          <geom size="0.001" rgba="0 0 0.8 1"/>
+        </body>
+      </body>
+    </body>
+    <body name="1_4x6_15_base2x" pos="0.02472 0.012165 0.005">
+      <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+      <joint name="1_4x6_15_joint_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+      <geom size="0.0001" rgba="0 0 0.8 1"/>
+      <body name="1_4x6_15_x2y">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+        <joint name="1_4x6_15_joint_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+        <geom size="0.0001" rgba="0 0 0.8 1"/>
+        <body name="1_4x6_15_taxel_base_link">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+          <joint name="1_4x6_15_joint_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100"/>
+          <geom size="0.001" rgba="0 0 0.8 1"/>
+        </body>
+      </body>
+    </body>
+    <body name="1_4x6_16_base2x" pos="0.03196 0.012165 0.005">
+      <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+      <joint name="1_4x6_16_joint_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+      <geom size="0.0001" rgba="0 0 0.8 1"/>
+      <body name="1_4x6_16_x2y">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+        <joint name="1_4x6_16_joint_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+        <geom size="0.0001" rgba="0 0 0.8 1"/>
+        <body name="1_4x6_16_taxel_base_link">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+          <joint name="1_4x6_16_joint_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100"/>
+          <geom size="0.001" rgba="0 0 0.8 1"/>
+        </body>
+      </body>
+    </body>
+    <body name="1_4x6_17_base2x" pos="0.0392 0.012165 0.005">
+      <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+      <joint name="1_4x6_17_joint_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+      <geom size="0.0001" rgba="0 0 0.8 1"/>
+      <body name="1_4x6_17_x2y">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+        <joint name="1_4x6_17_joint_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+        <geom size="0.0001" rgba="0 0 0.8 1"/>
+        <body name="1_4x6_17_taxel_base_link">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+          <joint name="1_4x6_17_joint_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100"/>
+          <geom size="0.001" rgba="0 0 0.8 1"/>
+        </body>
+      </body>
+    </body>
+    <body name="1_4x6_18_base2x" pos="0.04644 0.012165 0.005">
+      <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+      <joint name="1_4x6_18_joint_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+      <geom size="0.0001" rgba="0 0 0.8 1"/>
+      <body name="1_4x6_18_x2y">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+        <joint name="1_4x6_18_joint_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+        <geom size="0.0001" rgba="0 0 0.8 1"/>
+        <body name="1_4x6_18_taxel_base_link">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+          <joint name="1_4x6_18_joint_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100"/>
+          <geom size="0.001" rgba="0 0 0.8 1"/>
+        </body>
+      </body>
+    </body>
+    <body name="1_4x6_19_base2x" pos="0.01024 0.004995 0.005">
+      <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+      <joint name="1_4x6_19_joint_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+      <geom size="0.0001" rgba="0 0 0.8 1"/>
+      <body name="1_4x6_19_x2y">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+        <joint name="1_4x6_19_joint_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+        <geom size="0.0001" rgba="0 0 0.8 1"/>
+        <body name="1_4x6_19_taxel_base_link">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+          <joint name="1_4x6_19_joint_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100"/>
+          <geom size="0.001" rgba="0 0 0.8 1"/>
+        </body>
+      </body>
+    </body>
+    <body name="1_4x6_20_base2x" pos="0.01748 0.004995 0.005">
+      <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+      <joint name="1_4x6_20_joint_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+      <geom size="0.0001" rgba="0 0 0.8 1"/>
+      <body name="1_4x6_20_x2y">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+        <joint name="1_4x6_20_joint_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+        <geom size="0.0001" rgba="0 0 0.8 1"/>
+        <body name="1_4x6_20_taxel_base_link">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+          <joint name="1_4x6_20_joint_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100"/>
+          <geom size="0.001" rgba="0 0 0.8 1"/>
+        </body>
+      </body>
+    </body>
+    <body name="1_4x6_21_base2x" pos="0.02472 0.004995 0.005">
+      <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+      <joint name="1_4x6_21_joint_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+      <geom size="0.0001" rgba="0 0 0.8 1"/>
+      <body name="1_4x6_21_x2y">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+        <joint name="1_4x6_21_joint_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+        <geom size="0.0001" rgba="0 0 0.8 1"/>
+        <body name="1_4x6_21_taxel_base_link">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+          <joint name="1_4x6_21_joint_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100"/>
+          <geom size="0.001" rgba="0 0 0.8 1"/>
+        </body>
+      </body>
+    </body>
+    <body name="1_4x6_22_base2x" pos="0.03196 0.004995 0.005">
+      <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+      <joint name="1_4x6_22_joint_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+      <geom size="0.0001" rgba="0 0 0.8 1"/>
+      <body name="1_4x6_22_x2y">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+        <joint name="1_4x6_22_joint_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+        <geom size="0.0001" rgba="0 0 0.8 1"/>
+        <body name="1_4x6_22_taxel_base_link">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+          <joint name="1_4x6_22_joint_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100"/>
+          <geom size="0.001" rgba="0 0 0.8 1"/>
+        </body>
+      </body>
+    </body>
+    <body name="1_4x6_23_base2x" pos="0.0392 0.004995 0.005">
+      <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+      <joint name="1_4x6_23_joint_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+      <geom size="0.0001" rgba="0 0 0.8 1"/>
+      <body name="1_4x6_23_x2y">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+        <joint name="1_4x6_23_joint_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+        <geom size="0.0001" rgba="0 0 0.8 1"/>
+        <body name="1_4x6_23_taxel_base_link">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+          <joint name="1_4x6_23_joint_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100"/>
+          <geom size="0.001" rgba="0 0 0.8 1"/>
+        </body>
+      </body>
+    </body>
+    <body name="1_4x6_24_base2x" pos="0.04644 0.004995 0.005">
+      <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+      <joint name="1_4x6_24_joint_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+      <geom size="0.0001" rgba="0 0 0.8 1"/>
+      <body name="1_4x6_24_x2y">
+        <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+        <joint name="1_4x6_24_joint_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.0015 0.0015" actuatorfrcrange="-100 100"/>
+        <geom size="0.0001" rgba="0 0 0.8 1"/>
+        <body name="1_4x6_24_taxel_base_link">
+          <inertial pos="0 0 0" mass="0.005" diaginertia="2e-07 2e-07 2e-07"/>
+          <joint name="1_4x6_24_joint_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.001 0" actuatorfrcrange="-100 100"/>
+          <geom size="0.001" rgba="0 0 0.8 1"/>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+</mujoco>
