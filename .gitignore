@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.DS_Store
+MUJOCO_LOG.TXT
+*.zip
+.venv/
+venv/
