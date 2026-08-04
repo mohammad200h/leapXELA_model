@@ -63,6 +63,17 @@ FLEX_ANCHOR_SOLREF = (0.01, 1.0)
 FLEX_ANCHOR_SOLIMP = (0.95, 0.99, 0.001, 0.5, 2.0)
 FLEX_VERTEX_DAMPING = 0.05
 FLEX_CONTACT_SOLREF = (0.01, 1.0)
+TAXEL_SITE_SIZE = 0.0012
+# The vertex bodies carry the taxel frame, which puts the slide DOFs on the
+# membrane's principal stiffness directions. Newton's cost-improvement test
+# then declares victory after a single iteration and leaves the pads badly
+# under-converged: an untouched palm patch picks up a 1.5 mm oscillation during
+# a curl. tolerance=0 disables that early exit (tightening it does not help --
+# 1e-12 still exits after one iteration). 20 iterations is not enough (13 mm of
+# lag); 30 passes, 50 is the same speed to within measurement noise, so take
+# the margin. Costs ~12% throughput: 852 -> 749 steps/s.
+SOLVER_ITERATIONS = 50
+SOLVER_TOLERANCE = 0.0
 CURL_FRACTION = 0.8
 CURL_RAMP_DURATION = 0.4
 CURL_HOLD_DURATION = 0.3
@@ -72,12 +83,14 @@ CURL_PEAK_HOME_ERROR = 0.006
 CURL_RESIDUAL_HOME_ERROR = 0.0005
 TIP_FINGERS = ("if", "mf", "rf", "th")
 TIP_TAXEL_COUNT = 30
-FINGERTIP_POSE_JSON = (
-    _MODEL_DIR.parent
-    / "LeapXELA_Hardware_ws-main"
-    / "leapXela_pointcloud"
-    / "fingertip_magnet_pose.json"
-)
+FINGERTIP_POSE_RELPATH = Path("leapXela_pointcloud") / "fingertip_magnet_pose.json"
+
+
+def fingertip_pose_json(hand_workspace: Path) -> Path:
+    return hand_workspace / FINGERTIP_POSE_RELPATH
+
+
+FINGERTIP_POSE_JSON = fingertip_pose_json(HAND_WORKSPACE)
 # Physical tip layout: the JSON keys "1".."30" run column-major (six columns
 # down the finger, sizes 5/4/6/6/4/5), while the 6x6 hardware canvas of
 # leapxela/taxel_tip_pos.md is row-major. This table is the bridge between the
@@ -145,6 +158,14 @@ class SensorDefinition:
     count: tuple[int, int, int]
     normal_axis: int
     normal_sign: float
+    # Roll the calibrated patch frame 180 deg about its normal. The Palm
+    # "up_right" module is calibrated with base quat [0.7071 -0.7071 0 0] where
+    # the other two palm 4x6 modules have [0 0 -0.7071 -0.7071] (the hardware
+    # workspace's leapXela_pointcloud/4_6_sites.json), so its in-plane axes
+    # point the opposite way. Undoing it makes every palm patch present the
+    # same axes, at the cost of negating shear_x/shear_y for those taxels
+    # relative to the real XELA stream.
+    flip_in_plane: bool = False
 
 
 @dataclass(frozen=True)
@@ -174,7 +195,7 @@ class TipSkin:
 
 SENSOR_DEFINITIONS = (
     SensorDefinition("uspa46_1", (6, 4, 1), 1, -1.0),
-    SensorDefinition("uspa46_2", (6, 4, 1), 1, -1.0),
+    SensorDefinition("uspa46_2", (6, 4, 1), 1, -1.0, flip_in_plane=True),
     SensorDefinition("uspa46_3", (6, 4, 1), 1, -1.0),
     SensorDefinition("rf_bs_uspa44", (4, 4, 1), 1, -1.0),
     SensorDefinition("rf_px_uspa44", (4, 4, 1), 2, 1.0),
@@ -248,6 +269,23 @@ def _basis_quaternion(
     return quaternion.tolist()
 
 
+def add_taxel_site(body: mj.MjsBody, taxel_id: int) -> None:
+    """Name a flex vertex body with its hardware taxel id.
+
+    The site carries no rotation of its own: it inherits the vertex body frame,
+    which is the taxel frame (+z out of the skin). It exists to give a consumer
+    holding only the XML a named handle on the taxel — `data.site_xpos` and
+    `data.site_xmat` instead of hunting through `flex_vertbodyid`. The name
+    matches `leapxela.taxel_layout.TaxelEntry.site_name`.
+    """
+    body.add_site(
+        name=f"taxel_{taxel_id:03d}",
+        size=[TAXEL_SITE_SIZE, 0.0, 0.0],
+        group=4,
+        rgba=[1.0, 0.0, 0.0, 1.0],
+    )
+
+
 def pad_grid_from_entries(
     entries: list, definition: SensorDefinition
 ) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
@@ -258,6 +296,13 @@ def pad_grid_from_entries(
     """
     positions = np.array([entry.pos for entry in entries], dtype=np.float64)
     rotation = _quat_to_matrix(np.asarray(entries[0].quat, dtype=np.float64))
+    if definition.flip_in_plane:
+        # 180 deg about the normal: negate the two in-plane columns, which
+        # keeps det = +1. It has to happen here rather than downstream, before
+        # the grid indices below are derived from these axes -- the vertex
+        # bodies are laid out by the same rotation, so a later flip would
+        # desync `taxel_ids` from the vertices it labels.
+        rotation = rotation @ np.diag([-1.0, -1.0, 1.0])
     centre = positions.mean(axis=0)
     offsets = positions - centre
     height_spread = float(np.ptp(offsets @ rotation[:, 2]))
@@ -323,6 +368,7 @@ def add_flex_sensor(
 
     spacing = [float(pitch[0]), float(pitch[1]), 2.1 * FLEX_RADIUS]
     flex_name = f"flex_{definition.geom_name}"
+    patch_quat = _basis_quaternion(tangent_u, tangent_v, normal)
     flex = parent.make_flex(
         name=flex_name,
         type="grid",
@@ -331,7 +377,7 @@ def add_flex_sensor(
         spacing=spacing,
         radius=FLEX_RADIUS,
         pos=flex_position.tolist(),
-        quat=_basis_quaternion(tangent_u, tangent_v, normal),
+        quat=patch_quat,
         mass=0.0005 * count[0] * count[1],
         equality=1,
         elastic2d=2,
@@ -356,8 +402,18 @@ def add_flex_sensor(
 
     # Every vertex stays free in x,y,z; a connect equality anchors it to its
     # home position on the link (solver-stable, unlike explicit joint springs).
-    for body_name in flex.vertbody:
-        for joint in spec.body(body_name).joints:
+    # MuJoCo leaves vertex bodies aligned with the parent link, so the taxel
+    # frame has to be put on them explicitly. This re-bases the slide DOFs onto
+    # (shear_u, shear_v, normal) — equivalent dynamics (isotropic mass and
+    # damping, anchor at the body origin), but it needs the raised solver
+    # budget in `main()`: at the default one the pads are left under-converged
+    # and a palm patch picks up a 1.5 mm oscillation during a curl.
+    # `flex.vertbody` follows the grid vertex order that `taxel_ids` is built in.
+    for index, body_name in enumerate(flex.vertbody):
+        body = spec.body(body_name)
+        body.quat = patch_quat
+        add_taxel_site(body, int(taxel_ids[index]))
+        for joint in body.joints:
             joint.damping = [FLEX_VERTEX_DAMPING, 0.0, 0.0]
         anchor = spec.add_equality()
         anchor.type = mj.mjtEq.mjEQ_CONNECT
@@ -609,10 +665,24 @@ def add_tip_flex(
         )
         positions[k - 1] = position
         name = f"flex_{finger}_tip_{k}"
-        body = parent.add_body(name=name, pos=position.tolist())
+        # Each vertex of a curved tip has its own normal, so the taxel frame is
+        # per vertex here: the shared `{finger}_ds` link frame cannot be the
+        # surface frame for more than one of the 30 taxels.
+        body = parent.add_body(
+            name=name,
+            pos=position.tolist(),
+            quat=np.asarray(entry.quat, dtype=np.float64).tolist(),
+        )
         body.explicitinertial = True
         body.mass = 0.0005
         body.inertia = [1.0e-9, 1.0e-9, 1.0e-9]
+        # A vertex is a point mass, so its centre of mass is the body origin.
+        # Left unset this defaults to the body position, putting the centre of
+        # mass ~64 mm away; inert while the frame matched the link, but with
+        # the taxel rotation above that offset swings with the frame and
+        # perturbs the finger's composite inertia.
+        body.ipos = [0.0, 0.0, 0.0]
+        add_taxel_site(body, int(entry.taxel_id))
         for axis_index, axis in enumerate(([1, 0, 0], [0, 1, 0], [0, 0, 1])):
             joint = body.add_joint(
                 name=f"{name}_j{axis_index}",
@@ -1555,6 +1625,8 @@ def main() -> None:
     print(f"Loaded canonical taxel layout from {args.hand_workspace}")
 
     spec = load_base_model(args.mode)
+    spec.option.iterations = SOLVER_ITERATIONS
+    spec.option.tolerance = SOLVER_TOLERANCE
     trim_pad_boxes(spec)
     skins = [
         add_flex_sensor(
@@ -1564,7 +1636,9 @@ def main() -> None:
         )
         for definition in SENSOR_DEFINITIONS
     ]
-    magnet_pose = json.loads(FINGERTIP_POSE_JSON.read_text())
+    magnet_pose = json.loads(
+        fingertip_pose_json(args.hand_workspace).read_text()
+    )
     surface_offsets = tip_surface_offsets(magnet_pose)
     tips = [
         add_tip_flex(
