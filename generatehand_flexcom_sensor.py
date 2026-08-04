@@ -158,6 +158,14 @@ class SensorDefinition:
     count: tuple[int, int, int]
     normal_axis: int
     normal_sign: float
+    # Roll the calibrated patch frame 180 deg about its normal. The Palm
+    # "up_right" module is calibrated with base quat [0.7071 -0.7071 0 0] where
+    # the other two palm 4x6 modules have [0 0 -0.7071 -0.7071] (the hardware
+    # workspace's leapXela_pointcloud/4_6_sites.json), so its in-plane axes
+    # point the opposite way. Undoing it makes every palm patch present the
+    # same axes, at the cost of negating shear_x/shear_y for those taxels
+    # relative to the real XELA stream.
+    flip_in_plane: bool = False
 
 
 @dataclass(frozen=True)
@@ -187,7 +195,7 @@ class TipSkin:
 
 SENSOR_DEFINITIONS = (
     SensorDefinition("uspa46_1", (6, 4, 1), 1, -1.0),
-    SensorDefinition("uspa46_2", (6, 4, 1), 1, -1.0),
+    SensorDefinition("uspa46_2", (6, 4, 1), 1, -1.0, flip_in_plane=True),
     SensorDefinition("uspa46_3", (6, 4, 1), 1, -1.0),
     SensorDefinition("rf_bs_uspa44", (4, 4, 1), 1, -1.0),
     SensorDefinition("rf_px_uspa44", (4, 4, 1), 2, 1.0),
@@ -288,6 +296,13 @@ def pad_grid_from_entries(
     """
     positions = np.array([entry.pos for entry in entries], dtype=np.float64)
     rotation = _quat_to_matrix(np.asarray(entries[0].quat, dtype=np.float64))
+    if definition.flip_in_plane:
+        # 180 deg about the normal: negate the two in-plane columns, which
+        # keeps det = +1. It has to happen here rather than downstream, before
+        # the grid indices below are derived from these axes -- the vertex
+        # bodies are laid out by the same rotation, so a later flip would
+        # desync `taxel_ids` from the vertices it labels.
+        rotation = rotation @ np.diag([-1.0, -1.0, 1.0])
     centre = positions.mean(axis=0)
     offsets = positions - centre
     height_spread = float(np.ptp(offsets @ rotation[:, 2]))

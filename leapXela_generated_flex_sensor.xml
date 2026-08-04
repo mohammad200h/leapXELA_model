@@ -2316,173 +2316,173 @@
         <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
         <site name="taxel_238" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
       </body>
-      <body name="flex_uspa46_2_0" pos="0.0613 -0.0323 0.10707" quat="0 0 -0.707107 0.707107">
+      <body name="flex_uspa46_2_0" pos="0.02505 -0.0323 0.08532" quat="0.707107 0.707107 0 0">
         <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
         <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
         <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
         <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
-        <site name="taxel_184" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
+        <site name="taxel_119" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
       </body>
-      <body name="flex_uspa46_2_1" pos="0.0613 -0.0323 0.09982" quat="0 0 -0.707107 0.707107">
-        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
-        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
-        <site name="taxel_183" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
-      </body>
-      <body name="flex_uspa46_2_2" pos="0.0613 -0.0323 0.09257" quat="0 0 -0.707107 0.707107">
-        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
-        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
-        <site name="taxel_182" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
-      </body>
-      <body name="flex_uspa46_2_3" pos="0.0613 -0.0323 0.08532" quat="0 0 -0.707107 0.707107">
-        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
-        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
-        <site name="taxel_181" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
-      </body>
-      <body name="flex_uspa46_2_4" pos="0.05405 -0.0323 0.10707" quat="0 0 -0.707107 0.707107">
-        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
-        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
-        <site name="taxel_163" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
-      </body>
-      <body name="flex_uspa46_2_5" pos="0.05405 -0.0323 0.09982" quat="0 0 -0.707107 0.707107">
-        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
-        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
-        <site name="taxel_162" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
-      </body>
-      <body name="flex_uspa46_2_6" pos="0.05405 -0.0323 0.09257" quat="0 0 -0.707107 0.707107">
-        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
-        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
-        <site name="taxel_161" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
-      </body>
-      <body name="flex_uspa46_2_7" pos="0.05405 -0.0323 0.08532" quat="0 0 -0.707107 0.707107">
-        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
-        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
-        <site name="taxel_160" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
-      </body>
-      <body name="flex_uspa46_2_8" pos="0.0468 -0.0323 0.10707" quat="0 0 -0.707107 0.707107">
-        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
-        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
-        <site name="taxel_155" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
-      </body>
-      <body name="flex_uspa46_2_9" pos="0.0468 -0.0323 0.09982" quat="0 0 -0.707107 0.707107">
-        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
-        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
-        <site name="taxel_154" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
-      </body>
-      <body name="flex_uspa46_2_10" pos="0.0468 -0.0323 0.09257" quat="0 0 -0.707107 0.707107">
-        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
-        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
-        <site name="taxel_153" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
-      </body>
-      <body name="flex_uspa46_2_11" pos="0.0468 -0.0323 0.08532" quat="0 0 -0.707107 0.707107">
-        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
-        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
-        <site name="taxel_152" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
-      </body>
-      <body name="flex_uspa46_2_12" pos="0.03955 -0.0323 0.10707" quat="0 0 -0.707107 0.707107">
-        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
-        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
-        <site name="taxel_151" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
-      </body>
-      <body name="flex_uspa46_2_13" pos="0.03955 -0.0323 0.09982" quat="0 0 -0.707107 0.707107">
-        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
-        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
-        <site name="taxel_150" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
-      </body>
-      <body name="flex_uspa46_2_14" pos="0.03955 -0.0323 0.09257" quat="0 0 -0.707107 0.707107">
-        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
-        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
-        <site name="taxel_149" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
-      </body>
-      <body name="flex_uspa46_2_15" pos="0.03955 -0.0323 0.08532" quat="0 0 -0.707107 0.707107">
-        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
-        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
-        <site name="taxel_148" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
-      </body>
-      <body name="flex_uspa46_2_16" pos="0.0323 -0.0323 0.10707" quat="0 0 -0.707107 0.707107">
-        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
-        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
-        <site name="taxel_143" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
-      </body>
-      <body name="flex_uspa46_2_17" pos="0.0323 -0.0323 0.09982" quat="0 0 -0.707107 0.707107">
-        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
-        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
-        <site name="taxel_142" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
-      </body>
-      <body name="flex_uspa46_2_18" pos="0.0323 -0.0323 0.09257" quat="0 0 -0.707107 0.707107">
-        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
-        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
-        <site name="taxel_141" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
-      </body>
-      <body name="flex_uspa46_2_19" pos="0.0323 -0.0323 0.08532" quat="0 0 -0.707107 0.707107">
-        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
-        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
-        <site name="taxel_140" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
-      </body>
-      <body name="flex_uspa46_2_20" pos="0.02505 -0.0323 0.10707" quat="0 0 -0.707107 0.707107">
-        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
-        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
-        <site name="taxel_122" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
-      </body>
-      <body name="flex_uspa46_2_21" pos="0.02505 -0.0323 0.09982" quat="0 0 -0.707107 0.707107">
-        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
-        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
-        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
-        <site name="taxel_121" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
-      </body>
-      <body name="flex_uspa46_2_22" pos="0.02505 -0.0323 0.09257" quat="0 0 -0.707107 0.707107">
+      <body name="flex_uspa46_2_1" pos="0.02505 -0.0323 0.09257" quat="0.707107 0.707107 0 0">
         <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
         <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
         <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
         <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
         <site name="taxel_120" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
       </body>
-      <body name="flex_uspa46_2_23" pos="0.02505 -0.0323 0.08532" quat="0 0 -0.707107 0.707107">
+      <body name="flex_uspa46_2_2" pos="0.02505 -0.0323 0.09982" quat="0.707107 0.707107 0 0">
         <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
         <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
         <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
         <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
-        <site name="taxel_119" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
+        <site name="taxel_121" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
+      </body>
+      <body name="flex_uspa46_2_3" pos="0.02505 -0.0323 0.10707" quat="0.707107 0.707107 0 0">
+        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
+        <site name="taxel_122" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
+      </body>
+      <body name="flex_uspa46_2_4" pos="0.0323 -0.0323 0.08532" quat="0.707107 0.707107 0 0">
+        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
+        <site name="taxel_140" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
+      </body>
+      <body name="flex_uspa46_2_5" pos="0.0323 -0.0323 0.09257" quat="0.707107 0.707107 0 0">
+        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
+        <site name="taxel_141" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
+      </body>
+      <body name="flex_uspa46_2_6" pos="0.0323 -0.0323 0.09982" quat="0.707107 0.707107 0 0">
+        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
+        <site name="taxel_142" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
+      </body>
+      <body name="flex_uspa46_2_7" pos="0.0323 -0.0323 0.10707" quat="0.707107 0.707107 0 0">
+        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
+        <site name="taxel_143" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
+      </body>
+      <body name="flex_uspa46_2_8" pos="0.03955 -0.0323 0.08532" quat="0.707107 0.707107 0 0">
+        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
+        <site name="taxel_148" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
+      </body>
+      <body name="flex_uspa46_2_9" pos="0.03955 -0.0323 0.09257" quat="0.707107 0.707107 0 0">
+        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
+        <site name="taxel_149" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
+      </body>
+      <body name="flex_uspa46_2_10" pos="0.03955 -0.0323 0.09982" quat="0.707107 0.707107 0 0">
+        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
+        <site name="taxel_150" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
+      </body>
+      <body name="flex_uspa46_2_11" pos="0.03955 -0.0323 0.10707" quat="0.707107 0.707107 0 0">
+        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
+        <site name="taxel_151" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
+      </body>
+      <body name="flex_uspa46_2_12" pos="0.0468 -0.0323 0.08532" quat="0.707107 0.707107 0 0">
+        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
+        <site name="taxel_152" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
+      </body>
+      <body name="flex_uspa46_2_13" pos="0.0468 -0.0323 0.09257" quat="0.707107 0.707107 0 0">
+        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
+        <site name="taxel_153" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
+      </body>
+      <body name="flex_uspa46_2_14" pos="0.0468 -0.0323 0.09982" quat="0.707107 0.707107 0 0">
+        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
+        <site name="taxel_154" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
+      </body>
+      <body name="flex_uspa46_2_15" pos="0.0468 -0.0323 0.10707" quat="0.707107 0.707107 0 0">
+        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
+        <site name="taxel_155" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
+      </body>
+      <body name="flex_uspa46_2_16" pos="0.05405 -0.0323 0.08532" quat="0.707107 0.707107 0 0">
+        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
+        <site name="taxel_160" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
+      </body>
+      <body name="flex_uspa46_2_17" pos="0.05405 -0.0323 0.09257" quat="0.707107 0.707107 0 0">
+        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
+        <site name="taxel_161" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
+      </body>
+      <body name="flex_uspa46_2_18" pos="0.05405 -0.0323 0.09982" quat="0.707107 0.707107 0 0">
+        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
+        <site name="taxel_162" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
+      </body>
+      <body name="flex_uspa46_2_19" pos="0.05405 -0.0323 0.10707" quat="0.707107 0.707107 0 0">
+        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
+        <site name="taxel_163" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
+      </body>
+      <body name="flex_uspa46_2_20" pos="0.0613 -0.0323 0.08532" quat="0.707107 0.707107 0 0">
+        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
+        <site name="taxel_181" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
+      </body>
+      <body name="flex_uspa46_2_21" pos="0.0613 -0.0323 0.09257" quat="0.707107 0.707107 0 0">
+        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
+        <site name="taxel_182" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
+      </body>
+      <body name="flex_uspa46_2_22" pos="0.0613 -0.0323 0.09982" quat="0.707107 0.707107 0 0">
+        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
+        <site name="taxel_183" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
+      </body>
+      <body name="flex_uspa46_2_23" pos="0.0613 -0.0323 0.10707" quat="0.707107 0.707107 0 0">
+        <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
+        <joint pos="0 0 0" axis="1 0 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 1 0" type="slide" damping="0.05"/>
+        <joint pos="0 0 0" axis="0 0 1" type="slide" damping="0.05"/>
+        <site name="taxel_184" pos="0 0 0" size="0.0012" group="4" rgba="1 0 0 1"/>
       </body>
       <body name="flex_uspa46_3_0" pos="-0.0228 -0.0323 0.05223" quat="0.707107 0.707107 0 0">
         <inertial pos="0 0 0" mass="0.0005" diaginertia="8.33333e-09 8.33333e-09 8.33333e-09"/>
