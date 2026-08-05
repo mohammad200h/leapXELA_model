@@ -31,7 +31,7 @@ if str(_REPO_ROOT) not in sys.path:
 
 from leapxela.scene_builder import build_scene_xml, palm_center_world  # noqa: E402
 from leapxela.taxel_images import save_taxel_images  # noqa: E402
-from leapxela.taxel_layout import build_layout, pack_frames, patch_indices  # noqa: E402
+from leapxela.taxel_layout import ROBOT_XML, build_layout, pack_frames, patch_indices  # noqa: E402
 from leapxela.touch_sensor import VirtualTaxelSensor  # noqa: E402
 
 from train_mantaray_shape_classifier import SHAPES  # noqa: E402
@@ -58,7 +58,7 @@ def closeup_camera(azimuth, elevation, distance):
 def run_layout_mode(args, layout, output_dir):
     spawn = np.array([0.4, 0.4, 0.5])
     xml = build_scene_xml(
-        robot_xml=args.hand_workspace / "leapXela_with_4_4_markers/robot.xml",
+        robot_xml=ROBOT_XML,
         layout=layout,
         shape=SHAPES["sphere"],
         spawn_pos=spawn,
@@ -100,7 +100,7 @@ def run_layout_mode(args, layout, output_dir):
 def run_press_mode(args, layout, output_dir):
     spawn = palm_center_world() + np.array([0.0, 0.0, 0.04])
     xml = build_scene_xml(
-        robot_xml=args.hand_workspace / "leapXela_with_4_4_markers/robot.xml",
+        robot_xml=ROBOT_XML,
         layout=layout,
         shape=SHAPES["sphere"],
         spawn_pos=spawn,
@@ -159,7 +159,6 @@ def run_press_mode(args, layout, output_dir):
 
 def parse_args():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--hand-workspace", default=str(_REPO_ROOT / "LeapXELA_Hardware_ws-main"))
     parser.add_argument("--mode", choices=("layout", "press"), default="layout")
     parser.add_argument("--output-dir", default="data/leapxela_debug")
     parser.add_argument("--kernel-sigma", type=float, default=0.0035)
@@ -169,14 +168,12 @@ def parse_args():
     parser.add_argument("--press-duration", type=float, default=2.5)
     parser.add_argument("--render-width", type=int, default=1440)
     parser.add_argument("--render-height", type=int, default=1024)
-    args = parser.parse_args()
-    args.hand_workspace = pathlib.Path(args.hand_workspace).expanduser().resolve()
-    return args
+    return parser.parse_args()
 
 
 def main():
     args = parse_args()
-    layout = build_layout(args.hand_workspace)
+    layout = build_layout()
     output_dir = pathlib.Path(args.output_dir).expanduser().resolve() / args.mode
     output_dir.mkdir(parents=True, exist_ok=True)
     if args.mode == "layout":

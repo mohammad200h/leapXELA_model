@@ -14,13 +14,11 @@ import numpy as np
 
 
 _MODEL_DIR = Path(__file__).resolve().parent
-_REPO_ROOT = _MODEL_DIR.parent
-if str(_REPO_ROOT) not in sys.path:
-    sys.path.append(str(_REPO_ROOT))
+if str(_MODEL_DIR) not in sys.path:
+    sys.path.insert(0, str(_MODEL_DIR))
 
-from leapxela.taxel_layout import build_layout
+from leapxela.taxel_layout import FINGERTIP_MAGNET_POSE_JSON, build_layout
 
-HAND_WORKSPACE = _REPO_ROOT / "LeapXELA_Hardware_ws-main"
 TAXEL_COUNT = 368
 # Calibrated taxel positions must be reproduced in-plane to this tolerance.
 TAXEL_POSITION_TOLERANCE = 0.0001
@@ -83,14 +81,7 @@ CURL_PEAK_HOME_ERROR = 0.006
 CURL_RESIDUAL_HOME_ERROR = 0.0005
 TIP_FINGERS = ("if", "mf", "rf", "th")
 TIP_TAXEL_COUNT = 30
-FINGERTIP_POSE_RELPATH = Path("leapXela_pointcloud") / "fingertip_magnet_pose.json"
-
-
-def fingertip_pose_json(hand_workspace: Path) -> Path:
-    return hand_workspace / FINGERTIP_POSE_RELPATH
-
-
-FINGERTIP_POSE_JSON = fingertip_pose_json(HAND_WORKSPACE)
+FINGERTIP_POSE_JSON = FINGERTIP_MAGNET_POSE_JSON
 # Physical tip layout: the JSON keys "1".."30" run column-major (six columns
 # down the finger, sizes 5/4/6/6/4/5), while the 6x6 hardware canvas of
 # leapxela/taxel_tip_pos.md is row-major. This table is the bridge between the
@@ -1606,23 +1597,15 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--mode", choices=FINGER_TIP_TYPES, default="Box")
     parser.add_argument("--test-duration", type=float, default=0.35)
     parser.add_argument("--skip-test", action="store_true")
-    parser.add_argument(
-        "--hand-workspace", type=Path, default=HAND_WORKSPACE,
-        help="LeapXELA hardware workspace holding the taxel calibration",
-    )
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
-    if not args.hand_workspace.exists():
-        raise FileNotFoundError(
-            f"Hand calibration workspace not found: {args.hand_workspace}"
-        )
     entries_by_patch = defaultdict(list)
-    for entry in build_layout(args.hand_workspace).entries:
+    for entry in build_layout().entries:
         entries_by_patch[entry.patch].append(entry)
-    print(f"Loaded canonical taxel layout from {args.hand_workspace}")
+    print(f"Loaded canonical taxel layout from {FINGERTIP_POSE_JSON.parent}")
 
     spec = load_base_model(args.mode)
     spec.option.iterations = SOLVER_ITERATIONS
@@ -1636,9 +1619,7 @@ def main() -> None:
         )
         for definition in SENSOR_DEFINITIONS
     ]
-    magnet_pose = json.loads(
-        fingertip_pose_json(args.hand_workspace).read_text()
-    )
+    magnet_pose = json.loads(FINGERTIP_POSE_JSON.read_text())
     surface_offsets = tip_surface_offsets(magnet_pose)
     tips = [
         add_tip_flex(

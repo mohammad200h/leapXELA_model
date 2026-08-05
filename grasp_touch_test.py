@@ -22,7 +22,6 @@ if str(_MODEL_DIR) not in sys.path:
 from generatehand_flexcom_sensor import (
     FINGERTIP_POSE_JSON,
     GEOM_TO_PATCH,
-    HAND_WORKSPACE,
     REST_SETTLE_DURATION,
     SENSOR_DEFINITIONS,
     TAXEL_COUNT,
@@ -107,7 +106,7 @@ MAX_FINAL_DISTANCE = 0.15
 
 def build_model(shape: str, scale: float, mass: float, palm_pitch_deg: float):
     entries_by_patch = {}
-    for entry in build_layout(HAND_WORKSPACE).entries:
+    for entry in build_layout().entries:
         entries_by_patch.setdefault(entry.patch, []).append(entry)
     spec = load_base_model("Box")
     trim_pad_boxes(spec)
@@ -482,7 +481,7 @@ def run_episode(
         skin_taxel_ids=np.concatenate([ids for _, ids, _ in sensor_entries]),
         skin_taxel_counts=np.array(taxel_counts),
         tip_grid_rowcol=np.array(TIP_GRID_ROWCOL),
-        id_grid=build_layout(HAND_WORKSPACE).id_grid,
+        id_grid=build_layout().id_grid,
         hand_qpos=hand_qpos,
         ctrl=ctrl_log,
         object_pose=object_pose,

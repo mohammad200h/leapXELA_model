@@ -20,9 +20,13 @@ from typing import Dict, List, Tuple
 
 import numpy as np
 
-ROBOT_XML_RELPATH = "leapXela_with_4_4_markers/robot.xml"
-POINTCLOUD_RELDIR = "leapXela_pointcloud"
-DATA_COLLECTION_RELDIR = "ros_ws/src/xela_data_collection/xela_data_collection"
+_PACKAGE_DIR = pathlib.Path(__file__).resolve().parent
+_MODEL_DIR = _PACKAGE_DIR.parent
+POINTCLOUD_DIR = _PACKAGE_DIR / "leapXela_pointcloud"
+ROBOT_XML = POINTCLOUD_DIR / "robot.xml"
+TAXEL_MAP_JSON = _PACKAGE_DIR / "leap_sensor_taxel_map.json"
+TAXEL_ID_MAP_PY = _PACKAGE_DIR / "leapXelaMap.py"
+FINGERTIP_MAGNET_POSE_JSON = _MODEL_DIR / "fingertip_magnet_pose.json"
 
 N_TAXELS = 368
 PACK_SHAPE = (26, 31)
@@ -205,17 +209,13 @@ def _fingertip_entries(
     return entries
 
 
-def build_layout(hand_workspace: pathlib.Path) -> TaxelLayout:
-    robot_xml = hand_workspace / ROBOT_XML_RELPATH
-    pointcloud_dir = hand_workspace / POINTCLOUD_RELDIR
-    collection_dir = hand_workspace / DATA_COLLECTION_RELDIR
-
-    bodies = semantic_body_map(robot_xml)
-    sites_4_4 = _load_json(pointcloud_dir / "4_4_sites.json")
-    sites_4_6 = _load_json(pointcloud_dir / "4_6_sites.json")
-    magnet_pose = _load_json(pointcloud_dir / "fingertip_magnet_pose.json")
-    hw_map = _load_json(collection_dir / "leap_sensor_taxel_map.json")
-    id_grid = _load_id_grid(collection_dir / "leapXelaMap.py")
+def build_layout() -> TaxelLayout:
+    bodies = semantic_body_map(ROBOT_XML)
+    sites_4_4 = _load_json(POINTCLOUD_DIR / "4_4_sites.json")
+    sites_4_6 = _load_json(POINTCLOUD_DIR / "4_6_sites.json")
+    magnet_pose = _load_json(FINGERTIP_MAGNET_POSE_JSON)
+    hw_map = _load_json(TAXEL_MAP_JSON)
+    id_grid = _load_id_grid(TAXEL_ID_MAP_PY)
 
     entries: List[TaxelEntry] = []
     for patch, (finger_key, patch_key) in PATCH_TO_HARDWARE.items():

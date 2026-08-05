@@ -159,4 +159,6 @@ Along a row, spacing is close to the **~6.5 mm** spec. Across the curved surface
 - **Placement**: on the **distal finger body** (`*_ds`), each site at a **calibrated (pos, quat)** from `fingertip_magnet_pose.json` — not a uniform pitch grid.
 - **Spacing**: manufacturer spec **~6.5 mm** between neighboring taxels on average; actual 3D distances are **non-uniform** because the array wraps a curved fingertip (~31×29×39 mm module).
 
-Exact numeric poses for the LEAP hand live in the gitignored `LeapXELA_Hardware_ws-main/leapXela_pointcloud/fingertip_magnet_pose.json`. With that workspace present, you can dump all 30 `(x,y,z)` positions per finger via `build_layout()`.
+Exact numeric poses for the LEAP hand live in `fingertip_magnet_pose.json` at
+the model repo root. You can dump all 30 `(x,y,z)` positions per finger via
+`build_layout()`.
