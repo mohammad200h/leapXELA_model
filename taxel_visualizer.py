@@ -20,6 +20,12 @@ MARKER_RADIUS = 0.0026
 MARKER_MIN_ALPHA = 0.65
 SKIN_DIMMED_RGBA = (0.55, 0.57, 0.60, 0.55)
 LUT_STEPS = 256
+# Bare point-cloud view: no hand for scale, so the markers are drawn larger and
+# force vectors get an arrow whose length is proportional to magnitude.
+CLOUD_MARKER_RADIUS = 0.0032
+ARROW_LENGTH = 0.045
+ARROW_WIDTH = 0.0016
+ARROW_MIN_FRACTION = 0.04
 
 
 def channel_values(readings: np.ndarray, channel: str) -> np.ndarray:
@@ -151,6 +157,61 @@ def draw_taxel_markers(
         geom.specular = 0.0
         geom.shininess = 0.0
         geom.reflectance = 0.0
+        scene.ngeom += 1
+        drawn += 1
+    return drawn
+
+
+def bare_scene_option() -> mj.MjvOption:
+    """Scene option that renders nothing but decor, for the point-cloud view.
+
+    Hiding geom groups is not enough: flexes are drawn independently of
+    `geomgroup`, so the membranes would still occlude the cloud.
+    """
+    option = mj.MjvOption()
+    option.geomgroup[:] = 0
+    for flag in (
+        mj.mjtVisFlag.mjVIS_FLEXFACE,
+        mj.mjtVisFlag.mjVIS_FLEXSKIN,
+        mj.mjtVisFlag.mjVIS_FLEXEDGE,
+        mj.mjtVisFlag.mjVIS_FLEXVERT,
+    ):
+        option.flags[flag] = 0
+    return option
+
+
+def draw_taxel_arrows(
+    scene: mj.MjvScene,
+    positions: np.ndarray,
+    vectors: np.ndarray,
+    colours: np.ndarray,
+    scale: float,
+) -> int:
+    """Draw one arrow per loaded taxel, length proportional to |vector|."""
+    magnitudes = np.linalg.norm(vectors, axis=1)
+    drawn = 0
+    for index in np.where(magnitudes > ARROW_MIN_FRACTION * scale)[0]:
+        if scene.ngeom >= scene.maxgeom:
+            break
+        geom = scene.geoms[scene.ngeom]
+        mj.mjv_initGeom(
+            geom,
+            mj.mjtGeom.mjGEOM_ARROW,
+            np.zeros(3),
+            np.zeros(3),
+            np.eye(3).ravel(),
+            colours[index].astype(np.float32),
+        )
+        mj.mjv_connector(
+            geom,
+            int(mj.mjtGeom.mjGEOM_ARROW),
+            ARROW_WIDTH,
+            positions[index],
+            positions[index] + vectors[index] / scale * ARROW_LENGTH,
+        )
+        geom.category = int(mj.mjtCatBit.mjCAT_DECOR)
+        geom.emission = 0.35
+        geom.specular = 0.0
         scene.ngeom += 1
         drawn += 1
     return drawn
